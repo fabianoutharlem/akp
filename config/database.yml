@@ -2,12 +2,12 @@ default: &default
   adapter: mysql2
   pool: 5
   timeout: 5000
-  database: ash
+  database: akp
 
 development:
   <<: *default
   host: localhost
-  database: ash
+  database: akp
   username: root
   password:
 
