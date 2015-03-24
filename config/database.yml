@@ -1,0 +1,17 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  timeout: 5000
+  database: ash
+
+development:
+  <<: *default
+  host: localhost
+  database: ash
+  username: root
+  password:
+
+production:
+  <<: *default
+  host: localhost
+  database: ash
