@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  menu_id: 1
+  parent_menu_item_id: 1
+  label: MyString
+  action: MyString
+  target: 1
+
+two:
+  menu_id: 1
+  parent_menu_item_id: 1
+  label: MyString
+  action: MyString
+  target: 1
