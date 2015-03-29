@@ -11,7 +11,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329175617) do
+ActiveRecord::Schema.define(version: 20150329181152) do
+
+  create_table "body_types", force: true do |t|
+    t.string   "name"
+    t.string   "icon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "brands", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "car_media", force: true do |t|
+    t.integer  "car_id"
+    t.string   "file_name"
+    t.string   "file_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cars", force: true do |t|
+    t.integer  "model_id"
+    t.integer  "brand_id"
+    t.integer  "transmission_type_id"
+    t.integer  "car_body_type_id"
+    t.integer  "fuel_type_id"
+    t.integer  "mileage"
+    t.string   "color"
+    t.string   "engine_size"
+    t.string   "type"
+    t.boolean  "nap"
+    t.boolean  "rdw"
+    t.integer  "price_total"
+    t.integer  "price_month"
+    t.integer  "price_50_50"
+    t.integer  "manufacture_year"
+    t.integer  "cylinders"
+    t.integer  "engine_power"
+    t.integer  "top_speed"
+    t.string   "interior"
+    t.string   "energy_label"
+    t.string   "road_tax"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cars_options", id: false, force: true do |t|
+    t.integer "car_id",    null: false
+    t.integer "option_id", null: false
+  end
+
+  add_index "cars_options", ["car_id", "option_id"], name: "index_cars_options_on_car_id_and_option_id", unique: true, using: :btree
 
   create_table "contact_requests", force: true do |t|
     t.string   "phone_number"
@@ -26,14 +81,20 @@ ActiveRecord::Schema.define(version: 20150329175617) do
     t.datetime "updated_at"
   end
 
+  create_table "fuel_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "menu_items", force: true do |t|
     t.integer  "menu_id"
     t.string   "label"
     t.string   "action"
     t.integer  "target"
+    t.string   "ancestry"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "ancestry"
   end
 
   add_index "menu_items", ["ancestry"], name: "index_menu_items_on_ancestry", using: :btree
@@ -41,6 +102,13 @@ ActiveRecord::Schema.define(version: 20150329175617) do
   create_table "menus", force: true do |t|
     t.string   "name"
     t.integer  "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "models", force: true do |t|
+    t.integer  "brand_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,6 +130,12 @@ ActiveRecord::Schema.define(version: 20150329175617) do
   create_table "static_texts", force: true do |t|
     t.string   "name"
     t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transmission_types", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

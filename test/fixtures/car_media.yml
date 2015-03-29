@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  car_id: 1
+  file_name: MyString
+  file_type: MyString
+
+two:
+  car_id: 1
+  file_name: MyString
+  file_type: MyString

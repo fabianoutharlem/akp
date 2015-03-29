@@ -27,3 +27,5 @@ gem 'spring',        group: :development
 
 # Enable tree structured model relations
 gem 'ancestry'
+
+gem 'carrierwave'

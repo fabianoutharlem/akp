@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model_id: 1
+  brand_id: 1
+  transmission_type_id: 1
+  car_body_type_id: 1
+  fuel_type_id: 1
+  mileage: 1
+  color: MyString
+  engine_size: MyString
+  type: 
+  nap: false
+  rdw: false
+  total_price: 1
+  month_price: 1
+  50_50_price: 1
+  manufacture_year: 1
+  cylinders: 1
+  engine_power: 1
+  top_speed: 1
+  interior: MyString
+  energy_label: MyString
+  road_tax: MyString
+
+two:
+  model_id: 1
+  brand_id: 1
+  transmission_type_id: 1
+  car_body_type_id: 1
+  fuel_type_id: 1
+  mileage: 1
+  color: MyString
+  engine_size: MyString
+  type: 
+  nap: false
+  rdw: false
+  total_price: 1
+  month_price: 1
+  50_50_price: 1
+  manufacture_year: 1
+  cylinders: 1
+  engine_power: 1
+  top_speed: 1
+  interior: MyString
+  energy_label: MyString
+  road_tax: MyString
