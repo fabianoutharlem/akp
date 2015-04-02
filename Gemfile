@@ -22,10 +22,18 @@ gem 'turbolinks'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
-
 # Enable tree structured model relations
 gem 'ancestry'
 
+# Uploading files
 gem 'carrierwave'
+
+# Search module
+gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+
+group :development do
+  gem 'spring'
+  gem 'faker'
+  gem 'seed_dump'
+end
