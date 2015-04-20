@@ -15,3 +15,10 @@ production:
   <<: *default
   host: localhost
   database: ash
+
+  production:
+    <<: *default
+    host: localhost
+    database: akp
+    user: akp
+    password: E#E0J1uQ0ZJX5s
