@@ -11,9 +11,6 @@ module Akp
 
     config.assets.paths << File.join(Rails.root, "/vendor/pages")
 
-    config.less.paths << "#{Rails.root}/app/assets/admin/stylesheets"
-    config.less.compress = true
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
