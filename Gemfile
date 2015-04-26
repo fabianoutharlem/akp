@@ -59,7 +59,3 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano-unicorn-nginx', '~> 3.2.0'
 end
-
-group :staging do
-  gem 'unicorn-rails'
-end
