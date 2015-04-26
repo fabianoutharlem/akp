@@ -3,17 +3,17 @@
   <meta charset="utf-8" />
   <title>Rails Boiler Plate</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <link rel="apple-touch-icon" href="<%= image_path('ico/60.png') %>">
-  <link rel="apple-touch-icon" sizes="76x76" href="<%= image_path('ico/76.png') %>">
-  <link rel="apple-touch-icon" sizes="120x120" href="<%= image_path('ico/120.png') %>">
-  <link rel="apple-touch-icon" sizes="152x152" href="<%= image_path('ico/152.png') %>">
+  <link rel="apple-touch-icon" href="<%= image_path('admin/ico/60.png') %>">
+  <link rel="apple-touch-icon" sizes="76x76" href="<%= image_path('admin/ico/76.png') %>">
+  <link rel="apple-touch-icon" sizes="120x120" href="<%= image_path('admin/ico/120.png') %>">
+  <link rel="apple-touch-icon" sizes="152x152" href="<%= image_path('admin/ico/152.png') %>">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-touch-fullscreen" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta content="" name="description" />
   <meta content="" name="author" />
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'admin/application', media: 'all', 'data-turbolinks-track' => true %>
 
   <!--[if lte IE 9]>
   <link href="/pages/css/ie9.css?v=pages-v1.0.0" rel="stylesheet" type="text/css" />
@@ -38,7 +38,7 @@
       </div>
       <!-- BEGIN SIDEBAR HEADER -->
       <div class="sidebar-header">
-        <img src="<%= image_path('logo_white.png') %>" alt="logo" class="brand" data-src="<%= image_path('logo_white.png') %>" data-src-retina="<%= image_path('logo_white_2x.png') %>" width="78" height="22 ">
+        <img src="<%= image_path('admin/logo_white.png') %>" alt="logo" class="brand" data-src="<%= image_path('admin/logo_white.png') %>" data-src-retina="<%= image_path('admin/logo_white_2x.png') %>" width="78" height="22 ">
         <div class="sidebar-header-controls">
           <button data-pages-toggle="#appMenu" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" type="button"><i class="fa fa-angle-down fs-16"></i>
           </button>
@@ -123,7 +123,7 @@
         <div class=" pull-left sm-table">
           <div class="header-inner">
             <div class="brand inline">
-              <img src="<%= image_path('logo.png') %>" alt="logo" data-src="<%= image_path('logo.png') %>" data-src-retina="<%= image_path('logo_2x.png') %>" width="78" height="22">
+              <img src="<%= image_path('admin/logo.png') %>" alt="logo" data-src="<%= image_path('admin/logo.png') %>" data-src-retina="<%= image_path('admin/logo_2x.png') %>" width="78" height="22">
             </div>
             <!-- BEGIN NOTIFICATION DROPDOWN -->
             <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
@@ -187,12 +187,11 @@
           <!-- START User Info-->
           <div class="visible-lg visible-md m-t-10">
             <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
-              <span class="semi-bold">David</span> <span class="text-master">Nest</span>
+              <span class="semi-bold"><%= current_user.email %></span>
             </div>
             <div class="dropdown pull-right">
               <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img src="<%= image_path('profiles/avatar.jpg') %>" alt="" data-src="<%= image_path('profiles/avatar.jpg') %>" data-src-retina="<%= image_path('profiles/avatar_small2x.jpg') %>" width="32" height="32">
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
@@ -428,7 +427,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="<%= image_path('profiles/1x.jpg') %>" data-src="<%= image_path('profiles/1.jpg') %>" src="<%= image_path('profiles/1.jpg') %>" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="<%= image_path('admin/profiles/1x.jpg') %>" data-src="<%= image_path('admin/profiles/1.jpg') %>" src="<%= image_path('admin/profiles/1.jpg') %>" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -448,7 +447,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="<%= image_path('profiles/2x.jpg') %>" data-src="<%= image_path('profiles/2.jpg') %>" src="<%= image_path('profiles/2.jpg') %>" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="<%= image_path('admin/profiles/2x.jpg') %>" data-src="<%= image_path('admin/profiles/2.jpg') %>" src="<%= image_path('admin/profiles/2.jpg') %>" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -463,7 +462,7 @@
                       <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
                         <span class="col-xs-height col-middle">
                         <span class="thumbnail-wrapper d32 circular bg-success">
-                            <img width="34" height="34" alt="" data-src-retina="<%= image_path('profiles/3x.jpg') %>" data-src="<%= image_path('profiles/3.jpg') %>" src="<%= image_path('profiles/3.jpg') %>" class="col-top">
+                            <img width="34" height="34" alt="" data-src-retina="<%= image_path('admin/profiles/3x.jpg') %>" data-src="<%= image_path('admin/profiles/3.jpg') %>" src="<%= image_path('admin/profiles/3.jpg') %>" class="col-top">
                         </span>
                         </span>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
@@ -507,7 +506,7 @@
                 <!-- BEGIN From Them Message  !-->
                 <div class="message clearfix">
                   <div class="profile-img-wrapper m-t-5 inline">
-                    <img class="col-top" width="30" height="30" src="<%= image_path('profiles/avatar_small.jpg') %>" alt="" data-src="<%= image_path('profiles/avatar_small.jpg') %>" data-src-retina="<%= image_path('profiles/avatar_small2x.jpg') %>">
+                    <img class="col-top" width="30" height="30" src="<%= image_path('admin/profiles/avatar_small.jpg') %>" alt="" data-src="<%= image_path('admin/profiles/avatar_small.jpg') %>" data-src-retina="<%= image_path('admin/profiles/avatar_small2x.jpg') %>">
                   </div>
                   <div class="chat-bubble from-them">
                     Hey
@@ -531,7 +530,7 @@
                 <!-- BEGIN From Them Message  !-->
                 <div class="message clearfix">
                   <div class="profile-img-wrapper m-t-5 inline">
-                    <img class="col-top" width="30" height="30" src="<%= image_path('profiles/avatar_small.jpg') %>" alt="" data-src="<%= image_path('profiles/avatar_small.jpg') %>" data-src-retina="<%= image_path('profiles/avatar_small2x.jpg') %>">
+                    <img class="col-top" width="30" height="30" src="<%= image_path('admin/profiles/avatar_small.jpg') %>" alt="" data-src="<%= image_path('admin/profiles/avatar_small.jpg') %>" data-src-retina="<%= image_path('admin/profiles/avatar_small2x.jpg') %>">
                   </div>
                   <div class="chat-bubble from-them">
                     Yea
@@ -569,7 +568,7 @@
         <!-- BEGIN Overlay Header !-->
         <div class="container-fluid">
           <!-- BEGIN Overlay Logo !-->
-          <img class="overlay-brand" src="<%= image_path('logo.png') %>" alt="logo" data-src="<%= image_path('logo.png') %>" data-src-retina="<%= image_path('logo_2x.png') %>" width="78" height="22">
+          <img class="overlay-brand" src="<%= image_path('admin/logo.png') %>" alt="logo" data-src="<%= image_path('admin/logo.png') %>" data-src-retina="<%= image_path('admin/logo_2x.png') %>" width="78" height="22">
           <!-- END Overlay Logo !-->
           <!-- BEGIN Overlay Close !-->
           <a href="#" class="close-icon-light overlay-close text-black fs-16">
@@ -609,7 +608,7 @@
                   <!-- BEGIN Search Result Item Thumbnail !-->
                   <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
                     <div>
-                      <img width="50" height="50" src="<%= image_path('profiles/avatar.jpg') %>" data-src="<%= image_path('profiles/avatar.jpg') %>" data-src-retina="<%= image_path('profiles/avatar2x.jpg') %>" alt="">
+                      <img width="50" height="50" src="<%= image_path('admin/profiles/avatar.jpg') %>" data-src="<%= image_path('admin/profiles/avatar.jpg') %>" data-src-retina="<%= image_path('admin/profiles/avatar2x.jpg') %>" alt="">
                     </div>
                   </div>
                   <!-- END Search Result Item Thumbnail !-->
@@ -701,7 +700,7 @@
     <!-- END OVERLAY -->
 
 <!-- JS at bottom of page to improve load time, and only loaded once with 'data-turbolinks-eval' == false  -->
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true, 'data-turbolinks-eval' => false %>
+<%= javascript_include_tag 'admin/application', 'data-turbolinks-track' => true, 'data-turbolinks-eval' => false %>
 
 </body>
 </html>
