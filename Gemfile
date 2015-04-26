@@ -9,6 +9,9 @@ gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 
+# Use LESS for stylesheets
+gem 'less-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -32,9 +35,19 @@ gem 'carrierwave'
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 
+# Javascript runtime
 gem 'execjs'
 gem 'therubyracer'
 
+# authentication and authorisation
+gem 'devise'
+gem 'cancancan'
+
+# admin
+gem 'rails_admin'
+
+# xml parsing
+gem 'nokogiri'
 
 group :development do
   gem 'spring'
