@@ -19,12 +19,6 @@ Rails.application.routes.draw do
     root 'admin#home'
   end
 
-  namespace :import do
-    resource :import do
-      post :create
-      post :update
-      delete :destroy
-    end
-  end
+  post '/import', to: 'import#handle'
 
 end

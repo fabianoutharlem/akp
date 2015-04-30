@@ -43,9 +43,6 @@ gem 'cancancan'
 # admin
 gem 'rails_admin'
 
-# xml parsing
-gem 'nokogiri'
-
 group :development do
   gem 'spring'
   gem 'faker'

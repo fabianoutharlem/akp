@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426141611) do
+ActiveRecord::Schema.define(version: 20150430201046) do
 
   create_table "body_types", force: true do |t|
     t.string   "name"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20150426141611) do
   end
 
   create_table "cars", force: true do |t|
+    t.string   "vehicle_number"
+    t.string   "vehicle_number_hexon"
     t.integer  "model_id"
     t.integer  "brand_id"
     t.integer  "transmission_type_id"
@@ -43,8 +45,9 @@ ActiveRecord::Schema.define(version: 20150426141611) do
     t.integer  "fuel_type_id"
     t.integer  "mileage"
     t.string   "color"
+    t.string   "color_type"
     t.string   "engine_size"
-    t.string   "type"
+    t.string   "car_type"
     t.boolean  "nap"
     t.boolean  "rdw"
     t.integer  "price_total"
@@ -57,6 +60,11 @@ ActiveRecord::Schema.define(version: 20150426141611) do
     t.string   "interior"
     t.string   "energy_label"
     t.string   "road_tax"
+    t.string   "reserved"
+    t.string   "new"
+    t.string   "btw_marge"
+    t.string   "door_count"
+    t.string   "license_plate"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
