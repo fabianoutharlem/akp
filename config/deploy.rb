@@ -15,7 +15,7 @@ set :repo_url, 'git@bitbucket.org:a-s-h/akp.git'
 set :deploy_to, '/data/akp'
 set :deploy_via, :remote_cache
 
-set :linked_dirs, %w{public/uploads tmp}
+set :linked_dirs, %w{public/uploads tmp public/assets}
 
 set :branch, fetch(:branch, "master")
 set :env, fetch(:env, "production")
