@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150430201046) do
+ActiveRecord::Schema.define(version: 20150503131019) do
 
   create_table "body_types", force: true do |t|
     t.string   "name"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150430201046) do
 
   create_table "car_media", force: true do |t|
     t.integer  "car_id"
-    t.string   "file_name"
+    t.string   "file"
     t.string   "file_type"
     t.datetime "created_at"
     t.datetime "updated_at"
