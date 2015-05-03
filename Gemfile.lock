@@ -71,6 +71,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     colorize (0.7.3)
+    commonjs (0.2.7)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -108,6 +109,11 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    less (2.6.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.6.0)
+      actionpack (>= 3.1)
+      less (~> 2.6.0)
     libv8 (3.16.14.7)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -228,6 +234,7 @@ DEPENDENCIES
   execjs
   faker
   jquery-rails
+  less-rails
   mysql2
   rails (= 4.1.8)
   rails_admin
