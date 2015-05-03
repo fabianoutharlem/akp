@@ -30,6 +30,7 @@ class ImportController < ApplicationController
     attributes = Car.parse_cardesk_parameters params
     car = Car.find_by_vehicle_number_hexon params[:voertuignr_hexon]
     if car
+      car.car_medias.destroy_all
       car.update(attributes)
       render nothing: true
     else

@@ -27,6 +27,7 @@ gem 'ancestry'
 
 # Uploading files
 gem 'carrierwave'
+gem 'rmagick', require: 'RMagick'
 
 # Search module
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'

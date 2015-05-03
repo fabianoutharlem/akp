@@ -8,7 +8,7 @@ class Car < ActiveRecord::Base
   belongs_to :brand
   belongs_to :transmission_type
   has_and_belongs_to_many :options
-  has_many :car_medias
+  has_many :car_medias, dependent: :destroy
 
   enum nap: {true: 'j', false: 'n'}
   enum reserved: {'Gereserveerd' => 'j', 'Niet Gereserveerd' => 'n'}
@@ -52,6 +52,13 @@ class Car < ActiveRecord::Base
       Option.find_or_create_by(name: option)
     end
 
+    media = params[:afbeeldingen].split(',').map do |image_url|
+      carmedia = CarMedia.new
+      carmedia.remote_file_url = image_url
+      carmedia.save!
+      carmedia
+    end
+
     {
         vehicle_number: params[:voertuignr],
         vehicle_number_hexon: params[:voertuignr_hexon],
@@ -78,7 +85,8 @@ class Car < ActiveRecord::Base
         btw_marge: params[:btw_marge],
         door_count: params[:aantal_deuren],
         license_plate: params[:kenteken],
-        options: options
+        options: options,
+        car_medias: media
     }
   end
 
