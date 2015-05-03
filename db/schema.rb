@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503131019) do
+ActiveRecord::Schema.define(version: 20150503143613) do
 
   create_table "body_types", force: true do |t|
     t.string   "name"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20150503131019) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "cars", ["vehicle_number", "vehicle_number_hexon"], name: "index_cars_on_vehicle_number_and_vehicle_number_hexon", unique: true, using: :btree
 
   create_table "cars_options", id: false, force: true do |t|
     t.integer "car_id",    null: false
