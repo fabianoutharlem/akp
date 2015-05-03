@@ -20,7 +20,7 @@ class ImportController < ApplicationController
     if !car
       attributes = Car.parse_cardesk_parameters params
       Car.create(attributes)
-      render nothing: true
+      render text: 'The car was created succesfully', status: 200
     else
       render text: 'A car with this hexon number already exists, please use the change option to update the car', status: 409
     end
@@ -32,7 +32,7 @@ class ImportController < ApplicationController
     if car
       car.car_medias.destroy_all
       car.update(attributes)
-      render nothing: true
+      render text: 'The car was updated succesfully', status: 200
     else
       render text: 'The car you are trying to update does not exist', status: 404
     end
@@ -43,7 +43,7 @@ class ImportController < ApplicationController
     car = Car.find_by_vehicle_number_hexon params[:voertuignr_hexon]
     if car
       car.destroy!
-      render nothing: true
+      render text: 'The car was deleted succesfully', status: 200
     else
       render text: 'The car you are trying to delete does not exist', status: 404
     end
