@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     resource :admin do
       get :home
     end
+
+    resources :cars
+
     root 'admin#home'
   end
 

@@ -1,11 +1,7 @@
 module Admin
-  class AdminController < ApplicationController
+  class AdminController < AdminBaseController
 
-    layout 'admin/layouts/application'
 
-    before_action :authenticate_user!
-
-    authorize_resource class: false
 
     def home
 

@@ -1,0 +1,71 @@
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+  <ul class="breadcrumb">
+    <li>
+      <p><%= link_to 'Home', admin_root_path %></p>
+    </li>
+    <li><a href="#" class="active">Cars</a></li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <h3 class="page-title">Cars</h3>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+
+  <input type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+
+  <table id="tableWithSearch" class="table table-hover" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+      <th>Merk</th>
+      <th>Model</th>
+      <th>Type</th>
+      <th>Bouwjaar</th>
+      <th>Kenteken</th>
+      <th>Kleur</th>
+    </tr>
+    </thead>
+
+    <tfoot>
+    <tr>
+      <th>Merk</th>
+      <th>Model</th>
+      <th>Type</th>
+      <th>Bouwjaar</th>
+      <th>Kenteken</th>
+      <th>Kleur</th>
+    </tr>
+    </tfoot>
+
+    <tbody>
+    <%= render collection: @cars, partial: 'admin/cars/car' %>
+    </tbody>
+  </table>
+
+</div>
+
+<% content_for :footer do %>
+    <script>
+        var table = $('#tableWithSearch');
+
+        var settings = {
+            "sDom": "<'table-responsive't><'row'<p i>>",
+            "sPaginationType": "bootstrap",
+            "destroy": true,
+            "scrollCollapse": true,
+            "oLanguage": {
+                "sLengthMenu": "_MENU_ ",
+                "sInfo": "Showing <b>_START_ to _END_</b> of _TOTAL_ entries"
+            },
+            "iDisplayLength": 5,
+            "search": false
+        };
+
+        table.dataTable();
+
+        // search box for table
+        $('#search-table').keyup(function() {
+            table.fnFilter($(this).val());
+        });
+    </script>
+<% end %>
