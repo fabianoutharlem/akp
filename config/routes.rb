@@ -18,6 +18,11 @@ Rails.application.routes.draw do
     end
 
     resources :cars
+    resources :static_texts do
+      collection do
+        put :update_multiple
+      end
+    end
 
     root 'admin#home'
   end
