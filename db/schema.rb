@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503143613) do
+ActiveRecord::Schema.define(version: 20150508223029) do
 
   create_table "body_types", force: true do |t|
     t.string   "name"
@@ -138,8 +138,8 @@ ActiveRecord::Schema.define(version: 20150503143613) do
   end
 
   create_table "static_texts", force: true do |t|
-    t.string   "name"
-    t.text     "text"
+    t.string   "key"
+    t.text     "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
