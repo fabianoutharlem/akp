@@ -46,6 +46,9 @@ gem 'cancancan'
 # admin
 gem 'rails_admin'
 
+# static text
+gem 'dalli'
+
 group :development do
   gem 'spring'
   gem 'faker'
@@ -55,4 +58,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano-passenger'
+
+  # web server
+  gem 'puma'
 end
