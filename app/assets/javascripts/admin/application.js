@@ -29,6 +29,8 @@
 //= require pages-plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min
 //= require pages-plugins/datatables-responsive/js/datatables.responsive
 //= require pages-plugins/datatables-responsive/js/lodash.min
+//= require pages-plugins/jquery-nestable/jquery.nestable
+//= require pages-plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.all.min
 
 // BEGIN CORE TEMPLATE JS FOR PAGES
 //= require pages-core/js/pages
@@ -37,4 +39,5 @@
  
 //  I prefer to list scripts in a specific order, so I comment out require_tree .
 // require_tree .
+//= require jquery_ujs
 //= require turbolinks

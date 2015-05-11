@@ -23,6 +23,7 @@ Rails.application.routes.draw do
         put :update_multiple
       end
     end
+    resources :faqs
 
     root 'admin#home'
   end

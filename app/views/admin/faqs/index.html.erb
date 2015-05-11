@@ -1,0 +1,45 @@
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+  <ul class="breadcrumb">
+    <li>
+      <p><%= link_to 'Home', admin_root_path %></p>
+    </li>
+    <li><a href="#" class="active">Faq's</a></li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <h3 class="page-title">Faq's</h3>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+  <%= form_tag update_multiple_admin_static_texts_path, method: :put do %>
+      <table id="myDataTable" class="table table-hover" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+          <th>Vraag</th>
+          <th>Antwoord</th>
+          <th>Acties</th>
+        </tr>
+        </thead>
+
+        <%= render partial: 'admin/static_texts/static_text', collection: @static_texts %>
+
+        <tbody>
+            <% @faqs.each do |faq| %>
+            <tr>
+              <td><%= faq.question %></td>
+              <td><%= faq.answer.html_safe %></td>
+              <td>
+                <%= link_to 'Edit', edit_admin_faq_path(faq), class: 'btn btn-info' %>
+                <%= link_to 'Delete', admin_faq_path(faq), confirm: 'Are you sure you want to delete this faq?', method: :delete, class: 'btn btn-danger' %>
+              </td>
+            </tr>
+            <% end %>
+        </tbody>
+      </table>
+
+
+  <% end %>
+</div>
+
+<% content_for :footer do %>
+<% end %>

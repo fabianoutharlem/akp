@@ -635,6 +635,22 @@
 <%= javascript_include_tag 'admin/application', 'data-turbolinks-track' => true, 'data-turbolinks-eval' => false %>
 
 <%= yield :footer %>
+<script>
+    $(document).ready(function () {
+        // Apply the plugin to the body
+        <% flash.each do |type, flash| %>
+        <% types = {'notice' => 'info', 'error' => 'danger', 'alert' => 'warning'} %>
+            <% flash.each do |msg| %>
+                $('body').pgNotification({
+                    style: 'bar',
+                    message: '<%= msg %>',
+                    position: 'top',
+                    type: '<%= types[type] %>'
+                }).show();
+            <% end if flash.is_a? Array %>
+        <% end if flash.any? %>
+    });
+</script>
 
 </body>
 </html>

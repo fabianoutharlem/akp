@@ -20,6 +20,8 @@
  *= require pages-plugins/jquery-datatable/media/css/jquery.dataTables
  *= require pages-plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min
  *= require pages-plugins/datatables-responsive/css/datatables.responsive
+ *= require pages-plugins/jquery-nestable/jquery.nestable
+ *= require pages-plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.min
  *
  * BEGIN CORE TEMPLATE CSS FOR PAGES
  *= require pages-core/css/pages-icons

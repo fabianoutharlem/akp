@@ -4,32 +4,28 @@
       <span class="title">Cars</span>
       <span class="details"><%= @total_cars.to_s %> auto <%= @total_cars > 1 ? '\'s' : '' %> in systeem</span>
     </a>
-    <span class="icon-thumbnail "><i class="fs-14 fa fa-bars"></i></span>
+    <span class="icon-thumbnail "><i class="fs-14 fa fa-car"></i></span>
   </li>
   <li class="">
     <a href="<%= admin_static_texts_path %>">
       <span class="title">Statische Text</span>
     </a>
-    <span class="icon-thumbnail "><i class="fs-14 fa fa-font"></i></span>
+    <span class="icon-thumbnail "><i class="fs-14 fa fa-file-text-o"></i></span>
   </li>
   <li class="">
     <a href="javascript:;">
-      <span class="title">Page 3</span>
+      <span class="title">FAQ</span>
       <span class=" arrow"></span>
     </a>
-    <span class="icon-thumbnail"><i class="pg-grid"></i></span>
+    <span class="icon-thumbnail"><i class="fa fa-question-circle"></i></span>
     <ul class="sub-menu">
       <li class="">
-        <a href="#">Sub Page 1</a>
-        <span class="icon-thumbnail">sp</span>
+        <a href="<%= admin_faqs_path %>">All FAQ's</a>
+        <span class="icon-thumbnail">A</span>
       </li>
       <li class="">
-        <a href="#">Sub Page 2</a>
-        <span class="icon-thumbnail">sp</span>
-      </li>
-      <li class="">
-        <a href="#">Sub Page 3</a>
-        <span class="icon-thumbnail">sp</span>
+        <a href="<%= new_admin_faq_path %>">New FAQ</a>
+        <span class="icon-thumbnail">N</span>
       </li>
     </ul>
   </li>
