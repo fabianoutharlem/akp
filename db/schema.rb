@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150508223029) do
+ActiveRecord::Schema.define(version: 20150511195720) do
 
   create_table "body_types", force: true do |t|
     t.string   "name"
@@ -130,8 +130,8 @@ ActiveRecord::Schema.define(version: 20150508223029) do
   end
 
   create_table "pages", force: true do |t|
-    t.integer  "page_template_id"
     t.string   "title"
+    t.text     "content"
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"

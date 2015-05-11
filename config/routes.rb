@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       end
     end
     resources :faqs
+    resources :pages
 
     root 'admin#home'
   end
