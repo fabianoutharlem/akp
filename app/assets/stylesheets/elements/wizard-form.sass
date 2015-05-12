@@ -1,0 +1,247 @@
+.wizard-form
+	background-color: #F0F0F0
+	text-align: center
+
+	.wrapper
+		padding: 65px 65px 115px 65px
+
+		+desktop-small
+			padding: 40px 40px 80px 40px
+
+		+tablet
+			padding: 30px 30px 50px 30px
+
+	.steps
+		margin-top: 0
+		margin-bottom: 75px
+
+		+tablet
+			margin-bottom: 40px
+
+	h2
+		margin: 0 0 75px 0
+		padding: 0
+		font-size: 36px
+		line-height: 52px
+		font-weight: 400
+		color: $marine
+		text-align: center
+
+		+desktop-small
+			font-size: 24px
+			line-height: 40px
+
+		+tablet
+			margin-bottom: 40px
+
+	.form-container
+		display: -webkit-flex
+		display: flex
+
+		-webkit-flex-direction: row
+		flex-direction: row
+
+		-webkit-flex-wrap: nowrap
+		flex-wrap: nowrap
+
+		-webkit-align-items: stretch
+		align-items: stretch
+
+		+tablet
+			display: block
+
+		.left
+			margin-right: 55px
+
+			-webkit-flex: 1
+			flex: 1
+
+			-webkit-flex-basis: 25%
+			flex-basis: 25%
+
+			+tablet
+				margin: 0 0 30px 0
+
+		.right
+			-webkit-flex: 2
+			flex: 2
+
+			-webkit-flex-basis: 55%
+			flex-basis: 55%
+
+			background: white
+
+			form.payment-form
+				padding: 35px
+				overflow: hidden
+
+				p
+					float: left
+					width: 48%
+					height: 58px
+
+					margin: 0 0 11px 0
+					padding: 0
+
+					position: relative
+					+box-sizing(border-box)
+
+					&.right
+						float: right
+
+					&.last
+						margin-bottom: 0
+
+					&.text
+						&::after
+							@extend .icon
+							@extend .icon.input-empty
+							content: ''
+
+							position: absolute
+							right: 14px
+							top: 14px
+
+						&.error
+							&::after
+								@extend .icon.input-error
+
+							input.text
+								border-color: #BB4945
+
+						&.ok
+							&::after
+								@extend .icon.input-ok
+
+					select
+						border: 1px solid #ADADAD
+						background: white
+
+						display: inline-block
+						vertical-align: middle
+
+						font-size: 21px
+						line-height: 32px
+						font-weight: 300
+						color: black
+
+						display: block
+						width: 100%
+						padding: 12px 13px
+
+					input.text
+						@extend select
+						color: white
+
+						+box-sizing(border-box)
+						+transition(all 0.3s ease-in-out)
+
+						padding-right: 50px
+						overflow: hidden
+
+						&.not-empty,
+						&:focus
+							padding-top: 20px
+							padding-bottom: 4px
+							color: black
+
+							& + label
+								font-size: 12px
+								line-height: 16px
+								+transform(translate(0, -5px))
+
+						&:invalid
+							+box-shadow (none)
+						&:-moz-submit-invalid
+							+box-shadow (none)
+						&:-moz-ui-invalid
+							+box-shadow (none)
+						&:valid
+							+box-shadow (none)
+
+
+					label
+						position: absolute
+						left: 13px
+						top: 13px
+
+						font-size: 21px
+						line-height: 32px
+						font-weight: 300
+						color: black
+
+						white-space: nowrap
+						overflow: hidden
+						text-overflow: ellipsis
+
+						max-width: 80%
+
+						+transition(all 0.3s ease-in-out)
+
+					&.checkbox
+						text-align: left
+
+						input.checkbox
+							position: absolute
+							left: 0
+							top: 0
+							opacity: 0
+							z-index: 0
+
+							&:checked + label
+								&::before
+									@extend .icon.checkbox-full
+							&:focus + label
+								&::before
+									@extend .icon.checkbox-focus-empty
+							&:checked:focus + label
+								&::before
+									@extend .icon.checkbox-focus-full
+
+						label
+							font-weight: normal
+							font-size: 20px
+							display: block
+
+							position: relative
+							left: 0
+							top: 0
+							padding: 13px 0 0 40px
+
+							&::before
+								content: ''
+								position: absolute
+								left: 0
+								top: 13px
+
+								@extend .icon
+								@extend .icon.checkbox-empty
+
+					&.big-text
+						margin-top: 40px
+						padding: 10px 0
+
+						font-size: 28px
+						line-height: 38px
+						font-weight: 400
+						text-align: left
+
+						white-space: nowrap
+						overflow: hidden
+						text-overflow: ellipsis
+
+						+desktop
+							font-size: 22px
+
+					+desktop
+						&.image
+							img
+								width: 100%
+								height: auto
+
+					&.submit
+						margin-top: 40px
+
+						.btn
+							width: 100%
+							display: block

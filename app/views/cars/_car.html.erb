@@ -1,0 +1,45 @@
+<article class="listing-car">
+  <figure>
+    <% car.car_medias.each do |car_media| %>
+        <% next unless car_media.file_type.include? 'image' %>
+        <a href=""><img src="<%= car_media.file.url %>" alt=""/></a>
+    <% end %>
+  </figure>
+
+  <h1><a href=""><%= car.display_name %></a></h1>
+
+  <div class="goto">
+    <a href="" class="btn btn-small btn-full-width">Direct berekenen</a>
+  </div>
+
+  <footer>
+    <div class="tabs">
+      <div class="tab-header">
+        <% if car.price_month.present? %>
+            <a href="#tab-1" data-tab="1">Zakelijk</a>
+        <% end %>
+        <a href="#tab-2" data-tab="2" class="selected">Particulier</a>
+        <% if car.price_50_50.present? %>
+            <a href="#tab-3" data-tab="3">50/50 Deal</a>
+        <% end %>
+      </div>
+
+      <div class="tab-content">
+        <div class="tab tab-1">
+          <h3 class="price">&euro; <%= car.price_month %>,-</h3>
+          <small>Per maand vanaf</small>
+        </div>
+        <div class="tab tab-2 visible">
+          <h3 class="price">&euro; <%= car.price_total %>,-</h3>
+          <small>Per maand vanaf</small>
+        </div>
+        <div class="tab tab-3">
+          <h3 class="price">&euro; <%= car.price_50_50 %>,-</h3>
+          <small>Per maand vanaf</small>
+        </div>
+      </div>
+      <!-- .tab-content -->
+    </div>
+    <!-- .tabs -->
+  </footer>
+</article>

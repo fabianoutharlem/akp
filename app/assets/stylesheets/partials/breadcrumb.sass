@@ -1,0 +1,36 @@
+section.breadcrumb
+	color: $marine
+	font-size: 14px
+	line-height: 19px
+
+	.wrapper
+		padding: 10px 40px
+		text-align: left
+
+		+tablet
+			padding: 10px 30px
+
+	ul
+		margin: 0
+		padding: 0
+		list-style: none
+		display: inline
+
+		li
+			margin: 0
+			padding: 0
+
+			display: inline
+			font-weight: 300
+
+			&::before
+				content: '• '
+
+			a
+				text-decoration: none
+
+				&:hover
+					text-decoration: underline
+
+				&.selected
+					font-weight: 400

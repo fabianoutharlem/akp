@@ -1,0 +1,113 @@
+<section class="welcome">
+  <div class="wrapper">
+
+
+    <h2>Welkom bij Auto Krediet Plan</h2>
+
+    <p>
+      Bekijk hier je mogelijkheden met Auto Krediet Plan. Ruimte voor 3 a 4 regels tekst.<br/>
+      Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla. <br/>
+      Nullam id dolor id nibh ultricies vehicula ut id elit.
+    </p>
+
+    <ul>
+
+      <li>
+        <article>
+          <figure>
+            <a href=""><%= image_tag 'image-zakelijk.jpg' %></a>
+          </figure>
+
+          <h1>
+            <a href="">Zakelijk financieringen</a>
+          </h1>
+
+          <div class="description">
+            <p>Financial Lease</p>
+          </div>
+
+          <footer>
+            <a class="btn btn-small btn-full-width">Direct berekenen</a>
+          </footer>
+        </article>
+      </li>
+
+      <li>
+        <article>
+          <figure>
+            <a href=""><%= image_tag 'image-particuliere.jpg' %></a>
+          </figure>
+
+          <h1>
+            <a href="">Particuliere financieringen</a>
+          </h1>
+
+          <div class="description">
+            <p>U bepaald hoeveel u betaald!</p>
+          </div>
+
+          <footer>
+            <a class="btn btn-small btn-full-width">Direct berekenen</a>
+          </footer>
+        </article>
+      </li>
+
+      <li>
+        <article>
+          <figure>
+            <a href=""><%= image_tag 'image-5050.jpg' %></a>
+          </figure>
+
+          <h1>
+            <a href="">50/50 Deals <small>(Particulier)</small></a>
+          </h1>
+
+          <div class="description">
+            <p>Betaal nu de helft en de andere helft in 24 of 36 maanden met 0% rente!</p>
+          </div>
+
+          <footer>
+            <a class="btn btn-small btn-full-width">Direct berekenen</a>
+          </footer>
+        </article>
+      </li>
+
+    </ul>
+
+    <div class="footer">
+      <i class="icon arrow-orange-down"></i>
+    </div> <!-- .footer -->
+
+  </div> <!-- .wrapper -->
+</section> <!-- .welcome -->
+
+<section class="new-cars">
+  <div class="wrapper">
+    <h2>Nieuw binnen</h2>
+
+    <p class="text">
+      Elke week kopen wij jonge gebruikte auto’s in. Ruimte voor 1 a 2 regels tekst. <br/>
+      Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla.
+    </p>
+
+    <p>
+      <a class="btn btn-big">Ondek het aanbod</a>
+    </p>
+
+    <ul class="cars">
+
+      <%= render @cars %>
+
+    </ul>
+
+    <div class="footer">
+      <i class="icon arrow-gray-down"></i>
+    </div> <!-- .footer -->
+  </div> <!-- .wrapper -->
+</section> <!-- .new-cars -->
+
+<%= render partial: 'private_financing' %>
+<%= render partial: 'financing_icons' %>
+<%= render partial: 'service' %>
+
+<%= render partial: 'layouts/footer_simple' %>

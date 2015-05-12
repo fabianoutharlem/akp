@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     get :home
   end
 
+  resource :brand do
+    get :models
+  end
+
 
   namespace :admin do
     resource :admin do

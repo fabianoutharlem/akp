@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
     false if is_a?(Devise::SessionsController)
   end
 
+  def global_variables
+    @brands = Brand.all
+  end
+
 end

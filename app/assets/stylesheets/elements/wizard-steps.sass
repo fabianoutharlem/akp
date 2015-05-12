@@ -1,0 +1,50 @@
+.steps
+	margin: 60px 0
+	padding: 0 20px
+	text-align: center
+
+	white-space: nowrap
+	background: white
+
+	+desktop-small
+		margin: 40px 0
+
+	+tablet
+		margin: 30px 0
+		overflow: scroll
+		-webkit-overflow-scrolling: touch
+
+	.step
+		display: inline-block
+		vertical-align: middle
+
+		border-bottom: 4px solid white
+		padding: 20px 0 16px 0
+
+		&::before
+			display: inline-block
+			vertical-align: middle
+			content: ''
+			margin: 0 10px 0 0
+
+			@extend .icon
+			@extend .icon.steps-incomplete
+
+			+desktop-small
+				margin-right: 0
+				+transform(scale(0.7))
+
+		&.complete::before
+			@extend .icon.steps-complete
+
+		&.selected
+			border-bottom: 4px solid $orange
+
+	.steps-separator
+		margin: 0 30px
+
+		+desktop
+			margin: 0 10px
+
+		+desktop-small
+			margin: 0 5px

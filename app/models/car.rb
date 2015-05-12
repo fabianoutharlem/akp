@@ -30,7 +30,9 @@ class Car < ActiveRecord::Base
   end
 
   def display_name
-    [brand.name, model.name].join(' ')
+    fields = [brand.name, model.name]
+    fields << car_type unless car_type.blank?
+    fields.join(' ')
   end
 
   def as_indexed_json(options={})
@@ -74,6 +76,8 @@ class Car < ActiveRecord::Base
         car_type: params[:type],
         nap: params[:nap_weblabel],
         price_total: params[:verkoopprijs_particulier],
+        price_month: params[:lease_maandbedrag],
+        price_50_50: params[:verkoopprijs_handel_bpm],
         manufacture_year: params[:bouwjaar],
         cylinders: params[:aantal_cilinders],
         engine_power: params[:vermogen_motor_pk],

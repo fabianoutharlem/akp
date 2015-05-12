@@ -1,0 +1,109 @@
+.wizard-cars
+	background-color: #F3F3F3
+	text-align: center
+
+	.wrapper
+		padding: 65px
+
+		+desktop-small
+			padding: 65px 40px
+
+		+tablet
+			padding: 50px 30px 30px 30px
+
+	.steps
+		margin-top: 0
+		margin-bottom: 125px
+
+		+desktop-small
+			margin-bottom: 60px
+
+	form.search
+		background: none
+
+		.right
+			a
+				text-decoration: underline
+
+				&:hover
+					text-decoration: none
+
+	.title
+		margin: 0 0 35px 0
+		text-align: left
+		position: relative
+
+		+tablet
+			margin-bottom: 15px
+
+		h2
+			font-size: 36px
+			line-height: 50px
+			font-weight: 400
+
+			margin: 0
+			padding: 0
+
+			+tablet
+				font-size: 24px
+				line-height: 34px
+
+			em
+				font-style: normal
+				font-weight: 300
+				font-size: 30px
+				line-height: 40px
+
+				display: inline-block
+				vertical-align: middle
+
+				+tablet
+					font-size: 20px
+					line-height: 30px
+
+				&::before
+					content: '• '
+
+		a.right
+			float: right
+			margin-top: 5px
+
+			.icon
+				margin-left: 15px
+
+		.submenu
+			position: absolute
+			right: 0
+			top: 45px
+			display: none
+
+			width: 200px
+			background-color: white
+			padding: 5px 0
+			text-align: left
+
+			font-size: 18px
+			line-height: 28px
+
+			&.visible
+				display: block
+
+			a
+				display: block
+				padding: 5px 10px
+
+				&:hover
+					background-color: $marine
+					color: white
+
+	ul.cars
+		margin-bottom: 100px
+
+		+desktop-small
+			margin-bottom: 60px
+
+		+tablet
+			margin-bottom: 30px
+
+	.footer
+		text-align: right

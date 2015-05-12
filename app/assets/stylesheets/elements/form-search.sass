@@ -1,0 +1,336 @@
+form.search
+	background-color: white
+	padding: 40px 170px 25px 170px
+	margin: 0 auto 95px auto
+	color: $marine
+	overflow: hidden
+
+	+desktop-small
+		padding: 40px 80px 25px 80px
+
+	+tablet
+		padding: 30px 30px 20px 30px
+		margin-bottom: 40px
+
+	&.advanced-open
+		background-color: white
+
+		.advanced
+			display: block
+		.simple
+			.right
+				a
+					&.more
+						display: none
+
+					&.less
+						display: block
+
+	small
+		display: block
+		font-size: 16px
+		line-height: 22px
+		margin: 14px 0 0 0
+
+		+tablet
+			font-size: 14px
+			line-height: 20px
+
+	.advanced
+		display: none
+
+		.row
+			overflow: hidden
+			margin-bottom: 30px
+
+			+desktop
+				margin-bottom: 20px
+
+			p.select
+				float: left
+				width: 300px
+				margin: 0 0 0 35px
+				text-align: left
+				position: relative
+
+				+desktop
+					width: 30%
+					margin-left: 5%
+
+				&:first-child
+					margin-left: 0
+
+				select
+					width: 100%
+					font-size: 20px
+					line-height: 27px
+
+					border: 1px solid $marine
+					color: $marine
+					padding: 18px
+
+					+tablet
+						font-size: 18px
+						line-height: 24px
+
+						padding: 15px
+
+		ul.car-types
+			list-style: none
+			margin: 0 0 30px 0
+			padding: 0
+			overflow: hidden
+			text-align: center
+
+			+desktop
+				margin-top: 30px
+
+			+tablet
+				margin-bottom: 15px
+
+			li
+				margin: 0 0 0 45px
+				padding: 0
+
+				float: left
+				display: inline-block
+				vertical-align: top
+				width: 100px
+
+				+desktop
+					margin-left: 10px
+
+				+desktop-small
+					width: 92px
+					float: none
+
+				+tablet
+					margin-bottom: 15px
+
+				&:first-child
+					margin-left: 0
+
+				a
+					font-size: 16px
+					line-height: 22px
+					font-weight: 300
+					color: #979797
+
+					white-space: nowrap
+
+					position: relative
+					padding-top: 40px
+
+					&::before
+						content: ''
+						display: block
+						margin-bottom: 5px
+
+						@extend .icon
+						+transform(translate(-50%, 0))
+
+						position: absolute
+						bottom: 22px
+						left: 50%
+
+
+				&:hover,
+				&.selected
+					a
+						color: $orange
+
+				&.hatchback
+					a::before
+						@extend .icon.car-hatchback
+					&:hover,
+					&.selected
+						a::before
+							@extend .icon.car-hatchback-selected
+
+				&.wagon
+					a::before
+						@extend .icon.car-wagon
+					&:hover,
+					&.selected
+						a::before
+							@extend .icon.car-wagon-selected
+
+				&.sedan
+					a::before
+						@extend .icon.car-sedan
+					&:hover,
+					&.selected
+						a::before
+							@extend .icon.car-sedan-selected
+
+				&.coupe
+					a::before
+						@extend .icon.car-coupe
+					&:hover,
+					&.selected
+						a::before
+							@extend .icon.car-coupe-selected
+
+				&.suv
+					a::before
+						@extend .icon.car-suv
+					&:hover,
+					&.selected
+						a::before
+							@extend .icon.car-suv-selected
+
+				&.mpv
+					a::before
+						@extend .icon.car-mpv
+					&:hover,
+					&.selected
+						a::before
+							@extend .icon.car-mpv-selected
+
+				&.cabriolet
+					a::before
+						@extend .icon.car-cabriolet
+					&:hover,
+					&.selected
+						a::before
+							@extend .icon.car-cabriolet-selected
+
+		.sliders
+			padding-bottom: 50px
+			margin-bottom: 25px
+
+			.left,
+			.right
+				float: left
+				width: 40%
+
+			.right
+				float: right
+
+			.ui-slider
+				background-color: #979797
+
+				.ui-slider-handle
+					width: 42px
+					height: 42px
+
+					+border-radius (24px)
+
+					+tablet
+						width: 30px
+						height: 30px
+
+					.value
+						left: -60px
+						top: 50px
+						font-size: 18px
+						line-height: 24px
+						width: 160px
+						color: #979797
+
+						+tablet
+							left: -65px
+							top: 35px
+							font-size: 16px
+
+				.slider-value-min,
+				.slider-value-max
+					display: none
+
+			h5
+				font-size: 16px
+				line-height: 22px
+				font-weight: 300
+				color: #979797
+				margin: 0 0 15px 0
+				padding: 0
+
+				+tablet
+					font-size: 14px
+					line-height: 20px
+	.simple
+		.left
+			float: left
+			width: 600px
+			text-align: left
+
+			+desktop
+				width: 65%
+
+			.input-wrapper
+				border: 1px solid $marine
+				padding: 20px
+
+				+tablet
+					padding: 15px
+
+				&::before
+					display: inline-block
+					vertical-align: middle
+					content: ''
+					margin: 0 10px 0 0
+
+					@extend .icon
+					@extend .icon.search
+
+				input.text
+					display: inline-block
+					vertical-align: middle
+
+					background: none
+					color: $marine
+
+					font-size: 28px
+					line-height: 36px
+
+					border: 0
+					width: 500px
+
+					+desktop
+						width: 80%
+
+					+tablet
+						font-size: 18px
+						line-height: 24px
+
+					&::webkit-input-placeholder
+						color: #CDCDCD
+
+					&::-moz-placeholder
+						color: #CDCDCD
+
+					&:-moz-placeholder
+						color: #CDCDCD
+
+					&:-ms-input-placeholder
+						color: #CDCDCD
+
+		.right
+			float: right
+			text-align: left
+			width: 350px
+
+			+desktop
+				width: 30%
+
+			button
+				width: 100%
+				+box-sizing(border-box)
+
+				+tablet
+					font-size: 18px
+					padding: 15px
+
+					&::after
+						display: none
+
+			a
+				color: $marine
+				text-decoration: none
+				font-weight: 400
+
+				&:hover
+					text-decoration: none
+
+				&.less
+					display: none
