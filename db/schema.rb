@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511195720) do
+ActiveRecord::Schema.define(version: 20150514150225) do
 
   create_table "body_types", force: true do |t|
     t.string   "name"
@@ -21,11 +21,14 @@ ActiveRecord::Schema.define(version: 20150511195720) do
   end
 
   create_table "brands", force: true do |t|
+    t.string   "slug"
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "brands", ["slug"], name: "index_brands_on_slug", unique: true, using: :btree
 
   create_table "car_media", force: true do |t|
     t.integer  "car_id"
@@ -36,12 +39,13 @@ ActiveRecord::Schema.define(version: 20150511195720) do
   end
 
   create_table "cars", force: true do |t|
+    t.string   "slug"
     t.string   "vehicle_number"
     t.string   "vehicle_number_hexon"
     t.integer  "model_id"
     t.integer  "brand_id"
     t.integer  "transmission_type_id"
-    t.integer  "car_body_type_id"
+    t.integer  "body_type_id"
     t.integer  "fuel_type_id"
     t.integer  "mileage"
     t.string   "color"
@@ -69,14 +73,8 @@ ActiveRecord::Schema.define(version: 20150511195720) do
     t.datetime "updated_at"
   end
 
+  add_index "cars", ["slug"], name: "index_cars_on_slug", unique: true, using: :btree
   add_index "cars", ["vehicle_number", "vehicle_number_hexon"], name: "index_cars_on_vehicle_number_and_vehicle_number_hexon", unique: true, using: :btree
-
-  create_table "cars_options", id: false, force: true do |t|
-    t.integer "car_id",    null: false
-    t.integer "option_id", null: false
-  end
-
-  add_index "cars_options", ["car_id", "option_id"], name: "index_cars_options_on_car_id_and_option_id", unique: true, using: :btree
 
   create_table "contact_requests", force: true do |t|
     t.string   "phone_number"
@@ -90,6 +88,19 @@ ActiveRecord::Schema.define(version: 20150511195720) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "fuel_types", force: true do |t|
     t.string   "name"
@@ -123,12 +134,6 @@ ActiveRecord::Schema.define(version: 20150511195720) do
     t.datetime "updated_at"
   end
 
-  create_table "options", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pages", force: true do |t|
     t.string   "title"
     t.text     "content"
@@ -143,6 +148,26 @@ ActiveRecord::Schema.define(version: 20150511195720) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "transmission_types", force: true do |t|
     t.string   "name"

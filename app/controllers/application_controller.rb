@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   layout :layout
 
+  add_breadcrumb 'Home', :root_path
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to '/users/sign_in', :alert => exception.message
   end
@@ -16,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def global_variables
-    @brands = Brand.all
+    @menu_brands = Brand.all.includes(:cars)
   end
 
 end

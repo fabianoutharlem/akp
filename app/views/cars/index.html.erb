@@ -1,0 +1,46 @@
+<%= render partial: 'layouts/breadcrumb' %>
+
+<section class="stock">
+  <div class="wrapper">
+
+    <h2>Voorraad</h2>
+
+    <p>
+      Meer dan 500 auto’s op voorraad. Vind direct de auto die jij zoekt!
+    </p>
+
+  </div> <!-- .wrapper -->
+</section> <!-- .stock -->
+
+
+<section class="search-cars">
+  <div class="wrapper">
+
+    <?php include 'form-search.php'; ?>
+
+    <div class="title">
+      <a class="right" href="">
+        Filters
+        <i class="icon arrow-blue-down"></i>
+      </a>
+
+      <div class="submenu">
+        <a href="">By price asc</a>
+        <a href="">By price desc</a>
+        <a href="">By name asc</a>
+        <a href="">By name desc</a>
+      </div>
+    </div> <!-- .title -->
+
+
+    <ul class="cars">
+
+      <%= render @cars %>
+
+    </ul>
+
+  </div> <!-- .wrapper -->
+</section> <!-- .search-cars -->
+
+<%= render partial: 'layouts/search_navigation' %>
+<%= render partial: 'layouts/footer_complex' %>

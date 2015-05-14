@@ -13,6 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require libs/modernizr-2.8.3.min
-//= require turbolinks
 //= require libs/mbe-slider.min
 //= require main

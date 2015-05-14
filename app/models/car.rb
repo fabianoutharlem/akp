@@ -2,12 +2,17 @@ class Car < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  extend FriendlyId
+
+  acts_as_taggable_on :options
+
+  friendly_id :display_name, use: [:slugged, :finders]
+
   belongs_to :body_type
   belongs_to :fuel_type
   belongs_to :model
   belongs_to :brand
   belongs_to :transmission_type
-  has_and_belongs_to_many :options
   has_many :car_medias, dependent: :destroy
 
   enum nap: {true: 'j', false: 'n'}
@@ -17,11 +22,13 @@ class Car < ActiveRecord::Base
 
   accepts_nested_attributes_for :options
 
+  default_scope {order(created_at: :desc)}
+
   validates_associated :model, :brand
   validates :mileage, :color, :engine_size, :manufacture_year, :energy_label, :road_tax, presence: true
 
   def self.query(query={})
-    results = Car.search(query)
+    results = Car.search('*' + query + '*')
     if results.results.total
       results.records.to_a
     else
@@ -33,6 +40,14 @@ class Car < ActiveRecord::Base
     fields = [brand.name, model.name]
     fields << car_type unless car_type.blank?
     fields.join(' ')
+  end
+
+  def related_cars
+    Car.tagged_with(option_list, any: true).where(brand: brand).where.not(vehicle_number_hexon: vehicle_number_hexon).limit(3)
+  end
+
+  def car_images
+    car_medias.where("file_type LIKE '%image%'")
   end
 
   def as_indexed_json(options={})
@@ -50,9 +65,7 @@ class Car < ActiveRecord::Base
     fuel = FuelType.find_or_create_by(name: params[:brandstof])
     transmission = TransmissionType.find_or_create_by(name: params[:transmissie])
 
-    options = params[:accessoires].split(',').map do |option|
-      Option.find_or_create_by(name: option)
-    end
+    options = params[:accessoires].split(',')
 
     media = params[:afbeeldingen].split(',').map do |image_url|
       carmedia = CarMedia.new
@@ -67,7 +80,7 @@ class Car < ActiveRecord::Base
         brand_id: brand.id,
         model_id: model.id,
         transmission_type_id: transmission.id,
-        car_body_type_id: body.id,
+        body_type_id: body.id,
         fuel_type_id: fuel.id,
         mileage: params[:tellerstand],
         color: params[:basiskleur],
@@ -89,7 +102,7 @@ class Car < ActiveRecord::Base
         btw_marge: params[:btw_marge],
         door_count: params[:aantal_deuren],
         license_plate: params[:kenteken],
-        options: options,
+        option_list: options,
         car_medias: media
     }
   end

@@ -1,4 +1,4 @@
-<form action="" class="search advanced-open">
+<form action="<%= search_cars_path %>" class="search advanced-open">
 
   <div class="advanced">
 
@@ -10,6 +10,17 @@
           <option value="mercedes">Mercedes</option>
         </select>
       </p> <!-- .select -->
+
+      <script>
+        $('document').ready(function () {
+            $('.search-advanced-brand').on('change', function () {
+                alert('change');
+                $.get('brands/1/models', function (data) {
+                    eval(data);
+                });
+            });
+        });
+      </script>
 
       <p class="select">
         <select class="search-advanced-model" name="model">
@@ -104,7 +115,7 @@
 
     <div class="left">
       <div class="input-wrapper">
-        <input type="text" value="" class="text" placeholder="Zoek op; merk, model, type" />
+        <input type="text" value="" class="text" name="query" placeholder="Zoek op; merk, model, type" />
       </div> <!-- .input-wrapper -->
       <small>Type hierboven: Merk, Model, Type</small>
     </div> <!-- .left -->

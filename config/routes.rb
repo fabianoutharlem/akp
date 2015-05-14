@@ -8,11 +8,22 @@ Rails.application.routes.draw do
   root 'cars#home'
 
   resources :cars do
-    get :home
+    collection do
+      get :search
+    end
   end
 
-  resource :brand do
-    get :models
+  resources :brand do
+    collection do
+      get :models
+    end
+    resource :cars do
+      get :index, to: 'cars#brand'
+    end
+  end
+
+  resource :faqs do
+    get :index
   end
 
 

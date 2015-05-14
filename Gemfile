@@ -49,6 +49,18 @@ gem 'rails_admin'
 # static text
 gem 'dalli'
 
+# friendly urls
+gem 'friendly_id', '~> 5.1.0'
+
+# tagging
+gem 'acts-as-taggable-on', '~> 3.4'
+
+# breadcrumbs
+gem 'breadcrumbs_on_rails'
+
+# active record addictions
+gem 'squeel'
+
 group :development do
   gem 'spring'
   gem 'faker'
