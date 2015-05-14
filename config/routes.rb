@@ -41,6 +41,8 @@ Rails.application.routes.draw do
     resources :faqs
     resources :pages
 
+    resources :brands
+
     root 'admin#home'
   end
 
