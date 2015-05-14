@@ -8,58 +8,24 @@ class StaticText < ActiveRecord::Base
   end
 
   def self.method_missing(method, *args)
-
-    # init memcache if needed
     @__cache = ActiveSupport::Cache::MemCacheStore.new if @__cache.nil?
     @__cache_expires_in = 6.hours if @__cache_expires_in.nil?
 
     method = method.to_s
 
-    # set mode
-    if method[-1,1] == "="
-
-      if args.size > 0
-        # key/value setup
-        method = method.chop
-        method = method.chop if method[-1,1] == "!"
-        value = {:value => args[0]}
-        @__cache.write(method, value, :expires_in => @__cache_expires_in)
-        setting = self.first(:conditions => {:key => method})
-        if value[:value].nil?
-          setting.destroy if setting
-          @__cache.write(method, nil, :expires_in => 0.seconds)
-        else
-          setting = self.new if !setting
-          setting.key = method.to_s if setting.key.blank?
-          setting.value = value
-          if setting.save
-            return value[:value]
-          end
-        end
-      end
-
-      # get mode
-    else
-
-      # skip memcache?
-      if method[-1,1] == "!"
-        method = method.chop
-        skip_cache = true
-      end
-
-      if skip_cache.nil? && (result = @__cache.read(method.to_s))
-        return result[:value]
+    if @__cache.read(method).nil?
+      static_text = self.where(key: method).first
+      if static_text.present?
+        @__cache.write(method, static_text.value, expires_in: @__cache_expires_in)
+        return static_text.value
       else
-        result = self.first(:conditions => {:key => method})
-        if result
-          @__cache.write(method, result.value, :expires_in => @__cache_expires_in)
-          return result.value[:value]
-        end
+        self.create(key: method)
+        @__cache.write(method, nil)
+        return nil
       end
-
+    else
+      return @__cache.read(method)
     end
-    return nil
-
   end
 
 end

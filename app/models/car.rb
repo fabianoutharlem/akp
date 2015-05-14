@@ -46,6 +46,10 @@ class Car < ActiveRecord::Base
     Car.tagged_with(option_list, any: true).where(brand: brand).where.not(vehicle_number_hexon: vehicle_number_hexon).limit(3)
   end
 
+  def self.week_old
+    where('created_at >= ?', 1.week.ago.utc)
+  end
+
   def car_images
     car_medias.where("file_type LIKE '%image%'")
   end

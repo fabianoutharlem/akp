@@ -28,4 +28,9 @@ class CarsController < ApplicationController
     render :index
   end
 
+  def nieuw_binnen
+    @cars = Car.week_old
+    render :index
+  end
+
 end

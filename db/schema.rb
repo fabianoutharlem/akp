@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514150225) do
+ActiveRecord::Schema.define(version: 20150514202201) do
 
   create_table "body_types", force: true do |t|
     t.string   "name"
@@ -109,20 +109,8 @@ ActiveRecord::Schema.define(version: 20150514150225) do
   end
 
   create_table "menu_items", force: true do |t|
-    t.integer  "menu_id"
     t.string   "label"
-    t.string   "action"
-    t.integer  "target"
-    t.string   "ancestry"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "menu_items", ["ancestry"], name: "index_menu_items_on_ancestry", using: :btree
-
-  create_table "menus", force: true do |t|
-    t.string   "name"
-    t.integer  "location"
+    t.string   "path"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

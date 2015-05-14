@@ -1,93 +1,104 @@
 <div class="menu-container">
-    <div class="wrapper">
+  <div class="wrapper">
 
-        <a class="close-link" href="">
-            <i class="icon close"></i>
-        </a>
+    <a class="close-link" href="">
+      <i class="icon close"></i>
+    </a>
 
-        <div class="cols col-1">
-            <h2>Menu</h2>
+    <div class="cols col-1">
+      <h2>Menu</h2>
 
-            <nav>
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Voorraad</a></li>
-                    <li><a href="">Wie zijn wij?</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li class="last"><a href="">Zoeken</a></li>
+      <nav>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Voorraad</a></li>
+          <li><a href="">Wie zijn wij?</a></li>
+          <li><a href="">Contact</a></li>
+          <li class="last"><a href="">Zoeken</a></li>
 
 
-                    <li><a href="">Financiering</a></li>
-                    <li><a href="">50/50 deals</a></li>
-                    <li><a href="">Auto lease - de mogelijkheden</a></li>
-                    <li><a href="">Auto op afbetaling</a></li>
-                    <li><a href="">Full Operationeel Lease</a></li>
-                    <li><a href="">Leasen gebruikte autos</a></li>
-                    <li class="last"><a href="">Voordelen van Financial Lease</a></li>
+          <li><a href="">Financiering</a></li>
+          <li><a href="">50/50 deals</a></li>
+          <li><a href="">Auto lease - de mogelijkheden</a></li>
+          <li><a href="">Auto op afbetaling</a></li>
+          <li><a href="">Full Operationeel Lease</a></li>
+          <li><a href="">Leasen gebruikte autos</a></li>
+          <li class="last"><a href="">Voordelen van Financial Lease</a></li>
 
-                    <li><a href="">Sitemap</a></li>
-                    <li><a href="">Algemene voorwaarden</a></li>
-                    <li><a href="">Disclaimer</a></li>
-                </ul>
-            </nav>
+          <li><a href="">Sitemap</a></li>
+          <li><a href="">Algemene voorwaarden</a></li>
+          <li><a href="">Disclaimer</a></li>
+        </ul>
+      </nav>
 
-            <div class="social-media">
-                <h2>Share on social media</h2>
+      <div class="social-media">
+        <h2>Share on social media</h2>
 
-                <p>
-                    <a href="https://facebook.com" target="_blank"><i class="icon facebook"></i></a>
-                    <a href="https://twitter.com" target="_blank"><i class="icon twitter"></i></a>
-                    <a href="https://plus.google.com" target="_blank"><i class="icon google-plus"></i></a>
-                    <a href="https://pinterest.com" target="_blank"><i class="icon pinterest"></i></a>
-                    <a href="mailto:" target="_blank"><i class="icon mail"></i></a>
-                </p>
-            </div> <!-- .social-media -->
-        </div> <!-- .cols -->
+        <p>
+          <a href="https://facebook.com" target="_blank"><i class="icon facebook"></i></a>
+          <a href="https://twitter.com" target="_blank"><i class="icon twitter"></i></a>
+          <a href="https://plus.google.com" target="_blank"><i class="icon google-plus"></i></a>
+          <a href="https://pinterest.com" target="_blank"><i class="icon pinterest"></i></a>
+          <a href="mailto:" target="_blank"><i class="icon mail"></i></a>
+        </p>
+      </div>
+      <!-- .social-media -->
+    </div>
+    <!-- .cols -->
 
-        <div class="cols col-2">
-            <h2>Voorraad</h2>
+    <div class="cols col-2">
+      <h2>Voorraad</h2>
 
-            <ul>
-                <% Brand.all_for_menu.each do |brand| %>
+      <ul>
+        <% cache do %>
+            <% Brand.all_for_menu.each do |brand| %>
                 <li><a href="<%= brand_cars_path brand %>"><%= brand.name %> (<%= brand.cars.length %>)</a></li>
-                <% end %>
-            </ul>
-        </div> <!-- .cols -->
+            <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <!-- .cols -->
 
-        <div class="cols col-3">
-            <h2>Contact</h2>
+    <div class="cols col-3">
+      <h2>Contact</h2>
 
-            <address>
-                Auto Krediet Plan<br/>
-                Munterslaan 2<br/>
-                2014 KW Haarlem
-            </address>
-            <p>
-                <a href="" class="plan" target="_blank">Plan route</a>
-            </p>
-            <p>&nbsp;</p>
-            <p>
-                T. <a href="tel:0031237920003">023 792 00 03</a>
-            </p>
-            <p>
-                E. <a href="mailto:info@autokredietplan.nl" target="_blank">info@autokredietplan.nl</a>
-            </p>
-            <p>
-                F. <a href="www.facebook.com/autokrietplan" target="_blank">www.facebook.com/autokrietplan</a>
-            </p>
+      <address>
+        Auto Krediet Plan<br/>
+        Munterslaan 2<br/>
+        2014 KW Haarlem
+      </address>
+      <p>
+        <a href="" class="plan" target="_blank">Plan route</a>
+      </p>
 
-            <h2>Openingstijden</h2>
-            <dl>
-                <dt>Maandag t/m vrijdag</dt>
-                <dd>Van 9.00 tot 18.00</dd>
+      <p>&nbsp;</p>
 
-                <dt>Zaterdag</dt>
-                <dd>Van 9.00 tot 17.00</dd>
+      <p>
+        T. <a href="tel:0031237920003">023 792 00 03</a>
+      </p>
 
-                <dt>Zondag</dt>
-                <dd>Open van 12:00 tot 16.00</dd>
-            </dl>
-        </div> <!-- .cols -->
+      <p>
+        E. <a href="mailto:info@autokredietplan.nl" target="_blank">info@autokredietplan.nl</a>
+      </p>
 
-    </div> <!-- .wrapper -->
+      <p>
+        F. <a href="www.facebook.com/autokrietplan" target="_blank">www.facebook.com/autokrietplan</a>
+      </p>
+
+      <h2>Openingstijden</h2>
+      <dl>
+        <dt>Maandag t/m vrijdag</dt>
+        <dd>Van 9.00 tot 18.00</dd>
+
+        <dt>Zaterdag</dt>
+        <dd>Van 9.00 tot 17.00</dd>
+
+        <dt>Zondag</dt>
+        <dd>Open van 12:00 tot 16.00</dd>
+      </dl>
+    </div>
+    <!-- .cols -->
+
+  </div>
+  <!-- .wrapper -->
 </div> <!-- .menu -->
