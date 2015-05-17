@@ -34,6 +34,12 @@
 		+tablet
 			padding: 30px 60px
 
+		+mobile-large
+			padding: 45px
+
+		+mobile
+			padding: 30px
+
 	.close-link
 		position: absolute
 		right: 20px
@@ -51,6 +57,22 @@
 			font-size: 14px
 			line-height: 28px
 
+		+tablet
+			font-size: 14px
+			line-height: 24px
+			width: 50%
+
+			&.col-3
+				margin-top: 20px
+
+		+mobile-large
+			float: none
+			width: auto
+			margin-top: 20px
+
+			&.col-1
+				margin-top: 0
+
 		h2
 			font-size: 36px
 			line-height: 46px
@@ -63,6 +85,9 @@
 				font-size: 24px
 				line-height: 32px
 				margin: 25px 0
+
+			+tablet
+				margin: 20px 0
 
 			&:first-child
 				margin-top: 0

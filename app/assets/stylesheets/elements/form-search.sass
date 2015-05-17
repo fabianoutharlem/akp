@@ -46,6 +46,9 @@ form.search
 			+desktop
 				margin-bottom: 20px
 
+			+mobile-large
+				margin-bottom: 0
+
 			p.select
 				float: left
 				width: 300px
@@ -56,6 +59,12 @@ form.search
 				+desktop
 					width: 30%
 					margin-left: 5%
+
+				+mobile-large
+					float: none
+					width: auto
+					margin: 0 0 20px 0
+
 
 				&:first-child
 					margin-left: 0
@@ -199,13 +208,24 @@ form.search
 			padding-bottom: 50px
 			margin-bottom: 25px
 
+			+mobile-large
+				padding-bottom: 0
+
 			.left,
 			.right
 				float: left
 				width: 40%
 
+				+mobile-large
+					float: none
+					width: auto
+					padding-bottom: 60px
+
 			.right
 				float: right
+
+				+mobile-large
+					float: none
 
 			.ui-slider
 				background-color: #979797
@@ -256,6 +276,10 @@ form.search
 
 			+desktop
 				width: 65%
+
+			+mobile-large
+				width: auto
+				float: none
 
 			.input-wrapper
 				border: 1px solid $marine
@@ -312,6 +336,11 @@ form.search
 
 			+desktop
 				width: 30%
+
+			+mobile-large
+				width: auto
+				float: none
+				margin-top: 15px
 
 			button
 				width: 100%

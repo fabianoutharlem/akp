@@ -4,27 +4,63 @@ header.main
 
 		.wrapper
 			padding: 30px 40px
+			position: relative
+
+			+mobile-large
+				padding: 20px 30px
 
 		a
 			line-height: 72px
 
 			&.menu
 				float: left
+
+				+mobile-large
+					float: none
+
+					position: absolute
+					left: 20px
+					top: 10px
+					z-index: 0
+
 			&.search
 				float: right
 				margin-right: 45px
 
 				+tablet
 					margin-right: 15px
+
+				+mobile-large
+					float: none
+
+					position: absolute
+					right: 60px
+					top: 25px
+					z-index: 0
+
 			&.live-chat
 				float: right
+
+				+mobile-large
+					float: none
+
+					position: absolute
+					right: 20px
+					top: 22px
+					z-index: 0
 
 			.icon
 				margin-right: 5px
 
+				+mobile-large
+					+transform(scale(0.6))
+
 			+tablet
 				line-height: 48px
 				font-size: 0
+
+			+mobile-large
+				line-height: 32px
 
 		h1
 			margin: 0
@@ -41,6 +77,10 @@ header.main
 			+tablet
 				font-size: 32px
 				line-height: 48px
+
+			+mobile-large
+				font-size: 26px
+				line-height: 40px
 
 	.subheader
 		background: $orange
@@ -61,6 +101,9 @@ header.main
 		.wrapper
 			padding: 8px 0
 
+			+mobile-large
+				padding: 0
+
 		a
 			color: white
 			padding: 6px 0
@@ -68,9 +111,16 @@ header.main
 			&.phone, &.email
 				margin-left: 45px
 
+				+mobile-large
+					margin-left: 15px
+
 		.language-switch
 			float: right
 			position: relative
+
+			+mobile-large
+				float: none
+				display: block
 
 			h4
 				margin: 0
@@ -82,6 +132,10 @@ header.main
 				font-size: 16px
 				line-height: 22px
 				font-weight: 300
+
+				+mobile-large
+					border-left: 0
+					border-top: 1px solid $menu-language-separator-color
 
 				.icon
 					margin-left: 10px
@@ -116,6 +170,11 @@ header.main
 				background-color: #dcdcdc
 				border-radius: 4px
 
+				+mobile-large
+					position: static
+					width: auto
+					border-radius: 0
+
 				ul
 					list-style: none
 					margin: 0
@@ -124,6 +183,9 @@ header.main
 					font-size: 13px
 					line-height: 18px
 
+					+mobile-large
+						padding: 0
+
 					li
 						margin: 0
 						padding: 0
@@ -131,9 +193,16 @@ header.main
 						&:first-child
 							a
 								border-radius: 3px 3px 0 0
+
+								+mobile-large
+									border-radius: 0
+
 						&:last-child
 							a
 								border-radius: 0 0 3px 3px
+
+								+mobile-large
+									border-radius: 0
 
 						a
 							display: block
@@ -145,6 +214,9 @@ header.main
 								background-color: $orange
 								color: white
 								font-weight: 500
+
+								+mobile-large
+									background-color: $marine
 
 							&:hover
 								background-color: $marine

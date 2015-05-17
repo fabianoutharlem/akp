@@ -1,5 +1,7 @@
 <form action="<%= search_cars_path %>" class="search advanced-open">
 
+  <input type="hidden" name="type" value="hatchback" class="search-type" />
+
   <div class="advanced">
 
     <div class="row row-1">
@@ -70,25 +72,25 @@
 
     <ul class="car-types">
       <li class="hatchback selected">
-        <a href="">Hatchback</a>
+        <a href="" data-type="hatchback">Hatchback</a>
       </li>
       <li class="wagon">
-        <a href="">Stationwagen</a>
+        <a href="" data-type="wagon">Stationwagen</a>
       </li>
       <li class="sedan">
-        <a href="">Sedan</a>
+        <a href="" data-type="sedan">Sedan</a>
       </li>
       <li class="coupe">
-        <a href="">Coupe</a>
+        <a href="" data-type="coupe">Coupe</a>
       </li>
       <li class="suv">
-        <a href="">SUV</a>
+        <a href="" data-type="suv">SUV</a>
       </li>
       <li class="mpv">
-        <a href="">MPV</a>
+        <a href="" data-type="mpv">MPV</a>
       </li>
       <li class="cabriolet">
-        <a href="">Cabriolet</a>
+        <a href="" data-type="cabriolet">Cabriolet</a>
       </li>
     </ul> <!-- .car-type -->
 

@@ -89,8 +89,18 @@
 					&.right
 						float: right
 
+						+mobile-large
+							float: none
+
 					&.last
 						margin-bottom: 0
+
+					+mobile-large
+						width: auto
+						float: none
+
+						&.empty
+							display: none
 
 					&.text
 						&::after

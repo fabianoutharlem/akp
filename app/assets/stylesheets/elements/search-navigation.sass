@@ -28,6 +28,9 @@
 		+tablet
 			font-size: 18px
 
+		+mobile-large
+			padding: 10px
+
 		li
 			margin: 0
 			padding: 0
@@ -36,11 +39,24 @@
 			float: left
 			position: relative
 
+			+mobile-large
+				width: auto
+				float: none
+
+			+mobile-large
+				margin: 10px 0 0 0
+
+				&:first-child
+					margin-top: 0
+
 			&:last-child
 				float: right
 
 				&::after
 					display: none
+
+				+mobile-large
+					float: none
 
 				a
 					&::before
@@ -55,6 +71,9 @@
 						+desktop-small
 							top: 30px
 
+						+mobile-large
+							display: none
+
 			&::after
 				content: ''
 				position: absolute
@@ -66,6 +85,9 @@
 
 				+desktop-small
 					top: 12px
+
+				+mobile-large
+					display: none
 
 			&:first-child
 				a
@@ -81,12 +103,18 @@
 						+desktop-small
 							top: 30px
 
+						+mobile-large
+							display: none
+
 			a
 				padding: 30px 0
 				display: block
 
 				+desktop-small
 					padding: 25px 0
+
+				+mobile-large
+					padding: 0
 
 	&.double
 		ul
