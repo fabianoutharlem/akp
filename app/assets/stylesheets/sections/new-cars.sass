@@ -16,10 +16,10 @@
 		padding: 0 240px
 
 		font-size: 36px
-		line-height: 48px
 
 		+desktop
 			padding: 0 120px
+			font-size: 28px
 
 		+desktop-small
 			padding: 0 80px
@@ -28,11 +28,17 @@
 		+tablet
 			padding: 0 40px
 
+		+mobile-large
+			font-size: 24px
+
+		+mobile
+			padding: 0
+			font-size: 22px
+
 	p
 		margin: 35px 0
 		padding: 0 240px
 		font-size: 20px
-		line-height: 36px
 
 		&.text
 			margin-top: 15px
@@ -48,7 +54,17 @@
 		+tablet
 			padding: 0 40px
 
+		+mobile-large
+			padding: 0
+
+		+mobile
+			font-size: 16px
+			margin: 15px 0
+
 	ul.cars
+		+mobile
+			margin: 30px 0 15px 0
+
 		li
 			margin-bottom: 0
 
@@ -57,3 +73,6 @@
 
 				&:last-child
 					margin-bottom: 0
+
+					+tablet-small
+						display: none

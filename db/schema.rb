@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514202201) do
+ActiveRecord::Schema.define(version: 20150519200441) do
+
+  create_table "blog_pages", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_sections", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "image"
+    t.integer  "blog_page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "body_types", force: true do |t|
     t.string   "name"

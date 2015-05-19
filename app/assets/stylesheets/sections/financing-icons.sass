@@ -11,6 +11,9 @@
 		+tablet
 			padding: 40px 30px 10px 30px
 
+		+mobile
+			padding: 30px 30px 10px 30px
+
 	ul
 		margin: 0 0 40px 0
 		padding: 0
@@ -72,6 +75,10 @@
 						width: 90px
 						height: 90px
 
+					+mobile
+						width: 80px
+						height: 80px
+
 					.icon
 						position: absolute
 						left: 50%
@@ -81,6 +88,7 @@
 
 						+desktop-small
 							+transform (translate(-50%, -50%) scale(0.8))
+
 						+tablet
 							+transform (translate(-50%, -50%) scale(0.6))
 
@@ -106,3 +114,9 @@
 					+tablet
 						font-size: 14px
 						line-height: 24px
+						margin-top: 30px
+
+					+mobile-large
+						margin-top: 10px
+
+

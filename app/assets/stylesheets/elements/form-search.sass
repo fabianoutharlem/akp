@@ -36,6 +36,10 @@ form.search
 			font-size: 14px
 			line-height: 20px
 
+		+mobile
+			font-size: 12px
+			line-height: 16px
+
 	.advanced
 		display: none
 
@@ -95,7 +99,15 @@ form.search
 				margin-top: 30px
 
 			+tablet
+				margin-top: 15px
 				margin-bottom: 15px
+
+				white-space: nowrap
+				overflow: scroll
+				-webkit-overflow-scrolling: touch
+
+			+mobile
+				margin-top: 0
 
 			li
 				margin: 0 0 0 45px
@@ -115,6 +127,11 @@ form.search
 
 				+tablet
 					margin-bottom: 15px
+					margin-left: 5px
+					width: 75px
+
+				+mobile
+					margin-bottom: 5px
 
 				&:first-child
 					margin-left: 0
@@ -130,6 +147,9 @@ form.search
 					position: relative
 					padding-top: 40px
 
+					+tablet
+						font-size: 14px
+
 					&::before
 						content: ''
 						display: block
@@ -141,6 +161,9 @@ form.search
 						position: absolute
 						bottom: 22px
 						left: 50%
+
+						+tablet
+							+transform(translate(-50%, 0) scale(0.8))
 
 
 				&:hover,
@@ -288,6 +311,9 @@ form.search
 				+tablet
 					padding: 15px
 
+				+mobile
+					padding: 10px
+
 				&::before
 					display: inline-block
 					vertical-align: middle
@@ -296,6 +322,9 @@ form.search
 
 					@extend .icon
 					@extend .icon.search
+
+					+mobile
+						margin-right: 5px
 
 				input.text
 					display: inline-block
@@ -316,6 +345,10 @@ form.search
 					+tablet
 						font-size: 18px
 						line-height: 24px
+
+					+mobile
+						font-size: 14px
+						width: 70%
 
 					&::webkit-input-placeholder
 						color: #CDCDCD

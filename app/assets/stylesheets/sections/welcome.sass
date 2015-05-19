@@ -8,6 +8,9 @@ section.welcome
 		+tablet
 			padding: 40px 30px
 
+		+mobile
+			padding: 20px 30px
+
 	h2
 		font-size: 36px
 		margin: 0 0 20px 0
@@ -15,6 +18,13 @@ section.welcome
 
 		+desktop-small
 			font-size: 28px
+
+		+mobile-large
+			font-size: 24px
+			margin-bottom: 15px
+
+		+mobile
+			font-size: 22px
 
 	p
 		margin: 15px 0
@@ -42,6 +52,9 @@ section.welcome
 			display: block
 			margin-top: 35px
 
+		+mobile-large
+			margin-bottom: 20px
+
 		li
 			background: white
 			margin: 0 0 0 3.5%
@@ -49,7 +62,7 @@ section.welcome
 
 			flex-grow: 1
 			position: relative
-			width: 25%
+			width: 33%
 
 			+desktop-small
 				margin-left: 2.5%
@@ -69,6 +82,12 @@ section.welcome
 					overflow: hidden
 					padding-bottom: 0
 
+					position: relative
+					padding-left: 250px
+
+				+mobile-large
+					padding-left: 0
+
 				figure
 					margin: 0 0 30px 0
 					padding: 0
@@ -77,14 +96,57 @@ section.welcome
 					a
 						display: block
 
+						+tablet
+							position: absolute
+							left: 0
+							top: 0
+
+							height: 100%
+							width: 240px
+
+							overflow: hidden
+
+						+mobile-large
+							height: 240px
+							width: auto
+
+							position: relative
+
+						+mobile
+							width: auto
+							height: auto
+							overflow: visible
+
 					img
 						display: block
 						width: 100%
 						height: auto
 
-					+tablet
-						margin-bottom: 0
-						display: none
+						+tablet
+							margin-bottom: 0
+
+							height: 100%
+							width: auto
+
+							position: absolute
+							left: 50%
+							top: 50%
+
+							+transform(translate(-50%, -50%))
+
+						+mobile-large
+							width: 100%
+							height: auto
+
+						+mobile
+							position: static
+							+transform(none)
+
+					+mobile-large
+						margin-bottom: 20px
+
+					+mobile
+						display: block
 
 				h1
 					margin: 0 0 7px 0
@@ -102,6 +164,9 @@ section.welcome
 						padding: 10px 20px 0 20px
 						width: auto
 						text-align: left
+
+					+mobile-large
+						padding-top: 0
 
 					small
 						font-size: 16px

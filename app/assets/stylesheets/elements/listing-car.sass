@@ -10,6 +10,9 @@ ul.cars
 	+mobile-large
 		margin-top: 40px
 
+	+mobile
+		margin: 30px 0
+
 	li
 		margin: 0 3.5% 3.5% 0
 		padding: 0
@@ -54,6 +57,16 @@ article.listing-car
 		white-space: nowrap
 		position: relative
 
+		&::before
+			content: ''
+			@extend .icon
+			@extend .icon.swipe
+
+			position: absolute
+			right: 10px
+			top: 8px
+			z-index: 1
+
 		a
 			display: inline-block
 			width: 100%
@@ -77,11 +90,18 @@ article.listing-car
 			font-size: 16px
 			line-height: 28px
 
+		+mobile
+			padding: 0 20px
+			margin: 15px 0
+
 		a
 			color: #414141
 	.goto
 		padding: 0 25px
 		margin: 0 0 25px 0
+
+		+mobile
+			margin-bottom: 15px
 
 		.btn
 			display: block
@@ -119,6 +139,10 @@ article.listing-car
 
 					padding: 5px 0
 
+					+mobile
+						font-size: 14px
+						line-height: 28px
+
 					&:hover,
 					&.selected
 						background-color: $green-light
@@ -129,6 +153,9 @@ article.listing-car
 					background-color: $green-light
 					color: white
 					padding: 20px
+
+					+mobile
+						padding: 15px
 
 					&.visible
 						display: block

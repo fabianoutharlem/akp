@@ -11,12 +11,14 @@
 		+tablet
 			padding: 50px 30px 30px 30px
 
+		+mobile
+			padding: 30px
+
 	h2
 		margin: 0 0 15px 0
 		padding: 0 240px
 
 		font-size: 36px
-		line-height: 48px
 
 		+desktop
 			padding: 0 120px
@@ -25,21 +27,32 @@
 			font-size: 28px
 			padding: 0 40px
 
+		+mobile-large
+			font-size: 24px
+			padding: 0
+
+		+mobile
+			font-size: 22px
+
 	p
 		margin: 35px 0
 		padding: 0 240px
 		font-size: 20px
-		line-height: 36px
 
 		+desktop
 			padding: 0 120px
 
 		+desktop-small
 			font-size: 16px
-			line-height: 28px
 			padding: 0 40px
 
 			margin: 25px 0 40px 0
+
+		+tablet
+			padding: 0
+
+		+mobile-large
+			margin: 15px 0
 
 	.slider-container
 		background: white
@@ -51,10 +64,12 @@
 		+tablet
 			padding: 90px 40px 30px 40px
 
+		+mobile-large
+			padding: 80px 30px 30px 30px
+
 		h3
 			font-family: $main-font
 			font-size: 36px
-			line-height: 49px
 			font-weight: 300
 			color: $marine
 
@@ -63,14 +78,21 @@
 
 			+desktop-small
 				font-size: 28px
-				line-height: 38px
 
 			+tablet
 				font-size: 22px
-				line-height: 32px
+
+			+mobile-large
+				font-size: 18px
 
 		a.btn
 			margin-top: 30px
+
+			+mobile
+				overflow: hidden
+				white-space: nowrap
+				text-overflow: ellipsis
+				font-size: 16px
 
 	.footer
 		padding-bottom: 15px

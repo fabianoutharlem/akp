@@ -11,6 +11,14 @@
 
 	position: relative
 
+	+tablet
+		font-size: 18px
+		line-height: 25px
+
+	+mobile
+		font-size: 16px
+		line-height: 24px
+
 	.select2-selection--single
 		cursor: pointer
 		display: block
@@ -27,8 +35,20 @@
 			white-space: nowrap
 			text-overflow: ellipsis
 
+			+tablet
+				padding: 15px 35px 15px 15px
+
+			+mobile
+				padding: 10px 30px 10px 10px
+
 	&[dir="rtl"] .select2-selection--single .select2-selection__rendered
 		padding: 18px 40px 18px 18px
+
+		+tablet
+			padding: 15px 35px 15px 15px
+
+		+mobile
+			padding: 10px 30px 10px 10px
 
 	.select2-selection--multiple
 		+box-sizing(border-box)
@@ -61,7 +81,9 @@
 
 .select2-dropdown
 	background-color: white
-	border: 1px solid $marine
+	border-left: 1px solid $marine
+	border-right: 1px solid $marine
+	border-bottom: 1px solid $marine
 
 	+box-sizing(border-box)
 	display: block
@@ -88,12 +110,19 @@
 	overflow: hidden
 	text-overflow: ellipsis
 
+	+tablet
+		padding: 12px 15px
+
+	+mobile
+		padding: 8px 10px
+
 	&[aria-selected]
 		cursor: pointer
 
 .select2-container--open
 	.select2-dropdown
 		left: 0
+		top: -1px
 
 	.select2-dropdown--above
 		border-bottom: none
@@ -175,6 +204,14 @@
 			position: absolute
 			top: 1px
 			right: 1px
+
+			+tablet
+				width: 35px
+				height: 58px
+
+			+mobile
+				width: 30px
+				height: 48px
 
 			b
 				@extend .icon

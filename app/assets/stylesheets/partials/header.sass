@@ -32,11 +32,15 @@ header.main
 
 				+mobile-large
 					float: none
+					margin: 0
 
 					position: absolute
-					right: 60px
+					right: 75px
 					top: 25px
 					z-index: 0
+
+				+mobile
+					right: 20px
 
 			&.live-chat
 				float: right
@@ -48,6 +52,9 @@ header.main
 					right: 20px
 					top: 22px
 					z-index: 0
+
+				+mobile
+					display: none
 
 			.icon
 				margin-right: 5px
@@ -81,6 +88,9 @@ header.main
 			+mobile-large
 				font-size: 26px
 				line-height: 40px
+
+			+mobile
+				font-size: 20px
 
 	.subheader
 		background: $orange

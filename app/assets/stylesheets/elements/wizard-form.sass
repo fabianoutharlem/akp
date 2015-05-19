@@ -243,6 +243,9 @@
 						+desktop
 							font-size: 22px
 
+						+mobile-large
+							margin-top: 0
+
 					+desktop
 						&.image
 							img
@@ -254,4 +257,8 @@
 
 						.btn
 							width: 100%
-							display: block
+
+							+mobile-large
+								overflow: hidden
+								text-overflow: ellipsis
+								white-space: nowrap
