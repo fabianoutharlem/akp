@@ -22,6 +22,7 @@
  *= require pages-plugins/datatables-responsive/css/datatables.responsive
  *= require pages-plugins/jquery-nestable/jquery.nestable
  *= require pages-plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.min
+ *= require pages-plugins/dropzone/css/dropzone
  *
  * BEGIN CORE TEMPLATE CSS FOR PAGES
  *= require pages-core/css/pages-icons

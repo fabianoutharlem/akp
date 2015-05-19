@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     end
     resources :faqs
     resources :pages
+    resources :blog_pages
 
     resources :brands
 

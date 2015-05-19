@@ -1,0 +1,42 @@
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+  <ul class="breadcrumb">
+    <li>
+      <p><%= link_to 'Home', admin_root_path %></p>
+    </li>
+    <li><a href="" class="active">Edit Page</a></li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <h3 class="page-title">Edit Page</h3>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+  <%= form_for @blog_page, url: {action: :update}, html: {class: 'form'}, multipart: true do |f| %>
+      <%= render 'form', f: f %>
+
+      <div id="blog_sections form-group form-group-attached">
+        <h3>Sections</h3>
+        <%= f.fields_for :blog_sections, @blog_page.blog_sections.present? ? @blog_page.blog_sections : BlogSection.new do |blog_section| %>
+            <div class="grouper">
+              <%= render 'blog_section_fields', f: blog_section %>
+              <div class="links">
+                <%= link_to_add_association 'Add section', f, :blog_sections %> <br/>
+              </div>
+            </div>
+        <% end %>
+      </div>
+      <%= f.submit 'Update', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<% content_for :footer do %>
+    <script>
+        $(document).ready(function() {
+            $('#wysiwyg5').wysihtml5();
+
+            $('.remove_fields').on('click', function () {
+                $(this).parents('.grouper').fadeOut();
+            });
+        });
+    </script>
+<% end %>

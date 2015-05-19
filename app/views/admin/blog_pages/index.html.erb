@@ -1,0 +1,38 @@
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+  <ul class="breadcrumb">
+    <li>
+      <p><%= link_to 'Home', admin_root_path %></p>
+    </li>
+    <li><a href="#" class="active">Blog Pages</a></li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <h3 class="page-title">Pages</h3>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+  <table id="myDataTable" class="table table-hover" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+      <th>Titel</th>
+      <th>Content</th>
+      <th>Acties</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @blog_pages.each do |blog_page| %>
+        <tr>
+          <td><%= blog_page.title %></td>
+          <td><%= sanitize(truncate(blog_page.content)) %></td>
+          <td>
+            <%= link_to 'Edit', edit_admin_blog_page_path(blog_page), class: 'btn btn-info' %>
+            <%= link_to 'Delete', admin_blog_page_path(blog_page), confirm: 'Are you sure you want to delete this blog_page?', method: :delete, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% content_for :footer do %>
+<% end %>

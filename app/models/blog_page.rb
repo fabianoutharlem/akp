@@ -1,5 +1,5 @@
 class BlogPage < ActiveRecord::Base
-  has_many :blog_sections
+  has_many :blog_sections, dependent: :destroy
 
-  accepts_nested_attributes_for :blog_sections
+  accepts_nested_attributes_for :blog_sections, :reject_if => :all_blank, :allow_destroy => true
 end

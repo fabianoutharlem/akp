@@ -58,6 +58,10 @@ gem 'breadcrumbs_on_rails'
 # active record addictions
 gem 'squeel'
 
+# nested forms helper
+gem 'cocoon'
+gem 'haml-rails'
+
 group :development do
   gem 'spring'
   gem 'faker'
