@@ -7,7 +7,7 @@
 
     <div class="row row-1">
       <p class="select">
-        <%= collection_select :q, :brand, Brand.all, :name, :name, prompt: true, class: 'search-advanced-brand' %>
+        <%= collection_select :q, :brand, Brand.all, :name, :name, prompt: true, class: 'search-advanced-brand', 'data-models-url' => models_brands_path %>
       </p> <!-- .select -->
 
       <p class="select">
