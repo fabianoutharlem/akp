@@ -1,24 +1,21 @@
 <form method="post" action="<%= search_cars_path %>" class="search <%= defined?(advanced) and advanced == true ? 'advanced-open' : '' %>">
 
-  <input type="hidden" name="q[type]" value="" class="search-type" />
+  <input type="hidden" name="q[type]" value="" class="search-type"/>
   <%= token_tag form_authenticity_token %>
 
   <div class="advanced hidden">
 
     <div class="row row-1">
       <p class="select">
-        <select class="search-advanced-brand" name="q[brand]" autocomplete="off" data-models-url="<%= models_brands_path %>">
-          <option value="">Selecteer merk</option>
-          <option value="audi">Audi</option>
-          <option value="mercedes">Mercedes</option>
-        </select>
+        <%= collection_select :q, :brand, Brand.all, :name, :name, prompt: true, class: 'search-advanced-brand' %>
       </p> <!-- .select -->
 
       <p class="select">
         <select class="search-advanced-model" name="q[model]" autocomplete="off">
           <option value="">Selecteer model</option>
         </select>
-      </p> <!-- .select -->
+      </p>
+      <!-- .select -->
 
       <p class="select">
         <select class="search-advanced-usage" name="q[usage]" autocomplete="off">
@@ -36,8 +33,10 @@
           <option value="2000000">meer dan 300 000 km</option>
 
         </select>
-      </p> <!-- .select -->
-    </div> <!-- .row-1 -->
+      </p>
+      <!-- .select -->
+    </div>
+    <!-- .row-1 -->
 
     <div class="row row-2">
       <p class="select">
@@ -55,8 +54,10 @@
           <option value="">B</option>
           <option value="">C</option>
         </select>
-      </p> <!-- .select -->
-    </div> <!-- .row-2 -->
+      </p>
+      <!-- .select -->
+    </div>
+    <!-- .row-2 -->
 
     <ul class="car-types">
       <li class="hatchback">
@@ -80,7 +81,8 @@
       <li class="cabriolet">
         <a href="" data-type="cabriolet">Cabriolet</a>
       </li>
-    </ul> <!-- .car-type -->
+    </ul>
+    <!-- .car-type -->
 
     <div class="sliders">
 
@@ -88,27 +90,34 @@
         <h5>Selecteer op prijs</h5>
 
         <div class="slider-range" data-min="0" data-max="100000" data-default="<%= @total_range ? @total_range : '5000-95000' %>"></div>
-      </div> <!-- .slider-container -->
+      </div>
+      <!-- .slider-container -->
 
       <div class="slider-container right">
         <h5>Selecteer op prijs per maand v.a.</h5>
 
         <div class="slider-range" data-min="0" data-max="1000" data-default="<%= @month_range ? @month_range : '250-750' %>"></div>
-      </div> <!-- .slider-container -->
+      </div>
+      <!-- .slider-container -->
 
-      <div class="clear"></div> <!-- .clear -->
+      <div class="clear"></div>
+      <!-- .clear -->
 
-    </div> <!-- .sliders -->
-  </div> <!-- .advanced -->
+    </div>
+    <!-- .sliders -->
+  </div>
+  <!-- .advanced -->
 
   <div class="simple">
 
     <div class="left">
       <div class="input-wrapper">
-        <input type="text" value="" class="text" name="q[query]" placeholder="Zoek op; merk, model, type" />
-      </div> <!-- .input-wrapper -->
+        <input type="text" value="" class="text" name="q[query]" placeholder="Zoek op; merk, model, type"/>
+      </div>
+      <!-- .input-wrapper -->
       <small>Type hierboven: Merk, Model, Type</small>
-    </div> <!-- .left -->
+    </div>
+    <!-- .left -->
 
     <div class="right">
       <button class="btn">
@@ -124,8 +133,10 @@
           <i class="icon arrow-blue-up-small"></i>
         </a>
       </small>
-    </div> <!-- .right -->
+    </div>
+    <!-- .right -->
 
-  </div> <!-- .simple -->
+  </div>
+  <!-- .simple -->
 
 </form> <!-- .search -->
