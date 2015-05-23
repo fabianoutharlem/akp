@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523145809) do
+ActiveRecord::Schema.define(version: 20150523212710) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20150523145809) do
   end
 
   create_table "car_requests", force: true do |t|
-    t.string   "type"
+    t.string   "request_type"
     t.string   "payment"
     t.string   "name"
     t.string   "amount"
