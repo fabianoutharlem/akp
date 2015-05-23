@@ -139,47 +139,51 @@ class Car < ActiveRecord::Base
                 ],
                 :must_not => [],
                 :should => [
-                    {
-                        :query_string => {
-                            :default_field => "car.body_type.name",
-                            :query => params[:type]
-                        }
-                    },
-                    {
-                        :query_string => {
-                            :default_field => "car.brand.name",
-                            :query => params[:brand]
-                        }
-                    },
-                    {
-                        :query_string => {
-                            :default_field => "car.model.name",
-                            :query => params[:model]
-                        }
-                    },
-                    {
-                        :query_string => {
-                            :default_field => "car.fuel_type.name",
-                            :query => params[:fuel]
-                        }
-                    },
-                    {
-                        :query_string => {
-                            :default_field => "car.energy_label",
-                            :query => params[:energy]
-                        }
-                    }
+
                 ]
             }
         },
         :from => 0, :size => 999, :sort => [], :facets => {}
     }
     query[:query][:bool][:must] << {
-      :query_string => {
-          :default_field => "_all",
-          :query => params[:query]
-      }
+        :query_string => {
+            :default_field => "_all",
+            :query => params[:query]
+        }
     } unless params[:query].blank?
+
+
+    query[:query][:bool][:must] << {
+        :query_string => {
+            :default_field => "car.brand.name",
+            :query => params[:brand]
+        }
+    } unless params[:brand].blank?
+    query[:query][:bool][:must] <<{
+        :query_string => {
+            :default_field => "car.model.name",
+            :query => params[:model]
+        }
+    } unless params[:model].blank?
+
+    query[:query][:bool][:must] << {
+        :query_string => {
+            :default_field => "car.body_type.name",
+            :query => params[:type]
+        }
+    } unless params[:type].blank?
+    query[:query][:bool][:must] << {
+        :query_string => {
+            :default_field => "car.fuel_type.name",
+            :query => params[:fuel]
+        }
+    } unless params[:fuel].blank?
+    query[:query][:bool][:must] << {
+        :query_string => {
+            :default_field => "car.energy_label",
+            :query => params[:energy]
+        }
+    } unless params[:energy].blank?
     return query
   end
 
