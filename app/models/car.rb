@@ -45,7 +45,7 @@ class Car < ActiveRecord::Base
   end
 
   def related_cars
-    Car.tagged_with(option_list, any: true).where(brand: brand).where.not(vehicle_number_hexon: vehicle_number_hexon).limit(3)
+    Car.tagged_with(option_list, any: true)
   end
 
   def self.week_old
