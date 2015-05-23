@@ -45,7 +45,7 @@ class Car < ActiveRecord::Base
   end
 
   def related_cars
-    Car.tagged_with(option_list, any: true)
+    Car.tagged_with(option_list, any: true).limit(3)
   end
 
   def self.week_old
