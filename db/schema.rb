@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519200441) do
+ActiveRecord::Schema.define(version: 20150523145809) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -50,6 +50,23 @@ ActiveRecord::Schema.define(version: 20150519200441) do
     t.integer  "car_id"
     t.string   "file"
     t.string   "file_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "car_requests", force: true do |t|
+    t.string   "type"
+    t.string   "payment"
+    t.string   "name"
+    t.string   "amount"
+    t.string   "phone"
+    t.string   "license_plate"
+    t.string   "email"
+    t.string   "bkr"
+    t.string   "net_income"
+    t.string   "partner_net_income"
+    t.string   "rent"
+    t.integer  "car_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

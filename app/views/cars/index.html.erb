@@ -3,11 +3,15 @@
 <section class="stock">
   <div class="wrapper">
 
-    <h2>Voorraad</h2>
+    <h2><%= StaticText.voorraad_title %></h2>
 
     <p>
-      Meer dan 500 auto’s op voorraad. Vind direct de auto die jij zoekt!
+      <%= StaticText.voorraad_heading_content %>
     </p>
+
+    <% unless @cars.any? %>
+        <p><%= StaticText.no_search_results %></p>
+    <% end %>
 
   </div> <!-- .wrapper -->
 </section> <!-- .stock -->
@@ -25,10 +29,10 @@
       </a>
 
       <div class="submenu">
-        <a href="">By price asc</a>
-        <a href="">By price desc</a>
-        <a href="">By name asc</a>
-        <a href="">By name desc</a>
+        <a href=""><%= StaticText.sort_by_price_desc %></a>
+        <a href=""><%= StaticText.sort_by_price_asc %></a>
+        <a href=""><%= StaticText.sort_by_name_desc %></a>
+        <a href=""><%= StaticText.sort_by_name_asc %></a>
       </div>
     </div> <!-- .title -->
 

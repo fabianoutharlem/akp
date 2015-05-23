@@ -22,15 +22,25 @@ class CarsController < ApplicationController
   end
 
   def search
-    if params[:query]
-      @cars = Car.query(params[:query])
+    @cars = Car.query(params[:q])
+
+    if request.xhr?
+      render :search, layout: false
+    else
+      render :index
     end
-    render :index
   end
 
   def nieuw_binnen
     @cars = Car.week_old
     render :index
+  end
+
+  def financing
+    @type = 'private'
+    if params[:type].present? and ['private', '50_50', 'bussiness'].include?(params[:type])
+      @type = params[:type]
+    end
   end
 
 end

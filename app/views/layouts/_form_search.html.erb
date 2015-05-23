@@ -1,67 +1,55 @@
-<form action="<%= search_cars_path %>" class="search advanced-open">
+<form method="post" action="<%= search_cars_path %>" class="search <%= defined?(advanced) and advanced == true ? 'advanced-open' : '' %>">
 
-  <input type="hidden" name="type" value="hatchback" class="search-type" />
+  <input type="hidden" name="q[type]" value="" class="search-type" />
+  <%= token_tag form_authenticity_token %>
 
-  <div class="advanced">
+  <div class="advanced hidden">
 
     <div class="row row-1">
       <p class="select">
-        <select class="search-advanced-brand" name="brand">
+        <select class="search-advanced-brand" name="q[brand]" autocomplete="off" data-models-url="<%= models_brands_path %>">
           <option value="">Selecteer merk</option>
           <option value="audi">Audi</option>
           <option value="mercedes">Mercedes</option>
         </select>
       </p> <!-- .select -->
 
-      <script>
-        $('document').ready(function () {
-            $('.search-advanced-brand').on('change', function () {
-                alert('change');
-                $.get('brands/1/models', function (data) {
-                    eval(data);
-                });
-            });
-        });
-      </script>
-
       <p class="select">
-        <select class="search-advanced-model" name="model">
+        <select class="search-advanced-model" name="q[model]" autocomplete="off">
           <option value="">Selecteer model</option>
         </select>
       </p> <!-- .select -->
 
       <p class="select">
-        <select class="search-advanced-usage" name="usage">
+        <select class="search-advanced-usage" name="q[usage]" autocomplete="off">
           <option value="">Kilometerstand</option>
-          <option value="">10 000 km</option>
-          <option value="">10 000 km - 20 000 km</option>
-          <option value="">20 000 km - 50 000 km</option>
+          <option value="10000">tot 10 000 km</option>
+          <option value="20000">tot 20 000 km</option>
+          <option value="50000">tot 50 000 km</option>
+          <option value="75000">tot 75 000 km</option>
+          <option value="100000">tot 100 000 km</option>
+          <option value="125000">tot 125 000 km</option>
+          <option value="150000">tot 150 000 km</option>
+          <option value="175000">tot 175 000 km</option>
+          <option value="200000">tot 200 000 km</option>
+          <option value="300000">tot 300 000 km</option>
+          <option value="2000000">meer dan 300 000 km</option>
+
         </select>
       </p> <!-- .select -->
     </div> <!-- .row-1 -->
 
     <div class="row row-2">
       <p class="select">
-        <select class="search-advanced-fuel" name="fuel">
-          <option value="">Selecteer brandstof</option>
-          <option value="">Diesel</option>
-          <option value="">Gas</option>
-          <option value="">Hybride</option>
-        </select>
+        <%= collection_select :q, :fuel, FuelType.all, :name, :display_name, prompt: true, class: 'search-advanced-fuel' %>
       </p> <!-- .select -->
 
       <p class="select">
-        <select class="search-advanced-year" name="year">
-          <option value="">Selecteer bouwjaar</option>
-          <option value="">1990</option>
-          <option value="">1991</option>
-          <option value="">1992</option>
-          <option value="">1993</option>
-        </select>
+        <input type="text" name="q[year]" placeholder="Vanaf bouwjaar"/>
       </p> <!-- .select -->
 
       <p class="select">
-        <select class="search-advanced-energy" name="energy">
+        <select class="search-advanced-energy" name="q[energy]" autocomplete="off">
           <option value="">Energie label</option>
           <option value="">A</option>
           <option value="">B</option>
@@ -71,7 +59,7 @@
     </div> <!-- .row-2 -->
 
     <ul class="car-types">
-      <li class="hatchback selected">
+      <li class="hatchback">
         <a href="" data-type="hatchback">Hatchback</a>
       </li>
       <li class="wagon">
@@ -99,13 +87,13 @@
       <div class="slider-container left">
         <h5>Selecteer op prijs</h5>
 
-        <div class="slider-range" data-min="0" data-max="1000" data-default="250-750"></div>
+        <div class="slider-range" data-min="0" data-max="100000" data-default="<%= @total_range ? @total_range : '5000-95000' %>"></div>
       </div> <!-- .slider-container -->
 
       <div class="slider-container right">
         <h5>Selecteer op prijs per maand v.a.</h5>
 
-        <div class="slider-range" data-min="0" data-max="1000" data-default="250-750"></div>
+        <div class="slider-range" data-min="0" data-max="1000" data-default="<%= @month_range ? @month_range : '250-750' %>"></div>
       </div> <!-- .slider-container -->
 
       <div class="clear"></div> <!-- .clear -->
@@ -117,7 +105,7 @@
 
     <div class="left">
       <div class="input-wrapper">
-        <input type="text" value="" class="text" name="query" placeholder="Zoek op; merk, model, type" />
+        <input type="text" value="" class="text" name="q[query]" placeholder="Zoek op; merk, model, type" />
       </div> <!-- .input-wrapper -->
       <small>Type hierboven: Merk, Model, Type</small>
     </div> <!-- .left -->

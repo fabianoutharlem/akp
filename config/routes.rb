@@ -10,13 +10,15 @@ Rails.application.routes.draw do
   resources :cars do
     collection do
       get :search
+      post :search
       get :nieuw_binnen
+      get 'financing/:type', to: :financing, as: :financing
     end
   end
 
-  resources :brand do
+  resources :brands do
     collection do
-      get :models
+      post :models
     end
     resource :cars do
       get :index, to: 'cars#brand'
@@ -26,6 +28,13 @@ Rails.application.routes.draw do
   resource :faqs do
     get :index
   end
+
+  resource :wizard do
+    post :pick_a_car
+    post :your_details
+    post :final
+  end
+
 
 
   namespace :admin do

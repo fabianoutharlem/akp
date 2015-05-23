@@ -1,0 +1,28 @@
+<div class="title">
+  <a class="right" href="">
+    Filters
+    <i class="icon arrow-blue-down"></i>
+  </a>
+
+  <h2>
+    Mercedes
+    <em>87 op voorraad</em>
+  </h2>
+
+  <div class="submenu">
+    <a href="">By price asc</a>
+    <a href="">By price desc</a>
+    <a href="">By name asc</a>
+    <a href="">By name desc</a>
+  </div>
+</div> <!-- .title -->
+<% unless @cars.any? %>
+    <h2><%= StaticText.no_search_results %></h2>
+<% end %>
+
+
+<ul class="cars">
+
+  <%= render @cars %>
+
+</ul>

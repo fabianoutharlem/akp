@@ -1,0 +1,40 @@
+<div class="wizard">
+
+  <section class="private-financing">
+    <div class="wrapper">
+
+      <h2><%= StaticText.send type + '_financing_header' %></h2>
+
+      <p>
+        <%= StaticText.send type + '_financing_head' %>
+      </p>
+
+      <%= render 'wizards/steps', step: 1 %>
+
+      <div class="slider-container">
+
+        <% if type == '50_50' %>
+            <div class="slider-range" data-min="0" data-max="100000" data-default="5000-95000"></div>
+            <input id="price_slider_indicator" type="hidden" name="total_value_slider" value="1"/>
+        <% else %>
+            <div class="slider-range" data-min="0" data-max="1000" data-default="250-750"></div>
+        <% end %>
+
+        <h3>Ik wil uitgeven per maand</h3>
+
+        <a class="btn btn-big first-step" data-next-step="<%= pick_a_car_wizard_path %>">Ondek het aanbod</a>
+      </div>
+      <!-- .slider-container -->
+
+      <div class="footer">
+        <i class="icon arrow-orange-down"></i>
+      </div>
+      <!-- .footer -->
+
+    </div>
+    <!-- .wrapper -->
+  </section>
+  <!-- .private-financing -->
+
+</div> <!-- /.wizard -->
+

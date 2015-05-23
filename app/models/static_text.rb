@@ -19,7 +19,7 @@ class StaticText < ActiveRecord::Base
         @__cache.write(method, static_text.value, expires_in: @__cache_expires_in)
         return static_text.value
       else
-        self.create(key: method)
+        self.create(key: method, value: method)
         @__cache.write(method, nil)
         return nil
       end

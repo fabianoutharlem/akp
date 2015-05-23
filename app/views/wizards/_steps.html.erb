@@ -1,0 +1,27 @@
+<div class="steps">
+  <div class="step first complete">
+    Particuliere financiering
+  </div> <!-- .step -->
+
+  <span class="icon steps-separator"></span>
+
+  <div class="step <%= step > 1 ? 'complete' : '' %> <%= step == 1 ? 'selected' : '' %>">
+    Kies je maanbedrag
+  </div> <!-- .step -->
+
+  <span class="icon steps-separator"></span>
+
+  <div class="step <%= step > 2 ? 'complete' : '' %> <%= step == 2 ? 'selected' : '' %>">
+    Kies een auto
+  </div> <!-- .step -->
+
+  <span class="icon steps-separator"></span>
+
+  <div class="step <%= step > 3 ? 'complete' : '' %> <%= step == 3 ? 'selected' : '' %>">
+    Vul je gegevens in
+  </div> <!-- .step -->
+
+  <span class="icon steps-separator"></span>
+
+  <div class="step last <%= step == 4 ? 'complete' : '' %>"></div> <!-- .step -->
+</div> <!-- .steps -->

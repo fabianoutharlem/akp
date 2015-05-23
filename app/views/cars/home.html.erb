@@ -2,7 +2,7 @@
   <div class="wrapper">
 
 
-    <h2>Welkom bij Auto Krediet Plan</h2>
+    <h2><%= StaticText.home_welcome_text %></h2>
 
     <p>
       <%= StaticText.homepage_top_text %>
@@ -13,19 +13,19 @@
       <li>
         <article>
           <figure>
-            <a href=""><%= image_tag 'image-zakelijk.jpg' %></a>
+            <a href="<%= financing_cars_path 'bussiness' %>"><%= image_tag 'image-zakelijk.jpg' %></a>
           </figure>
 
           <h1>
-            <a href="">Zakelijk financieringen</a>
+            <a href="<%= financing_cars_path 'bussiness' %>">Zakelijk financieringen</a>
           </h1>
 
           <div class="description">
-            <p>Financial Lease</p>
+            <p><%= StaticText.home_bussiness_finance_sub_text %></p>
           </div>
 
           <footer>
-            <a class="btn btn-small btn-full-width">Direct berekenen</a>
+            <a class="btn btn-small btn-full-width" href="<%= financing_cars_path 'bussiness' %>"><%= StaticText.direct_berekenen %></a>
           </footer>
         </article>
       </li>
@@ -33,19 +33,19 @@
       <li>
         <article>
           <figure>
-            <a href=""><%= image_tag 'image-particuliere.jpg' %></a>
+            <a href="<%= financing_cars_path 'private' %>"><%= image_tag 'image-particuliere.jpg' %></a>
           </figure>
 
           <h1>
-            <a href="">Particuliere financieringen</a>
+            <a href="<%= financing_cars_path 'private' %>">Particuliere financieringen</a>
           </h1>
 
           <div class="description">
-            <p>U bepaald hoeveel u betaald!</p>
+            <p><%= StaticText.home_private_finance_sub_text %></p>
           </div>
 
           <footer>
-            <a class="btn btn-small btn-full-width">Direct berekenen</a>
+            <a class="btn btn-small btn-full-width" href="<%= financing_cars_path 'private' %>"><%= StaticText.direct_berekenen %></a>
           </footer>
         </article>
       </li>
@@ -53,19 +53,19 @@
       <li>
         <article>
           <figure>
-            <a href=""><%= image_tag 'image-5050.jpg' %></a>
+            <a href="<%= financing_cars_path '50_50' %>"><%= image_tag 'image-5050.jpg' %></a>
           </figure>
 
           <h1>
-            <a href="">50/50 Deals <small>(Particulier)</small></a>
+            <a href="<%= financing_cars_path '50_50' %>">50/50 Deals <small>(Particulier)</small></a>
           </h1>
 
           <div class="description">
-            <p>Betaal nu de helft en de andere helft in 24 of 36 maanden met 0% rente!</p>
+            <p><%= StaticText.home_50_50_sub_text %></p>
           </div>
 
           <footer>
-            <a class="btn btn-small btn-full-width">Direct berekenen</a>
+            <a class="btn btn-small btn-full-width" href="<%= financing_cars_path '50_50' %>"><%= StaticText.direct_berekenen %></a>
           </footer>
         </article>
       </li>
@@ -81,14 +81,14 @@
 
 <section class="new-cars">
   <div class="wrapper">
-    <h2>Nieuw binenn</h2>
+    <h2><%= StaticText.nieuw_binnen %></h2>
 
     <p class="text">
       <%= StaticText.homepage_nieuw_binnen_subtext %>
     </p>
 
     <p>
-      <a class="btn btn-big" href="<%= nieuw_binnen_cars_path %>">Ondek het aanbod</a>
+      <a class="btn btn-big" href="<%= nieuw_binnen_cars_path %>"><%= StaticText.nieuw_binnen_link_text %></a>
     </p>
 
     <ul class="cars">
@@ -103,7 +103,7 @@
   </div> <!-- .wrapper -->
 </section> <!-- .new-cars -->
 
-<%= render partial: 'private_financing' %>
+<%= render partial: 'wizards/pick_a_price', locals: {type: 'private'} %>
 <%= render partial: 'financing_icons' %>
 <%= render partial: 'service' %>
 

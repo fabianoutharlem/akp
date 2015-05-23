@@ -22,15 +22,17 @@ class Car < ActiveRecord::Base
 
   accepts_nested_attributes_for :options
 
-  default_scope {order(created_at: :desc)}
 
   validates_associated :model, :brand
   validates :mileage, :color, :engine_size, :manufacture_year, :energy_label, :road_tax, presence: true
 
-  def self.query(query={})
-    results = Car.search('*' + query + '*')
-    if results.results.total
-      results.records.to_a
+  def self.query(params)
+    puts '#########'
+    puts build_query(params).to_json
+    puts '#########'
+    search = Car.search(build_query(params).to_json)
+    if search.results.total
+      search.records.to_a
     else
       nil
     end
@@ -110,5 +112,76 @@ class Car < ActiveRecord::Base
         car_medias: media
     }
   end
+
+  private
+
+  def self.build_query(params)
+    query = {
+        :query => {
+            :bool => {
+                :must => [
+                    {
+                        :range => {
+                            :"car.mileage" => {
+                                :from => "0",
+                                :to => (params[:usage].to_i > 0 ? params[:usage].to_i : 2000000).to_i
+                            }
+                        }
+                    },
+                    {
+                        :range => {
+                            :"car.manufacture_year" => {
+                                :gte => params[:year].to_i,
+                                :lte => "9999"
+                            }
+                        }
+                    }
+                ],
+                :must_not => [],
+                :should => [
+                    {
+                        :query_string => {
+                            :default_field => "car.body_type.name",
+                            :query => params[:type]
+                        }
+                    },
+                    {
+                        :query_string => {
+                            :default_field => "car.brand.name",
+                            :query => params[:brand]
+                        }
+                    },
+                    {
+                        :query_string => {
+                            :default_field => "car.model.name",
+                            :query => params[:model]
+                        }
+                    },
+                    {
+                        :query_string => {
+                            :default_field => "car.fuel_type.name",
+                            :query => params[:fuel]
+                        }
+                    },
+                    {
+                        :query_string => {
+                            :default_field => "car.energy_label",
+                            :query => params[:energy]
+                        }
+                    }
+                ]
+            }
+        },
+        :from => 0, :size => 999, :sort => [], :facets => {}
+    }
+    query[:query][:bool][:must] << {
+      :query_string => {
+          :default_field => "_all",
+          :query => params[:query]
+      }
+    } unless params[:query].blank?
+    return query
+  end
+
 
 end

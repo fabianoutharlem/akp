@@ -1,223 +1,684 @@
-Number.prototype.formatMoney = function(c, d, t){
-var n = this,
-    c = isNaN(c = Math.abs(c)) ? 2 : c,
-    d = d == undefined ? "." : d,
-    t = t == undefined ? "," : t,
-    s = n < 0 ? "-" : "",
-    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
-    j = (j = i.length) > 3 ? j % 3 : 0;
-   final = s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+(function ($, FastClick) {
 
-  	return '&euro; ' + final.replace(/,00$/g, ',-') + ' p.m.';
- };
+    var init = {
 
-$(function () {
+        /**
+         * Init all the JS in the block of html `element`
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        element: function (element) {
+            //init fast click
+            FastClick.attach(element);
 
-	FastClick.attach(document.body);
+            //init the stuff
+            this.initRangeSliders(element);
+            this.initSelect2(element);
+            this.initTextbox(element);
+            this.initTabs(element);
+            this.initCarSliders(element);
+            this.initSearchTypes(element);
+            this.initSearchMoreLess(element);
+            this.initSearchFormAction(element);
+            this.initSearchSubmenu(element);
+            this.initScrollTo(element);
+        },
 
-	$('.slider-range').each(function () {
-		var $this = $(this);
-		var max = $this.data('max');
-		var min = $this.data('min');
-		var _default = $this.data('default').split('-');
-		var type = $this.data('type') || 'moveable';
+        /**
+         * Init all the range sliders in the element
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initRangeSliders: function (element) {
 
-		$this.slider({
-			range: true,
-			min: min,
-			max: max,
-			values: _default,
-			slide: function (event, ui) {
+            $('.slider-range', element).each(function () {
+                var $this = $(this);
+                var max = $this.data('max');
+                var min = $this.data('min');
+                var _default = $this.data('default').split('-');
+                var type = $this.data('type') || 'moveable';
 
-				var min = ui.values[0].formatMoney(2, ',', '.');
-				var max = ui.values[1].formatMoney(2, ',', '.');
+                $this.slider({
+                    range: true,
+                    min: min,
+                    max: max,
+                    values: _default,
+                    slide: function (event, ui) {
 
-				$this.find('.ui-slider-handle:first .value').html(min);
-				$this.find('.ui-slider-handle:last .value').html(max);
-			}
-		});
+                        var min = ui.values[0].formatMoney(2, ',', '.');
+                        var max = ui.values[1].formatMoney(2, ',', '.');
 
-		$this
-			.append('<div class="slider-value-min">' + min.formatMoney(2, ',', '.') + '</div>')
-			.append('<div class="slider-value-max">' + max.formatMoney(2, ',', '.') + '</div>');
+                        $this.find('.ui-slider-handle:first .value').html(min);
+                        $this.find('.ui-slider-handle:last .value').html(max);
+                    }
+                });
 
-		$this.find('.ui-slider-handle:first')
-			.append('<div class="value">' + Number(_default[0]).formatMoney(2, ',', '.') + '</div>');
-		$this.find('.ui-slider-handle:last')
-				.append('<div class="value">' + Number(_default[1]).formatMoney(2, ',', '.') + '</div>');
-	});
+                $this
+                    .append('<div class="slider-value-min">' + min.formatMoney(2, ',', '.') + '</div>')
+                    .append('<div class="slider-value-max">' + max.formatMoney(2, ',', '.') + '</div>');
+
+                $this.find('.ui-slider-handle:first')
+                    .append('<div class="value">' + Number(_default[0]).formatMoney(2, ',', '.') + '</div>');
+                $this.find('.ui-slider-handle:last')
+                        .append('<div class="value">' + Number(_default[1]).formatMoney(2, ',', '.') + '</div>');
+            });
+        },
+
+        /**
+         * Init all the select2 in the element
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initSelect2: function (element) {
+            $('form.search select', element).select2();
+        },
+
+        /**
+         * Init all the text boxes in the element
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initTextbox: function (element) {
+            $('input.text', element).on('change blur', function () {
+                var $this = $(this);
+
+                if ($this.val()) {
+                    $this.addClass('not-empty');
+                } else {
+                    $this.removeClass('not-empty');
+                }
+            }).each(function () {
+                var $this = $(this);
+
+                if ($this.val()) {
+                    $this.addClass('not-empty');
+                }
+            });
+        },
+
+        /**
+         * Init all the tabs in the element
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initTabs: function (element) {
+            $('.tabs', element).each(function () {
+                var $tabs = $(this);
+
+                $tabs.find('.tab-header a').on('click', function (e) {
+                    e.preventDefault();
+
+                    var $this = $(this);
+                    var tab = $this.data('tab');
+
+                    $this.siblings('a').removeClass('selected');
+                    $this.addClass('selected');
+
+                    $tabs.find('.tab-content .tab').removeClass('visible');
+                    $tabs.find('.tab-content .tab.tab-' + tab).addClass('visible');
+                });
+            });
+        },
+
+        /**
+         * Init all the car photo sliders in the element
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initCarSliders: function (element) {
+            $('article.listing-car figure', element).each(function () {
+                new MbeSlider({
+                    element: this,
+                    direction: 'horizontal',
+                    neverSkip: true,
+                    autoSlide: false
+                });
+            });
+        },
+
+        /**
+         * Init all the search more/less link
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initSearchMoreLess: function (element) {
+            $('.search .more, .search .less', element).on('click', function (e) {
+                e.preventDefault();
+
+                var $this = $(e.currentTarget),
+                    $form = $this.closest('form');
+
+                $this.parent().children().toggle();
+                $form.toggleClass('advanced-open');
+            });
+        },
+
+        /**
+         * Init all the search types (clickable icons) in the element
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initSearchTypes: function (element) {
+            $('.search ul.car-types li a', element).on('click', function (e) {
+                e.preventDefault();
+
+                var $this = $(e.currentTarget),
+                    $li = $this.closest('li'),
+                    $form = $this.closest('form'),
+                    type = $this.data('type');
+
+                $li.siblings('li').removeClass('selected');
+                $li.addClass('selected');
+
+                $form.find('.search-type').val(type);
+            });
+        },
+
+        /**
+         * Init all the search forms submits in the element
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initSearchFormAction: function (element) {
+
+            $('form.search select[name="q[brand]"]', element).on('change', function (e) {
+                var $this = $(e.currentTarget),
+                    $form = $this.closest('form'),
+                    $models = $form.find('select[name="q[model]"]');
+
+                $.ajax({
+                    dataType: 'json',
+                    type: 'post',
+                    url: $this.data('models-url'),
+                    data: {
+                        'brand': $this.val()
+                    },
+                    success: function (response) {
+                        $models.select2('destroy');
+                        $models.empty();
+
+                        if (response.length) {
+                            $models.append('<option value="">Selecteer Model</option>');
+                            $.each(response, function (index, element) {
+                                $models.append('<option value="' + element.name + '">' + element.name + '</option>');
+                            });
+                        }
+
+                        $models.select2();
+                    }
+                });
+            });
+        },
+
+        /**
+         * Init all the search submenus (filter click) in the element
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initSearchSubmenu: function (element) {
+
+            $('.title a.right', element).on('click', function (e) {
+                e.preventDefault();
+
+                var $submenu = $(e.currentTarget).siblings('.submenu');
+
+                $submenu.toggleClass('visible');
+            });
+        },
+
+        /**
+         * Init all the scroll to and scroll to top elements in the element
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initScrollTo: function (element) {
+
+            //scroll to element
+            $('.scroll-to', element).on('click', function (e) {
+                e.preventDefault();
+
+                var $this = $(e.currentTarget);
+
+                helpers.scrollTo($this.data('element'));
+            });
+
+            //scroll to top
+            $('.go-to-top', element).on('click', function (e) {
+                e.preventDefault();
+
+                helpers.scrollTo(0);
+            });
+        }
+
+    };
+
+    var helpers = {
+
+        /**
+         * Scroll the page to an element
+         *
+         * @param string element
+         *
+         * @return void
+         */
+        scrollTo: function (element) {
+            var top;
+
+            if (element === 0) {
+                //scroll to  top
+                top = 0;
+            } else {
+                //navigate
+                top = $(element).offset().top;
+            }
+
+            $('html,body').animate({
+                scrollTop: top
+            }, 'slow');
+
+        }
+    };
 
 
-	$('.tabs').each(function () {
-		var $tabs = $(this);
+    var app = {
 
-		$tabs.find('.tab-header a').on('click', function (e) {
-			e.preventDefault();
+        /**
+         * Called when everything is ready
+         *
+         * @return void
+         */
+        ready: function () {
 
-			var $this = $(this);
-			var tab = $this.data('tab');
+            //init header
+            this.header.menu();
+            this.header.search();
+            this.header.languageSwitch();
 
-			$this.siblings('a').removeClass('selected');
-			$this.addClass('selected');
+            //init the javascript for the body
+            init.element(document.body);
 
-			$tabs.find('.tab-content .tab').removeClass('visible');
-			$tabs.find('.tab-content .tab.tab-' + tab).addClass('visible');
-		});
-	});
+            //wizard
+            this.wizard.ready();
 
-	$('input.text').on('change blur', function () {
-		var $this = $(this);
+            //car single
+            this.carSingle.ready();
 
-		if ($this.val()) {
-			$this.addClass('not-empty');
-		} else {
-			$this.removeClass('not-empty');
-		}
-	}).each(function () {
-		var $this = $(this);
+            //faq page
+            this.faq.ready();
+        },
 
-		if ($this.val()) {
-			$this.addClass('not-empty');
-		}
-	});
+        header: {
 
-	$('.go-to-top').on('click', function (e) {
-		e.preventDefault();
+            /**
+             * Init the header menu
+             *
+             * @return void
+             */
+            menu: function () {
+                //show the menu
+                $('a.menu').on('click', function (e) {
+                    e.preventDefault();
 
-		$('html,body').animate({ scrollTop: 0 }, 'slow');
-	});
+                    var $menu = $('.menu-container');
 
-	$('a.menu').on('click', function (e) {
-		e.preventDefault();
+                    $menu.addClass('show-first');
 
-		var $menu = $('.menu-container');
+                    setTimeout(function () {
+                        $menu.addClass('visible');
+                    }, 10)
+                });
 
-		$menu.addClass('show-first');
+                //close the menu
+                $('.menu-container .close-link').on('click', function (e) {
+                    e.preventDefault();
 
-		setTimeout(function () {
-			$menu.addClass('visible');
-		}, 10)
-	});
+                    var $menu = $(e.currentTarget).closest('.menu-container');
 
-	$('.menu-container .close-link').on('click', function (e) {
-		e.preventDefault();
+                    $menu.removeClass('visible');
 
-		var $menu = $(e.currentTarget).closest('.menu-container');
+                    setTimeout(function () {
+                        $menu.removeClass('show-first');
+                    }, 250);
+                });
+            },
 
-		$menu.removeClass('visible');
+            /**
+             * Init the header searh
+             *
+             * @return void
+             */
+            search: function () {
+                //show the search
+                $('header.main .top a.search').on('click', function (e) {
+                    e.preventDefault();
 
-		setTimeout(function () {
-			$menu.removeClass('show-first');
-		}, 250);
-	});
+                    var $search = $('.search-container');
 
-	$('header.main .top a.search').on('click', function (e) {
-		e.preventDefault();
+                    $search.addClass('show-first');
 
-		var $search = $('.search-container');
+                    setTimeout(function () {
+                        $search.addClass('visible');
+                    }, 10)
+                });
 
-		$search.addClass('show-first');
+                //close the search
+                $('.search-container .close-link').on('click', function (e) {
+                    e.preventDefault();
 
-		setTimeout(function () {
-			$search.addClass('visible');
-		}, 10)
-	});
+                    var $search = $(e.currentTarget).closest('.search-container');
 
-	$('.search-container .close-link').on('click', function (e) {
-		e.preventDefault();
+                    $search.removeClass('visible');
 
-		var $search = $(e.currentTarget).closest('.search-container');
+                    setTimeout(function () {
+                        $search.removeClass('show-first');
+                    }, 250);
+                });
+            },
 
-		$search.removeClass('visible');
+            /**
+             * Init the language switch
+             *
+             * @return void
+             */
+            languageSwitch: function () {
+                $('.language-switch h4').on('click', function (e) {
+                    e.preventDefault();
 
-		setTimeout(function () {
-			$search.removeClass('show-first');
-		}, 250);
-	});
+                    $(e.currentTarget).closest('.language-switch').toggleClass('visible');
+                });
+            }
+        }, //header
 
-	$('.language-switch h4').on('click', function (e) {
-		e.preventDefault();
+        carSingle: {
 
-		$(e.currentTarget).closest('.language-switch').toggleClass('visible');
-	});
+            /**
+             * Init the car single page
+             *
+             * @return void
+             */
+            ready: function () {
+                this.slider();
+            },
 
-	$('article.listing-car figure').each(function () {
-		new MbeSlider({
-			element: this,
-			direction: 'horizontal',
-			neverSkip: true,
-			autoSlide: false
-		});
-	});
+            /**
+             * Init the car single page slider and the gallery
+             *
+             * @return void
+             */
+            slider: function () {
 
-	$('form.search select').select2();
+                if ($('.car-single .top figure ul').size() > 0) {
+                    //slider
+                    var singleSlider = new MbeSlider({
+                        element: '.car-single .top figure ul',
+                        direction: 'horizontal',
+                        neverSkip: true,
+                        autoSlide: false,
+                        afterSlide: function (index, slide) {
+                            var $imageList = $('.car-single .image-list ul li');
+                            $imageList.removeClass('selected');
+                            $imageList.eq(index - 1).addClass('selected');
+                        }
+                    });
 
-	$('.scroll-to').on('click', function (e) {
-		e.preventDefault();
+                    //small gallery
+                    $('.car-single .image-list ul li a').on('click', function (e) {
+                        e.preventDefault();
 
-		var $this = $(e.currentTarget),
-			navigateTo = $this.data('element'),
-			top = $(navigateTo).offset().top;
+                        var $li = $(e.currentTarget).closest('li'),
+                            index = $li.index();
 
-		$('html,body').animate({
-			scrollTop: top
-		}, 'slow');
-	});
+                        $li.siblings('li').removeClass('selected');
+                        $li.addClass('selected');
 
-	if ($('.car-single .top figure ul').size() > 0) {
-		var singleSlider = new MbeSlider({
-			element: '.car-single .top figure ul',
-			direction: 'horizontal',
-			neverSkip: true,
-			autoSlide: false,
-			afterSlide: function (index, slide) {
-				var $imageList = $('.car-single .image-list ul li');
-				$imageList.removeClass('selected');
-				$imageList.eq(index - 1).addClass('selected');
-			}
-		});
-	}
+                        singleSlider.gotoSlide(index + 1, 0);
+                    });
+                }
+            } //slider
+        }, //carSingle
 
-	$('.car-single .image-list ul li a').on('click', function (e) {
-		e.preventDefault();
+        faq: {
 
-		var $li = $(e.currentTarget).closest('li'),
-			index = $li.index();
+            /**
+             * Init the faq page
+             *
+             * @return void
+             */
+            ready: function () {
+                this.questions();
+            },
 
-		$li.siblings('li').removeClass('selected');
-		$li.addClass('selected');
+            /**
+             * Init the faq questions click
+             *
+             * @return void
+             */
+            questions: function () {
+                $('.page-faq ul li h2 a').on('click', function (e) {
+                    e.preventDefault();
 
-		singleSlider.gotoSlide(index + 1, 0);
-	});
+                    var $li = $(e.currentTarget).closest('li');
 
-	$('.page-faq ul li h2 a').on('click', function (e) {
-		e.preventDefault();
+                    $li.siblings('li').removeClass('open');
+                    $li.toggleClass('open');
+                });
+            } //question
+        }, //faq
 
-		var $li = $(e.currentTarget).closest('li');
+        wizard: {
 
-		$li.siblings('li').removeClass('open');
-		$li.toggleClass('open');
-	});
+            /**
+             * Initialize the wizard
+             *
+             * @return void
+             */
+            ready: function () {
 
-	$('.search-cars .title a.right').on('click', function (e) {
-		e.preventDefault();
+                this.firstStep();
+            },
 
-		var $submenu = $(e.currentTarget).siblings('.submenu');
+            /**
+             * Initialize the first step
+             *
+             * @return void
+             */
+            firstStep: function () {
+                //click
+                $('.wizard .first-step').on('click', function (e) {
+                    e.preventDefault();
 
-		$submenu.toggleClass('visible');
-	});
+                    var $this = $(e.currentTarget),
+                        $sliderContainer = $this.closest('.slider-container'),
+                        $slider = $sliderContainer.find('.slider-range'),
+                        nextStepUrl = $this.data('next-step');
 
-	$('.search ul.car-types li a').on('click', function (e) {
-		e.preventDefault();
+                    $.ajax({
+                        type: 'post',
+                        url: nextStepUrl,
+                        data: {
+                            'min': $slider.slider('values', 0),
+                            'max': $slider.slider('values', 1),
+                            'total_value_slider': !!$('#price_slider_indicator').length
+                        },
+                        success: function (response) {
 
-		var $this = $(e.currentTarget),
-			$li = $this.closest('li'),
-			$form = $this.closest('form'),
-			type = $this.data('type');
+                            //remove next steps
+                            $('.wizard .wizard-cars').remove();
+                            $('.wizard .wizard-form').remove();
+                            $('.wizard .wizard-final').remove();
 
-		$li.siblings('li').removeClass('selected');
-		$li.addClass('selected');
+                            //append next step
+                            $('.wizard').append(response);
 
-		$form.find('.search-type').val(type);
-	});
-});
+                            //init the stuff
+                            init.element($('.wizard .wizard-cars'));
+                            helpers.scrollTo('.wizard .wizard-cars');
+
+                            //run the next steps init
+                            this.secondStep();
+                            this.thirdStep();
+                        }.bind(this)
+                    });
+                }.bind(this));
+            },
+
+            /**
+             * Initialize the second step search form shown and attach submit
+             * event
+             *
+             * @return void
+             */
+            secondStep: function () {
+
+                //submit
+                $('.wizard .wizard-cars form.search').on('submit', function (e) {
+                    e.preventDefault();
+
+                    var $this = $(e.currentTarget);
+
+                    $.ajax({
+                        type: $this.attr('method'),
+                        url: $this.attr('action'),
+                        data: $this.serialize(),
+                        success: function (response) {
+
+                            //remove next steps
+                            $('.wizard .wizard-cars .search-results').empty();
+                            $('.wizard .wizard-form').remove();
+                            $('.wizard .wizard-final').remove();
+
+                            //append next step
+                            $('.wizard .wizard-cars .search-results').append(response);
+
+                            //init the stuff
+                            init.element($('.wizard .wizard-cars .search-results'));
+
+                            helpers.scrollTo('.wizard .wizard-cars .search-results');
+
+                            //run the next step init
+                            this.thirdStep();
+                        }.bind(this)
+                    });
+                }.bind(this));
+            },
+
+            /**
+             * Initialize the third step, attach click to selected car
+             *
+             * @return void
+             */
+            thirdStep: function () {
+
+                //click
+                $('.wizard .wizard-cars .search-results article.listing-car .goto a').on('click', function (e) {
+                    e.preventDefault();
+
+                    var $this = $(e.currentTarget),
+                        carId = $this.data('id'),
+                        nextStepUrl = $this.data('select-url');
+
+                    $.ajax({
+                        type: 'post',
+                        url: nextStepUrl,
+                        data: {
+                            'id': carId
+                        },
+                        success: function (response) {
+
+                            //remove next steps
+                            $('.wizard .wizard-form').remove();
+                            $('.wizard .wizard-final').remove();
+
+                            //append next step
+                            $('.wizard').append(response);
+
+                            //init the stuff
+                            init.element($('.wizard .wizard-form'));
+                            helpers.scrollTo('.wizard .wizard-form');
+
+                            //run the next step init
+                            this.fourthStep();
+                        }.bind(this)
+                    });
+                }.bind(this));
+
+                //click on filter
+                $('.wizard .wizard-cars .search-results .title .submenu a').on('click', function (e) {
+                    e.preventDefault();
+
+                    var $this = $(e.currentTarget),
+                        $wizard = $this.closest('.wizard-cars'),
+                        $form = $wizard.find('form'),
+                        field = $this.data('field'),
+                        order = $this.data('order');
+
+                    $form.find('.order-field').val(field);
+                    $form.find('.order-order').val(order);
+
+                    $form.submit();
+                }.bind(this));
+            },
+
+            /**
+             * Initialize the fourth step, attach submit to the last form
+             *
+             * @return void
+             */
+            fourthStep: function () {
+
+                //submit
+                $('.wizard .wizard-form form').on('submit', function (e) {
+                    e.preventDefault();
+
+                    var $this = $(e.currentTarget);
+
+                    $.ajax({
+                        type: $this.attr('method'),
+                        url: $this.attr('action'),
+                        data: $this.serialize(),
+                        success: function (response) {
+
+                            //remove next steps
+                            $('.wizard .wizard-final').remove();
+
+                            //append next step
+                            $('.wizard').append(response);
+
+                            //init the stuff
+                            init.element($('.wizard .wizard-final'));
+                            helpers.scrollTo('.wizard .wizard-final');
+
+                            //this.thirdStep();
+                        }.bind(this)
+                    });
+                }.bind(this));
+            }
+        }
+
+    };
+
+    $(app.ready.bind(app));
+
+}(jQuery, FastClick));

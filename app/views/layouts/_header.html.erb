@@ -1,77 +1,85 @@
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
 
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<header class="main">
 
-        <header class="main">
+  <div class="top">
+    <div class="wrapper">
 
-            <div class="top">
-                <div class="wrapper">
+      <a class="menu" href="#menu">
+        <i class="icon menu-button"></i>
+        Menu
+      </a>
 
-                    <a class="menu" href="#menu">
-                        <i class="icon menu-button"></i>
-                        Menu
-                    </a>
+      <a class="live-chat" href="#live-chat">
+        <i class="icon chat-orange"></i>
+        Live chat
+      </a>
 
-                    <a class="live-chat" href="#live-chat">
-                        <i class="icon chat-orange"></i>
-                        Live chat
-                    </a>
+      <a class="search" href="#search">
+        <i class="icon search-orange"></i>
+        Zoeken
+      </a>
 
-                    <a class="search" href="#search">
-                        <i class="icon search-orange"></i>
-                        Zoeken
-                    </a>
+      <a href="<%= root_path %>">
+        <h1>
+          <b>Auto Krediet</b> Plan
+        </h1>
+      </a>
 
-                    <h1>
-                        <b>Auto Krediet</b> Plan
-                    </h1>
+    </div>
+    <!-- .wrapper -->
+  </div>
+  <!-- .top -->
 
-                </div> <!-- .wrapper -->
-            </div> <!-- .top -->
+  <div class="subheader">
+    <div class="wrapper">
 
-            <div class="subheader">
-                <div class="wrapper">
+      <span>Heeft u vragen? Wij helpen u graag!</span>
 
-                    <span>Heeft u vragen? Wij helpen u graag!</span>
+      <a class="phone" href="tel:00310237920003">
+        <i class="icon iphone-white"></i>
+        +31 (0) 23 792 00 03
+      </a>
 
-                    <a class="phone" href="tel:00310237920003">
-                        <i class="icon iphone-white"></i>
-                        +31 (0) 23 792 00 03
-                    </a>
+      <a class="email" href="mailto:info@autokredietplan.nl">
+        <i class="icon mail-white"></i>
+        info@autokredietplan.nl
+      </a>
 
-                    <a class="email" href="mailto:info@autokredietplan.nl">
-                        <i class="icon mail-white"></i>
-                        info@autokredietplan.nl
-                    </a>
+      <div class="language-switch">
+        <!--<div id="google_translate_element"></div><script type="text/javascript">
+          function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'nl', includedLanguages: 'de,en'}, 'google_translate_element');
+          }
+      </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
+        <h4>
+          Dutch
+          <i class="icon arrow-white-down-small"></i>
+        </h4>
 
-                    <div class="language-switch">
-                      <!--<div id="google_translate_element"></div><script type="text/javascript">
-                        function googleTranslateElementInit() {
-                            new google.translate.TranslateElement({pageLanguage: 'nl', includedLanguages: 'de,en'}, 'google_translate_element');
-                        }
-                    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
-                        <h4>
-                            Dutch
-                            <i class="icon arrow-white-down-small"></i>
-                        </h4>
+        <div class="submenu">
+          <ul>
+            <li>
+              <a href="" class="selected">Dutch</a>
+            </li>
+            <li>
+              <a href="">English</a>
+            </li>
+          </ul>
+        </div>
+        <!-- .submenu -->
+      </div>
+      <!-- .language-switch -->
 
-                        <div class="submenu">
-                            <ul>
-                                <li>
-                                    <a href="" class="selected">Dutch</a>
-                                </li>
-                                <li>
-                                    <a href="">English</a>
-                                </li>
-                            </ul>
-                        </div> <!-- .submenu -->
-                    </div> <!-- .language-switch -->
+    </div>
+    <!-- .wrapper -->
+  </div>
+  <!-- .subheader -->
 
-                </div> <!-- .wrapper -->
-            </div> <!-- .subheader -->
+</header>
 
-        </header>
-
-        <%= render partial: 'layouts/menu' %>
-        <%= render partial: 'layouts/search' %>
+<%= render partial: 'layouts/menu' %>
+<%= render partial: 'layouts/search' %>
