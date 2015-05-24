@@ -54,7 +54,7 @@ gem 'dalli'
 gem 'friendly_id', '~> 5.1.0'
 
 # tagging
-gem 'acts-as-taggable-on', '~> 3.4'
+gem 'acts-as-taggable-on', '~> 3.4', github: 'FabianOudhaarlem/acts-as-taggable-on'
 
 # breadcrumbs
 gem 'breadcrumbs_on_rails'

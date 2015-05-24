@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/FabianOudhaarlem/acts-as-taggable-on.git
+  revision: c401836cf2e3dfa9be734a25450caf1b6575d020
+  specs:
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
+
+GIT
   remote: git://github.com/elasticsearch/elasticsearch-rails.git
   revision: 8508577ab0fa33934cc678af426f498e56aa7e3d
   specs:
@@ -37,8 +44,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    acts-as-taggable-on (3.5.0)
-      activerecord (>= 3.2, < 5)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.10)
     breadcrumbs_on_rails (2.3.0)
@@ -250,7 +255,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on (~> 3.4)
+  acts-as-taggable-on (~> 3.4)!
   breadcrumbs_on_rails
   cancancan
   capistrano
