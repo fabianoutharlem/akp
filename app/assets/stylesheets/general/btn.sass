@@ -10,6 +10,7 @@
 	padding: 18px 85px 20px 10px
 	text-align: center
 
+	+transition (all 0.25s ease-in-out)
 	position: relative
 
 	+desktop-small
@@ -28,6 +29,7 @@
 		font-size: 18px
 		line-height: 28px
 
+
 	&::after
 		display: inline-block
 		vertical-align: middle
@@ -35,6 +37,7 @@
 		position: absolute
 		right: 4px
 		top: 4px
+		+transition (all 0.25s ease-in-out)
 
 		border-left: 1px solid $btn-separator-color
 		content: ''
@@ -53,6 +56,13 @@
 			width: 45px
 			height: 48px
 			background-position: -287px -215px //got from .arrow-white-right-medium then rearranged
+
+	&:hover
+		background-color: $orange-dark
+
+		&::after
+			border-left-color: $btn-separator-color-dark
+			right: 0
 
 	&.btn-small
 		padding: 13px 65px 15px 20px

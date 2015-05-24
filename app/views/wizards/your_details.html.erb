@@ -21,49 +21,49 @@
               <option value="financial">Financial Lease</option>
             </select>
           </p>
-          <p class="text right">
-            <input type="text" name="payment" class="text" id="payment-payment" />
+          <p class="text right" data-rules="required">
+            <input type="text" name="payment" class="text" id="payment-payment" required="required" />
             <label for="payment-payment">Aanbetaling</label>
           </p>
-          <p class="text">
-            <input type="text" name="name" class="text" id="payment-name" />
+          <p class="text" data-rules="required">
+            <input type="text" name="name" class="text" id="payment-name" required="required" />
             <label for="payment-name">Naam</label>
           </p>
-          <p class="text right">
-            <input type="text" name="amount" class="text" id="payment-amount" />
+          <p class="text right" data-rules="required|numeric">
+            <input type="text" name="amount" class="text" id="payment-amount" required="required" />
             <label for="payment-amount">Te financieren bedrag</label>
           </p>
-          <p class="text error">
-            <input type="text" name="phone" class="text" id="payment-phone" />
+          <p class="text" data-rules="required|phone">
+            <input type="text" name="phone" class="text" id="payment-phone" required="required" />
             <label for="payment-phone">Tel nr.</label>
           </p>
-          <p class="text right">
-            <input type="text" name="license_plate" class="text" id="payment-license-plate" />
+          <p class="text right" data-rules="required|alphanumeric">
+            <input type="text" name="license_plate" class="text" id="payment-license-plate" required="required" />
             <label for="payment-license-plate">Kenteken</label>
           </p>
-          <p class="text ok">
-            <input type="email" name="email" class="text" id="payment-email" />
+          <p class="text" data-rules="required|email">
+            <input type="email" name="email" class="text" id="payment-email" required="required" />
             <label for="payment-email">Email</label>
           </p>
-          <p class="text right">
-            <input type="text" name="bkr" class="text" id="payment-bkr" />
+          <p class="text right" data-rules="required|alphanumeric">
+            <input type="text" name="bkr" class="text" required="required" id="payment-bkr" />
             <label for="payment-bkr">BKR geregistreed?</label>
           </p>
-          <p class="text">
-            <input type="text" name="net_income" class="text" id="payment-net-income" />
+          <p class="text" data-rules="required|numeric">
+            <input type="text" name="net_income" class="text" required="required" id="payment-net-income" />
             <label for="payment-net-income">Netto inkomen</label>
           </p>
           <p class="checkbox right">
             <input type="checkbox" name="newsletter_subscribe" class="checkbox" id="payment-newsletter-subscribe" />
             <label for="payment-newsletter-subscribe">Inschrijven nieuwsbrief</label>
           </p>
-          <p class="text">
-            <input type="text" name="partner_net_income" class="text" id="payment-partner-net-income" />
+          <p class="text" data-rules="required|numeric">
+            <input type="text" name="partner_net_income" class="text" required="required" id="payment-partner-net-income" />
             <label for="payment-partner-net-income">Netto inkomen partner</label>
           </p>
           <p class="empty right">&nbsp;</p>
-          <p class="text">
-            <input type="text" name="rent" class="text" id="payment-rent" />
+          <p class="text" data-rules="required">
+            <input type="text" name="rent" class="text" required="required" id="payment-rent" />
             <label for="payment-rent">Huur of hypotheeklasten</label>
           </p>
           <p class="image right">

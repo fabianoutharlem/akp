@@ -23,6 +23,8 @@
             this.initSearchMoreLess(element);
             this.initSearchFormAction(element);
             this.initSearchSubmenu(element);
+            this.initWizardFormValidation(element);
+            this.initSectionScroll(element);
             this.initScrollTo(element);
         },
 
@@ -36,11 +38,12 @@
         initRangeSliders: function (element) {
 
             $('.slider-range', element).each(function () {
-                var $this = $(this);
-                var max = $this.data('max');
-                var min = $this.data('min');
-                var _default = $this.data('default').split('-');
-                var type = $this.data('type') || 'moveable';
+                var $this = $(this),
+                    max = $this.data('max'),
+                    min = $this.data('min'),
+                    _default = $this.data('default').split('-'),
+                    type = $this.data('type') || 'moveable',
+                    sufix = $this.data('sufix');
 
                 $this.slider({
                     range: true,
@@ -49,22 +52,24 @@
                     values: _default,
                     slide: function (event, ui) {
 
-                        var min = ui.values[0].formatMoney(2, ',', '.');
-                        var max = ui.values[1].formatMoney(2, ',', '.');
+                        var min = ui.values[0].formatMoney(2, ',', '.', sufix);
+                        var max = ui.values[1].formatMoney(2, ',', '.', sufix);
 
                         $this.find('.ui-slider-handle:first .value').html(min);
                         $this.find('.ui-slider-handle:last .value').html(max);
+
+                        $this.siblings('.slider-value').val(ui.values.join('-'));
                     }
                 });
 
                 $this
-                    .append('<div class="slider-value-min">' + min.formatMoney(2, ',', '.') + '</div>')
-                    .append('<div class="slider-value-max">' + max.formatMoney(2, ',', '.') + '</div>');
+                    .append('<div class="slider-value-min">' + min.formatMoney(2, ',', '.', sufix) + '</div>')
+                    .append('<div class="slider-value-max">' + max.formatMoney(2, ',', '.', sufix) + '</div>');
 
                 $this.find('.ui-slider-handle:first')
                     .append('<div class="value">' + Number(_default[0]).formatMoney(2, ',', '.') + '</div>');
                 $this.find('.ui-slider-handle:last')
-                        .append('<div class="value">' + Number(_default[1]).formatMoney(2, ',', '.') + '</div>');
+                        .append('<div class="value">' + Number(_default[1]).formatMoney(2, ',', '.', sufix) + '</div>');
             });
         },
 
@@ -184,9 +189,14 @@
                     type = $this.data('type');
 
                 $li.siblings('li').removeClass('selected');
-                $li.addClass('selected');
 
-                $form.find('.search-type').val(type);
+                if ($li.hasClass('selected')) {
+                    $li.removeClass('selected');
+                    $form.find('.search-type').val('');
+                } else {
+                    $li.addClass('selected');
+                    $form.find('.search-type').val(type);
+                }
             });
         },
 
@@ -215,8 +225,9 @@
                         $models.select2('destroy');
                         $models.empty();
 
+                        $models.append('<option value="">Selecteer Model</option>');
+
                         if (response.length) {
-                            $models.append('<option value="">Selecteer Model</option>');
                             $.each(response, function (index, element) {
                                 $models.append('<option value="' + element.name + '">' + element.name + '</option>');
                             });
@@ -243,6 +254,55 @@
                 var $submenu = $(e.currentTarget).siblings('.submenu');
 
                 $submenu.toggleClass('visible');
+            });
+        },
+
+        /**
+         * Init the validation in the form
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initWizardFormValidation: function (element) {
+
+            $('.payment-form input[type="text"], .payment-form input[type="email"]', element).on('change keyup keydown', function (e) {
+
+                var $this = $(e.currentTarget),
+                    value = $this.val(),
+                    $p = $this.closest('p'),
+                    rules = $p.data('rules') ? $p.data('rules').split('|') : [],
+                    ok = true;
+
+                $.each(rules, function (index, element) {
+                    if (!helpers.validate(element, value)) {
+                        ok = false;
+                    }
+                });
+
+                $p
+                    .removeClass('ok error')
+                    .addClass(ok ? 'ok' : 'error')
+            });
+        },
+
+        /**
+         * Init the click on the arrow in the section
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initSectionScroll: function (element) {
+
+            //scroll to element
+            $('section .footer > .icon', element).on('click', function (e) {
+                e.preventDefault();
+
+                var $this = $(e.currentTarget),
+                    $section = $this.closest('body > *');
+
+                helpers.scrollTo($section.next());
             });
         },
 
@@ -298,6 +358,41 @@
                 scrollTop: top
             }, 'slow');
 
+        },
+
+        /**
+         * Validate the value with the rule
+         *
+         * @param string rule
+         * @param string value
+         *
+         * @return boolean
+         */
+        validate: function (rule, value) {
+
+            switch (rule) {
+                case 'required':
+                    return (value.trim().length > 0);
+                    break;
+
+                case 'email':
+                    return /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i.test(value);
+                    break;
+
+                case 'numeric':
+                    return /^[0-9 \.,]+$/i.test(value);
+                    break;
+
+                case 'phone':
+                    return /^[0-9 \(\)\+]+$/i.test(value);
+                    break;
+
+                case 'alphanumeric':
+                    return /^[a-z0-9\- \.,]+$/i.test(value);
+                    break;
+            }
+
+            return true;
         }
     };
 
@@ -514,6 +609,14 @@
                         $slider = $sliderContainer.find('.slider-range'),
                         nextStepUrl = $this.data('next-step');
 
+                    //remove next steps
+                    $('.wizard .wizard-cars').remove();
+                    $('.wizard .wizard-form').remove();
+                    $('.wizard .wizard-final').remove();
+
+                    //fade the button
+                    $this.addClass('inactive');
+
                     $.ajax({
                         type: 'post',
                         url: nextStepUrl,
@@ -524,10 +627,8 @@
                         },
                         success: function (response) {
 
-                            //remove next steps
-                            $('.wizard .wizard-cars').remove();
-                            $('.wizard .wizard-form').remove();
-                            $('.wizard .wizard-final').remove();
+                            //done
+                            $this.removeClass('inactive');
 
                             //append next step
                             $('.wizard').append(response);
@@ -558,16 +659,22 @@
 
                     var $this = $(e.currentTarget);
 
+                    //remove next steps
+                    $('.wizard .wizard-cars .search-results').empty();
+                    $('.wizard .wizard-form').remove();
+                    $('.wizard .wizard-final').remove();
+
+                    //fade the button
+                    $this.find('.btn').addClass('inactive');
+
                     $.ajax({
                         type: $this.attr('method'),
                         url: $this.attr('action'),
                         data: $this.serialize(),
                         success: function (response) {
 
-                            //remove next steps
-                            $('.wizard .wizard-cars .search-results').empty();
-                            $('.wizard .wizard-form').remove();
-                            $('.wizard .wizard-final').remove();
+                            //done
+                            $this.find('.btn').removeClass('inactive');
 
                             //append next step
                             $('.wizard .wizard-cars .search-results').append(response);
@@ -579,6 +686,14 @@
 
                             //run the next step init
                             this.thirdStep();
+                        }.bind(this),
+                        error: function (response) {
+
+                            //done
+                            $this.find('.btn').removeClass('inactive');
+
+                            //nothing happenned
+                            alert('An error occurred');
                         }.bind(this)
                     });
                 }.bind(this));
@@ -599,6 +714,13 @@
                         carId = $this.data('id'),
                         nextStepUrl = $this.data('select-url');
 
+                    //remove next steps
+                    $('.wizard .wizard-form').remove();
+                    $('.wizard .wizard-final').remove();
+
+                    //fade the button
+                    $this.addClass('inactive');
+
                     $.ajax({
                         type: 'post',
                         url: nextStepUrl,
@@ -607,9 +729,8 @@
                         },
                         success: function (response) {
 
-                            //remove next steps
-                            $('.wizard .wizard-form').remove();
-                            $('.wizard .wizard-final').remove();
+                            //done
+                            $this.removeClass('inactive');
 
                             //append next step
                             $('.wizard').append(response);
@@ -630,14 +751,29 @@
 
                     var $this = $(e.currentTarget),
                         $wizard = $this.closest('.wizard-cars'),
-                        $form = $wizard.find('form'),
+                        $cars = $wizard.find('ul.cars li'),
                         field = $this.data('field'),
                         order = $this.data('order');
 
-                    $form.find('.order-field').val(field);
-                    $form.find('.order-order').val(order);
+                    $cars.detach().sort(function (a, b) {
+                        var $a = $(order == 'asc' ? a : b),
+                            $b = $(order == 'asc' ? b : a);
 
-                    $form.submit();
+                        if ($a.data(field) < $b.data(field)) {
+                            return -1;
+                        }
+
+                        if ($a.data(field) > $b.data(field)) {
+                            return 1;
+                        }
+
+                        return 0;
+
+                    });
+
+                    $this.closest('.submenu').removeClass('visible');
+                    $wizard.find('ul.cars').append($cars);
+
                 }.bind(this));
             },
 
@@ -654,14 +790,20 @@
 
                     var $this = $(e.currentTarget);
 
+                    //remove next steps
+                    $('.wizard .wizard-final').remove();
+
+                    //fade the button
+                    $this.find('.btn').addClass('inactive');
+
                     $.ajax({
                         type: $this.attr('method'),
                         url: $this.attr('action'),
                         data: $this.serialize(),
                         success: function (response) {
 
-                            //remove next steps
-                            $('.wizard .wizard-final').remove();
+                            //done
+                            $this.find('.btn').removeClass('inactive');
 
                             //append next step
                             $('.wizard').append(response);

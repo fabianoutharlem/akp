@@ -1,4 +1,4 @@
-<li>
+<li data-price="<%= car.price_total %>" data-name="<%= car.display_name %>">
   <article class="listing-car">
     <figure>
       <% car.car_medias.each do |car_media| %>
@@ -33,9 +33,11 @@
           <div class="tab tab-2 visible">
             <h3 class="price">&euro; <%= car.price_total %>,-</h3>
           </div>
-          <div class="tab tab-3">
-            <h3 class="price">&euro; <%= car.price_50_50 %>,-</h3>
-          </div>
+          <% if car.price_50_50.present? %>
+            <div class="tab tab-3">
+              <h3 class="price">&euro; <%= car.price_50_50 %>,-</h3>
+            </div>
+          <% end %>
         </div>
         <!-- .tab-content -->
       </div>

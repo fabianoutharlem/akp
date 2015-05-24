@@ -73,7 +73,7 @@
 
 		.tab-header
 			width: 400px
-			height: 480px
+			min-height: 480px
 			text-align: left
 
 			display: -webkit-flex
@@ -97,6 +97,7 @@
 
 				width: auto
 				height: auto
+				min-height: 0
 
 			+mobile-large
 				overflow-x: scroll
@@ -521,3 +522,6 @@
 
 	.footer
 		text-align: center
+
+		.icon
+			cursor: pointer
