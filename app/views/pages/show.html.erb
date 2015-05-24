@@ -1,0 +1,14 @@
+<%= render partial: 'layouts/breadcrumb' %>
+<section class="page-static">
+  <div class="wrapper">
+    <h1><%= @page.title %></h1>
+
+    <div class="description">
+     <%== @page.content %>
+    </div> <!-- .description -->
+
+  </div> <!-- .wrapper -->
+</section> <!-- .page-static -->
+
+<%= render partial: 'layouts/search_navigation' %>
+<%= render partial: 'layouts/footer_complex' %>

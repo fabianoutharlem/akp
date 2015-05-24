@@ -1,0 +1,80 @@
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+  <ul class="breadcrumb">
+    <li>
+      <p><%= link_to 'Home', admin_root_path %></p>
+    </li>
+    <li><a href="#" class="active">Menu Builder</a></li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <h3 class="page-title">Menu Builder</h3>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+  <%= form_tag update_all_admin_menu_items_path, method: :put do %>
+      <table id="myDataTable" class="table table-hover" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+          <th>Menu Label</th>
+          <th>URL</th>
+          <th>Last in section?</th>
+        </tr>
+        </thead>
+
+        <tbody class="menu_items_container">
+        <% @menu_items.each do |menu| %>
+            <%= fields_for 'menu_items[]', menu do |f| %>
+                <tr class="menu-row">
+                  <td>
+                    <%= f.text_field :label, class: 'form-control' %>
+                  </td>
+                  <td>
+                    <%= menu.path %>
+                  </td>
+                  <td>
+                    <%= f.check_box :last, class: 'switchery' %>
+                    <%= f.hidden_field :position %>
+                    <%= f.hidden_field :id %>
+                  </td>
+            <% end %>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <button class="btn btn-primary btn-animated from-left fa fa-check" type="submit">
+        <span style="height: 21px;">Submit</span>
+      </button>
+
+
+  <% end %>
+</div>
+
+<% content_for :footer do %>
+    <script>
+        $('tbody').sortable({
+            containment: 'parent',
+            cursor: "move",
+            update: calculatePositions
+        }).disableSelection();
+
+        function calculatePositions() {
+            var items = $('.menu_items_container tr');
+
+            items.each(function (index) {
+                setPosition($(this), index+1);
+            });
+        }
+
+        function setPosition($el, position) {
+            $('input[type="hidden"]', $el).val(position);
+        }
+
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+        // Success color: #10CFBD
+        elems.forEach(function(html) {
+            var switchery = new Switchery(html, {color: '#10CFBD'});
+        });
+
+    </script>
+<% end %>

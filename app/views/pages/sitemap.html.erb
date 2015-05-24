@@ -1,0 +1,51 @@
+<%= render 'layouts/breadcrumb' %>
+
+<section class="page-sitemap">
+  <div class="wrapper">
+
+    <div class="left">
+      <h2>Sitemap</h2>
+
+      <ul>
+        <li><a href="<%= root_path %>"><%= StaticText.home_menu_link %></a></li>
+        <li><a href="<%= cars_path %>"><%= StaticText.stock_menu_link %></a></li>
+        <li><a href="<%= page_path('contact') %>">Contact</a></li>
+
+        <% MenuItem.all.each do |menu_item| %>
+            <li class="<%= menu_item.last ? 'last' : '' %>"><a href="<%= menu_item.path %>"><%= menu_item.label %></a></li>
+        <% end %>
+
+        <li>
+          <a href="<%= page_path('algemene-voorwaarden') %>">Algemene voorwaarden</a>
+        </li>
+        <li>
+          <a href="<%= page_path('disclaimer') %>">Disclaimer</a>
+        </li>
+      </ul>
+    </div>
+    <!-- .left -->
+
+    <div class="right">
+      <h2><%= StaticText.sitemap_stock %></h2>
+
+      <% Brand.all.includes(:cars).includes(:models).each do |brand| %>
+          <% if brand.cars.any? %>
+              <article>
+                <h1><%= link_to brand.name, brand_cars_path(brand) %></h1>
+                <ul>
+                  <% brand.models.each do |model| %>
+                      <% next unless model.cars.any? %>
+                      <li><%= "#{model.name} (#{model.cars.length})" %></li>
+                  <% end %>
+                </ul>
+              </article>
+          <% end %>
+      <% end %>
+    </div>
+    <!-- .right -->
+
+  </div>
+  <!-- .wrapper -->
+</section> <!-- .page-sitemap -->
+
+<%= render 'layouts/search_navigation' %>

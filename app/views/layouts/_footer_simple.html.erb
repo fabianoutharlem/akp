@@ -12,22 +12,22 @@
 
         <div class="cols col-1">
 
-            <h2>Neem contact met ons op via </h2>
+            <h2><%= StaticText.get_in_contact_footer %></h2>
 
-            <p>
-                <a href="https://facebook.com" target="_blank"><i class="icon facebook"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="icon twitter"></i></a>
-                <a href="https://plus.google.com" target="_blank"><i class="icon google-plus"></i></a>
-                <a href="https://pinterest.com" target="_blank"><i class="icon pinterest"></i></a>
-                <a href="mailto:" target="_blank"><i class="icon mail"></i></a>
-            </p>
+          <p>
+            <a href="<%= StaticText.facebook_url %>" target="_blank"><i class="icon facebook"></i></a>
+            <a href="<%= StaticText.twitter_url %>" target="_blank"><i class="icon twitter"></i></a>
+            <a href="<%= StaticText.google_plus_url %>" target="_blank"><i class="icon google-plus"></i></a>
+            <a href="<%= StaticText.pinterest_url %>" target="_blank"><i class="icon pinterest"></i></a>
+            <a href="mailto:<%= StaticText.ash_email %>" target="_blank"><i class="icon mail"></i></a>
+          </p>
         </div> <!-- .col-1 -->
 
         <div class="cols col-2">
-            <h2>Voor persoonlijk contact, bel</h2>
+            <h2><%= StaticText.personal_contact_footer %></h2>
 
             <p>
-                <a href="tel:0031237920003">+31 (0)23 792 00 03</a>
+                <a href="tel:<%= StaticText.phone %>"><%= StaticText.phone %></a>
             </p>
         </div> <!-- .col-2 -->
 
@@ -36,8 +36,8 @@
     <div class="copyright">
         <div class="wrapper">
             &copy; 2015 Auto Krediet Plan
-            &bull; <a href="">Algemene voorwaarden</a>
-            &bull; <a href="">Disclaimer</a>
+            &bull; <a href="<%= page_path('alegemene-voorwaarden') %>">Algemene voorwaarden</a>
+            &bull; <a href="<%= page_path('disclaimer') %>">Disclaimer</a>
 
         </div> <!-- .wrapper -->
     </div> <!-- .copyright -->

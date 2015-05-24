@@ -35,7 +35,14 @@ Rails.application.routes.draw do
     post :final
   end
 
+  resources :pages, only: [:show] do
+    collection do
+      get :contact
+      get :sitemap
+    end
+  end
 
+  resources :blog_pages, only: [:show]
 
   namespace :admin do
     resource :admin do
@@ -53,6 +60,12 @@ Rails.application.routes.draw do
     resources :blog_pages
 
     resources :brands
+
+    resources :menu_items do
+      collection do
+        put :update_all
+      end
+    end
 
     root 'admin#home'
   end

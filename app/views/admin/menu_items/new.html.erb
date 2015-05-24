@@ -1,0 +1,40 @@
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+  <ul class="breadcrumb">
+    <li>
+      <p><%= link_to 'Home', admin_root_path %></p>
+    </li>
+    <li><a href="" class="active">New Menu Item</a></li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <h3 class="page-title">New Menu Item</h3>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+  <%= form_for MenuItem.new, url: {action: :create}, html: {class: 'form'} do |f| %>
+      <div class="form-group form-group-default required">
+        <%= f.label :label %>
+        <%= f.text_field :label, class: 'form-control', required: true %>
+      </div>
+      <div class="form-group form-group-default required">
+        <%= f.label :path %>
+        <%= f.select :path, @pages, {include_blank: false}, {class: 'cs-select cs-skin-slide', 'data-init-plugin' => 'cs-select'} %>
+      </div>
+
+      <div class="form-group form-group-default required">
+        <%= f.label :last_in_section %>
+        <%= f.check_box :last, class: 'switchery' %>
+      </div>
+      <%= f.submit 'Create', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<% content_for :footer do %>
+    <script>
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+        // Success color: #10CFBD
+        elems.forEach(function(html) {
+            var switchery = new Switchery(html, {color: '#10CFBD'});
+        });
+    </script>
+<% end %>
