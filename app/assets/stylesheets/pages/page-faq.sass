@@ -5,6 +5,18 @@
 		padding: 65px 65px 180px 65px
 		text-align: left
 
+		+desktop-small
+			padding: 60px 60px 150px 60px
+
+		+tablet
+			padding: 50px 50px 120px 50px
+
+		+tablet-small
+			padding: 40px
+
+		+mobile-large
+			padding: 30px
+
 	h1
 		font-size: 36px
 		line-height: 50px
@@ -12,6 +24,23 @@
 
 		margin: 0 0 25px 0
 		padding: 0
+
+		+tablet
+			font-size: 32px
+			line-height: 46px
+
+		+tablet-small
+			font-size: 28px
+			line-height: 42px
+
+		+mobile-large
+			font-size: 24px
+			line-height: 38px
+			margin: 0 0 15px 0
+
+		+mobile
+			font-size: 20px
+			line-height: 34px
 
 	ul
 		list-style: none
@@ -21,10 +50,21 @@
 		font-size: 20px
 		line-height: 36px
 
+		+tablet-small
+			font-size: 16px
+			line-height: 32px
+
+		+mobile-large
+			font-size: 14px
+			line-height: 24px
+
 		li
 			margin: 0 0 0 0
 			padding: 0 0 0 30px
 			position: relative
+
+			+mobile-large
+				padding-left: 25px
 
 			&::before
 				content: ''
@@ -44,6 +84,10 @@
 				margin: 0
 				padding: 0
 
+				+mobile-large
+					font-size: 17px
+					line-height: 1.8
+
 				a
 					color: $marine
 					text-decoration: none
@@ -59,6 +103,10 @@
 
 				font-size: 16px
 				line-height: 36px
+
+				+mobile-large
+					font-size: 14px
+					line-height: 24px
 
 			&.open
 

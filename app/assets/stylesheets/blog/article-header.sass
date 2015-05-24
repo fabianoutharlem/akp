@@ -2,8 +2,23 @@
 	padding: 60px 0 40px 0
 	background-color: #F3F3F3
 
+	+desktop-small
+		padding: 40px 0 25px 0
+
+	+tablet
+		padding: 30px 0 20px 0
+
 	.wrapper
 		padding: 0 120px
+
+		+desktop-small
+			padding: 0 80px
+
+		+tablet
+			padding: 0 40px
+
+		+mobile
+			padding: 0 30px
 
 	figure
 		display: block
@@ -20,6 +35,12 @@
 		background-color: white
 		text-align: left
 
+		+tablet
+			padding: 45px 0 80px 0
+
+		+mobile-large
+			padding: 30px 0
+
 		&.marine
 			background-color: $marine
 			color: white
@@ -32,10 +53,34 @@
 			line-height: 36px
 			font-weight: normal
 
+			+tablet
+				font-size: 24px
+				line-height: 34px
+				padding: 0 30px
+
+			+mobile-large
+				font-size: 20px
+				line-height: 30px
+
+			+mobile
+				font-size: 18px
+				line-height: 28px
+
 		.description
 			padding: 0 50px
 			font-size: 18px
 			line-height: 32px
+
+			+tablet
+				padding: 0 30px
+
+				font-size: 16px
+				line-height: 28px
+
+			+mobile-large
+				font-size: 14px
+				line-height: 24px
+
 
 			p
 				margin: 32px 0
