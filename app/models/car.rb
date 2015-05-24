@@ -184,6 +184,22 @@ class Car < ActiveRecord::Base
             :query => params[:energy]
         }
     } unless params[:energy].blank?
+    query[:query][:bool][:must] << {
+        :range => {
+            :"car.price_total" => {
+                :gte => params[:price_range].split('-').first,
+                :lte => params[:price_range].split('-').last
+            }
+        }
+    } unless (params[:price_range].blank? or params[:price_range].split('-').length != 2)
+    query[:query][:bool][:must] << {
+        :range => {
+            :"car.price_month" => {
+                :gte => params[:monthly_price_range].split('-').first,
+                :lte => params[:monthly_price_range].split('-').last
+            }
+        }
+    } unless (params[:monthly_price_range].blank? or params[:monthly_price_range].split('-').length != 2)
     return query
   end
 

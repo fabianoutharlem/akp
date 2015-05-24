@@ -23,7 +23,6 @@ class CarsController < ApplicationController
 
   def search
     @cars = Car.query(params[:q])
-
     if request.xhr?
       render :search, layout: false
     else
