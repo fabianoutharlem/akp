@@ -15,7 +15,14 @@
 			padding: 0
 
 			+desktop-small
-				width: 50%
+				width: 50%image-list
+
+			+tablet-small
+				width: 40%
+
+			+mobile-large
+				float: none
+				width: auto
 
 			ul
 				list-style: none
@@ -49,6 +56,13 @@
 			+tablet
 				padding: 30px
 
+			+tablet-small
+				width: 60%
+
+			+mobile-large
+				float: none
+				width: auto
+
 			h1
 				font-size: 24px
 				line-height: 46px
@@ -63,6 +77,10 @@
 
 				+tablet
 					margin-bottom: 25px
+
+				+mobile
+					font-size: 20px
+					line-height: 40px
 
 			dl
 				overflow: hidden
@@ -80,6 +98,9 @@
 
 				+tablet
 					margin-bottom: 60px
+
+				+mobile
+					margin-bottom: 30px
 
 				dt
 					float: left
@@ -144,6 +165,9 @@
 		background-color: #E6E6E6
 		padding: 10px 0
 
+		+mobile-large
+			display: none
+
 		ul
 			list-style: none
 			margin: 0
@@ -197,6 +221,9 @@
 			+desktop-small
 				padding: 25px 40px
 
+			+tablet
+				padding: 15px 30px
+
 		.share
 			float: right
 			color: $marine
@@ -207,6 +234,11 @@
 
 				&.dots
 					margin-left: 15px
+
+			+mobile-large
+				float: none
+				margin-bottom: 15px
+				display: none
 
 		a.link
 			color: $marine
@@ -225,6 +257,9 @@
 
 				@extend .icon
 				@extend .icon.arrow-blue-right-big
+
+			+tablet-small
+				display: block
 
 	.specifications
 		background-color: #EEEEEE
@@ -252,6 +287,11 @@
 				font-size: 24px
 				line-height: 36px
 				margin-bottom: 20px
+
+			+mobile
+				font-size: 20px
+				line-height: 32px
+				margin-bottom: 15px
 
 		.right
 			float: right
@@ -297,6 +337,10 @@
 				font-size: 16px
 				line-height: 30px
 
+			+mobile
+				font-size: 14px
+				line-height: 28px
+
 			dt
 				float: left
 				width: 200px
@@ -304,6 +348,17 @@
 
 				margin: 0
 				padding: 0
+
+				+tablet
+					width: 30%
+
+				+tablet-small
+					width: 45%
+
+				+mobile
+					width: auto
+					float: none
+					margin-top: 20px
 
 			dd
 				float: left
@@ -317,6 +372,16 @@
 
 				+desktop-small
 					width: 380px
+
+				+tablet
+					width: 65%
+
+				+tablet-small
+					width: 55%
+
+				+mobile
+					width: auto
+					float: none
 
 		.description
 			clear: both
@@ -340,6 +405,10 @@
 		line-height: 42px
 		font-weight: 300
 		color: #38393B
+
+		+mobile
+			font-size: 14px
+			line-height: 30px
 
 		.wrapper
 			padding: 90px 65px 40px 65px
@@ -370,6 +439,11 @@
 				line-height: 36px
 				margin-bottom: 20px
 
+			+mobile
+				font-size: 20px
+				line-height: 32px
+				margin-bottom: 15px
+
 		ul
 			list-style: none
 			margin: 0
@@ -393,6 +467,20 @@
 
 					@extend .icon
 					@extend .icon.list-check
+
+				+tablet-small
+					float: none
+					width: auto
+					white-space: normal
+
+				+mobile
+					position: relative
+					padding-left: 35px
+
+					&::before
+						position: absolute
+						left: 0
+						top: 4px
 
 		.footer
 			text-align: right

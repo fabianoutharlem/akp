@@ -28,3 +28,13 @@ section.other-cars
 
 	ul.cars
 		margin: 0
+
+		+tablet-small
+			li
+				&:last-child
+					display: none
+
+		+mobile-large
+			li
+				&:last-child
+					display: block
