@@ -72,6 +72,9 @@ gem 'fastclick-rails', '~> 1.0.1'
 # list
 gem 'acts_as_list'
 
+# sitemap maker
+gem 'sitemap_generator'
+
 group :development do
   gem 'spring'
   gem 'faker'
