@@ -24,6 +24,7 @@
             this.initSearchFormAction(element);
             this.initSearchSubmenu(element);
             this.initWizardFormValidation(element);
+            this.initSectionScroll(element);
             this.initScrollTo(element);
         },
 
@@ -282,6 +283,26 @@
                 $p
                     .removeClass('ok error')
                     .addClass(ok ? 'ok' : 'error')
+            });
+        },
+
+        /**
+         * Init the click on the arrow in the section
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initSectionScroll: function (element) {
+
+            //scroll to element
+            $('section .footer > .icon', element).on('click', function (e) {
+                e.preventDefault();
+
+                var $this = $(e.currentTarget),
+                    $section = $this.closest('body > *');
+
+                helpers.scrollTo($section.next());
             });
         },
 
