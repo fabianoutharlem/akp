@@ -93,13 +93,17 @@
         <h5>Selecteer op prijs</h5>
 
         <div class="slider-range" data-min="0" data-max="100000" data-default="<%= @total_range ? @total_range : '5000-95000' %>"></div>
+
+        <input class="slider-value" type="hidden" name="price_range" value="" />
       </div>
       <!-- .slider-container -->
 
       <div class="slider-container right">
         <h5>Selecteer op prijs per maand v.a.</h5>
 
-        <div class="slider-range" data-min="0" data-max="1000" data-default="<%= @month_range ? @month_range : '250-750' %>"></div>
+        <div class="slider-range" data-min="0" data-max="1000" data-default="<%= @month_range ? @month_range : '250-750' %>" data-sufix="p.m."></div>
+
+        <input class="slider-value" type="hidden" name="monthly_price_range" value="" />
       </div>
       <!-- .slider-container -->
 
