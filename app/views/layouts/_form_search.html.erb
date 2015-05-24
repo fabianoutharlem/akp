@@ -44,7 +44,7 @@
       </p> <!-- .select -->
 
       <p class="select">
-        <input type="text" name="q[year]" placeholder="Vanaf bouwjaar"/>
+        <input type="text" min="1950" max="<%= Date.today.year %>" name="q[year]" class="bouwjaar" placeholder="Vanaf bouwjaar"/>
       </p> <!-- .select -->
 
       <p class="select">
@@ -119,10 +119,10 @@
 
     <div class="left">
       <div class="input-wrapper">
-        <input type="text" value="" class="text" name="q[query]" placeholder="Zoek op; merk, model, type"/>
+        <input type="text" value="" class="text" name="q[query]" placeholder="<%= StaticText.search_input_placeholder %>"/>
       </div>
       <!-- .input-wrapper -->
-      <small>Type hierboven: Merk, Model, Type</small>
+      <small><%= StaticText.search_input_sub_text %></small>
     </div>
     <!-- .left -->
 

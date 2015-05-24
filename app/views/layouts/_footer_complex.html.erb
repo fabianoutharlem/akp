@@ -12,12 +12,12 @@
       </a>
 
       <ul>
-        <li><a href="">Algemene voorwaarden</a></li>
-        <li><a href="">Disclaimer</a></li>
+        <li><a href="<%= page_path('algemene-voorwaarden') %>">Algemene voorwaarden</a></li>
+        <li><a href="<%= page_path('disclaimer') %>">Disclaimer</a></li>
       </ul>
 
       <div class="social-media">
-        <h2>Share on social media</h2>
+        <h2>Share op social media</h2>
 
         <p>
           <a href="<%= StaticText.facebook_url %>" target="_blank"><i class="icon facebook"></i></a>
@@ -35,26 +35,26 @@
       <h2>Contact</h2>
 
       <address>
-        Auto Krediet Plan<br/>
-        Munterslaan 2<br/>
-        2014 KW Haarlem
+        <%= StaticText.address_name %><br/>
+        <%= StaticText.address_street %><br/>
+        <%= StaticText.address_zip_plus_city %>
       </address>
       <p>
-        <a href="" class="plan" target="_blank">Plan route</a>
+        <a href="<%= StaticText.plan_route_url %>" class="plan" target="_blank">Plan route</a>
       </p>
 
       <p>&nbsp;</p>
 
       <p>
-        T. <a href="tel:0031237920003">023 792 00 03</a>
+        T. <a href="tel:<%= StaticText.phone %>"><%= StaticText.phone %></a>
       </p>
 
       <p>
-        E. <a href="mailto:info@autokredietplan.nl" target="_blank">info@autokredietplan.nl</a>
+        E. <a href="mailto:<%= StaticText.ash_email %>" target="_blank"><%= StaticText.ash_email %></a>
       </p>
 
       <p>
-        F. <a href="www.facebook.com/autokrietplan" target="_blank">www.facebook.com/autokrietplan</a>
+        F. <a href="<%= StaticText.facebook_url %>" target="_blank"><%= StaticText.facebook_url %></a>
       </p>
     </div>
     <!-- .col-2 -->
@@ -63,14 +63,14 @@
       <h2>Openingstijden</h2>
 
       <dl>
-        <dt>Maandag t/m vrijdag</dt>
-        <dd>Van 9.00 tot 18.00</dd>
+        <dt><%= StaticText.opening_hours_head_1 %></dt>
+        <dd><%= StaticText.opening_hours_1 %></dd>
 
-        <dt>Zaterdag</dt>
-        <dd>Van 9.00 tot 17.00</dd>
+        <dt><%= StaticText.opening_hours_head_2 %></dt>
+        <dd><%= StaticText.opening_hours_2 %></dd>
 
-        <dt>Zondag</dt>
-        <dd>Open van 12:00 tot 16.00</dd>
+        <dt><%= StaticText.opening_hours_head_3 %></dt>
+        <dd><%= StaticText.opening_hours_3 %></dd>
       </dl>
     </div>
     <!-- .col-3 -->

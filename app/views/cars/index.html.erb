@@ -30,10 +30,7 @@
 
       <div class="submenu">
         <ul>
-          <li><a href=""><%= StaticText.sort_by_price_desc %></a></li>
-          <li><a href=""><%= StaticText.sort_by_price_asc %></a></li>
-          <li><a href=""><%= StaticText.sort_by_name_desc %></a></li>
-          <li><a href=""><%= StaticText.sort_by_name_asc %></a></li>
+          <%= render 'filters' %>
         </ul>
       </div>
     </div> <!-- .title -->

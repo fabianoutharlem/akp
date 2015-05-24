@@ -9,12 +9,7 @@
   </h2>
 
   <div class="submenu">
-    <ul>
-      <li><a data-field="price" data-order="asc" href="">By price asc</a></li>
-      <li><a data-field="price" data-order="desc" href="">By price desc</a></li>
-      <li><a data-field="name" data-order="asc" href="">By name asc</a></li>
-      <li><a data-field="name" data-order="desc" href="">By name desc</a></li>
-    </ul>
+    <%= render 'cars/filters' %>
   </div>
 </div> <!-- .title -->
 <% unless @cars.any? %>

@@ -132,7 +132,7 @@ class Car < ActiveRecord::Base
                         :range => {
                             :"car.manufacture_year" => {
                                 :gte => params[:year].to_i,
-                                :lte => "9999"
+                                :lte => "2300"
                             }
                         }
                     }

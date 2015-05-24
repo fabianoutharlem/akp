@@ -26,6 +26,36 @@
             this.initWizardFormValidation(element);
             this.initSectionScroll(element);
             this.initScrollTo(element);
+
+            //click on filter
+            $('.submenu a').on('click', function (e) {
+                e.preventDefault();
+
+                var $this = $(e.currentTarget),
+                    $cars = $('ul.cars li'),
+                    field = $this.data('field'),
+                    order = $this.data('order');
+
+                $cars.detach().sort(function (a, b) {
+                    var $a = $(order == 'asc' ? a : b),
+                        $b = $(order == 'asc' ? b : a);
+
+                    if ($a.data(field) < $b.data(field)) {
+                        return -1;
+                    }
+
+                    if ($a.data(field) > $b.data(field)) {
+                        return 1;
+                    }
+
+                    return 0;
+
+                });
+
+                $this.closest('.submenu').removeClass('visible');
+                $('ul.cars').append($cars);
+
+            }.bind(this));
         },
 
         /**
@@ -743,37 +773,6 @@
                             this.fourthStep();
                         }.bind(this)
                     });
-                }.bind(this));
-
-                //click on filter
-                $('.wizard .wizard-cars .search-results .title .submenu a').on('click', function (e) {
-                    e.preventDefault();
-
-                    var $this = $(e.currentTarget),
-                        $wizard = $this.closest('.wizard-cars'),
-                        $cars = $wizard.find('ul.cars li'),
-                        field = $this.data('field'),
-                        order = $this.data('order');
-
-                    $cars.detach().sort(function (a, b) {
-                        var $a = $(order == 'asc' ? a : b),
-                            $b = $(order == 'asc' ? b : a);
-
-                        if ($a.data(field) < $b.data(field)) {
-                            return -1;
-                        }
-
-                        if ($a.data(field) > $b.data(field)) {
-                            return 1;
-                        }
-
-                        return 0;
-
-                    });
-
-                    $this.closest('.submenu').removeClass('visible');
-                    $wizard.find('ul.cars').append($cars);
-
                 }.bind(this));
             },
 

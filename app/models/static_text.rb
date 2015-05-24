@@ -21,7 +21,7 @@ class StaticText < ActiveRecord::Base
       else
         self.create(key: method, value: method)
         @__cache.write(method, nil)
-        return nil
+        return method
       end
     else
       return @__cache.read(method)

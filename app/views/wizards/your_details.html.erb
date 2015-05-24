@@ -3,7 +3,7 @@
 
     <%= render 'wizards/steps', step: 3 %>
 
-    <h2>Vul de onderstaande gegevens in en wij zullen zsm reageren!</h2>
+    <h2><%= StaticText.wizard_fill_the_details %></h2>
 
     <div class="form-container">
 
@@ -73,7 +73,7 @@
             Uw nieuwe auto, zo dichtbij!
           </p>
           <p class="submit right last">
-            <button class="btn btn-small">Aanvraag versturen</button>
+            <button class="btn btn-small"><%= StaticText.wizard_submit_form %></button>
           </p>
         </form>
       </div> <!-- .right -->
