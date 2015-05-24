@@ -32,6 +32,8 @@
 //= require pages-plugins/jquery-nestable/jquery.nestable
 //= require pages-plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.all.min
 //= require pages-plugins/dropzone/dropzone.min
+//= require pages-plugins/classie/classie
+//= require pages-plugins/switchery/js/switchery.min
 
 //= require cocoon
 

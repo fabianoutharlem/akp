@@ -29,6 +29,7 @@ class CarsController < ApplicationController
     else
       render :index
     end
+    add_breadcrumb 'Search'
   end
 
   def nieuw_binnen
@@ -41,6 +42,7 @@ class CarsController < ApplicationController
     if params[:type].present? and ['private', '50_50', 'bussiness'].include?(params[:type])
       @type = params[:type]
     end
+    add_breadcrumb 'Financieren'
   end
 
 end

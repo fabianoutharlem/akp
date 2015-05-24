@@ -12,22 +12,17 @@
         <ul>
           <li><a href="<%= root_path %>"><%= StaticText.home_menu_link %></a></li>
           <li><a href="<%= cars_path %>"><%= StaticText.stock_menu_link %></a></li>
-          <li><a href="">Wie zijn wij?</a></li>
-          <li><a href="">Contact</a></li>
-          <li class="last"><a href="">Zoeken</a></li>
+          <li><a href="<%= page_path('contact') %>">Contact</a></li>
+
+          <% MenuItem.all.each do |menu_item| %>
+              <li class="<%= menu_item.last ? 'last' : '' %>"><a href="<%= menu_item.path %>"><%= menu_item.label %></a>
+              </li>
+          <% end %>
 
 
-          <li><a href="">Financiering</a></li>
-          <li><a href="">50/50 deals</a></li>
-          <li><a href="">Auto lease - de mogelijkheden</a></li>
-          <li><a href="">Auto op afbetaling</a></li>
-          <li><a href="">Full Operationeel Lease</a></li>
-          <li><a href="">Leasen gebruikte autos</a></li>
-          <li class="last"><a href="">Voordelen van Financial Lease</a></li>
-
-          <li><a href="">Sitemap</a></li>
-          <li><a href="">Algemene voorwaarden</a></li>
-          <li><a href="">Disclaimer</a></li>
+          <li><a href="<%= page_path('sitemap') %>">Sitemap</a></li>
+          <li><a href="<%= page_path('algemene-voorwaarden') %>">Algemene voorwaarden</a></li>
+          <li><a href="<%= page_path('disclaimer') %>">Disclaimer</a></li>
         </ul>
       </nav>
 

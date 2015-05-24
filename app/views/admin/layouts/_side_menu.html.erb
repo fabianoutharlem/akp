@@ -46,11 +46,24 @@
       </li>
     </ul>
   </li>
+
+
   <li class="">
-    <a href="<%=  %>">
+    <a href="javascript:;">
       <span class="title">Menu builder</span>
+      <span class=" arrow"></span>
     </a>
     <span class="icon-thumbnail "><i class="pg-menu_lv"></i></span>
+    <ul class="sub-menu">
+      <li class="">
+        <a href="<%= admin_menu_items_path %>">All Menu Items</a>
+        <span class="icon-thumbnail">A</span>
+      </li>
+      <li class="">
+        <a href="<%= new_admin_menu_item_path %>">New menu item</a>
+        <span class="icon-thumbnail">N</span>
+      </li>
+    </ul>
   </li>
   <li class="">
     <a href="<%= admin_brands_path %>">
