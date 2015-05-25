@@ -19,6 +19,7 @@
             this.initTextbox(element);
             this.initTabs(element);
             this.initCarSliders(element);
+            this.initCarListing(element);
             this.initSearchTypes(element);
             this.initSearchMoreLess(element);
             this.initSearchFormAction(element);
@@ -151,6 +152,17 @@
                     autoSlide: false
                 });
             });
+        },
+
+        /**
+         * Init the car listing in the element
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initCarListing: function (element) {
+            app.carListing.sameHeight(element);
         },
 
         /**
@@ -443,19 +455,9 @@
          * @return void
          */
         resize: function () {
-            //get the window width
-            var width = $(window).width();
 
-            if (width > 768) {
-                //3 per row
-                this.carListing.sameHeight(3);
-            } else if (width > 640) {
-                //2 per row
-                this.carListing.sameHeight(2);
-            } else {
-                //1 per row
-                this.carListing.sameHeight(1);
-            }
+            //set the car as the same height
+            this.carListing.sameHeight(document.body);
         },
 
         carListing: {
@@ -463,14 +465,16 @@
             /**
              * Set the cars as the same height (per row)
              *
-             * @param Number perRow
+             * @param DOMElement element
              *
              * @return void
              */
-            sameHeight: function (perRow) {
-                var filter = (perRow > 1 ? ':nth-child(' + perRow + 'n+1)' : '');
+            sameHeight: function (element) {
+                var windowWidth = $(window).width(),
+                    perRow = (windowWidth > 768 ? 3 : (windowWidth > 640 ? 2 : 1));
+                    filter = (perRow > 1 ? ':nth-child(' + perRow + 'n+1)' : '');
 
-                $('ul.cars li' + filter).each(function (index, element) {
+                $('ul.cars li' + filter, element).each(function (index, element) {
                     var $this = $(element),
                         $elements = $this,
                         maxHeight = 0;
