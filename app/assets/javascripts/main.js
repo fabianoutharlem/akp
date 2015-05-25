@@ -476,15 +476,15 @@
 
                 $('ul.cars li' + filter, element).each(function (index, element) {
                     var $this = $(element),
-                        $elements = $this,
+                        $elements = $this.find('h1'),
                         maxHeight = 0;
 
                     //first we set the elements array;
                     switch (perRow) {
                         case 3:
-                            $elements = $elements.add($this.next().next());
+                            $elements = $elements.add($this.next().next().find('h1'));
                         case 2:
-                            $elements = $elements.add($this.next());
+                            $elements = $elements.add($this.next().find('h1'));
                             break;
                     }
 
