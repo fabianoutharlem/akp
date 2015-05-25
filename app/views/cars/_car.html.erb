@@ -32,10 +32,12 @@
           </div>
           <div class="tab tab-2 visible">
             <h3 class="price">&euro; <%= car.price_total %>,-</h3>
+            <small>&nbsp;</small>
           </div>
           <% if car.price_50_50.present? %>
             <div class="tab tab-3">
               <h3 class="price">&euro; <%= car.price_50_50 %>,-</h3>
+              <small>&nbsp;</small>
             </div>
           <% end %>
         </div>
