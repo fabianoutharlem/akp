@@ -15,10 +15,7 @@
 			padding: 0
 
 			+desktop-small
-				width: 50%image-list
-
-			+tablet-small
-				width: 40%
+				width: 50%
 
 			+mobile-large
 				float: none
@@ -55,9 +52,6 @@
 
 			+tablet
 				padding: 30px
-
-			+tablet-small
-				width: 60%
 
 			+mobile-large
 				float: none
@@ -157,6 +151,10 @@
 					margin-top: 7px
 
 					+box-sizing(border-box)
+
+					white-space: nowrap
+					text-overflow: ellipsis
+					overflow: hidden
 
 					&:first-child
 						margin-top: 0
@@ -355,11 +353,6 @@
 				+tablet-small
 					width: 45%
 
-				+mobile
-					width: auto
-					float: none
-					margin-top: 20px
-
 			dd
 				float: left
 				width: 630px
@@ -378,10 +371,6 @@
 
 				+tablet-small
 					width: 55%
-
-				+mobile
-					width: auto
-					float: none
 
 		.description
 			clear: both

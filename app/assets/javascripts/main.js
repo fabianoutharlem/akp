@@ -26,36 +26,6 @@
             this.initWizardFormValidation(element);
             this.initSectionScroll(element);
             this.initScrollTo(element);
-
-            //click on filter
-            $('.submenu a').on('click', function (e) {
-                e.preventDefault();
-
-                var $this = $(e.currentTarget),
-                    $cars = $('ul.cars li'),
-                    field = $this.data('field'),
-                    order = $this.data('order');
-
-                $cars.detach().sort(function (a, b) {
-                    var $a = $(order == 'asc' ? a : b),
-                        $b = $(order == 'asc' ? b : a);
-
-                    if ($a.data(field) < $b.data(field)) {
-                        return -1;
-                    }
-
-                    if ($a.data(field) > $b.data(field)) {
-                        return 1;
-                    }
-
-                    return 0;
-
-                });
-
-                $this.closest('.submenu').removeClass('visible');
-                $('ul.cars').append($cars);
-
-            }.bind(this));
         },
 
         /**
@@ -452,6 +422,87 @@
 
             //faq page
             this.faq.ready();
+
+            //resize
+            this.resize();
+        },
+
+        /**
+         * Called when everything is loaded
+         *
+         * @return void
+         */
+        load: function () {
+
+            this.resize();
+        },
+
+        /**
+         * Called on startup, resize and load
+         *
+         * @return void
+         */
+        resize: function () {
+            //get the window width
+            var width = $(window).width();
+
+            if (width > 768) {
+                //3 per row
+                this.carListing.sameHeight(3);
+            } else if (width > 640) {
+                //2 per row
+                this.carListing.sameHeight(2);
+            } else {
+                //1 per row
+                this.carListing.sameHeight(1);
+            }
+        },
+
+        carListing: {
+
+            /**
+             * Set the cars as the same height (per row)
+             *
+             * @param Number perRow
+             *
+             * @return void
+             */
+            sameHeight: function (perRow) {
+                var filter = (perRow > 1 ? ':nth-child(' + perRow + 'n+1)' : '');
+
+                $('ul.cars li' + filter).each(function (index, element) {
+                    var $this = $(element),
+                        $elements = $this,
+                        maxHeight = 0;
+
+                    //first we set the elements array;
+                    switch (perRow) {
+                        case 3:
+                            $elements = $elements.add($this.next().next());
+                        case 2:
+                            $elements = $elements.add($this.next());
+                            break;
+                    }
+
+                    //first we set the height auto to the row
+                    $elements.css('height', 'auto');
+
+                    //if there is only one per row then return
+                    if (perRow == 1) return;
+
+                    //get the max height
+                    $elements.each(function (index, element) {
+                        var $this = $(element);
+
+                        if ($this.height() > maxHeight) {
+                            maxHeight = $this.height();
+                        }
+                    });
+
+                    //set the max height
+                    $elements.height(maxHeight);
+                });
+            }
         },
 
         header: {
@@ -774,6 +825,37 @@
                         }.bind(this)
                     });
                 }.bind(this));
+
+                //click on filter
+                $('.wizard .wizard-cars .search-results .title .submenu a').on('click', function (e) {
+                    e.preventDefault();
+
+                    var $this = $(e.currentTarget),
+                        $wizard = $this.closest('.wizard-cars'),
+                        $cars = $wizard.find('ul.cars li'),
+                        field = $this.data('field'),
+                        order = $this.data('order');
+
+                    $cars.detach().sort(function (a, b) {
+                        var $a = $(order == 'asc' ? a : b),
+                            $b = $(order == 'asc' ? b : a);
+
+                        if ($a.data(field) < $b.data(field)) {
+                            return -1;
+                        }
+
+                        if ($a.data(field) > $b.data(field)) {
+                            return 1;
+                        }
+
+                        return 0;
+
+                    });
+
+                    $this.closest('.submenu').removeClass('visible');
+                    $wizard.find('ul.cars').append($cars);
+
+                }.bind(this));
             },
 
             /**
@@ -820,6 +902,8 @@
 
     };
 
-    $(app.ready.bind(app));
+    $(document).on('ready', app.ready.bind(app));
+    $(window).on('resize', app.resize.bind(app));
+    $(window).on('load', app.load.bind(app));
 
 }(jQuery, FastClick));
