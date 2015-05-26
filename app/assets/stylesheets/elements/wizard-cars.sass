@@ -70,12 +70,21 @@
 
 			.icon
 				margin-left: 15px
+				+transition(transform 0.25s ease-in-out)
+
+			&.open
+				.icon
+					+transform(rotate(-180deg))
 
 		.submenu
+			max-height: 0
+			opacity: 0
+			overflow: hidden
+			+transition(all 0.25s ease-in-out)
+
 			position: absolute
 			right: 0
 			top: 45px
-			display: none
 			z-index: 1
 
 			width: 200px
@@ -87,7 +96,8 @@
 			line-height: 28px
 
 			&.visible
-				display: block
+				max-height: 180px
+				opacity: 1
 
 			ul
 				list-style: none

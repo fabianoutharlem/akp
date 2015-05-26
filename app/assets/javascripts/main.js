@@ -19,6 +19,7 @@
             this.initTextbox(element);
             this.initTabs(element);
             this.initCarSliders(element);
+            this.initCarListing(element);
             this.initSearchTypes(element);
             this.initSearchMoreLess(element);
             this.initSearchFormAction(element);
@@ -26,36 +27,6 @@
             this.initWizardFormValidation(element);
             this.initSectionScroll(element);
             this.initScrollTo(element);
-
-            //click on filter
-            $('.submenu a').on('click', function (e) {
-                e.preventDefault();
-
-                var $this = $(e.currentTarget),
-                    $cars = $('ul.cars li'),
-                    field = $this.data('field'),
-                    order = $this.data('order');
-
-                $cars.detach().sort(function (a, b) {
-                    var $a = $(order == 'asc' ? a : b),
-                        $b = $(order == 'asc' ? b : a);
-
-                    if ($a.data(field) < $b.data(field)) {
-                        return -1;
-                    }
-
-                    if ($a.data(field) > $b.data(field)) {
-                        return 1;
-                    }
-
-                    return 0;
-
-                });
-
-                $this.closest('.submenu').removeClass('visible');
-                $('ul.cars').append($cars);
-
-            }.bind(this));
         },
 
         /**
@@ -181,6 +152,17 @@
                     autoSlide: false
                 });
             });
+        },
+
+        /**
+         * Init the car listing in the element
+         *
+         * @param DOMElement element
+         *
+         * @return void
+         */
+        initCarListing: function (element) {
+            app.carListing.sameHeight(element);
         },
 
         /**
@@ -452,6 +434,79 @@
 
             //faq page
             this.faq.ready();
+
+            //resize
+            this.resize();
+        },
+
+        /**
+         * Called when everything is loaded
+         *
+         * @return void
+         */
+        load: function () {
+
+            this.resize();
+        },
+
+        /**
+         * Called on startup, resize and load
+         *
+         * @return void
+         */
+        resize: function () {
+
+            //set the car as the same height
+            this.carListing.sameHeight(document.body);
+        },
+
+        carListing: {
+
+            /**
+             * Set the cars as the same height (per row)
+             *
+             * @param DOMElement element
+             *
+             * @return void
+             */
+            sameHeight: function (element) {
+                var windowWidth = $(window).width(),
+                    perRow = (windowWidth > 768 ? 3 : (windowWidth > 640 ? 2 : 1));
+                    filter = (perRow > 1 ? ':nth-child(' + perRow + 'n+1)' : '');
+
+                $('ul.cars li' + filter, element).each(function (index, element) {
+                    var $this = $(element),
+                        $elements = $this.find('h1'),
+                        maxHeight = 0;
+
+                    //first we set the elements array;
+                    switch (perRow) {
+                        case 3:
+                            $elements = $elements.add($this.next().next().find('h1'));
+                        case 2:
+                            $elements = $elements.add($this.next().find('h1'));
+                            break;
+                    }
+
+                    //first we set the height auto to the row
+                    $elements.css('height', 'auto');
+
+                    //if there is only one per row then return
+                    if (perRow == 1) return;
+
+                    //get the max height
+                    $elements.each(function (index, element) {
+                        var $this = $(element);
+
+                        if ($this.height() > maxHeight) {
+                            maxHeight = $this.height();
+                        }
+                    });
+
+                    //set the max height
+                    $elements.height(maxHeight);
+                });
+            }
         },
 
         header: {
@@ -774,6 +829,37 @@
                         }.bind(this)
                     });
                 }.bind(this));
+
+                //click on filter
+                $('.wizard .wizard-cars .search-results .title .submenu a').on('click', function (e) {
+                    e.preventDefault();
+
+                    var $this = $(e.currentTarget),
+                        $wizard = $this.closest('.wizard-cars'),
+                        $cars = $wizard.find('ul.cars li'),
+                        field = $this.data('field'),
+                        order = $this.data('order');
+
+                    $cars.detach().sort(function (a, b) {
+                        var $a = $(order == 'asc' ? a : b),
+                            $b = $(order == 'asc' ? b : a);
+
+                        if ($a.data(field) < $b.data(field)) {
+                            return -1;
+                        }
+
+                        if ($a.data(field) > $b.data(field)) {
+                            return 1;
+                        }
+
+                        return 0;
+
+                    });
+
+                    $this.closest('.submenu').removeClass('visible');
+                    $wizard.find('ul.cars').append($cars);
+
+                }.bind(this));
             },
 
             /**
@@ -820,6 +906,8 @@
 
     };
 
-    $(app.ready.bind(app));
+    $(document).on('ready', app.ready.bind(app));
+    $(window).on('resize', app.resize.bind(app));
+    $(window).on('load', app.load.bind(app));
 
 }(jQuery, FastClick));
