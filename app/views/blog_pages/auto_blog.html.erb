@@ -1,0 +1,183 @@
+<%= render partial: 'layouts/breadcrumb' %>
+
+<section class="blog-header">
+  <div class="wrapper">
+    <h1>Auto blog</h1>
+
+    <div class="description">
+      <p>Wij houden onze klanten graag op de hoogte van laatste autonieuws Ruimte voor 3 a 4 regels tekst.<br/>
+        Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla. <br/>
+        Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+    </div> <!-- .description -->
+  </div> <!-- .wrapper -->
+</section> <!-- .blog-header -->
+
+
+<section class="blog-listing">
+  <div class="wrapper">
+    <ul>
+      <li>
+        <article class="left-side-text">
+          <div class="text">
+            <h1>De nieuwe Hyundai Santa FE</h1>
+
+            <div class="description">
+              <p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis leo.</p>
+            </div> <!-- .description -->
+
+            <div class="read-more">
+              <a class="btn btn-smaller transparent" href="<%= blog_page_path('full_operational_lease') %>">
+                Lees verder
+              </a>
+            </div> <!-- .read-more -->
+          </div> <!-- .text -->
+
+          <figure>
+            <iframe width="600" height="360" src="https://www.youtube.com/embed/h4EJZzsBqzs" frameborder="0" allowfullscreen="true"></iframe>
+          </figure>
+        </article>
+      </li>
+
+      <li>
+        <article class="right-side-text">
+          <figure>
+            <%= image_tag 'info-images/vw-concept.jpg' %>
+          </figure>
+
+          <div class="text">
+            <h1>Voordelen huurkoop service</h1>
+            <div class="description">
+              <ul class="checks">
+                <li>Direct auto rijden!</li>
+                <li>Nooit afwijzing!</li>
+                <li>Geen BKR toetsing!</li>
+                <li>Geen grote investeringen!</li>
+                <li>Duidelijke betalingsafspraken!</li>
+                <li>Nu rijden, later betalen!</li>
+                <li>Altijd keuze uit meer dan 50 occasions!</li>
+              </ul>
+            </div> <!-- .description -->
+          </div> <!-- .text -->
+        </article>
+      </li>
+
+      <li>
+        <article class="right-side-text">
+          <figure>
+            <%= image_tag 'info-images/opel-eyetracking.jpg' %>
+          </figure>
+
+          <div class="text marine">
+            <h1>Opel werkt aan eyetracking lampen</h1>
+            <div class="description">
+              <p>Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis leo.</p>
+            </div> <!-- .description -->
+
+            <div class="read-more">
+              <a class="btn btn-smaller transparent" href="<%= blog_page_path('opel_eyetracking') %>">
+                Lees verder
+              </a>
+            </div> <!-- .read-more -->
+          </div> <!-- .text -->
+        </article>
+      </li>
+
+      <li>
+        <article class="split-in-three">
+
+          <div class="text two-thirds orange on-left">
+            <h1>Particulier</h1>
+            <div class="description">
+              <p>Ook als particulier is het mogelijk een occasion te leasen en zo de betaling ervan te spreiden. U kunt direct genieten van uw aankoop! Bij het leasen van een auto als particulier is inruil mogelijk. Wij kunnen u een financiering aanbieden met een slottermijn die in overeenstemming is met de restwaarde van uw auto, waardoor de maandelijkse leasetermijn nog lager uitvalt.</p>
+            </div> <!-- .description -->
+
+            <div class="read-more">
+              <a class="btn btn-smaller white" href="<%= blog_page_path('auto_op_afbetaling') %>">
+                Lees verder
+              </a>
+            </div> <!-- .read-more -->
+          </div> <!-- .text two-thirds -->
+
+          <div class="text one-third mini-ad on-right">
+            <h2>Particuliere financiering</h2>
+
+            <div class="description">
+              <p>U bepaald hoeveel u betaald!</p>
+            </div> <!-- .description -->
+
+            <div class="read-more">
+              <a class="btn btn-small">
+                Direct berekenen
+              </a>
+            </div> <!-- .read-more -->
+          </div> <!-- .text one-third -->
+
+        </article> <!-- .split-in-three -->
+      </li>
+
+      <li>
+        <article class="split-in-three on-left">
+
+          <div class="text one-third">
+            <h1>Financial lease voor bedrijven</h1>
+            <div class="description">
+              <p>In samenwerking met onze partner DFT bieden wij u zakelijke kredietverlening op maat: DFT Financial Services. In deze vorm hoeft u niet uw eigen vermogen vast te leggen in de auto(ís). Bovendien worden eventuele kredietfaciliteiten bij de bank niet aangetast. Met deze financiering kunt u een occasion leasen op een manier die past bij uw wensen en behoeften.</p>
+            </div> <!-- .description -->
+
+            <div class="read-more">
+              <a class="btn btn-smaller transparent" href="<%= blog_page_path('voordelen_financial_lease') %>">
+                Lees verder
+              </a>
+            </div> <!-- .read-more -->
+          </div> <!-- .text one-third -->
+
+          <figure class="two-thirds on-right">
+            <%= image_tag 'info-images/newyear-zandvoort.jpg' %>
+          </figure> <!-- .two-thirds -->
+
+        </article> <!-- .split-in-three -->
+      </li>
+
+      <li>
+
+        <article class="split-in-three">
+
+          <figure class="one-third on-left">
+            <%= image_tag 'info-images/service.jpg' %>
+          </figure> <!-- .one-third -->
+
+          <div class="text one-third marine small on-left">
+            <h1>Hoe huurkoop service werkt</h1>
+            <div class="description">
+              <ul>
+                <li>U zoekt bij ons een occasion uit.</li>
+                <li>U betaalt 50% aan.</li>
+                <li>Het resterende bedrag kunt u maandelijks aflossen.</li>
+                <li>Aflossen is mogelijk in 3, 6, 14 of 24 maanden.</li>
+                <li>Minimaal aflossing per maand is 100,-</li>
+                <li>Nadat u alle termijnen heeft betaald,  wordt u de eigenaar.</li>
+              </ul>
+            </div> <!-- .description -->
+          </div> <!-- .text one-third -->
+
+          <div class="text one-third mini-ad on-right">
+            <h2>Zakelijke financiering</h2>
+
+            <div class="description">
+              <p>Financial lease</p>
+            </div> <!-- .description -->
+
+            <div class="read-more">
+              <a class="btn btn-small">
+                Direct berekenen
+              </a>
+            </div> <!-- .read-more -->
+          </div> <!-- .text one-third -->
+
+        </article> <!-- .split-in-three -->
+
+      </li>
+
+    </ul>
+  </div> <!-- .wrapper -->
+</section> <!-- .blog-listing -->

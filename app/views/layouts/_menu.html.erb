@@ -13,6 +13,9 @@
           <li><a href="<%= root_path %>"><%= StaticText.home_menu_link %></a></li>
           <li><a href="<%= cars_path %>"><%= StaticText.stock_menu_link %></a></li>
           <li><a href="<%= page_path('contact') %>">Contact</a></li>
+          <li><a href="<%= blog_page_path('auto_blog') %>">Auto blog</a></li>
+          <li><a href="<%= blog_page_path('our_workspace') %>">Onze werkplaats</a></li>
+          <li><a href="<%= blog_page_path('auto_lease_mogelijkheden') %>">Auto lease mogelijkheden</a></li>
 
           <% MenuItem.all.each do |menu_item| %>
               <li class="<%= menu_item.last ? 'last' : '' %>"><a href="<%= menu_item.path %>"><%= menu_item.label %></a>

@@ -42,7 +42,20 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :blog_pages, only: [:show]
+  resources :blog_pages do
+    collection do
+      get :auto_blog
+      get :auto_lease_mogelijkheden
+      get :auto_op_afbetaling
+      get :full_operational_lease
+      get :lease_gebruikte_autos
+      get :opel_eyetracking
+      get :our_workspace
+      get :voordelen_financial_lease
+    end
+  end
+
+  resources :blog_pages, as: :blog, only: [:show]
 
   namespace :admin do
     resource :admin do
