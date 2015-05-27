@@ -514,6 +514,24 @@
         },
 
         /**
+         * Called when the user scrolls
+         *
+         * @return void
+         */
+        scroll: function () {
+
+            var $body = $('body'),
+                $html = $('html'),
+                scrollTop = $body.scrollTop() || $html.scrollTop();
+
+            if (scrollTop > 300) {
+                $body.find('.go-to-top').fadeIn();
+            } else {
+                $body.find('.go-to-top').fadeOut();
+            }
+        },
+
+        /**
          * Called on startup, resize and load
          *
          * @return void
@@ -1028,5 +1046,6 @@
     $(document).on('ready', app.ready.bind(app));
     $(window).on('resize', app.resize.bind(app));
     $(window).on('load', app.load.bind(app));
+    $(window).on('scroll', app.scroll);
 
 }(jQuery, FastClick));
