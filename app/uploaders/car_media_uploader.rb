@@ -24,7 +24,7 @@ class CarMediaUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [1024, 768]
   end
 
-  version :thumb, if: :image?, from: :large do
+  version :thumb, if: :image?, from_version: :large do
     process resize_to_fill: [400, 300]
   end
 
