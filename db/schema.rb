@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524154523) do
+ActiveRecord::Schema.define(version: 20150527195544) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150524154523) do
     t.string   "file_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "avatar_processing", default: false, null: false
   end
 
   create_table "car_requests", force: true do |t|

@@ -7,8 +7,14 @@
 
       <figure>
         <ul>
-          <% @car.car_images.each do |car_image| %>
-              <li><img src="<%= car_image.file.url %>" alt=""/></li>
+          <% @car.car_medias.each do |car_media| %>
+              <li>
+                <% if car_media.file_type.include? 'image' %>
+                    <img src="<%= car_media.file.url %>" alt=""/>
+                <% else %>
+                    <video src="<%= car_media.file.url %>" controls width="100%" height="100%"></video>
+                <% end %>
+              </li>
           <% end %>
         </ul>
 
@@ -48,11 +54,11 @@
           <dt>Prijs</dt>
           <dd>&euro; <%= @car.price_total %>,-</dd>
           <% if @car.price_month.present? %>
-          <dt>Per maand
-            <small>v.a.</small>
-          </dt>
-          <dd>&euro; <%= @car.price_month %>,-</dd>
-              <% end %>
+              <dt>Per maand
+                <small>v.a.</small>
+              </dt>
+              <dd>&euro; <%= @car.price_month %>,-</dd>
+          <% end %>
         </dl>
 
         <div class="buttons">
@@ -81,11 +87,13 @@
     <div class="wrapper">
 
       <ul>
-        <% @car.car_images.each do |car_image| %>
-            <li class="<%= @car.car_images.first == car_image ? 'selected' : '' %>">
-              <a href="">
-                <img src="<%= car_image.file.thumb.url %>" alt=""/>
-              </a>
+        <% @car.car_medias.each do |car_media| %>
+            <li class="<%= @car.car_medias.first == car_media ? 'selected' : '' %>">
+              <% if car_media.file_type.include? 'image' %>
+                  <a href="">
+                    <img src="<%= car_media.file.thumb.url %>" alt=""/>
+                  </a>
+              <% end %>
             </li>
         <% end %>
       </ul>

@@ -27,9 +27,7 @@ class Car < ActiveRecord::Base
   validates :mileage, :color, :engine_size, :manufacture_year, :energy_label, :road_tax, presence: true
 
   def self.query(params)
-    puts '#########'
     puts build_query(params).to_json
-    puts '#########'
     search = Car.search(build_query(params).to_json)
     if search.results.total
       search.records.to_a
@@ -71,14 +69,16 @@ class Car < ActiveRecord::Base
     fuel = FuelType.find_or_create_by(name: params[:brandstof])
     transmission = TransmissionType.find_or_create_by(name: params[:transmissie])
 
-    options = params[:accessoires].split(',')
+    options = params[:zoekaccessoires]['accessoire']
 
-    media = params[:afbeeldingen].split(',').map do |image_url|
+    media = params[:afbeeldingen]['afbeelding'].map do |image_url|
       carmedia = CarMedia.new
       carmedia.remote_file_url = image_url
       carmedia.save!
       carmedia
     end
+
+    media << Car.download_video(params[:videos]['video'].last['url'])
 
     {
         vehicle_number: params[:voertuignr],
@@ -91,11 +91,11 @@ class Car < ActiveRecord::Base
         mileage: params[:tellerstand],
         color: params[:basiskleur],
         color_type: params[:laksoort],
-        engine_size: params[:cilinderinhoud],
+        engine_size: params[:cilinder_inhoud],
         car_type: params[:type],
         nap: params[:nap_weblabel],
         price_total: params[:verkoopprijs_particulier],
-        price_month: params[:lease_maandbedrag],
+        price_month: params[:lease]['maandbedrag'],
         price_50_50: params[:verkoopprijs_handel_bpm],
         manufacture_year: params[:bouwjaar],
         cylinders: params[:aantal_cilinders],
@@ -114,6 +114,14 @@ class Car < ActiveRecord::Base
   end
 
   private
+
+  def self.download_video(url)
+    urls = ViddlRb.get_urls(url.gsub('http://', 'https://'))
+    carmedia = CarMedia.new
+    carmedia.remote_file_url = urls.first
+    carmedia.save!
+    carmedia
+  end
 
   def self.build_query(params)
     query = {
