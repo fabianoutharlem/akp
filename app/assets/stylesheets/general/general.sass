@@ -12,11 +12,28 @@ html
 	+desktop-small
 		font-size: 16px
 
+	&.fullscreen,
+	&.noscroll
+		overflow: hidden
+		position: fixed
+		z-index: 0
+
+		body
+			overflow: hidden
+			position: fixed
+			z-index: 0
+
+	+print
+		color: #333333
+
 a
 	color: $marine
 	text-decoration: none
 	display: inline-block
 	vertical-align: middle
+
+	+print
+		color: #333333
 
 h1, h2, h3
 	font-weight: 400
@@ -33,6 +50,9 @@ h1, h2, h3
 	+desktop
 		width: auto
 
+	+print
+		width: auto
+
 .clear
 	height: 0
 	line-height: 0
@@ -45,3 +65,13 @@ h1, h2, h3
 	opacity: 0.2
 	pointer-events: none
 	cursor: default
+
+.go-to-top
+	position: fixed
+	right: 65px
+	bottom: 65px
+	display: none
+
+	+tablet
+		right: 30px
+		bottom: 30px

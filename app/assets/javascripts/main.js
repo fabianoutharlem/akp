@@ -405,6 +405,70 @@
             }
 
             return true;
+        },
+
+        fullscreen: {
+
+            /**
+             * Attach the events to the body
+             *
+             * @return void
+             */
+            attachEvents: function () {
+                $(document).on('fullscreenchange webkitfullscreenchange mozfullscreenchange MSFullscreenChange', function () {
+
+                    var $html = $('html');
+
+                    if ($html.hasClass('fullscreen')) {
+                        $html.removeClass('fullscreen');
+                    } else {
+                        $html.addClass('fullscreen');
+                    }
+                }.bind(this));
+            },
+
+            /**
+             * Open the fullscreen window
+             *
+             * @return void
+             */
+            open: function () {
+                var element = document.documentElement;
+
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.mozRequestFullScreen) {
+                    element.mozRequestFullScreen();
+                } else if (element.webkitRequestFullscreen) {
+                    element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) {
+                    element.msRequestFullscreen();
+                }
+            },
+
+            /**
+             * Return wether or not it is fullscreen
+             *
+             * @return void
+             */
+            is: function () {
+                return $('html').hasClass('fullscreen');
+            },
+
+            /**
+             * Close the fullscreen window (back to normal)
+             *
+             * @return void
+             */
+            close: function () {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+            }
         }
     };
 
@@ -447,6 +511,24 @@
         load: function () {
 
             this.resize();
+        },
+
+        /**
+         * Called when the user scrolls
+         *
+         * @return void
+         */
+        scroll: function () {
+
+            var $body = $('body'),
+                $html = $('html'),
+                scrollTop = $body.scrollTop() || $html.scrollTop();
+
+            if (scrollTop > 300) {
+                $body.find('.go-to-top').fadeIn();
+            } else {
+                $body.find('.go-to-top').fadeOut();
+            }
         },
 
         /**
@@ -527,6 +609,7 @@
 
                     setTimeout(function () {
                         $menu.addClass('visible');
+                        $('html').addClass('noscroll');
                     }, 10)
                 });
 
@@ -537,6 +620,7 @@
                     var $menu = $(e.currentTarget).closest('.menu-container');
 
                     $menu.removeClass('visible');
+                    $('html').removeClass('noscroll');
 
                     setTimeout(function () {
                         $menu.removeClass('show-first');
@@ -560,6 +644,7 @@
 
                     setTimeout(function () {
                         $search.addClass('visible');
+                        $('html').addClass('noscroll');
                     }, 10)
                 });
 
@@ -570,6 +655,7 @@
                     var $search = $(e.currentTarget).closest('.search-container');
 
                     $search.removeClass('visible');
+                    $('html').removeClass('noscroll');
 
                     setTimeout(function () {
                         $search.removeClass('show-first');
@@ -600,6 +686,21 @@
              */
             ready: function () {
                 this.slider();
+
+                this.printButton();
+            },
+
+            /**
+             * Attach the print event to the button
+             *
+             * @return void
+             */
+            printButton: function () {
+                $('.car-single .links .share a.print').on('click', function (e) {
+                    e.preventDefault();
+
+                    window.print();
+                });
             },
 
             /**
@@ -620,6 +721,16 @@
                             var $imageList = $('.car-single .image-list ul li');
                             $imageList.removeClass('selected');
                             $imageList.eq(index - 1).addClass('selected');
+
+                            $('.car-single .top figure .bar .photos strong').text(index);
+                        },
+                        navigation: {
+                            drag: true,
+                            type: false,
+                            className: 'mbe-slider-navigation',
+                            arrows: false,
+                            clickable: true,
+                            keys: true
                         }
                     });
 
@@ -635,6 +746,32 @@
 
                         singleSlider.gotoSlide(index + 1, 0);
                     });
+
+                    //arrows
+                    $('.car-single .top figure .bar .arrows a.arrow-left').on('click', function (e) {
+                        e.preventDefault();
+
+                        singleSlider.gotoPreviousSlide();
+                    });
+                    $('.car-single .top figure .bar .arrows a.arrow-right').on('click', function (e) {
+                        e.preventDefault();
+
+                        singleSlider.gotoNextSlide();
+                    });
+
+                    //fullscreen
+                    $('.car-single .top figure .bar a.fullscreen').on('click', function (e) {
+                        e.preventDefault();
+
+                        if (helpers.fullscreen.is()) {
+                            helpers.fullscreen.close();
+                        } else {
+                            helpers.fullscreen.open();
+                        }
+                    });
+
+                    //attach fullscreen events
+                    helpers.fullscreen.attachEvents();
                 }
             } //slider
         }, //carSingle
@@ -909,5 +1046,6 @@
     $(document).on('ready', app.ready.bind(app));
     $(window).on('resize', app.resize.bind(app));
     $(window).on('load', app.load.bind(app));
+    $(window).on('scroll', app.scroll);
 
 }(jQuery, FastClick));

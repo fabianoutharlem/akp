@@ -1,4 +1,5 @@
 header.main
+
 	.top
 		background: white
 
@@ -9,8 +10,14 @@ header.main
 			+mobile-large
 				padding: 20px 30px
 
+			+print
+				padding: 0
+
 		a
 			line-height: 72px
+
+			+print
+				line-height: 1.8
 
 			&.menu
 				float: left
@@ -22,6 +29,9 @@ header.main
 					left: 20px
 					top: 10px
 					z-index: 0
+
+				+print
+					display: none
 
 			&.search
 				float: right
@@ -42,6 +52,9 @@ header.main
 				+mobile
 					right: 20px
 
+				+print
+					display: none
+
 			&.live-chat
 				float: right
 
@@ -54,6 +67,9 @@ header.main
 					z-index: 0
 
 				+mobile
+					display: none
+
+				+print
 					display: none
 
 			.icon
@@ -92,6 +108,11 @@ header.main
 			+mobile
 				font-size: 20px
 
+			+print
+				font-size: 32px
+				line-height: 1.8
+				text-align: left
+
 	.subheader
 		background: $orange
 
@@ -105,8 +126,20 @@ header.main
 		+tablet
 			font-size: 14px
 
-			span
+		+print
+			text-align: left
+			font-size: 14px
+			background: none
+			padding: 0
+
+		span
+			+tablet
 				display: none
+
+			+print
+				color: #999
+				display: block
+				text-align: left
 
 		.wrapper
 			padding: 8px 0
@@ -124,6 +157,19 @@ header.main
 				+mobile-large
 					margin-left: 15px
 
+				+print
+					margin-left: 0
+
+			+print
+				display: block
+				color: #999
+				text-align: left
+				padding: 0
+				margin: 0
+
+				.icon
+					display: none
+
 		.language-switch
 			float: right
 			position: relative
@@ -131,6 +177,9 @@ header.main
 			+mobile-large
 				float: none
 				display: block
+
+			+print
+				display: none
 
 			h4
 				margin: 0
@@ -184,6 +233,9 @@ header.main
 					position: static
 					width: auto
 					border-radius: 0
+
+				+print
+					display: none
 
 				ul
 					list-style: none

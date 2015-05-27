@@ -17,6 +17,34 @@
               </li>
           <% end %>
         </ul>
+
+        <div class="bar">
+          <div class="slider-info">
+
+              <a href="#right" class="fullscreen">
+                <i class="icon fullscreen"></i>
+              </a>
+
+            <div class="photos">
+              fotos <br />
+              <strong>1</strong>/<%= @car.car_images.length %>
+
+              <div class="arrows">
+                <a href="#left" class="arrow-left">
+                  <i class="icon arrow-white-left-slider"></i>
+                </a>
+                <a href="#right" class="arrow-right">
+                  <i class="icon arrow-white-right-sidebar"></i>
+                </a>
+              </div> <!-- .arrows -->
+            </div> <!-- .photos -->
+
+            <div class="can-swipe">
+              <span class="icon swipe-white"></span>
+            </div> <!-- .can-swipe -->
+
+          </div> <!-- .slider-info -->
+        </div> <!-- .bar -->
       </figure>
 
       <div class="description">
@@ -193,11 +221,7 @@
         <% end %>
       </ul>
 
-      <div class="footer">
-        <a class="go-to-top" href="">
-          <i class="icon back-to-top"></i>
-        </a>
-      </div>
+      <div class="footer"></div>
       <!-- .footer -->
 
     </div>
