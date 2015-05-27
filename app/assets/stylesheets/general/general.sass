@@ -12,6 +12,17 @@ html
 	+desktop-small
 		font-size: 16px
 
+	&.fullscreen,
+	&.noscroll
+		overflow: hidden
+		position: fixed
+		z-index: 0
+
+		body
+			overflow: hidden
+			position: fixed
+			z-index: 0
+
 a
 	color: $marine
 	text-decoration: none
