@@ -9,11 +9,23 @@
 
 		.wrapper
 			overflow: hidden
+			position: relative
+			padding-left: 65%
+
+			+desktop-small
+				padding-left: 50%
+
+			+mobile-large
+				padding-left: 0
 
 		figure
-			float: left
+			position: absolute
+			left: 0
+			top: 0
+
 			width: 65%
-			position: relative
+			height: 100%
+
 			background: #333333
 
 			margin: 0
@@ -23,29 +35,52 @@
 				width: 50%
 
 			+mobile-large
+				position: static
 				float: none
 				width: auto
+				height: auto
 
 			+print
+				position: static
 				float: none
 				width: auto
 				background: none
+
+			.mbe-slider
+				height: 100%
 
 			ul
 				list-style: none
 				margin: 0
 				padding: 0
+				height: 100%
 
 				li
 					margin: 0
 					padding: 0
 					background-color: #333333
+					height: 100%
+
+					position: relative
 
 					img
 						display: inline-block
 						vertical-align: middle
 						width: 100%
 						height: auto
+
+						max-height: 100%
+
+						position: absolute
+						left: 50%
+						top: 50%
+						+transform(translate(-50%, -50%))
+
+					iframe,
+					video
+						display: block
+						width: 100%
+						height: 100%
 
 			.bar
 				padding: 15px
@@ -102,28 +137,16 @@
 					margin-bottom: 20px
 
 		.description
-			float: right
-			width: 35%
-
 			padding: 50px
 			+box-sizing(border-box)
 			text-align: left
 
 			color: #38393B
 
-			+desktop-small
-				width: 50%
-
 			+tablet
 				padding: 30px
 
-			+mobile-large
-				float: none
-				width: auto
-
 			+print
-				float: none
-				width: auto
 				padding: 0
 
 			h1
