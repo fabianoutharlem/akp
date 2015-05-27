@@ -668,6 +668,21 @@
              */
             ready: function () {
                 this.slider();
+
+                this.printButton();
+            },
+
+            /**
+             * Attach the print event to the button
+             *
+             * @return void
+             */
+            printButton: function () {
+                $('.car-single .links .share a.print').on('click', function (e) {
+                    e.preventDefault();
+
+                    window.print();
+                });
             },
 
             /**

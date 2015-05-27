@@ -23,11 +23,17 @@ html
 			position: fixed
 			z-index: 0
 
+	+print
+		color: #333333
+
 a
 	color: $marine
 	text-decoration: none
 	display: inline-block
 	vertical-align: middle
+
+	+print
+		color: #333333
 
 h1, h2, h3
 	font-weight: 400
@@ -42,6 +48,9 @@ h1, h2, h3
 	text-align: center
 
 	+desktop
+		width: auto
+
+	+print
 		width: auto
 
 .clear

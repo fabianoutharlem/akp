@@ -1,0 +1,436 @@
+.references-form
+	background-color: #F3F3F3
+
+	.wrapper
+		padding: 150px 225px
+
+		+desktop
+			width: 990px
+			padding: 50px 0
+			margin: 0 auto
+
+		+desktop-small
+			width: auto
+			padding: 50px
+
+		+tablet
+			padding: 40px
+
+		+tablet-small
+			padding: 30px
+
+		+mobile
+			padding: 30px 0
+
+
+	.title
+		position: relative
+		padding-right: 300px
+		margin-bottom: 15px
+
+		+mobile-large
+			padding-right: 0
+
+		+mobile
+			padding: 0 30px
+
+		h1
+			text-align: left
+			font-size: 32px
+			line-height: 37px
+
+			margin: 0 0 5px 0
+			padding: 0
+
+			+tablet
+				font-size: 28px
+				line-height: 33px
+
+			+tablet-small
+				font-size: 24px
+				line-height: 28px
+
+			+mobile-large
+				padding-right: 0
+
+		p
+			text-align: left
+			margin: 0
+			padding: 0
+
+		.right
+			width: 300px
+			text-align: right
+
+			position: absolute
+			right: 0
+			top: 0
+
+			+mobile-large
+				width: auto
+				position: static
+				display: block
+				text-align: left
+				margin: 15px 0 25px 0
+
+			h3
+				font-size: 32px
+				line-height: 37px
+				color: $marine
+				vertical-align: middle
+
+				margin: 0 0 5px 0
+				padding: 0
+
+				+tablet
+					font-size: 28px
+					line-height: 33px
+
+				+tablet-small
+					font-size: 24px
+					line-height: 28px
+
+				span.stars
+					font-size: 0
+					line-height: 37px
+
+					display: inline-block
+					vertical-align: top
+
+					+tablet
+						line-height: 33px
+
+					+tablet-small
+						line-height: 28px
+
+					.icon
+						vertical-align: middle
+
+			.subheader
+				font-size: 18px
+				line-height: 21px
+
+				+tablet
+					font-size: 16px
+					line-height: 21px
+
+				+tablet-small
+					font-size: 14px
+					line-height: 18px
+
+				a
+					text-decoration: none
+
+					&:hover
+						text-decoration: underline
+
+
+	form.review-form
+		margin: 0
+		padding: 15px 30px 30px 30px
+		background-color: white
+		overflow: hidden
+
+		.left
+			float: left
+			width: 50%
+			padding-right: 15px
+			+box-sizing(border-box)
+
+			+mobile-large
+				width: auto
+				float: none
+				padding: 0
+
+		.right
+			float: right
+			width: 50%
+			padding-left: 15px
+			+box-sizing(border-box)
+
+			+mobile-large
+				width: auto
+				float: none
+				padding: 0
+
+		p
+			margin: 10px 0 0 0
+			position: relative
+
+			&.p-stars
+				height: 48px
+
+				+mobile
+					height: auto
+
+			&.p-title
+				margin-top: 0
+
+				input.text
+					padding-left: 63px
+
+					+tablet
+						padding-left: 53px
+
+					+tablet-small
+						padding-left: 49px
+
+					+mobile
+						padding-left: 15px
+
+			&.p-description
+				textarea
+					text-indent: 117px
+
+					+tablet
+						text-indent: 97px
+
+					+tablet-small
+						text-indent: 83px
+
+					+mobile
+						text-indent: 0
+
+			&.p-email
+				margin-top: 0
+
+				+mobile-large
+					margin-top: 10px
+
+				input.text
+					padding-left: 73px
+
+					+tablet
+						padding-left: 63px
+
+					+tablet-small
+						padding-left: 57px
+
+					+mobile
+						padding-left: 15px
+
+			&.p-name
+				input.text
+					padding-left: 78px
+
+					+tablet
+						padding-left: 68px
+
+					+tablet-small
+						padding-left: 59px
+
+					+mobile
+						padding-left: 15px
+
+			label
+				position: absolute
+				left: 15px
+				top: 9px
+
+				font-size: 20px
+				line-height: 32px
+				font-weight: 300
+				color: #9B9B9B
+
+				+tablet
+					font-size: 16px
+					line-height: 28px
+
+				+tablet-small
+					font-size: 14px
+					line-height: 26px
+					left: 12px
+
+				+mobile
+					position: static
+					display: block
+					margin: 0
+					text-align: left
+
+			textarea,
+			input.text
+				width: 100%
+				display: block
+				border: 1px solid #E1E1E1
+				background-color: white
+				+box-sizing(border-box)
+
+				padding: 8px 15px
+
+				font-size: 20px
+				line-height: 32px
+				font-weight: 300
+				color: $marine
+
+				+tablet
+					font-size: 16px
+					line-height: 28px
+
+				+tablet-small
+					font-size: 14px
+					line-height: 26px
+
+			textarea
+				height: 175px
+				resize: none
+
+				+tablet-small
+					height: 170px
+
+			.btn
+				width: 100%
+				+box-sizing(border-box)
+
+			span.stars
+				display: inline-block
+				vertical-align: middle
+				font-size: 0
+
+				position: absolute
+				top: 9px
+				left: 140px
+
+				cursor: pointer
+
+				+tablet
+					left: 110px
+
+				+tablet-small
+					left: 93px
+
+				+mobile
+					position: static
+					display: block
+					text-align: left
+
+				.icon:
+					vertical-align: middle
+
+
+	ul
+		list-style: none
+		margin: 40px 0 0 0
+		padding: 0
+
+		font-size: 0
+		text-align: left
+
+		+tablet-small
+			margin-top: 30px
+
+		+mobile
+			padding: 0 30px
+
+		li
+			width: 50%
+
+			display: inline-block
+			vertical-align: top
+
+			margin: 0 0 40px 0
+			padding: 0 40px 0 0
+			+box-sizing(border-box)
+
+			+tablet
+				padding-right: 20px
+
+			+tablet-small
+				padding-right: 15px
+				margin-bottom: 30px
+
+			+mobile-large
+				padding-right: 0
+				width: auto
+				float: none
+				display: block
+
+			&:nth-child(2n)
+				padding: 0 0 0 40px
+
+				+tablet
+					padding-left: 20px
+
+				+tablet-small
+					padding-left: 15px
+
+				+mobile-large
+					padding-left: 0
+
+			article
+				margin: 0
+				padding: 30px 20px 10px 20px
+				background: white
+				text-align: left
+
+				+tablet-small
+					padding: 20px 15px 10px 15px
+
+				h1
+					font-size: 24px
+					line-height: 32px
+					color: $marine
+					position: relative
+
+					margin: 0 0 14px 0
+					padding: 0
+
+					+tablet
+						font-size: 20px
+						line-height: 28px
+
+					+tablet-small
+						font-size: 18px
+						line-height: 26px
+
+					.stars
+						position: absolute
+						right: 0
+						top: 0
+						width: 120px
+						text-align: right
+						font-size: 0
+
+				.description
+					font-size: 20px
+					line-height: 32px
+					font-weight: 300
+
+					margin: 0 0 15px 0
+					padding: 0
+
+					+tablet
+						font-size: 16px
+						line-height: 28px
+
+					+tablet-small
+						font-size: 14px
+						line-height: 26px
+
+					p
+						margin: 15px 0
+						padding: 0
+
+						&:first-child
+							margin-top: 0
+
+						&:last-child
+							margin-bottom: 0
+
+				footer
+					border-top: 1px solid #E1E1E1
+					font-size: 12px
+					line-height: 18px
+					font-weight: 300
+					overflow: hidden
+
+					padding: 5px 0 0 0
+
+					strong
+						font-weight: 300
+
+					em
+						font-weight: 300
+						font-style: normal
+						float: right
+
+

@@ -49,6 +49,11 @@
 	-webkit-user-select: $value
 	user-select: $value
 
+=print
+	@media print
+		&
+			@content
+
 =desktop
 	@media only screen and (max-width: 1440px)
 		&
