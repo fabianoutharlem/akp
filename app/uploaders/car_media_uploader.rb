@@ -6,6 +6,7 @@ class CarMediaUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
+  include CarrierWave::Backgrounder::Delay
 
   include CarrierWave::MimeTypes
 
@@ -19,19 +20,20 @@ class CarMediaUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :thumb do
-    process resize_to_fill: [400, 300]
-  end
-
-  version :large do
+  version :large, if: :image? do
     process resize_to_fill: [1024, 768]
   end
 
-  process :set_content_type
-  process :save_content_type_and_size_in_model
+  version :thumb, if: :image?, from: :large do
+    process resize_to_fill: [400, 300]
+  end
 
-  def save_content_type_and_size_in_model
-    model.file_type = file.content_type if file.content_type
+  process :set_content_type
+
+  protected
+
+  def image?(new_file)
+    new_file.content_type.start_with? 'image'
   end
 
 end

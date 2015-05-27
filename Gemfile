@@ -30,7 +30,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Uploading files
 gem 'carrierwave'
+gem 'carrierwave_backgrounder'
 gem 'rmagick', require: 'RMagick'
+
+# que handling
+gem 'sidekiq'
 
 # Search module
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
@@ -74,6 +78,12 @@ gem 'acts_as_list'
 
 # sitemap maker
 gem 'sitemap_generator'
+
+# xml parser
+gem 'nokogiri'
+
+# youtube downloader
+gem 'viddl-rb'
 
 group :development do
   gem 'spring'

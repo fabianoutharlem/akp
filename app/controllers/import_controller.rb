@@ -1,11 +1,16 @@
+require 'active_support/core_ext/hash/conversions'
 class ImportController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
 
+  respond_to :xml
+
   def handle
+    xml = Nokogiri::XML request.body
+    @data = Hash.from_xml(xml.to_s)["voertuig"].symbolize_keys
     begin
-      if params[:actie]
-        self.send(params[:actie])
+      if @data[:actie]
+        self.send(@data[:actie])
       end
     rescue Exception => e
       logger.debug e.message
@@ -16,23 +21,23 @@ class ImportController < ApplicationController
   private
 
   def add
-    car = Car.find_by_vehicle_number_hexon params[:voertuignr_hexon]
+    car = Car.find_by_vehicle_number_hexon @data[:voertuignr_hexon]
     if !car
-      attributes = Car.parse_cardesk_parameters params
-      Car.create(attributes)
-      render text: 'The car was created succesfully', status: 200
+      attributes = Car.parse_cardesk_parameters @data
+      Raise 'Car was not created' unless Car.create!(attributes)
+      render text: '1', status: 200
     else
       render text: 'A car with this hexon number already exists, please use the change option to update the car', status: 409
     end
   end
 
   def change
-    attributes = Car.parse_cardesk_parameters params
-    car = Car.find_by_vehicle_number_hexon params[:voertuignr_hexon]
+    attributes = Car.parse_cardesk_parameters @data
+    car = Car.find_by_vehicle_number_hexon @data[:voertuignr_hexon]
     if car
       car.car_medias.destroy_all
       car.update(attributes)
-      render text: 'The car was updated succesfully', status: 200
+      render text: '1', status: 200
     else
       render text: 'The car you are trying to update does not exist', status: 404
     end
@@ -40,10 +45,10 @@ class ImportController < ApplicationController
   end
 
   def delete
-    car = Car.find_by_vehicle_number_hexon params[:voertuignr_hexon]
+    car = Car.find_by_vehicle_number_hexon @data[:voertuignr_hexon]
     if car
       car.destroy!
-      render text: 'The car was deleted succesfully', status: 200
+      render text: '1', status: 200
     else
       render text: 'The car you are trying to delete does not exist', status: 404
     end
