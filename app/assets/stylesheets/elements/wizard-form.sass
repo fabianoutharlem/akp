@@ -130,7 +130,7 @@
 
 					select
 						border: 1px solid #ADADAD
-						background: white
+						border-radius: 0
 
 						display: inline-block
 						vertical-align: middle
@@ -144,9 +144,15 @@
 						width: 100%
 						padding: 12px 13px
 
+						-moz-appearance: none
+						-webkit-appearance: none
+
+						background: white image-url('arrow-blue-select-down.svg') no-repeat right 20px center
+
 					input.text
 						@extend select
 						color: white
+						background-image: none
 
 						+box-sizing(border-box)
 						+transition(all 0.3s ease-in-out)
