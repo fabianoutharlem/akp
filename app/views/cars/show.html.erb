@@ -59,11 +59,13 @@
     <div class="wrapper">
 
       <ul>
-        <% @car.car_images.each do |car_image| %>
-            <li class="<%= @car.car_images.first == car_image ? 'selected' : '' %>">
-              <a href="">
-                <img src="<%= car_image.file.thumb.url %>" alt=""/>
-              </a>
+        <% @car.car_medias.each do |car_media| %>
+            <li class="<%= @car.car_medias.first == car_media ? 'selected' : '' %>">
+              <% if car_media.file_type.include? 'image' %>
+                  <a href="">
+                    <img src="<%= car_media.file.thumb.url %>" alt=""/>
+                  </a>
+              <% end %>
             </li>
         <% end %>
       </ul>
