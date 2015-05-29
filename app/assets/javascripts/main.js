@@ -865,7 +865,8 @@
                         data: {
                             'min': $slider.slider('values', 0),
                             'max': $slider.slider('values', 1),
-                            'total_value_slider': !!$('#price_slider_indicator').length
+                            'total_value_slider': !!$('#price_slider_indicator').length,
+                            'wizard_type': $('input[name="wizard_type"]').val()
                         },
                         success: function (response) {
 

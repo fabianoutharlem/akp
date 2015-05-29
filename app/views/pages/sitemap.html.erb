@@ -10,17 +10,21 @@
         <li><a href="<%= root_path %>"><%= StaticText.home_menu_link %></a></li>
         <li><a href="<%= cars_path %>"><%= StaticText.stock_menu_link %></a></li>
         <li><a href="<%= page_path('contact') %>">Contact</a></li>
+        <li><a href="<%= blog_page_path('auto_blog') %>">Auto blog</a></li>
+        <li><a href="<%= blog_page_path('our_workspace') %>">Onze werkplaats</a></li>
+        <li><a href="<%= blog_page_path('auto_op_afbetaling') %>">Auto op afbetaling</a></li>
+        <li><a href="<%= blog_page_path('full_operational_lease') %>">Full operational lease</a></li>
+        <li><a href="<%= blog_page_path('lease_gebruikte_autos') %>">Lease gebruikte autos</a></li>
+        <li><a href="<%= blog_page_path('opel_eyetracking') %>">Opel eye tracking</a></li>
+        <li><a href="<%= blog_page_path('voordelen_financial_lease') %>">Voordelen financial lease</a></li>
 
         <% MenuItem.all.each do |menu_item| %>
-            <li class="<%= menu_item.last ? 'last' : '' %>"><a href="<%= menu_item.path %>"><%= menu_item.label %></a></li>
+            <li class="<%= menu_item.last ? 'last' : '' %>"><a href="<%= menu_item.path %>"><%= menu_item.label %></a>
+            </li>
         <% end %>
 
-        <li>
-          <a href="<%= page_path('algemene-voorwaarden') %>">Algemene voorwaarden</a>
-        </li>
-        <li>
-          <a href="<%= page_path('disclaimer') %>">Disclaimer</a>
-        </li>
+        <li><a href="<%= page_path('sitemap') %>">Sitemap</a></li>
+        <li><a href="<%= faqs_path %>">Faq</a></li>
       </ul>
     </div>
     <!-- .left -->

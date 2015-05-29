@@ -18,12 +18,13 @@ class CarsController < ApplicationController
   end
 
   def index
-    @cars = Car.all
+    @cars = Car.page(params[:page]).per(15)
   end
 
   def search
     @cars = Car.query(params[:q])
     if request.xhr?
+      @cars = @cars.limit(20)
       render :search, layout: false
     else
       render :index

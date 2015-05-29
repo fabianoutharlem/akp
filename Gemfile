@@ -85,6 +85,9 @@ gem 'nokogiri'
 # youtube downloader
 gem 'viddl-rb'
 
+# pagination
+gem 'kaminari'
+
 group :development do
   gem 'spring'
   gem 'faker'
