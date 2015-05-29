@@ -1,4 +1,4 @@
-<div class="<%= defined? positioned_home_page and positioned_home_page == true ? '' : 'wizard' %>">
+<div class="<%= if defined? positioned_home_page and positioned_home_page; ''; else; 'wizard'; end %>">
 
   <section class="private-financing">
     <div class="wrapper">
