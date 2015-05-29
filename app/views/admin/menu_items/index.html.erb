@@ -18,6 +18,7 @@
           <th>Menu Label</th>
           <th>URL</th>
           <th>Last in section?</th>
+          <th>Action</th>
         </tr>
         </thead>
 
@@ -35,6 +36,9 @@
                     <%= f.check_box :last, class: 'switchery' %>
                     <%= f.hidden_field :position %>
                     <%= f.hidden_field :id %>
+                  </td>
+                  <td>
+                    <%= link_to 'Delete', admin_menu_item_path(menu.id), method: :delete, class: 'btn btn-danger' %>
                   </td>
             <% end %>
             </tr>
@@ -62,7 +66,7 @@
             var items = $('.menu_items_container tr');
 
             items.each(function (index) {
-                setPosition($(this), index+1);
+                setPosition($(this), index + 1);
             });
         }
 
@@ -72,7 +76,7 @@
 
         var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
         // Success color: #10CFBD
-        elems.forEach(function(html) {
+        elems.forEach(function (html) {
             var switchery = new Switchery(html, {color: '#10CFBD'});
         });
 
