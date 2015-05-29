@@ -9,14 +9,19 @@
 
 		.wrapper
 			overflow: hidden
-			position: relative
-			padding-left: 65%
 
-			+desktop-small
-				padding-left: 50%
+			.padder
+				position: relative
+				padding-left: 65%
 
-			+mobile-large
-				padding-left: 0
+				+desktop-small
+					padding-left: 50%
+
+				+mobile-large
+					padding-left: 0
+
+				+print
+					padding: 0
 
 		figure
 			position: absolute
