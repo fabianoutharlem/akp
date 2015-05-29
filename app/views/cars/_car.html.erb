@@ -31,17 +31,13 @@
             <small>Per maand vanaf</small>
           </div>
           <div class="tab tab-2 visible">
-            <h3 class="price">&euro; <%= car.price_total %>,-</h3>
-            <small>De totaal prijs van deze auto</small>
             <h3 class="price"><%= number_to_currency car.price_total, unit: "€", separator: ",", delimiter: ".", precision: 0  %>,-</h3>
-            <small>&nbsp;</small>
+            <small>De totaal prijs van deze auto</small>
           </div>
           <% if car.price_50_50.present? %>
             <div class="tab tab-3">
-              <h3 class="price">&euro; <%= car.price_50_50 %>,-</h3>
-              <small>De andere helft in 12 of 36 maanden met 0% rente</small>
               <h3 class="price"><%= number_to_currency car.price_50_50, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
-              <small>&nbsp;</small>
+              <small>De andere helft in 12 of 36 maanden met 0% rente</small>
             </div>
           <% end %>
         </div>
