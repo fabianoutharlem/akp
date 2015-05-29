@@ -14,13 +14,20 @@
         <h3>
           <span><%= @avarage %>/5</span>
 
-                    <span class="stars">
+          <span class="stars">
+            <% if @avarage %>
+                <% 5.times do |i| %>
+                    <% i = i+1 %>
+                    <% if @avarage >= i %>
                         <i class="icon star-full-big"></i>
-                        <i class="icon star-full-big"></i>
-                        <i class="icon star-full-big"></i>
-                        <i class="icon star-full-big"></i>
+                    <% elsif @avarage > i-1 and @avarage < i %>
                         <i class="icon star-half-big"></i>
-                    </span>
+                    <% else %>
+                        <i class="icon star-empty-big"></i>
+                    <% end %>
+                <% end %>
+            <% end %>
+            </span>
         </h3>
 
         <div class="subheader">
