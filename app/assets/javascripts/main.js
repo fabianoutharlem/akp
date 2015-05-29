@@ -456,6 +456,16 @@
             open: function () {
                 var element = document.documentElement;
 
+                if ('ontouchstart' in window) {
+                    var $html = $('html');
+                    $html.addClass('fullscreen');
+
+                    if (window.singleSlider) {
+                        window.singleSlider.resize();
+                    }
+                    return;
+                }
+
                 if (element.requestFullscreen) {
                     element.requestFullscreen();
                 } else if (element.mozRequestFullScreen) {
@@ -482,6 +492,17 @@
              * @return void
              */
             close: function () {
+
+                if ('ontouchstart' in window) {
+                    var $html = $('html');
+                    $html.removeClass('fullscreen');
+
+                    if (window.singleSlider) {
+                        window.singleSlider.resize();
+                    }
+                    return;
+                }
+
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
                 } else if (document.mozCancelFullScreen) {
