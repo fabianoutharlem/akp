@@ -129,19 +129,25 @@
          */
         initTabs: function (element) {
             $('.tabs', element).each(function () {
-                var $tabs = $(this);
+                var $tabs = $(this),
+                    $article = $tabs.closest('article.listing-car');
 
                 $tabs.find('.tab-header a').on('click', function (e) {
                     e.preventDefault();
 
-                    var $this = $(this);
-                    var tab = $this.data('tab');
+                    var $this = $(this),
+                        tab = $this.data('tab');
 
                     $this.siblings('a').removeClass('selected');
                     $this.addClass('selected');
 
                     $tabs.find('.tab-content .tab').removeClass('visible');
                     $tabs.find('.tab-content .tab.tab-' + tab).addClass('visible');
+
+                    if ($article.size() > 0) {
+                        var href = $article.find('.goto a').data('href-' + tab);
+                        $article.find('.goto a').attr('href', href);
+                    }
                 });
             });
         },
@@ -957,6 +963,10 @@
              * @return void
              */
             prefill: function () {
+                if ($('.wizard').size() <= 0) {
+                    return;
+                }
+
                 var hash = window.location.hash.substring(1);
 
                 //values
@@ -968,6 +978,14 @@
 
                         $('.wizard .first-step').click();
                     }
+                }
+
+                //car
+                if (/^car\/+/i.test(hash)) {
+                    var carId = Number(hash.split('car/')[1]),
+                        nextStepUrl = $('.wizard .private-financing').data('car-url');
+
+                    this.getCarForm(false, carId, nextStepUrl);
                 }
             },
 
@@ -992,6 +1010,51 @@
                     $this.attr('href', href + '#values/' + $slider.slider('values', 0) + '-' + $slider.slider('values', 1));
                 }.bind(this));
 
+            },
+
+            /**
+             * Fetch the car form
+             *
+             * @param Object $button
+             * @param Number carId
+             * @param string nextStepUrl
+             *
+             * @return void
+             */
+            getCarForm: function ($button, carId, nextStepUrl) {
+                //remove next steps
+                $('.wizard .wizard-form').remove();
+                $('.wizard .wizard-final').remove();
+
+                //fade the button
+                if ($button) {
+                    $button.addClass('inactive');
+                }
+
+                $.ajax({
+                    type: 'post',
+                    url: nextStepUrl,
+                    data: {
+                        'id': carId
+                    },
+                    success: function (response) {
+
+                        //done
+                        if ($button) {
+                            $button.removeClass('inactive');
+                        }
+
+                        //append next step
+                        $('.wizard').append(response);
+
+                        //init the stuff
+                        init.element($('.wizard .wizard-form'));
+                        helpers.scrollTo('.wizard .wizard-form');
+
+                        //run the next step init
+                        this.fourthStep();
+                    }.bind(this)
+                });
             },
 
             /**
@@ -1115,35 +1178,7 @@
                         carId = $this.data('id'),
                         nextStepUrl = $this.data('select-url');
 
-                    //remove next steps
-                    $('.wizard .wizard-form').remove();
-                    $('.wizard .wizard-final').remove();
-
-                    //fade the button
-                    $this.addClass('inactive');
-
-                    $.ajax({
-                        type: 'post',
-                        url: nextStepUrl,
-                        data: {
-                            'id': carId
-                        },
-                        success: function (response) {
-
-                            //done
-                            $this.removeClass('inactive');
-
-                            //append next step
-                            $('.wizard').append(response);
-
-                            //init the stuff
-                            init.element($('.wizard .wizard-form'));
-                            helpers.scrollTo('.wizard .wizard-form');
-
-                            //run the next step init
-                            this.fourthStep();
-                        }.bind(this)
-                    });
+                    this.getCarForm($this, carId, nextStepUrl);
                 }.bind(this));
 
                 //click on filter

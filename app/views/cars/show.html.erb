@@ -69,15 +69,15 @@
           </dl>
 
           <div class="buttons">
-            <a class="btn btn-small" href="<%= financing_cars_path('bussiness') %>">
+            <a class="btn btn-small" href="<%= financing_cars_path('bussiness') %>#car/<%= @car.id %>">
               Zakelijke financieren
             </a>
 
-            <a class="btn btn-small" href="<%= financing_cars_path('private') %>">
+            <a class="btn btn-small" href="<%= financing_cars_path('private') %>#car/<%= @car.id %>">
               Particulier financieren
             </a>
 
-            <a class="btn btn-small" href="<%= financing_cars_path('50_50') %>">
+            <a class="btn btn-small" href="<%= financing_cars_path('50_50') %>#car/<%= @car.id %>">
               50/50 deals
             </a>
           </div>
