@@ -88,6 +88,9 @@ gem 'viddl-rb'
 # pagination
 gem 'kaminari'
 
+# mailer
+gem 'mandrill_mailer'
+
 group :development do
   gem 'spring'
   gem 'faker'
