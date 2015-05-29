@@ -22,7 +22,7 @@
             </select>
           </p>
           <p class="text right" data-rules="required">
-            <input type="text" name="payment" class="text" id="payment-payment" required="required" />
+            <input type="text" name="payment" class="text" id="payment-payment" required="required" value="<%== if defined? params[:wizard_type] and params[:wizard_type].present? and params[:wizard_type] == '50_50'; @car.price_50_50; end %>" />
             <label for="payment-payment">Aanbetaling</label>
           </p>
           <p class="text" data-rules="required">
