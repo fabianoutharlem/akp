@@ -43,6 +43,43 @@ ul.cars
 			width: auto
 			margin: 0 0 30px 0
 
+nav.pagination
+	margin-bottom: 20px
+	text-align: center
+
+	font-size: 14px
+	line-height: 20px
+	color: white
+
+	span.next,
+	span.prev,
+	span.first,
+	span.last,
+	span.page
+		display: inline-block
+		vertical-align: middle
+
+		a
+			padding: 6px 12px
+			display: inline-block
+			vertical-align: middle
+
+			text-decoration: none
+			background: white
+			color: $marine
+
+			&:hover
+				background: $orange
+				color: white
+
+		&.current
+			padding: 6px 12px
+			display: inline-block
+			vertical-align: middle
+
+			background: $orange
+			color: white
+
 
 article.listing-car
 	background: white
