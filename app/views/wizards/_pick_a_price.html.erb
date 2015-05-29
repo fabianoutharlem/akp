@@ -1,4 +1,4 @@
-<div class="wizard">
+<div class="<%= defined? positioned_home_page and positioned_home_page == true ? '' : 'wizard' %>">
 
   <section class="private-financing">
     <div class="wrapper">
@@ -11,7 +11,7 @@
         <%= StaticText.send type + '_financing_head_3' %>
       </p>
 
-      <%= render 'wizards/steps', step: 1 %>
+      <%= render 'wizards/steps', step: 1 unless defined? positioned_home_page and positioned_home_page == true %>
 
       <div class="slider-container">
 
