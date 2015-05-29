@@ -117,7 +117,19 @@
       <div class="share">
         Share
 
-        <a class="dots" href=""><i class="icon share-dots"></i></a>
+        <div class="dots">
+          <a href=""><i class="icon share-dots"></i></a>
+
+          <div class="share-networks">
+            <a href="share_fb" target="_blank"><i class="icon facebook"></i></a>
+
+            <a href="share_tw" target="_blank"><i class="icon twitter"></i></a>
+
+            <a href="share_gp" target="_blank"><i class="icon google-plus"></i></a>
+
+            <a href="share_pinterest" target="_blank"><i class="icon pinterest"></i></a>
+          </div> <!-- .share-networks -->
+        </div> <!-- .dots -->
         <a class="mail" href="mailto:?subject=<%= @car.display_name %>&body=<%= car_url @car %>"><i class="icon share-mail"></i></a>
         <a class="print" href="" onclick="window.print();"><i class="icon share-print"></i></a>
       </div>

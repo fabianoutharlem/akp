@@ -440,6 +440,11 @@
                     } else {
                         $html.addClass('fullscreen');
                     }
+
+                    if (window.singleSlider) {
+                        window.singleSlider.resize();
+                    }
+
                 }.bind(this));
             },
 
@@ -450,6 +455,16 @@
              */
             open: function () {
                 var element = document.documentElement;
+
+                if ('ontouchstart' in window) {
+                    var $html = $('html');
+                    $html.addClass('fullscreen');
+
+                    if (window.singleSlider) {
+                        window.singleSlider.resize();
+                    }
+                    return;
+                }
 
                 if (element.requestFullscreen) {
                     element.requestFullscreen();
@@ -477,6 +492,17 @@
              * @return void
              */
             close: function () {
+
+                if ('ontouchstart' in window) {
+                    var $html = $('html');
+                    $html.removeClass('fullscreen');
+
+                    if (window.singleSlider) {
+                        window.singleSlider.resize();
+                    }
+                    return;
+                }
+
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
                 } else if (document.mozCancelFullScreen) {
@@ -727,6 +753,21 @@
                 this.slider();
 
                 this.printButton();
+
+                this.share();
+            },
+
+            /**
+             * Attach the share click thing
+             *
+             * @return void
+             */
+            share: function () {
+                $('.car-single .links .share .dots a').on('click', function (e) {
+                    e.preventDefault();
+
+                    $(this).siblings('.share-networks').toggleClass('visible');
+                });
             },
 
             /**
@@ -751,8 +792,10 @@
 
                 if ($('.car-single .top figure ul').size() > 0) {
                     //slider
-                    var currentSlide = 1,
-                        singleSlider = new MbeSlider({
+                    var currentSlide = 1;
+
+
+                    window.singleSlider = new MbeSlider({
                         element: '.car-single .top figure ul',
                         direction: 'horizontal',
                         neverSkip: true,
@@ -799,19 +842,19 @@
                         $li.siblings('li').removeClass('selected');
                         $li.addClass('selected');
 
-                        singleSlider.gotoSlide(index + 1, 0);
+                        window.singleSlider.gotoSlide(index + 1, 0);
                     });
 
                     //arrows
                     $('.car-single .top figure .bar .arrows a.arrow-left').on('click', function (e) {
                         e.preventDefault();
 
-                        singleSlider.gotoPreviousSlide();
+                        window.singleSlider.gotoPreviousSlide();
                     });
                     $('.car-single .top figure .bar .arrows a.arrow-right').on('click', function (e) {
                         e.preventDefault();
 
-                        singleSlider.gotoNextSlide();
+                        window.singleSlider.gotoNextSlide();
                     });
 
                     //fullscreen
