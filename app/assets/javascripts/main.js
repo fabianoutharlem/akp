@@ -674,6 +674,26 @@
 
                     $(e.currentTarget).closest('.language-switch').toggleClass('visible');
                 });
+
+                $('.language-switch ul li a').on('click', function(e) {
+                    e.preventDefault();
+
+                    var $this = $(e.currentTarget),
+                        $switch = $this.closest('.language-switch'),
+
+                        lang = $this.data('lang'),
+                        $frame = $('.goog-te-menu-frame:first');
+
+                    if (!$frame.size()) {
+                        console.error("Could not find Google translate frame.");
+                    }
+
+                    $switch.find('h4').text(lang);
+                    $switch.find('ul li a').removeClass('selected');
+                    $this.addClass('selected');
+
+                    $frame.contents().find('.goog-te-menu2-item span.text:contains('+lang+')').get(0).click();
+                });
             }
         }, //header
 
