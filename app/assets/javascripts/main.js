@@ -727,6 +727,21 @@
                 this.slider();
 
                 this.printButton();
+
+                this.share();
+            },
+
+            /**
+             * Attach the share click thing
+             *
+             * @return void
+             */
+            share: function () {
+                $('.car-single .links .share .dots a').on('click', function (e) {
+                    e.preventDefault();
+
+                    $(this).siblings('.share-networks').toggleClass('visible');
+                });
             },
 
             /**

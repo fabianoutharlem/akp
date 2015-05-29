@@ -342,13 +342,20 @@
 		.wrapper
 			padding: 35px 65px
 			text-align: left
-			overflow: hidden
 
 			+desktop-small
 				padding: 25px 40px
 
 			+tablet
 				padding: 15px 30px
+
+			&::after
+				content: ''
+				display: block
+				clear: both
+				font-size: 0
+				line-height: 0
+				height: 0
 
 		.share
 			float: right
@@ -372,10 +379,16 @@
 
 				.share-networks
 					position: absolute
-					bottom: 0
+					bottom: 50px
 					right: 0
 					width: 50px
 					z-index: 1
+					font-size: 0
+
+					display: none
+
+					&.visible
+						display: block
 
 
 		a.link
