@@ -1,6 +1,6 @@
 <div class="<%= if defined? positioned_home_page and positioned_home_page; ''; else; 'wizard'; end %>">
 
-  <section class="private-financing">
+  <section class="private-financing <%= if defined? positioned_home_page and positioned_home_page; 'on-homepage'; else; ''; end %>">
     <div class="wrapper">
 
       <h2><%= StaticText.send type + '_financing_header' %></h2>
@@ -26,7 +26,7 @@
 
         <h3><%= StaticText.wizard_main_slider_text %></h3>
 
-        <a class="btn btn-big first-step" data-next-step="<%= pick_a_car_wizard_path %>"><%= StaticText.wizard_main_slider_button %></a>
+        <a class="btn btn-big first-step" data-next-step="<%= pick_a_car_wizard_path %>" href="<%= financing_cars_path "private" %>"><%= StaticText.wizard_main_slider_button %></a>
       </div>
       <!-- .slider-container -->
 

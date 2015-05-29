@@ -885,7 +885,7 @@
                         stars = $element.index() + 1;
 
                     $this.data('stars', stars);
-                    $this.siblings('input[name="stars"]').val(stars);
+                    $this.siblings('input#reference-stars-input').val(stars);
                 });
 
                 //touch
