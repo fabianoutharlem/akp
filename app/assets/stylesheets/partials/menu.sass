@@ -85,6 +85,7 @@
 				width: 50%
 
 			+mobile-large
+				width: auto
 				margin-top: 0
 
 		&.col-2
@@ -177,7 +178,13 @@
 				font-size: 0
 
 				a
-					margin-left: 3px
+					margin-left: 15px
+
+					+desktop-small
+						margin-left: 10px
+
+					+tablet
+						margin-left: 0
 
 					&:first-child
 						margin-left: 0
