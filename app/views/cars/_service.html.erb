@@ -33,14 +33,16 @@
 
           <h3>
             <%= reference_avarage %>/5
-            <% 5.times do |i| %>
-                <% i = i+1 %>
-                <% if reference_avarage >= i %>
-                    <i class="icon star-full-big"></i>
-                <% elsif reference_avarage > i-1 and reference_avarage < i %>
-                    <i class="icon star-half-big"></i>
-                <% else %>
-                    <i class="icon star-empty-big"></i>
+            <% if reference_avarage %>
+                <% 5.times do |i| %>
+                    <% i = i+1 %>
+                    <% if reference_avarage >= i %>
+                        <i class="icon star-full-big"></i>
+                    <% elsif reference_avarage > i-1 and reference_avarage < i %>
+                        <i class="icon star-half-big"></i>
+                    <% else %>
+                        <i class="icon star-empty-big"></i>
+                    <% end %>
                 <% end %>
             <% end %>
           </h3>
