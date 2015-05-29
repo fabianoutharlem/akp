@@ -44,7 +44,15 @@
       </p> <!-- .select -->
 
       <p class="select">
-        <input type="text" min="1950" max="<%= Date.today.year %>" name="q[year]" class="bouwjaar" placeholder="Vanaf bouwjaar"/>
+
+        <select class="search-advanced-usage" name="q[year]" autocomplete="off">
+          <option value="">Vanaf bouwjaar</option>
+
+          <% for year in [*1950..Date.today.year].reverse.each %>
+            <option value="<%= year %>"><%= year %></option>
+          <% end %>
+
+        </select>
       </p> <!-- .select -->
 
       <p class="select">
