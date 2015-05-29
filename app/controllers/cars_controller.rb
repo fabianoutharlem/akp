@@ -27,7 +27,7 @@ class CarsController < ApplicationController
   def search
     @cars = Car.query(params[:q])
     if request.xhr?
-      @cars = @cars.limit(20)
+      @cars = Kaminari.paginate_array(@cars).page(params[:page])
       render :search, layout: false
     else
       render :index
@@ -36,7 +36,7 @@ class CarsController < ApplicationController
   end
 
   def nieuw_binnen
-    @cars = Car.week_old
+    @cars = Kaminari.paginate_array(Car.week_old).page(params[:page])
     render :index
   end
 

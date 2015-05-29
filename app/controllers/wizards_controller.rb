@@ -18,7 +18,8 @@ class WizardsController < ApplicationController
   end
 
   def final
-    CarRequest.create(car_request_params)
+    request = CarRequest.create(car_request_params)
+    CarRequestMailer.send_mail(request)
   end
 
   private
