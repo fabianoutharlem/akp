@@ -76,7 +76,12 @@ Rails.application.routes.draw do
 
     resources :brands
 
-    resources :references
+    resources :references, only: [:index, :destroy] do
+      collection do
+        get '/approve/:id', action: :approve, as: :approve
+        get '/disapprove/:id', action: :disapprove, as: :disapprove
+      end
+    end
 
     resources :menu_items do
       collection do
