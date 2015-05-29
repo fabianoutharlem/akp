@@ -98,7 +98,7 @@ class Car < ActiveRecord::Base
         price_month: params[:lease]['maandbedrag'],
         price_50_50: params[:actieprijs],
         manufacture_year: params[:bouwjaar],
-        cylinders: params[:aantal_cilinders],
+        cylinders: params[:cilinder_aantal],
         engine_power: params[:vermogen_motor_pk],
         top_speed: params[:topsnelheid],
         energy_label: params[:energielabel],

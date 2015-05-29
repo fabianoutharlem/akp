@@ -35,10 +35,18 @@
         <h2>Share on social media</h2>
 
         <p>
-          <a href="<%= StaticText.facebook_url %>" target="_blank"><i class="icon facebook"></i></a>
-          <a href="<%= StaticText.twitter_url %>" target="_blank"><i class="icon twitter"></i></a>
-          <a href="<%= StaticText.google_plus_url %>" target="_blank"><i class="icon google-plus"></i></a>
-          <a href="<%= StaticText.pinterest_url %>" target="_blank"><i class="icon pinterest"></i></a>
+          <%= unless StaticText.facebook_url.blank? %>
+              <a href="<%= StaticText.facebook_url %>" target="_blank"><i class="icon facebook"></i></a>
+          <% end %>
+          <%= unless StaticText.twitter_url.blank? %>
+              <a href="<%= StaticText.twitter_url %>" target="_blank"><i class="icon twitter"></i></a>
+          <% end %>
+          <%= unless StaticText.google_plus_url.blank? %>
+              <a href="<%= StaticText.google_plus_url %>" target="_blank"><i class="icon google-plus"></i></a>
+          <% end %>
+          <%= unless StaticText.pinterest_url.blank? %>
+              <a href="<%= StaticText.pinterest_url %>" target="_blank"><i class="icon pinterest"></i></a>
+          <% end %>
           <a href="mailto:<%= StaticText.ash_email %>" target="_blank"><i class="icon mail"></i></a>
         </p>
       </div>

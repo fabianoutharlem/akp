@@ -52,8 +52,14 @@
           <h1><%= @car.display_name %></h1>
 
           <dl>
-            <dt>Prijs</dt>
+            <dt>Totaal prijs</dt>
             <dd>&euro; <%= @car.price_total %>,-</dd>
+            <% if @car.price_50_50.present? %>
+                <dt>50/50 deal
+                  <small></small>
+                </dt>
+                <dd>&euro; <%= @car.price_50_50 %>,-</dd>
+            <% end %>
             <% if @car.price_month.present? %>
                 <dt>Per maand
                   <small>v.a.</small>
