@@ -57,6 +57,8 @@ Rails.application.routes.draw do
 
   resources :blog_pages, as: :blog, only: [:show]
 
+  resources :references, only: [:index, :create]
+
   namespace :admin do
     resource :admin do
       get :home
@@ -73,6 +75,8 @@ Rails.application.routes.draw do
     resources :blog_pages
 
     resources :brands
+
+    resources :references
 
     resources :menu_items do
       collection do
