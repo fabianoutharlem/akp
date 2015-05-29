@@ -1022,6 +1022,9 @@
              * @return void
              */
             getCarForm: function ($button, carId, nextStepUrl) {
+
+                var wizardType = $('.wizard .slider-container input[name="wizard_type"]').val();
+
                 //remove next steps
                 $('.wizard .wizard-form').remove();
                 $('.wizard .wizard-final').remove();
@@ -1035,7 +1038,8 @@
                     type: 'post',
                     url: nextStepUrl,
                     data: {
-                        'id': carId
+                        'id': carId,
+                        'wizard_type': wizardType
                     },
                     success: function (response) {
 
