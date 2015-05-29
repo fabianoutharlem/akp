@@ -732,17 +732,33 @@
 
                 if ($('.car-single .top figure ul').size() > 0) {
                     //slider
-                    var singleSlider = new MbeSlider({
+                    var currentSlide = 1,
+                        singleSlider = new MbeSlider({
                         element: '.car-single .top figure ul',
                         direction: 'horizontal',
                         neverSkip: true,
                         autoSlide: false,
                         afterSlide: function (index, slide) {
-                            var $imageList = $('.car-single .image-list ul li');
+                            var $wrapper = $('.car-single .image-list .wrapper'),
+                                $ul = $wrapper.find('ul'),
+                                $imageList = $ul.find('li'),
+                                left = 0;
+
                             $imageList.removeClass('selected');
                             $imageList.eq(index - 1).addClass('selected');
 
+                            if (currentSlide != index) {
+                                //scroll to element
+                                left = $imageList.eq(index - 1).position().left + $ul.scrollLeft() - $wrapper.width() / 2;
+
+                                $ul.animate({
+                                    scrollLeft: left
+                                }, 'slow');
+                            }
+
                             $('.car-single .top figure .bar .photos strong').text(index);
+
+                            currentSlide = index;
                         },
                         navigation: {
                             drag: true,
