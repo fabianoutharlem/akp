@@ -440,6 +440,11 @@
                     } else {
                         $html.addClass('fullscreen');
                     }
+
+                    if (window.singleSlider) {
+                        window.singleSlider.resize();
+                    }
+
                 }.bind(this));
             },
 
@@ -766,8 +771,10 @@
 
                 if ($('.car-single .top figure ul').size() > 0) {
                     //slider
-                    var currentSlide = 1,
-                        singleSlider = new MbeSlider({
+                    var currentSlide = 1;
+
+
+                    window.singleSlider = new MbeSlider({
                         element: '.car-single .top figure ul',
                         direction: 'horizontal',
                         neverSkip: true,
@@ -814,19 +821,19 @@
                         $li.siblings('li').removeClass('selected');
                         $li.addClass('selected');
 
-                        singleSlider.gotoSlide(index + 1, 0);
+                        window.singleSlider.gotoSlide(index + 1, 0);
                     });
 
                     //arrows
                     $('.car-single .top figure .bar .arrows a.arrow-left').on('click', function (e) {
                         e.preventDefault();
 
-                        singleSlider.gotoPreviousSlide();
+                        window.singleSlider.gotoPreviousSlide();
                     });
                     $('.car-single .top figure .bar .arrows a.arrow-right').on('click', function (e) {
                         e.preventDefault();
 
-                        singleSlider.gotoNextSlide();
+                        window.singleSlider.gotoNextSlide();
                     });
 
                     //fullscreen
