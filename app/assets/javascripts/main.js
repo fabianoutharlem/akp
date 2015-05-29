@@ -499,6 +499,9 @@
             //faq page
             this.faq.ready();
 
+            //reviews page
+            this.reviews.ready();
+
             //resize
             this.resize();
         },
@@ -839,6 +842,90 @@
                 });
             } //question
         }, //faq
+
+        reviews: {
+
+            /**
+             * Init the reviews page
+             *
+             * @return void
+             */
+            ready: function () {
+                this.formStarsInput();
+            },
+
+            /**
+             * Init the reviews stars input
+             *
+             * @return void
+             */
+            formStarsInput: function () {
+                //mouse enter
+                $('.stars-input .icon').on('mouseenter', function (e) {
+                    var $element = $(e.currentTarget),
+                        $this = $element.parent(),
+                        stars = $element.index() + 1;
+
+                    $this.children().each(function (index, element) {
+                        var $element = $(element);
+                        $element.removeClass('star-empty-big star-full-big')
+
+                        if (index < stars) {
+                            $element.addClass('star-full-big');
+                        } else {
+                            $element.addClass('star-empty-big');
+                        }
+                    });
+                });
+
+                //click
+                $('.stars-input .icon').on('click', function (e) {
+                    var $element = $(e.currentTarget),
+                        $this = $element.parent(),
+                        stars = $element.index() + 1;
+
+                    $this.data('stars', stars);
+                    $this.siblings('input[name="stars"]').val(stars);
+                });
+
+                //touch
+                $('.stars-input').on('touchstart', function (e) {
+                    e.preventDefault();
+
+                    var $this = $(e.currentTarget),
+                        $element = $(e.target),
+                        stars = $element.index() + 1;
+
+                    $this.children().each(function (index, element) {
+                        var $element = $(element);
+                        $element.removeClass('star-empty-big star-full-big')
+
+                        if (index < stars) {
+                            $element.addClass('star-full-big');
+                        } else {
+                            $element.addClass('star-empty-big');
+                        }
+                    });
+                });
+
+                //mouse leave
+                $('.stars-input').on('mouseleave', function (e) {
+                    var $this = $(e.currentTarget),
+                        stars = $this.data('stars');
+
+                    $this.children().each(function (index, element) {
+                        var $element = $(element);
+                        $element.removeClass('star-empty-big star-full-big')
+
+                        if (index < stars) {
+                            $element.addClass('star-full-big');
+                        } else {
+                            $element.addClass('star-empty-big');
+                        }
+                    });
+                });
+            } //question
+        }, //reviews
 
         wizard: {
 
