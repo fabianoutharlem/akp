@@ -47,7 +47,7 @@ class Car < ActiveRecord::Base
   end
 
   def self.week_old
-    where('created_at >= ?', 1.week.ago.utc)
+    where('created_at >= ?', 1.week.ago.utc).limit(30)
   end
 
   def car_images
