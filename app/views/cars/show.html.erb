@@ -5,78 +5,80 @@
   <div class="top">
     <div class="wrapper">
 
-      <figure>
-        <ul>
-          <% @car.car_medias.each do |car_media| %>
-              <li>
-                <% if car_media.file_type.include? 'image' %>
-                    <img src="<%= car_media.file.url %>" alt=""/>
-                <% else %>
-                    <video src="<%= car_media.file.url %>" controls width="100%" height="100%"></video>
-                <% end %>
-              </li>
-          <% end %>
-        </ul>
+      <div class="padder">
+        <figure>
+          <ul>
+            <% @car.car_medias.each do |car_media| %>
+                <li>
+                  <% if car_media.file_type.include? 'image' %>
+                      <img src="<%= car_media.file.url %>" alt=""/>
+                  <% else %>
+                      <video src="<%= car_media.file.url %>" controls width="100%" height="100%"></video>
+                  <% end %>
+                </li>
+            <% end %>
+          </ul>
 
-        <div class="bar">
-          <div class="slider-info">
+          <div class="bar">
+            <div class="slider-info">
 
-              <a href="#right" class="fullscreen">
-                <i class="icon fullscreen"></i>
-              </a>
-
-            <div class="photos">
-              fotos <br />
-              <strong>1</strong>/<%= @car.car_images.length %>
-
-              <div class="arrows">
-                <a href="#left" class="arrow-left">
-                  <i class="icon arrow-white-left-slider"></i>
+                <a href="#right" class="fullscreen">
+                  <i class="icon fullscreen"></i>
                 </a>
-                <a href="#right" class="arrow-right">
-                  <i class="icon arrow-white-right-sidebar"></i>
-                </a>
-              </div> <!-- .arrows -->
-            </div> <!-- .photos -->
 
-            <div class="can-swipe">
-              <span class="icon swipe-white"></span>
-            </div> <!-- .can-swipe -->
+              <div class="photos">
+                fotos <br />
+                <strong>1</strong>/<%= @car.car_images.length %>
 
-          </div> <!-- .slider-info -->
-        </div> <!-- .bar -->
-      </figure>
+                <div class="arrows">
+                  <a href="#left" class="arrow-left">
+                    <i class="icon arrow-white-left-slider"></i>
+                  </a>
+                  <a href="#right" class="arrow-right">
+                    <i class="icon arrow-white-right-sidebar"></i>
+                  </a>
+                </div> <!-- .arrows -->
+              </div> <!-- .photos -->
 
-      <div class="description">
-        <h1><%= @car.display_name %></h1>
+              <div class="can-swipe">
+                <span class="icon swipe-white"></span>
+              </div> <!-- .can-swipe -->
 
-        <dl>
-          <dt>Prijs</dt>
-          <dd>&euro; <%= @car.price_total %>,-</dd>
-          <% if @car.price_month.present? %>
-              <dt>Per maand
-                <small>v.a.</small>
-              </dt>
-              <dd>&euro; <%= @car.price_month %>,-</dd>
-          <% end %>
-        </dl>
+            </div> <!-- .slider-info -->
+          </div> <!-- .bar -->
+        </figure>
 
-        <div class="buttons">
-          <a class="btn btn-small" href="<%= financing_cars_path('bussiness') %>">
-            Zakelijke financieren
-          </a>
+        <div class="description">
+          <h1><%= @car.display_name %></h1>
 
-          <a class="btn btn-small" href="<%= financing_cars_path('private') %>">
-            Particulier financieren
-          </a>
+          <dl>
+            <dt>Prijs</dt>
+            <dd>&euro; <%= @car.price_total %>,-</dd>
+            <% if @car.price_month.present? %>
+                <dt>Per maand
+                  <small>v.a.</small>
+                </dt>
+                <dd>&euro; <%= @car.price_month %>,-</dd>
+            <% end %>
+          </dl>
 
-          <a class="btn btn-small" href="<%= financing_cars_path('50_50') %>">
-            50/50 deals
-          </a>
+          <div class="buttons">
+            <a class="btn btn-small" href="<%= financing_cars_path('bussiness') %>">
+              Zakelijke financieren
+            </a>
+
+            <a class="btn btn-small" href="<%= financing_cars_path('private') %>">
+              Particulier financieren
+            </a>
+
+            <a class="btn btn-small" href="<%= financing_cars_path('50_50') %>">
+              50/50 deals
+            </a>
+          </div>
+          <!-- .buttons -->
         </div>
-        <!-- .buttons -->
-      </div>
-      <!-- .description -->
+        <!-- .description -->
+      </div> <!-- .padder -->
 
     </div>
     <!-- .wrapper -->
