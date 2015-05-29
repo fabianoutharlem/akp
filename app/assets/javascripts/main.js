@@ -1272,6 +1272,13 @@
                 $('.wizard .wizard-form form').on('submit', function (e) {
                     e.preventDefault();
 
+                    if (navigator.userAgent.indexOf("Safari") > -1) {
+                        if (!e.target.checkValidity()) {
+                            alert('The form you submitted is not valid. Please check all the fields and try again.')
+                            return;
+                        }
+                    }
+
                     var $this = $(e.currentTarget);
 
                     //remove next steps
