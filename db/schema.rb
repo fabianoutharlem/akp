@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529193434) do
+ActiveRecord::Schema.define(version: 20150529195813) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -176,6 +176,8 @@ ActiveRecord::Schema.define(version: 20150529193434) do
     t.boolean  "approved",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
+    t.string   "email"
   end
 
   create_table "static_texts", force: true do |t|
