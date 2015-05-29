@@ -6,12 +6,16 @@
       <h2><%= StaticText.send type + '_financing_header' %></h2>
 
       <p>
-        <%= StaticText.send type + '_financing_head' %>
+        <%= StaticText.send type + '_financing_head' %> <br/>
+        <%= StaticText.send type + '_financing_head_2' %> <br/>
+        <%= StaticText.send type + '_financing_head_3' %>
       </p>
 
       <%= render 'wizards/steps', step: 1 %>
 
       <div class="slider-container">
+
+        <input type="hidden" value="<%= type %>" name="wizard_type"/>
 
         <% if type == '50_50' %>
             <div class="slider-range" data-min="0" data-max="100000" data-default="5000-95000"></div>
