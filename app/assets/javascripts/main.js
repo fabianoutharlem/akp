@@ -60,6 +60,16 @@
                         $this.find('.ui-slider-handle:last .value').html(max);
 
                         $this.siblings('.slider-value').val(ui.values.join('-'));
+                    },
+                    change: function (event, ui) {
+
+                        var min = ui.values[0].formatMoney(2, ',', '.', sufix);
+                        var max = ui.values[1].formatMoney(2, ',', '.', sufix);
+
+                        $this.find('.ui-slider-handle:first .value').html(min);
+                        $this.find('.ui-slider-handle:last .value').html(max);
+
+                        $this.siblings('.slider-value').val(ui.values.join('-'));
                     }
                 });
 
@@ -936,7 +946,52 @@
              */
             ready: function () {
 
+                this.homepage();
                 this.firstStep();
+                this.prefill();
+            },
+
+            /**
+             * Prefill the form with the values coming from the url
+             *
+             * @return void
+             */
+            prefill: function () {
+                var hash = window.location.hash.substring(1);
+
+                //values
+                if (/^values\/+/i.test(hash)) {
+                    var sliderValues = hash.split('values/')[1].split('-');
+
+                    if (sliderValues.length == 2) {
+                        $('.wizard .slider-range').slider('option', 'values', sliderValues);
+
+                        $('.wizard .first-step').click();
+                    }
+                }
+            },
+
+            /**
+             * What to do when on the homepage
+             *
+             * @return void
+             */
+            homepage: function () {
+
+                $('.private-financing.on-homepage .first-step').on('click', function (e) {
+
+                    var $this = $(e.currentTarget),
+                        $sliderContainer = $this.closest('.slider-container'),
+                        $slider = $sliderContainer.find('.slider-range'),
+                        href = $this.attr('href');
+
+                    //fade the button
+                    $this.addClass('inactive');
+
+                    //add the hashtag
+                    $this.attr('href', href + '#values/' + $slider.slider('values', 0) + '-' + $slider.slider('values', 1));
+                }.bind(this));
+
             },
 
             /**
