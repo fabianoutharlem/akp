@@ -3,7 +3,7 @@
     <h1>
         <span class="stars">
           <% 5.times do |i| %>
-              <i class="icon <%= reference.rating >= i ? 'star-full-small' : 'star-empty-small' %>"></i>
+              <i class="icon <%= reference.rating >= i+1 ? 'star-full-small' : 'star-empty-small' %>"></i>
           <% end %>
         </span>
       <%= reference.name %>

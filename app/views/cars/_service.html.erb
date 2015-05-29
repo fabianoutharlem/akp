@@ -5,6 +5,8 @@
 
     <p>
       <%= StaticText.home_service_head_content %>
+      <%= StaticText.home_service_head_content_2 %>
+      <%= StaticText.home_service_head_content_3 %>
     </p>
 
     <div class="tabs">
@@ -12,76 +14,62 @@
         <a href="#tab-1" data-tab="1" class="selected">Voordelen<br/>Auto krediet Plan</a>
         <a href="#tab-2" data-tab="2">Referentie<br/>van onze klanten</a>
         <a href="#tab-3" data-tab="3">Inschrijven<br/>nieuwsbrief</a>
-      </div>  <!-- .tab-header -->
+      </div>
+      <!-- .tab-header -->
 
       <div class="tab-content">
         <div class="tab tab-1 visible">
           <ul class="checks">
-            <li>Lorem ipsum dolor sit amet</li>
-            <li>Dolor molestias, nesciunt </li>
-            <li>Vero fuga, perspiciatis nisi sint,</li>
-            <li>Facilis explicabo dolorum nostrum.</li>
-            <li>Quo quibusdam eveniet, dolorum,</li>
-            <li>Eius, saepe eum est inventore voluptas</li>
-            <li>Facilis explicabo dolorum nostrum.</li>
-            <li>Quo quibusdam eveniet, dolorum,</li>
+            <% 8.times do |i| %>
+                <li><%= StaticText.send 'service_pros_' + (i+1).to_s %></li>
+            <% end %>
           </ul>
         </div>
 
         <div class="tab tab-2 reviews">
-          <a class="more" href="">
+          <a class="more" href="<%= references_path %>">
             Meer referentie's of referentie schrijven
           </a> <!-- .more -->
 
           <h3>
-            9.5/10
-            <i class="icon star-full-big"></i>
-            <i class="icon star-full-big"></i>
-            <i class="icon star-full-big"></i>
-            <i class="icon star-full-big"></i>
-            <i class="icon star-half-big"></i>
+            <%= reference_avarage %>/5
+            <% 5.times do |i| %>
+                <% i = i+1 %>
+                <% if reference_avarage >= i %>
+                    <i class="icon star-full-big"></i>
+                <% elsif reference_avarage > i-1 and reference_avarage < i %>
+                    <i class="icon star-half-big"></i>
+                <% else %>
+                    <i class="icon star-empty-big"></i>
+                <% end %>
+            <% end %>
           </h3>
+
           <div class="subheader">
-            <a href="">Uitstekend</a> | <a href="">9 beoordelingen</a>
-          </div> <!-- .subheader -->
+            <a href="<%= references_path %>">Uitstekend</a> |
+            <a href="<%= references_path %>"><%= references.length %> beoordelingen</a>
+          </div>
+          <!-- .subheader -->
 
           <ul>
-            <li>
-              <article>
-                <div class="stars">
-                  <i class="icon star-full-small"></i>
-                  <i class="icon star-full-small"></i>
-                  <i class="icon star-full-small"></i>
-                  <i class="icon star-full-small"></i>
-                  <i class="icon star-empty-small"></i>
-                </div>
+            <% references.each do |reference| %>
+                <li>
+                  <article>
+                    <div class="stars">
+                      <% 5.times do |i| %>
+                          <i class="icon <%= reference.rating >= i+1 ? 'star-full-small' : 'star-empty-small' %>"></i>
+                      <% end %>
+                    </div>
 
-                <h1>Abdel Reghioui</h1>
-                <div class="description">
-                  <p>Mooie auto’s! Eerlijk advies! Juiste prijs en top service!</p>
-                </div>
-                <footer><em>03-03-2015</em></footer>
-              </article>
-            </li>
+                    <h1><%= reference.name %></h1>
 
-            <li>
-              <article>
-                <div class="stars">
-                  <i class="icon star-full-small"></i>
-                  <i class="icon star-full-small"></i>
-                  <i class="icon star-full-small"></i>
-                  <i class="icon star-full-small"></i>
-                  <i class="icon star-empty-small"></i>
-                </div>
-
-                <h1>Abdel Reghioui</h1>
-                <div class="description">
-                  <p>Mooie auto’s! Eerlijk advies! Juiste prijs en top service!</p>
-                </div>
-                <footer><em>03-03-2015</em></footer>
-              </article>
-            </li>
-
+                    <div class="description">
+                      <p><%= reference.content %></p>
+                    </div>
+                    <footer><em><%= reference.created_at.strftime('%d-%m-%Y') %></em></footer>
+                  </article>
+                </li>
+            <% end %>
           </ul>
         </div>
 
@@ -91,19 +79,23 @@
           <p>Laat hier je gegevens achter en wij houden u op de hoogte van onze actie’s.</p>
 
           <form action="" method="post">
-            <input class="text first-name" type="text" name="first_name" placeholder="Voornaam" />
-            <input class="text last-name" type="text" name="last_name" placeholder="Achternaam" />
+            <input class="text first-name" type="text" name="first_name" placeholder="Voornaam"/>
+            <input class="text last-name" type="text" name="last_name" placeholder="Achternaam"/>
 
-            <input class="text email" type="email" name="email" placeholder="Email adres" />
+            <input class="text email" type="email" name="email" placeholder="Email adres"/>
             <button class="btn submit" type="submit">Verzenden</button>
           </form>
         </div>
-      </div>  <!-- .tab-content -->
-    </div> <!-- .tabs -->
+      </div>
+      <!-- .tab-content -->
+    </div>
+    <!-- .tabs -->
 
     <div class="footer">
       <i class="icon arrow-white-down-big"></i>
-    </div> <!-- .footer -->
+    </div>
+    <!-- .footer -->
 
-  </div> <!-- .wrapper -->
+  </div>
+  <!-- .wrapper -->
 </section> <!-- .service -->
