@@ -1,6 +1,6 @@
 <div class="<%= if defined? positioned_home_page and positioned_home_page; ''; else; 'wizard'; end %>">
 
-  <section class="private-financing <%= if defined? positioned_home_page and positioned_home_page; 'on-homepage'; else; ''; end %>">
+  <section class="private-financing <%= if defined? positioned_home_page and positioned_home_page; 'on-homepage'; else; ''; end %>" data-car-url="<%= your_details_wizard_path %>">
     <div class="wrapper">
 
       <h2><%= StaticText.send type + '_financing_header' %></h2>
