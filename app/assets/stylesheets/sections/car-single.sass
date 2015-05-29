@@ -358,13 +358,25 @@
 				display: inline-block
 				vertical-align: middle
 
-				&.dots
-					margin-left: 15px
-
 			+mobile-large
 				float: none
 				margin-bottom: 15px
 				display: none
+
+			.dots
+				margin-left: 15px
+				position: relative
+
+				display: inline-block
+				vertical-align: middle
+
+				.share-networks
+					position: absolute
+					bottom: 0
+					right: 0
+					width: 50px
+					z-index: 1
+
 
 		a.link
 			color: $marine
