@@ -27,6 +27,7 @@
 	.wrapper
 		padding: 80px 135px
 		text-align: left
+		position: relative
 
 		+desktop
 			padding: 60px 100px
@@ -39,6 +40,16 @@
 
 		+mobile
 			padding: 30px
+
+		&::after
+			content: ''
+			display: block
+			clear: both
+			height: 0
+			line-height: 0
+			font-size: 0
+			margin: 0
+			padding: 0
 
 	.close-link
 		position: absolute
@@ -62,16 +73,29 @@
 			line-height: 24px
 			width: 50%
 
-			&.col-3
-				margin-top: 20px
-
 		+mobile-large
 			float: none
 			width: auto
 			margin-top: 20px
 
-			&.col-1
+		&.col-1
+			width: 40%
+
+			+tablet
+				width: 50%
+
+			+mobile-large
 				margin-top: 0
+
+		&.col-2
+			width: 26.66%
+
+			+tablet
+				width: 50%
+
+		&.col-3
+			+tablet
+				margin-top: 20px
 
 		h2
 			font-size: 36px
@@ -151,6 +175,12 @@
 
 			p
 				font-size: 0
+
+				a
+					margin-left: 3px
+
+					&:first-child
+						margin-left: 0
 
 		dl, dt, dd
 			margin: 0
