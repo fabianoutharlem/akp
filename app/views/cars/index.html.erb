@@ -20,7 +20,7 @@
 <section class="search-cars">
   <div class="wrapper">
 
-    <?php include 'form-search.php'; ?>
+    <%= page_entries_info @cars %>
 
     <div class="title">
       <a class="right" href="">
@@ -41,6 +41,8 @@
       <%= render @cars %>
 
     </ul>
+
+    <%= paginate @cars %>
 
   </div> <!-- .wrapper -->
 </section> <!-- .search-cars -->
