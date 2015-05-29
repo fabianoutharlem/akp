@@ -2,7 +2,7 @@ module Admin
   class StaticTextsController < AdminBaseController
 
     def index
-      @static_texts = StaticText.all
+      @static_texts = StaticText.all.order(key: :asc)
     end
 
     def update_multiple
