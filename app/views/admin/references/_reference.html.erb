@@ -1,0 +1,17 @@
+<tr>
+  <td><strong><%= reference.name %></strong></td>
+  <td>
+    <%= reference.content %>
+  </td>
+  <td>
+    <%= reference.rating %>
+  </td>
+  <td>
+    <%= link_to 'delete', admin_reference_path(reference.id), method: :delete, class: 'btn btn-danger' %>
+    <% if reference.approved? %>
+        <%= link_to 'disapprove', disapprove_admin_references_path(reference.id), class: 'btn btn-warning' %>
+    <% else %>
+        <%= link_to 'approve', approve_admin_references_path(reference.id), class: 'btn btn-success' %>
+    <% end %>
+  </td>
+</tr>

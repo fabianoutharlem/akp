@@ -4,22 +4,23 @@ module Admin
       @references = Reference.all
     end
 
-    def approve
-      reference = Reference.find(reference_params[:id])
-      reference.update(reference_params)
-      redirect_to admin_references_path
-    end
-
     def destroy
       reference = Reference.find(params[:id])
       reference.destroy
       redirect_to admin_references_path
     end
 
-    private
-
-    def reference_params
-      params.require(:reference).permit(:id, :approved)
+    def approve
+      reference = Reference.find(params[:id])
+      reference.update(approved: true)
+      redirect_to admin_references_path
     end
+
+    def disapprove
+      reference = Reference.find(params[:id])
+      reference.update(approved: false)
+      redirect_to admin_references_path
+    end
+
   end
 end

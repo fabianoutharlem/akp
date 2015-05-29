@@ -1,0 +1,34 @@
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+  <ul class="breadcrumb">
+    <li>
+      <p><%= link_to 'Home', admin_root_path %></p>
+    </li>
+    <li><a href="#" class="active">Referenties</a></li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <h3 class="page-title">Referenties</h3>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+      <table id="myDataTable" class="table table-hover" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+          <th>Naam</th>
+          <th>Content</th>
+          <th>Rating</th>
+          <th>actions</th>
+        </tr>
+        </thead>
+
+        <%= render @references %>
+
+        <tbody>
+
+        </tbody>
+      </table>
+
+</div>
+
+<% content_for :footer do %>
+<% end %>
