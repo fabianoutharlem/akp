@@ -4,6 +4,9 @@ class CarsController < ApplicationController
 
   def home
     @cars = Car.all.limit(3).order(created_at: :asc)
+    references = Reference.where(approved: true)
+    @references = references.limit(2)
+    @reference_avarage = Reference.avarage(references)
   end
 
   def show

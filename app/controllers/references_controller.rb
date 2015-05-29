@@ -2,7 +2,7 @@ class ReferencesController < ApplicationController
 
   def index
     @references = Reference.where(approved: true)
-    @avarage = @references.pluck(:rating).instance_eval { reduce(:+) / size.to_f }.round(1) if @references.any?
+    @avarage = Reference.avarage(@references)
   end
 
   def create
