@@ -80,7 +80,7 @@ body {
         -webkit-animation:none;
         animation:none;
         top:$layout-header-height;
-        background:url('../img/progress/progress-circle-success.svg') no-repeat top left;
+        background:image-url('progress/progress-circle-success.svg') no-repeat top left;
         background-size: 100% auto;
         margin: 0 auto;
         border-width: 0;
@@ -1250,7 +1250,7 @@ body {
 }
 
 .icon-set {
-    background: url('../img/icons/top_tray.png') no-repeat;
+    background: image-url('icons/top_tray.png') no-repeat;
     position: relative;
 	display:block;
     &.close-circle {
