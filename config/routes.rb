@@ -89,6 +89,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :car_requests, only: [:index, :show, :destroy]
+
     root 'admin#home'
   end
 

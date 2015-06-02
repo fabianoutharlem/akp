@@ -1,0 +1,148 @@
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+  <ul class="breadcrumb">
+    <li>
+      <p><%= link_to 'Home', admin_root_path %></p>
+    </li>
+    <li><a href="" class="active">Bekijk Finance Request</a></li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <h3 class="page-title">Bekijk Finance Request</h3>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+
+  <div class="panel">
+    <ul class="nav nav-tabs nav-tabs-simple">
+      <li class="active">
+        <a data-toggle="tab" href="#tab2hellowWorld">Auto info</a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#tab2FollowUs">Financierings info</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active slide-right" id="tab2hellowWorld">
+        <div class="row column-seperation">
+          <div class="col-md-6">
+            <%= image_tag @car_request.car.car_images.first.file.thumb unless @car_request.car.blank? %>
+
+            <br/>
+
+            <h3>Details</h3>
+            <dl>
+              <dt>Merk</dt>
+              <dd><%= @car_request.car.brand.name %></dd>
+
+              <dt>Model</dt>
+              <dd><%= @car_request.car.model.name %></dd>
+
+              <dt>Type</dt>
+              <dd><%= @car_request.car.car_type %></dd>
+
+              <dt>Carrosserie</dt>
+              <dd><%= @car_request.car.body_type.name %></dd>
+
+              <dt>Transmissie</dt>
+              <dd><%= @car_request.car.transmission_type.name %></dd>
+
+              <dt>Kleur</dt>
+              <dd><%= @car_request.car.color.capitalize + ' ' + (@car_request.car.color_type.present? ? @car_request.car.color_type : '') %></dd>
+
+              <dt>KM stand</dt>
+              <dd><%= number_with_delimiter @car_request.car.mileage, delimiter: '.' %> km</dd>
+
+              <dt>Brandstof</dt>
+              <dd><%= @car_request.car.fuel_type.name.capitalize %></dd>
+
+              <dt>Bouwjaar</dt>
+              <dd><%= @car_request.car.manufacture_year %></dd>
+
+              <dt>Cil. inhoud</dt>
+              <dd><%= @car_request.car.engine_size %> cc</dd>
+
+              <dt>Aantal cil. 4</dt>
+              <dd><%= @car_request.car.cylinders %></dd>
+
+              <dt>Vermogen</dt>
+              <dd><%= @car_request.car.engine_power %> pk</dd>
+
+              <dt>Topsnelheid</dt>
+              <dd><%= @car_request.car.top_speed %> km/u</dd>
+
+              <dt>Interieur</dt>
+              <dd><%= @car_request.car.interior %>&nbsp;</dd>
+
+              <dt>Energielabel</dt>
+              <dd><%= @car_request.car.energy_label %></dd>
+
+              <dt>Wegenbelasting</dt>
+              <dd>&euro;<%= @car_request.car.road_tax %> p/kw</dd>
+            </dl>
+
+          </div>
+          <div class="col-md-6">
+            <h3 class="semi-bold">
+              Info
+            </h3>
+            <h4>
+              <%= @car_request.car.display_name unless @car_request.car.blank? %>
+            </h4>
+            <strong>Accesoires</strong>
+            <ul>
+              <% @car_request.car.options.each do |option| %>
+                <li><%= option.name %></li>
+              <% end unless @car_request.car.blank? %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane slide-left" id="tab2FollowUs">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>
+              Persoons gegevens
+            </h3>
+            <dl>
+              <dt>Naam</dt>
+              <dd><%= @car_request.name %></dd>
+              <dt>Email</dt>
+              <dd><%= @car_request.email %></dd>
+              <dt>Telefoon</dt>
+              <dd><%= @car_request.phone %></dd>
+              <dt>Bkr</dt>
+              <dd><%= @car_request.bkr %></dd>
+              <dt>Kenteken huidige auto</dt>
+              <dd><%= @car_request.license_plate %></dd>
+            </dl>
+          </div>
+          <div class="col-md-6">
+            <h3>
+              Financierings gegevens
+            </h3>
+            <dl>
+              <dt>Type aanvraag</dt>
+              <dd><%= @car_request.request_type %></dd>
+              <dt>Aanbetaling</dt>
+              <dd><%= @car_request.payment %></dd>
+              <dt>Te financieren bedrag</dt>
+              <dd><%= @car_request.amount %></dd>
+              <dt>Vaste lasten</dt>
+              <dd><%= @car_request.rent %></dd>
+              <dt>Inkomen</dt>
+              <dd><%= @car_request.net_income %></dd>
+              <dt>Inkomen partner</dt>
+              <dd><%= @car_request.partner_net_income %></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="tab2Inspire">
+        <div class="row">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
