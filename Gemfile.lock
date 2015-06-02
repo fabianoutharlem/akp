@@ -309,6 +309,7 @@ DEPENDENCIES
   execjs
   faker
   fastclick-rails (~> 1.0.1)
+  font-awesome-rails
   friendly_id (~> 5.1.0)
   haml-rails
   jquery-rails

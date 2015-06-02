@@ -91,6 +91,9 @@ gem 'kaminari'
 # mailer
 gem 'mandrill_mailer'
 
+# font awesome
+gem 'font-awesome-rails'
+
 group :development do
   gem 'spring'
   gem 'faker'

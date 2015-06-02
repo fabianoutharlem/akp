@@ -28,6 +28,8 @@
  *= require pages-core/css/pages-icons
  *= require pages-core/css/pages
  *
+ *= require font-awesome
+ *
  * BEGIN PAGES ASSET PIPELINE OVERRIDE
  *= require ./pages-asset-pipeline
  *= require ./adjustments
