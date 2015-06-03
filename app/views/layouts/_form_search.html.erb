@@ -1,4 +1,4 @@
-<form method="post" action="<%= search_cars_path %>" class="search <%= defined?(advanced) and advanced == true ? 'advanced-open' : '' %>">
+<form method="get" action="<%= search_cars_path %>" class="search <%= defined?(advanced) and advanced == true ? 'advanced-open' : '' %>">
 
   <input type="hidden" name="q[type]" value="" class="search-type"/>
   <%= token_tag form_authenticity_token %>
