@@ -90,6 +90,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :cms_fields, only: [:index, :update]
+
     resources :car_requests, only: [:index, :show, :destroy]
 
     root 'cars#index'

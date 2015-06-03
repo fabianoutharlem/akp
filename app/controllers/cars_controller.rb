@@ -7,6 +7,7 @@ class CarsController < ApplicationController
     references = Reference.where(approved: true)
     @references = references.limit(2)
     @reference_avarage = Reference.avarage(references)
+    @cms_fields = CmsField.first
   end
 
   def show

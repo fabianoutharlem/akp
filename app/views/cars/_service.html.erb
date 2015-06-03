@@ -1,4 +1,4 @@
-<section class="service" style="background-image: url(<%= image_path 'service_bg.jpg' %>);">
+<section class="service" style="background-image: url(<%= @cms_fields.service_bg ? @cms_fields.service_bg.url : image_path('service_bg.jpg') %>);">
   <div class="wrapper">
 
     <h2><%= StaticText.home_service_head %></h2>

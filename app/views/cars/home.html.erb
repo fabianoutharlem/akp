@@ -13,7 +13,7 @@
       <li>
         <article>
           <figure>
-            <a href="<%= financing_cars_path 'bussiness' %>"><%= image_tag 'image-zakelijk.jpg' %></a>
+            <a href="<%= financing_cars_path 'bussiness' %>"><%= image_tag @cms_fields.home_foto_1 ? @cms_fields.home_foto_1.url : 'image-zakelijk.jpg' %></a>
           </figure>
 
           <h1>
@@ -33,7 +33,7 @@
       <li>
         <article>
           <figure>
-            <a href="<%= financing_cars_path 'private' %>"><%= image_tag 'image-particuliere.jpg' %></a>
+            <a href="<%= financing_cars_path 'private' %>"><%= image_tag @cms_fields.home_foto_2 ? @cms_fields.home_foto_2.url : 'image-particuliere.jpg' %></a>
           </figure>
 
           <h1>
@@ -53,7 +53,7 @@
       <li>
         <article>
           <figure>
-            <a href="<%= financing_cars_path '50_50' %>"><%= image_tag 'image-5050.jpg' %></a>
+            <a href="<%= financing_cars_path '50_50' %>"><%= image_tag @cms_fields.home_foto_3 ? @cms_fields.home_foto_3.url : 'image-5050.jpg' %></a>
           </figure>
 
           <h1>

@@ -1,0 +1,23 @@
+<div class="form-group form-group-default">
+  <%= f.label :home_zakelijk %>
+  <%= f.file_field :home_foto_1, accept: 'image/png,image/gif,image/jpeg' %>
+  <%= image_tag f.object.home_foto_1.thumb.url unless f.object.home_foto_1.blank? %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :home_particulier %>
+  <%= f.file_field :home_foto_2, accept: 'image/png,image/gif,image/jpeg' %>
+  <%= image_tag f.object.home_foto_2.thumb.url unless f.object.home_foto_2.blank? %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :home_50_50 %>
+  <%= f.file_field :home_foto_3, accept: 'image/png,image/gif,image/jpeg' %>
+  <%= image_tag f.object.home_foto_3.thumb.url unless f.object.home_foto_3.blank? %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :home_service_image %>
+  <%= f.file_field :service_bg, accept: 'image/png,image/gif,image/jpeg' %>
+  <%= image_tag f.object.service_bg.thumb.url unless f.object.service_bg.blank? %>
+</div>
