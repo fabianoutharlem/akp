@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
 
-  add_breadcrumb 'Autos', :cars_path
+  add_breadcrumb 'Autos', :voorraad_cars_path
 
   def home
     @cars = Car.all.limit(3).order(created_at: :asc)

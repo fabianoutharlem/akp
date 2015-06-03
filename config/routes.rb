@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       post :search
       get :nieuw_binnen
       get 'financing/:type', to: :financing, as: :financing
+      get :voorraad, action: :index
     end
   end
 

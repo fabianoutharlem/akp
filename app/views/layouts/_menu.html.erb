@@ -11,8 +11,12 @@
       <nav>
         <ul>
           <li><a href="<%= root_path %>"><%= StaticText.home_menu_link %></a></li>
-          <li><a href="<%= cars_path %>"><%= StaticText.stock_menu_link %></a></li>
-          <li><a href="<%= page_path('contact') %>">Contact</a></li>
+          <li><a href="<%= voorraad_cars_path %>"><%= StaticText.stock_menu_link %></a></li>
+          <li><%= link_to 'Zakelijke financiering', financing_cars_path('bussiness') %></li>
+          <li><%= link_to 'Particuliere financiering', financing_cars_path('private') %></li>
+          <li><%= link_to '50/50 Deals', financing_cars_path('50_50') %></li>
+          <li class="last"><a href="<%= page_path('contact') %>">Contact</a></li>
+
           <li><a href="<%= blog_page_path('auto_blog') %>">Auto blog</a></li>
           <li><a href="<%= blog_page_path('our_workspace') %>">Onze werkplaats</a></li>
           <li><a href="<%= blog_page_path('auto_op_afbetaling') %>">Auto op afbetaling</a></li>
@@ -20,10 +24,6 @@
           <li><a href="<%= blog_page_path('lease_gebruikte_autos') %>">Lease gebruikte autos</a></li>
           <li><a href="<%= blog_page_path('opel_eyetracking') %>">Opel eye tracking</a></li>
           <li class="last"><a href="<%= blog_page_path('voordelen_financial_lease') %>">Voordelen financial lease</a></li>
-
-          <li><%= link_to 'Particuliere financiering', financing_cars_path('private') %></li>
-          <li><%= link_to 'Zakelijke financiering', financing_cars_path('bussiness') %></li>
-          <li class="last"><%= link_to '50/50 Deals', financing_cars_path('50_50') %></li>
 
           <% MenuItem.all.each do |menu_item| %>
               <li class="<%= menu_item.last ? 'last' : '' %>"><a href="<%= menu_item.path %>"><%= menu_item.label %></a>
