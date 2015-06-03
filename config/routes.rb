@@ -95,10 +95,6 @@ Rails.application.routes.draw do
     root 'cars#index'
   end
 
-  resource :import do
-    collection do
-      post :import, action: :handle
-    end
-  end
+  post '/import', to: 'import#handle'
 
 end

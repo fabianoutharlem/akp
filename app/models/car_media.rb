@@ -2,6 +2,8 @@ class CarMedia < ActiveRecord::Base
 
   belongs_to :car
 
+  default_scope { where(avatar_processing: 0)}
+
   mount_uploader :file, CarMediaUploader
   process_in_background :file
 
