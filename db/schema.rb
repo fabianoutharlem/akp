@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603190934) do
+ActiveRecord::Schema.define(version: 20150603211139) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -168,7 +168,10 @@ ActiveRecord::Schema.define(version: 20150603190934) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "models", ["slug"], name: "index_models_on_slug", unique: true, using: :btree
 
   create_table "pages", force: true do |t|
     t.string   "title"

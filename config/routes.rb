@@ -26,6 +26,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :models do
+    resource :cars do
+      get :index, to: 'cars#model'
+    end
+  end
+
   resource :faqs do
     get :index
   end

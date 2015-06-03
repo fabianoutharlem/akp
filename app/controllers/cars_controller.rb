@@ -21,6 +21,12 @@ class CarsController < ApplicationController
     add_breadcrumb @brand.name
   end
 
+  def model
+    @model = Model.find(params[:model_id])
+    @cars = @model.cars
+    add_breadcrumb @model.name
+  end
+
   def index
     @cars = Car.page(params[:page]).per(15)
   end
