@@ -92,9 +92,13 @@ Rails.application.routes.draw do
 
     resources :car_requests, only: [:index, :show, :destroy]
 
-    root 'admin#home'
+    root 'cars#index'
   end
 
-  post '/import', to: 'import#handle'
+  resource :import do
+    collection do
+      post :import, action: :handle
+    end
+  end
 
 end

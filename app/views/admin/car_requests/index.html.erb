@@ -27,7 +27,7 @@
     <% @car_requests.each do |car_request| %>
         <tr>
           <td>
-            <%= image_tag car_request.car.car_images.first.file.thumb, width: 100 unless car_request.car.blank? %>
+            <%= image_tag car_request.car.car_images.first.file.thumb, height: 100 unless car_request.car.blank? %>
           </td>
           <td>
             <%= mail_to car_request.email %>

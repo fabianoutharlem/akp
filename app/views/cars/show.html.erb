@@ -22,12 +22,12 @@
           <div class="bar">
             <div class="slider-info">
 
-                <a href="#right" class="fullscreen">
-                  <i class="icon fullscreen"></i>
-                </a>
+              <a href="#right" class="fullscreen">
+                <i class="icon fullscreen"></i>
+              </a>
 
               <div class="photos">
-                fotos <br />
+                fotos <br/>
                 <strong>1</strong>/<%= @car.car_images.length %>
 
                 <div class="arrows">
@@ -37,15 +37,20 @@
                   <a href="#right" class="arrow-right">
                     <i class="icon arrow-white-right-sidebar"></i>
                   </a>
-                </div> <!-- .arrows -->
-              </div> <!-- .photos -->
+                </div>
+                <!-- .arrows -->
+              </div>
+              <!-- .photos -->
 
               <div class="can-swipe">
                 <span class="icon swipe-white"></span>
-              </div> <!-- .can-swipe -->
+              </div>
+              <!-- .can-swipe -->
 
-            </div> <!-- .slider-info -->
-          </div> <!-- .bar -->
+            </div>
+            <!-- .slider-info -->
+          </div>
+          <!-- .bar -->
         </figure>
 
         <div class="description">
@@ -84,7 +89,8 @@
           <!-- .buttons -->
         </div>
         <!-- .description -->
-      </div> <!-- .padder -->
+      </div>
+      <!-- .padder -->
 
     </div>
     <!-- .wrapper -->
@@ -121,15 +127,28 @@
           <a href=""><i class="icon share-dots"></i></a>
 
           <div class="share-networks">
-            <a href="share_fb" target="_blank"><i class="icon facebook"></i></a>
+            <a href="" onclick="shareCar();" target="_blank"><i class="icon facebook"></i></a>
+
+            <script>
+              function shareCar() {
+                  FB.ui({
+                      method: 'feed',
+                      link: '<%= car_url(@car) %>',
+                      redirect_uri: '<%= car_url(@car) %>',
+                      caption: '',
+                  }, function(response){});
+              }
+            </script>
 
             <a href="share_tw" target="_blank"><i class="icon twitter"></i></a>
 
             <a href="share_gp" target="_blank"><i class="icon google-plus"></i></a>
 
             <a href="share_pinterest" target="_blank"><i class="icon pinterest"></i></a>
-          </div> <!-- .share-networks -->
-        </div> <!-- .dots -->
+          </div>
+          <!-- .share-networks -->
+        </div>
+        <!-- .dots -->
         <a class="mail" href="mailto:?subject=<%= @car.display_name %>&body=<%= car_url @car %>"><i class="icon share-mail"></i></a>
         <a class="print" href="" onclick="window.print();"><i class="icon share-print"></i></a>
       </div>
