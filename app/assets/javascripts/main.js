@@ -727,17 +727,27 @@
                         $switch = $this.closest('.language-switch'),
 
                         lang = $this.data('lang'),
-                        $frame = $('.goog-te-menu-frame:first');
+                        $select = $('.goog-te-combo:first');
 
-                    if (!$frame.size()) {
-                        console.error("Could not find Google translate frame.");
+                    if (!$select.size()) {
+                        console.error("Could not find Google select.");
+                        return;
                     }
 
                     $switch.find('h4').text($this.text());
                     $switch.find('ul li a').removeClass('selected');
                     $this.addClass('selected');
 
-                    $frame.contents().find('.goog-te-menu2-item span.text:contains('+$this.text()+')').get(0).click();
+                    $select.val(lang);
+
+                    if (document.createEventObject) {
+                        var evt = document.createEventObject();
+                        $select.get(0).fireEvent('onchange', evt);
+                    } else{
+                        var evt = document.createEvent("HTMLEvents");
+                        evt.initEvent('change', false, true);
+                        !$select.get(0).dispatchEvent(evt);
+                    }
                 });
             }
         }, //header
