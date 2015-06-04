@@ -737,7 +737,7 @@
                     $switch.find('ul li a').removeClass('selected');
                     $this.addClass('selected');
 
-                    $frame.contents().find('.goog-te-menu2-item span.text:contains('+lang+')').get(0).click();
+                    $frame.contents().find('.goog-te-menu2-item span.text:contains('+$this.text()+')').get(0).click();
                 });
             }
         }, //header
