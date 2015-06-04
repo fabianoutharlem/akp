@@ -84,6 +84,14 @@
 							top: 50%
 							+transform(translate(-50%, -50%))
 
+							+mobile-large
+								position: static
+								+transform(none)
+
+							+print
+								position: static
+								+transform(none)
+
 						iframe,
 						video
 							display: block
