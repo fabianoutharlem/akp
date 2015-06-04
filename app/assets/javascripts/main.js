@@ -748,6 +748,8 @@
                         evt.initEvent('change', false, true);
                         !$select.get(0).dispatchEvent(evt);
                     }
+
+                    $(e.currentTarget).closest('.language-switch').removeClass('visible');
                 });
             }
         }, //header
