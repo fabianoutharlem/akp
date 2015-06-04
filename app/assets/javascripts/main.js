@@ -764,7 +764,7 @@
              * @return void
              */
             share: function () {
-                $('.car-single .links .share .dots a').on('click', function (e) {
+                $('.car-single .links .share .dots > a').on('click', function (e) {
                     e.preventDefault();
 
                     $(this).siblings('.share-networks').toggleClass('visible');
