@@ -1,6 +1,6 @@
 class BlogPage < ActiveRecord::Base
-  # extend FriendlyId
-  # friendly_id :title, use: [:slugged, :finders]
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :finders]
 
   TEMPLATES = [:blog_template_auto_afbetaling]
   belongs_to :templateable, polymorphic: true, dependent: :destroy

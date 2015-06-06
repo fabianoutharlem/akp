@@ -27,11 +27,7 @@
 <% content_for :footer do %>
     <script>
         $(document).ready(function() {
-            $('#wysiwyg5').wysihtml5();
-
-            $('.remove_fields').on('click', function () {
-                $(this).parents('.grouper').fadeOut();
-            });
+            $('.wysiwyg5').wysihtml5();
         });
     </script>
 <% end %>
