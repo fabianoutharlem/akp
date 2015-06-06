@@ -127,7 +127,7 @@
           <a href=""><i class="icon share-dots"></i></a>
 
           <div class="share-networks">
-            <a href="" onclick="shareCar();" target="_blank"><i class="icon facebook"></i></a>
+            <a href="" onclick="return shareCar();" target="_blank"><i class="icon facebook"></i></a>
 
             <script>
               function shareCar() {
@@ -137,14 +137,16 @@
                       redirect_uri: '<%= car_url(@car) %>',
                       caption: '',
                   }, function(response){});
+
+                  return false;
               }
             </script>
 
-            <a href="share_tw" target="_blank"><i class="icon twitter"></i></a>
+            <a href="https://twitter.com/home?status=<%= @car.display_name %> <%= car_url @car %>" target="_blank"><i class="icon twitter"></i></a>
 
-            <a href="share_gp" target="_blank"><i class="icon google-plus"></i></a>
+            <a href="https://plus.google.com/share?url=<%= car_url @car %>" target="_blank"><i class="icon google-plus"></i></a>
 
-            <a href="share_pinterest" target="_blank"><i class="icon pinterest"></i></a>
+            <a href="https://pinterest.com/pin/create/button/?url=<%= car_url @car %>&amp;description=<%= @car.display_name %>" target="_blank"><i class="icon pinterest"></i></a>
           </div>
           <!-- .share-networks -->
         </div>

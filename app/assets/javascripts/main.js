@@ -731,6 +731,7 @@
 
                     if (!$select.size()) {
                         console.error("Could not find Google select.");
+                        return;
                     }
 
                     $switch.find('h4').text($this.text());
@@ -738,7 +739,17 @@
                     $this.addClass('selected');
 
                     $select.val(lang);
-                    $select.change();
+
+                    if (document.createEventObject) {
+                        var evt = document.createEventObject();
+                        $select.get(0).fireEvent('onchange', evt);
+                    } else{
+                        var evt = document.createEvent("HTMLEvents");
+                        evt.initEvent('change', false, true);
+                        !$select.get(0).dispatchEvent(evt);
+                    }
+
+                    $(e.currentTarget).closest('.language-switch').removeClass('visible');
                 });
             }
         }, //header
@@ -764,7 +775,7 @@
              * @return void
              */
             share: function () {
-                $('.car-single .links .share .dots a').on('click', function (e) {
+                $('.car-single .links .share .dots > a').on('click', function (e) {
                     e.preventDefault();
 
                     $(this).siblings('.share-networks').toggleClass('visible');
