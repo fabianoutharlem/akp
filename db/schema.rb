@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603211139) do
+ActiveRecord::Schema.define(version: 20150606131720) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -19,15 +19,20 @@ ActiveRecord::Schema.define(version: 20150603211139) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "templateable_id"
+    t.string   "templateable_type"
   end
 
   add_index "blog_pages", ["slug"], name: "index_blog_pages_on_slug", unique: true, using: :btree
 
-  create_table "blog_sections", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.string   "image"
-    t.integer  "blog_page_id"
+  create_table "blog_template_auto_afbetalings", force: true do |t|
+    t.text     "blue_block_left_1"
+    t.text     "white_block_left_1"
+    t.text     "blue_block_left_2"
+    t.string   "image_right_1"
+    t.text     "white_block_right_1"
+    t.string   "image_right_2"
+    t.text     "blue_block_right_1"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

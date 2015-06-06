@@ -1,8 +1,16 @@
 class BlogPage < ActiveRecord::Base
-  has_many :blog_sections, dependent: :destroy
+  # extend FriendlyId
+  # friendly_id :title, use: [:slugged, :finders]
 
-  accepts_nested_attributes_for :blog_sections, :reject_if => :all_blank, :allow_destroy => true
+  TEMPLATES = [:blog_template_auto_afbetaling]
+  belongs_to :templateable, polymorphic: true, dependent: :destroy
+  accepts_nested_attributes_for :templateable
 
-  extend FriendlyId
-  friendly_id :title, use: [:slugged, :finders]
+  def templateable_attributes=(attributes)
+    if TEMPLATES.include?(templateable_type.underscore.to_sym)
+      self.templateable ||= self.templateable_type.constantize.new
+      self.templateable.assign_attributes(attributes)
+    end
+  end
+
 end

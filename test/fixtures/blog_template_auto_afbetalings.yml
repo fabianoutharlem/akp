@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blue_block_left_1: MyText
+  white_block_left_1: MyText
+  blue_block_left_2: MyText
+  image_right_1: MyString
+  white_block_right_1: MyText
+  image_right_2: MyString
+  blue_block_right_1: MyText
+  templatable_id: 
+
+two:
+  blue_block_left_1: MyText
+  white_block_left_1: MyText
+  blue_block_left_2: MyText
+  image_right_1: MyString
+  white_block_right_1: MyText
+  image_right_2: MyString
+  blue_block_right_1: MyText
+  templatable_id: 

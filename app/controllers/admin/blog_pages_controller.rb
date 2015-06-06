@@ -59,7 +59,7 @@ module Admin
     end
 
     def blog_page_params
-      params.require(:blog_page).permit(:id, :title, :content, blog_sections_attributes: [:id, :title, :content, :image, :_destroy])
+      params.require(:blog_page).permit(:id, :title, :content, :templateable_type, :templateable_id, templateable_attributes: BlogTemplateAutoAfbetaling.permitted_attributes)
     end
 
   end

@@ -79,7 +79,12 @@ Rails.application.routes.draw do
     end
     resources :faqs
     resources :pages
-    resources :blog_pages
+    resources :blog_pages do
+      collection do
+        get 'new/:template', action: :new, as: :new_with_template
+        get 'edit/:id/:template', action: :edit, as: :edit_with_template
+      end
+    end
 
     resources :brands
 

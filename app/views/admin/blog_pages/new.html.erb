@@ -13,16 +13,11 @@
 <div class="container-fluid container-fixed-lg">
   <%= form_for @blog_page, url: {action: :create}, html: {class: 'form'}, multipart: true do |f| %>
       <%= render 'form', f: f %>
+      <%= f.hidden_field :templateable_type, value: params[:template].split("_").collect(&:capitalize).join %>
       <div id="blog_sections form-group form-group-attached">
-        <h3>Sections</h3>
-        <%= f.fields_for :blog_sections, BlogSection.new do |blog_section| %>
-            <div class="grouper">
-              <%= render 'blog_section_fields', f: blog_section %>
-              <div class="links">
-                <%= link_to_add_association 'Add section', f, :blog_sections %> <br/>
-                <%= link_to_remove_association 'Remove section', f %>
-              </div>
-            </div>
+        <h3>Template specific fields</h3>
+        <%= f.fields_for :templateable_attributes, params[:template].to_s.split("_").collect(&:capitalize).join.constantize.new do |template| %>
+            <%= render 'template_fields', f: template, template: params[:template] %>
         <% end %>
       </div>
       <%= f.submit 'Create', class: 'btn btn-primary' %>

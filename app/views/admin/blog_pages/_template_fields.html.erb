@@ -1,0 +1,41 @@
+<div class="form-group">
+
+  <% case template %>
+  <% when 'blog_template_auto_afbetaling' %>
+      <div class="field form-group form-group-default">
+        <%= f.label :blue_block_left_1 %> <br/>
+        <%= f.text_field :blue_block_left_1, class: 'form-control' %>
+      </div>
+      <div class="field form-group form-group-default">
+        <%= f.label :white_block_left_1 %> <br/>
+        <%= f.text_field :white_block_left_1, class: 'form-control' %>
+      </div>
+      <div class="field form-group form-group-default">
+        <%= f.label :blue_block_left_2 %> <br/>
+        <%= f.text_field :blue_block_left_2, class: 'form-control' %>
+      </div>
+      <div class="field form-group form-group-default">
+        <%= f.label :image_right_1 %> <br/>
+        <%= f.file_field :image_right_1, class: 'form-control' %>
+        <%= image_tag f.object.image_right_1.url unless f.object.image_right_1.blank? %>
+      </div>
+      <div class="field form-group form-group-default">
+        <%= f.label :white_block_right_1 %> <br/>
+        <%= f.text_field :white_block_right_1, class: 'form-control' %>
+      </div>
+      <div class="field form-group form-group-default">
+        <%= f.label :image_right_2 %> <br/>
+        <%= f.file_field :image_right_2, class: 'form-control' %>
+        <%= image_tag f.object.image_right_2.url unless f.object.image_right_2.blank? %>
+      </div>
+      <div class="field form-group form-group-default">
+        <%= f.label :blue_block_right_1 %> <br/>
+        <%= f.text_field :blue_block_right_1, class: 'form-control' %>
+      </div>
+
+    <% else %>
+    <h2>No Template fields found</h2>
+
+  <% end %>
+
+</div>
