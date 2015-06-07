@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606131720) do
+ActiveRecord::Schema.define(version: 20150607134057) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -33,6 +33,61 @@ ActiveRecord::Schema.define(version: 20150606131720) do
     t.text     "white_block_right_1"
     t.string   "image_right_2"
     t.text     "blue_block_right_1"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_template_auto_lease_mogelijkhedens", force: true do |t|
+    t.text     "blue_block_left_1"
+    t.string   "image_right_1"
+    t.text     "white_block_right_1"
+    t.string   "image_left_1"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_template_full_operational_leases", force: true do |t|
+    t.text     "blue_block_left_1"
+    t.string   "image_right_1"
+    t.string   "image_left_1"
+    t.text     "white_block_right_1"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_template_lease_gebruikte_autos", force: true do |t|
+    t.text     "blue_block_left_1"
+    t.string   "image_right_1"
+    t.text     "white_block_right_1"
+    t.text     "white_block_left_1"
+    t.string   "image_right_2"
+    t.text     "blue_block_left_2"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_template_onze_werkplaats", force: true do |t|
+    t.string   "top_image"
+    t.text     "top_white_block"
+    t.string   "image_left"
+    t.text     "blue_block_right"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_template_opel_eye_trackings", force: true do |t|
+    t.string   "top_image"
+    t.text     "blue_block"
+    t.text     "orange_block"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_template_voordelen_financial_leases", force: true do |t|
+    t.text     "blue_block_left_1"
+    t.string   "image_right_1"
+    t.string   "image_left_1"
+    t.text     "white_block_right_1"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

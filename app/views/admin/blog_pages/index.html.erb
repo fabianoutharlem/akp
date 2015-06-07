@@ -13,7 +13,18 @@
 
 <div class="container-fluid container-fixed-lg">
 
-  <%= link_to 'New Auto Op Afbetaling Template', new_with_template_admin_blog_pages_path('blog_template_auto_afbetaling'), class: 'btn btn-primary' %>
+  <div class="btn-group dropdown-default">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> New Template <span class="caret"></span> </a>
+    <ul class="dropdown-menu ">
+      <li><%= link_to 'Auto Op Afbetaling', new_with_template_admin_blog_pages_path('blog_template_auto_afbetaling') %></li>
+      <li><%= link_to 'Auto Lease De Mogelijkheden', new_with_template_admin_blog_pages_path('blog_template_auto_lease_mogelijkheden') %></li>
+      <li><%= link_to 'Full Operational Lease', new_with_template_admin_blog_pages_path('blog_template_full_operational_lease') %></li>
+      <li><%= link_to 'Lease Gebruikte Autos', new_with_template_admin_blog_pages_path('blog_template_lease_gebruikte_autos') %></li>
+      <li><%= link_to 'Onze Werkplaats', new_with_template_admin_blog_pages_path('blog_template_onze_werkplaats') %></li>
+      <li><%= link_to 'Opel Eye Tracking', new_with_template_admin_blog_pages_path('blog_template_opel_eye_tracking') %></li>
+      <li><%= link_to 'Voordelen Financial Lease', new_with_template_admin_blog_pages_path('blog_template_voordelen_financial_lease') %></li>
+    </ul>
+  </div>
 
   <table id="myDataTable" class="table table-hover" cellspacing="0" width="100%">
     <thead>

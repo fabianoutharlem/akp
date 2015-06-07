@@ -1,4 +1,4 @@
-class BlogTemplateAutoAfbetaling < ActiveRecord::Base
+class BlogTemplateLeaseGebruikteAutos < ActiveRecord::Base
   has_many :blog_pages, dependent: :destroy, as: :templateable
 
   mount_uploader :image_right_1, BlogSectionUploader
@@ -11,5 +11,4 @@ class BlogTemplateAutoAfbetaling < ActiveRecord::Base
   def self.form_fields
     self.permitted_attributes - [:id]
   end
-
 end
