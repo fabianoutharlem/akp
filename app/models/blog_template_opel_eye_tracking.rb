@@ -1,5 +1,5 @@
 class BlogTemplateOpelEyeTracking < ActiveRecord::Base
-  has_many :blog_pages, dependent: :destroy, as: :templateable
+  has_many :blog_pages, as: :templateable
 
   mount_uploader :top_image, BlogSectionUploader
 

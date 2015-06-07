@@ -1,0 +1,58 @@
+<%= render partial: 'layouts/breadcrumb' %>
+
+<section class="blog-header">
+  <div class="wrapper">
+    <h1><%= @blog_page.title %></h1>
+
+    <div class="description">
+      <p><%= @blog_page.content.html_safe %></p>
+    </div> <!-- .description -->
+  </div> <!-- .wrapper -->
+</section> <!-- .blog-header -->
+
+<section class="article-header">
+  <div class="wrapper">
+    <figure>
+      <%= image_tag @blog_page.templateable.top_image %>
+    </figure>
+
+    <div class="text">
+      <%= @blog_page.templateable.top_white_block.html_safe %>
+    </div> <!-- .text -->
+  </div> <!-- .wrapper -->
+</section> <!-- .article-header -->
+
+
+<section class="blog-listing">
+  <div class="wrapper">
+
+    <article class="split-in-three">
+
+      <figure class="one-third">
+        <%= image_tag @blog_page.templateable.image_left %>
+      </figure> <!-- .one-third -->
+
+      <div class="text one-third small marine">
+        <%= @blog_page.templateable.blue_block_right.html_safe %>
+      </div> <!-- .text one-third -->
+
+      <div class="text one-third mini-ad">
+        <h2>Zakelijke financiering</h2>
+
+        <div class="description">
+          <p>Financial lease</p>
+        </div> <!-- .description -->
+
+        <div class="read-more">
+          <a class="btn btn-small">
+            Direct berekenen
+          </a>
+        </div> <!-- .read-more -->
+      </div> <!-- .text one-third -->
+
+    </article> <!-- .split-in-three -->
+  </div> <!-- .wrapper -->
+</section> <!-- .blog-listing -->
+
+<%= render partial: 'layouts/search_navigation' %>
+<%= render partial: 'layouts/footer_simple' %>

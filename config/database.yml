@@ -13,7 +13,7 @@ development:
 production:
   <<: *default
   host: localhost
-  database: ash
+  database: akp
 
 staging:
     <<: *default

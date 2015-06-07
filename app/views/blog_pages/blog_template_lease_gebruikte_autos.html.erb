@@ -5,9 +5,7 @@
     <h1><%= @blog_page.title %></h1>
 
     <div class="description">
-      <p>
-        <%=h @blog_page.content.html_safe %>
-      </p>
+      <p><%= @blog_page.content.html_safe %></p>
     </div> <!-- .description -->
   </div> <!-- .wrapper -->
 </section> <!-- .blog-header -->
@@ -18,9 +16,7 @@
     <article>
       <div class="left">
         <div class="text marine">
-          <div class="description">
-            <%= @blog_page.templateable.blue_block_left_1.html_safe %>
-          </div> <!-- .description -->
+          <%= @blog_page.templateable.blue_block_left_1.html_safe %>
         </div> <!-- .text -->
       </div> <!-- .left -->
 
@@ -28,14 +24,11 @@
       <div class="right">
 
         <figure>
-          <%= image_tag @blog_page.templateable.image_right_1.large %>
+          <%= image_tag @blog_page.templateable.image_right_1 %>
         </figure>
 
         <div class="text">
           <%= @blog_page.templateable.white_block_right_1.html_safe %>
-            </ul> <!-- .checks -->
-
-          </div> <!-- .description -->
         </div> <!-- .text -->
       </div> <!-- .left -->
     </article>
@@ -46,47 +39,20 @@
       </div> <!-- .text -->
 
       <figure>
-        <%= image_tag @blog_page.templateable.image_right_2.large %>
+        <%= image_tag @blog_page.templateable.image_right_2 %>
       </figure>
     </article>
 
 
     <article class="split-in-three">
 
-      <div class="left none">
-        <div class="text two-thirds mini-ad">
-          <h2>Zakelijke financiering</h2>
-
-          <div class="description">
-            <p>Financial lease</p>
-          </div> <!-- .description -->
-
-          <div class="read-more">
-            <a class="btn btn-small">
-              Direct berekenen
-            </a>
-          </div> <!-- .read-more -->
-        </div> <!-- .text -->
-      </div> <!-- .left -->
-
-      <div class="right">
-        <div class="text marine">
-            <%= @blog_page.templateable.blue_block_right_1.html_safe %>
-        </div> <!-- .text -->
-      </div> <!-- .right -->
-
-    </article>
-
-
-    <article>
-
       <div class="left">
         <div class="text marine">
-            <%= @blog_page.templateable.blue_block_left_2.html_safe %>
+          <%= @blog_page.templateable.blue_block_left_2.html_safe %>
         </div> <!-- .text -->
       </div> <!-- .left -->
 
-      <div class="right none split-in-three">
+      <div class="right none">
         <div class="text two-thirds mini-ad bottom">
           <h2>Particuliere financiering</h2>
 

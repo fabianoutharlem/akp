@@ -41,6 +41,7 @@
           <td><%= sanitize(truncate(blog_page.content)) %></td>
           <td>
             <%= link_to 'Edit', edit_with_template_admin_blog_pages_path(blog_page, blog_page.templateable_type.underscore.to_sym), class: 'btn btn-info' %>
+            <%= link_to 'View', blog_page_path(blog_page), class: 'btn btn-primary' %>
             <%= link_to 'Delete', admin_blog_page_path(blog_page), confirm: 'Are you sure you want to delete this blog_page?', method: :delete, class: 'btn btn-danger' %>
           </td>
         </tr>
