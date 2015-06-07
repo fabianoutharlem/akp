@@ -6,10 +6,12 @@
 
     <div class="description">
       <p>
-        <%=h @blog_page.content.html_safe %>
+        <%= h @blog_page.content.html_safe %>
       </p>
-    </div> <!-- .description -->
-  </div> <!-- .wrapper -->
+    </div>
+    <!-- .description -->
+  </div>
+  <!-- .wrapper -->
 </section> <!-- .blog-header -->
 
 
@@ -20,9 +22,12 @@
         <div class="text marine">
           <div class="description">
             <%= @blog_page.templateable.blue_block_left_1.html_safe %>
-          </div> <!-- .description -->
-        </div> <!-- .text -->
-      </div> <!-- .left -->
+          </div>
+          <!-- .description -->
+        </div>
+        <!-- .text -->
+      </div>
+      <!-- .left -->
 
 
       <div class="right">
@@ -33,17 +38,19 @@
 
         <div class="text">
           <%= @blog_page.templateable.white_block_right_1.html_safe %>
-            </ul> <!-- .checks -->
+          </ul> <!-- .checks -->
 
-          </div> <!-- .description -->
-        </div> <!-- .text -->
-      </div> <!-- .left -->
+        </div>
+        <!-- .text -->
+      </div>
+      <!-- .left -->
     </article>
 
     <article class="left-side-text">
       <div class="text">
         <%= @blog_page.templateable.white_block_left_1.html_safe %>
-      </div> <!-- .text -->
+      </div>
+      <!-- .text -->
 
       <figure>
         <%= image_tag @blog_page.templateable.image_right_2.large %>
@@ -59,21 +66,27 @@
 
           <div class="description">
             <p>Financial lease</p>
-          </div> <!-- .description -->
+          </div>
+          <!-- .description -->
 
           <div class="read-more">
             <a class="btn btn-small">
               Direct berekenen
             </a>
-          </div> <!-- .read-more -->
-        </div> <!-- .text -->
-      </div> <!-- .left -->
+          </div>
+          <!-- .read-more -->
+        </div>
+        <!-- .text -->
+      </div>
+      <!-- .left -->
 
       <div class="right">
         <div class="text marine">
-            <%= @blog_page.templateable.blue_block_right_1.html_safe %>
-        </div> <!-- .text -->
-      </div> <!-- .right -->
+          <%= @blog_page.templateable.blue_block_right_1.html_safe %>
+        </div>
+        <!-- .text -->
+      </div>
+      <!-- .right -->
 
     </article>
 
@@ -82,9 +95,11 @@
 
       <div class="left">
         <div class="text marine">
-            <%= @blog_page.templateable.blue_block_left_2.html_safe %>
-        </div> <!-- .text -->
-      </div> <!-- .left -->
+          <%= @blog_page.templateable.blue_block_left_2.html_safe %>
+        </div>
+        <!-- .text -->
+      </div>
+      <!-- .left -->
 
       <div class="right none split-in-three">
         <div class="text two-thirds mini-ad bottom">
@@ -92,19 +107,24 @@
 
           <div class="description">
             <p>U bepaald hoeveel u betaald!</p>
-          </div> <!-- .description -->
+          </div>
+          <!-- .description -->
 
           <div class="read-more">
             <a class="btn btn-small">
               Direct berekenen
             </a>
-          </div> <!-- .read-more -->
-        </div> <!-- .text -->
-      </div> <!-- .right -->
+          </div>
+          <!-- .read-more -->
+        </div>
+        <!-- .text -->
+      </div>
+      <!-- .right -->
 
     </article>
-  </div> <!-- .wrapper -->
+  </div>
+  <!-- .wrapper -->
 </section> <!-- .blog-listing -->
 
-<%= render 'blog_pages/navigation' , page: @blog_page %>
+<%= render 'blog_pages/navigation', page: @blog_page %>
 <%= render partial: 'layouts/footer_simple' %>
