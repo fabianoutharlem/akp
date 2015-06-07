@@ -13,4 +13,20 @@ class BlogPage < ActiveRecord::Base
     end
   end
 
+  def next
+    next_page = BlogPage.where('id > ?', id).first
+    unless next_page
+      next_page = BlogPage.first
+    end
+    next_page
+  end
+
+  def prev
+    prev_page = BlogPage.where('id < ?', id).first
+    unless prev_page
+      prev_page = BlogPage.last
+    end
+    prev_page
+  end
+
 end
