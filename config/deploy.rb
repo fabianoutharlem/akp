@@ -16,11 +16,15 @@ set :deploy_to, '/data/akp'
 set :deploy_via, :remote_cache
 
 set :linked_dirs, %w{public/uploads tmp public/assets}
+set :linked_files, %w{log/sidekiq.log}
 
 set :branch, fetch(:branch, "master")
 set :env, fetch(:env, "production")
 
 set :sidekiq_queue, :carrierwave
+set :sidekiq_monit_conf_dir, -> { '/etc/monit.d' }
+set :pty,  false
+set :monit_alert_email, 'fabjan.x@gmail.com'
 
 namespace :deploy do
 

@@ -104,7 +104,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano-passenger'
   gem 'capistrano-sidekiq'
-
+  gem 'capistrano-monit-recipes'
   # web server
   gem 'puma'
 end
