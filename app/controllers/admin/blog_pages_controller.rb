@@ -28,6 +28,7 @@ module Admin
 
     def update
       begin
+        @blog_page.slug = nil
         @blog_page.update_attributes blog_page_params
         flash[:notice] = ['BlogPage has been updated succesfully']
         redirect_to admin_blog_pages_path

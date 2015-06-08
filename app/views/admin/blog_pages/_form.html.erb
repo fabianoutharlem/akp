@@ -2,7 +2,9 @@
   <%= f.label :title %>
   <%= f.text_field :title, class: 'form-control' %>
 </div>
-<div class="form-group form-group-default">
-  <%= f.label :content %>
-  <%= f.text_area :content, id: 'wysiwyg5', class: 'wysiwyg form-control', placeholder: 'Type something..', style: 'height: 250px;' %>
-</div>
+<% unless [:blog_template_onze_werkplaats, :blog_template_opel_eye_tracking].include? template.to_sym %>
+    <div class="form-group form-group-default">
+      <%= f.label :content %>
+      <%= f.text_area :content, id: 'wysiwyg5', class: 'wysiwyg form-control', placeholder: 'Type something..', style: 'height: 250px;' %>
+    </div>
+<% end %>
