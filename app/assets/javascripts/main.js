@@ -11,7 +11,9 @@
          */
         element: function (element) {
             //init fast click
-            FastClick.attach(element);
+            if (element.style) {
+                FastClick.attach(element);
+            }
 
             //init the stuff
             this.initRangeSliders(element);
