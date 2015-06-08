@@ -9,7 +9,7 @@ class StaticText < ActiveRecord::Base
 
   def self.method_missing(method, *args)
     @__cache = ActiveSupport::Cache::MemCacheStore.new if @__cache.nil?
-    @__cache_expires_in = 1.minute if @__cache_expires_in.nil?
+    @__cache_expires_in = 6.hours if @__cache_expires_in.nil?
 
     method = method.to_s
 

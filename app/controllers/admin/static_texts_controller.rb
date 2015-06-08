@@ -6,7 +6,6 @@ module Admin
     end
 
     def update_multiple
-
       begin
         static_texts = StaticText.find(params[:static_texts].keys)
         static_texts.each do |static_text|
@@ -22,9 +21,9 @@ module Admin
       end
 
       if flash[:error].blank?
+        Dalli::Client.new.flush
         flash[:notice] = ['The static texts were all updated succesfully']
       end
-
       redirect_to admin_static_texts_path
     end
 
