@@ -60,7 +60,22 @@ module Admin
     end
 
     def blog_page_params
-      params.require(:blog_page).permit(:id, :title, :content, :templateable_type, :templateable_id, templateable_attributes: BlogTemplateAutoAfbetaling.permitted_attributes + BlogTemplateAutoLeaseMogelijkheden.permitted_attributes + BlogTemplateFullOperationalLease.permitted_attributes + BlogTemplateLeaseGebruikteAutos.permitted_attributes + BlogTemplateOnzeWerkplaats.permitted_attributes + BlogTemplateVoordelenFinancialLease.permitted_attributes + BlogTemplateOpelEyeTracking.permitted_attributes)
+      params.require(:blog_page).permit(
+          :id,
+          :title,
+          :content,
+          :templateable_type,
+          :templateable_id,
+          templateable_attributes: (
+                BlogTemplateAutoAfbetaling.permitted_attributes +
+                BlogTemplateAutoLeaseMogelijkheden.permitted_attributes +
+                BlogTemplateFullOperationalLease.permitted_attributes +
+                BlogTemplateLeaseGebruikteAutos.permitted_attributes +
+                BlogTemplateOnzeWerkplaats.permitted_attributes +
+                BlogTemplateVoordelenFinancialLease.permitted_attributes +
+                BlogTemplateOpelEyeTracking.permitted_attributes +
+                BlogTemplateAutoBlog.permitted_attributes).uniq
+      )
     end
 
   end

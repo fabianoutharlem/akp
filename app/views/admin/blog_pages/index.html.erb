@@ -16,6 +16,7 @@
   <div class="btn-group dropdown-default">
     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> New Template <span class="caret"></span> </a>
     <ul class="dropdown-menu ">
+      <li><%= link_to 'Auto Blog', new_with_template_admin_blog_pages_path('blog_template_auto_blog') %></li>
       <li><%= link_to 'Auto Op Afbetaling', new_with_template_admin_blog_pages_path('blog_template_auto_afbetaling') %></li>
       <li><%= link_to 'Auto Lease De Mogelijkheden', new_with_template_admin_blog_pages_path('blog_template_auto_lease_mogelijkheden') %></li>
       <li><%= link_to 'Full Operational Lease', new_with_template_admin_blog_pages_path('blog_template_full_operational_lease') %></li>
@@ -31,6 +32,7 @@
     <tr>
       <th>Titel</th>
       <th>Content</th>
+      <th>Template</th>
       <th>Acties</th>
     </tr>
     </thead>
@@ -39,6 +41,7 @@
         <tr>
           <td><%= blog_page.title %></td>
           <td><%= sanitize(truncate(blog_page.content)) %></td>
+          <td><%= blog_page.templateable_type.underscore.gsub('_', ' ').capitalize %></td>
           <td>
             <%= link_to 'Edit', edit_with_template_admin_blog_pages_path(blog_page, blog_page.templateable_type.underscore.to_sym), class: 'btn btn-info' %>
             <%= link_to 'View', blog_page_path(blog_page), class: 'btn btn-primary' %>

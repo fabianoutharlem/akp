@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607134057) do
+ActiveRecord::Schema.define(version: 20150608195214) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -33,6 +33,22 @@ ActiveRecord::Schema.define(version: 20150607134057) do
     t.text     "white_block_right_1"
     t.string   "image_right_2"
     t.text     "blue_block_right_1"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_template_auto_blogs", force: true do |t|
+    t.text     "white_left_block_1"
+    t.string   "youtube_embed_url"
+    t.string   "image_left_1"
+    t.text     "white_block_right_1"
+    t.string   "image_left_2"
+    t.text     "blue_block_right_1"
+    t.text     "orange_block"
+    t.text     "white_block_left_2"
+    t.string   "image_right_1"
+    t.string   "image_left_3"
+    t.text     "blue_block_right_2"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
