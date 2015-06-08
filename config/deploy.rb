@@ -20,6 +20,8 @@ set :linked_dirs, %w{public/uploads tmp public/assets}
 set :branch, fetch(:branch, "master")
 set :env, fetch(:env, "production")
 
+set :sidekiq_queue, :carrierwave
+
 namespace :deploy do
 
   desc 'Restart application'

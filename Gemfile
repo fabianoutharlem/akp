@@ -103,6 +103,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano-passenger'
+  gem 'capistrano-sidekiq'
 
   # web server
   gem 'puma'
