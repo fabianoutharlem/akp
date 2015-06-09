@@ -120,9 +120,31 @@
 				background-color: $marine
 				color: white
 
+				.description
+					a
+						@extend .btn.white
+
+					ul
+						list-style: disc outside none
+
+						li
+							&::before
+								display: none
+
 			&.orange
 				background-color: $orange
 				color: white
+
+				.description
+					a
+						@extend .btn.white
+
+					ul
+						list-style: disc outside none
+
+						li
+							&::before
+								display: none
 
 			h1
 				font-size: 26px
@@ -229,7 +251,7 @@
 					&::before
 						content: '"'
 
-				ul.checks
+				ul
 					list-style: none
 					margin: 0
 					padding: 0
@@ -247,6 +269,11 @@
 							position: absolute
 							left: 4px
 							top: 7px
+
+				a
+					@extend .btn
+					@extend .btn.btn-smaller
+					@extend .btn.transparent
 
 			&.small
 				padding: 35px
