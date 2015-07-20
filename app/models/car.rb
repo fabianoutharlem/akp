@@ -78,7 +78,7 @@ class Car < ActiveRecord::Base
       carmedia
     end
 
-    media << Car.download_video(params[:videos]['video'].last['url'])
+    media << Car.download_video(params[:videos]['video'].last['url']) unless params[:videos].blank?
 
     {
         vehicle_number: params[:voertuignr],

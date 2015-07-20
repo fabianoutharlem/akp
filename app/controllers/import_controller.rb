@@ -6,9 +6,9 @@ class ImportController < ApplicationController
   respond_to :xml
 
   def handle
+    begin
     xml = Nokogiri::XML request.body
     @data = Hash.from_xml(xml.to_s)["voertuig"].symbolize_keys
-    begin
       if @data[:actie]
         self.send(@data[:actie])
       end
