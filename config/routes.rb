@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'cars#home'
 
+  get 'finance.php' => redirect('cars/financing/bussiness')
+  get 'finance-form.php' => redirect('cars/financing/private')
+
   resources :cars do
     collection do
       get :search
