@@ -17,18 +17,18 @@ class CarsController < ApplicationController
 
   def brand
     @brand = Brand.find(params[:brand_id])
-    @cars = @brand.cars
+    @cars = @brand.cars.order(created_at: :asc)
     add_breadcrumb @brand.name
   end
 
   def model
     @model = Model.find(params[:model_id])
-    @cars = @model.cars
+    @cars = @model.cars.order(created_at: :asc)
     add_breadcrumb @model.name
   end
 
   def index
-    @cars = Car.page(params[:page]).per(15)
+    @cars = Car.order(created_at: :asc).page(params[:page]).per(15)
   end
 
   def search
