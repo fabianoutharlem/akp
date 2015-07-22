@@ -26,7 +26,7 @@ class WizardsController < ApplicationController
   private
 
   def car_request_params
-    params.permit(:type, :payment, :name, :amount, :phone, :license_plate, :email, :bkr, :net_income, :partner_net_income, :rent, :car_id)
+    params.permit(:type, :payment, :name, :amount, :phone, :license_plate, :email, :bkr, :net_income, :partner_net_income, :rent, :car_id, :newsletter_subscribe)
   end
 
 end
