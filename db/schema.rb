@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608195214) do
+ActiveRecord::Schema.define(version: 20150722183216) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(version: 20150608195214) do
     t.integer  "car_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "newsletter_subscribe"
   end
 
   create_table "cars", force: true do |t|
