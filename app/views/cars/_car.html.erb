@@ -3,7 +3,7 @@
     <figure>
       <% car.car_medias.each do |car_media| %>
           <% next unless car_media.file_type.include? 'image' %>
-          <a href="<%= car_path car %>"><img src="<%= car_media.file.large.url %>" alt=""/></a>
+          <a href="<%= car_path car %>"><img src="<%= car_media.file.thumb.url %>" alt=""/></a>
       <% end %>
     </figure>
 
