@@ -12,7 +12,7 @@ set :repo_url, 'git@bitbucket.org:a-s-h/akp.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/data/akp'
+
 set :deploy_via, :remote_cache
 
 set :linked_dirs, %w{public/uploads tmp public/assets}
