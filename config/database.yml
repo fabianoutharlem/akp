@@ -13,7 +13,9 @@ development:
 production:
   <<: *default
   host: localhost
-  database: akp
+  username: akp_p_user
+  password: calculi72
+  database: akp_production
 
 staging:
     <<: *default
