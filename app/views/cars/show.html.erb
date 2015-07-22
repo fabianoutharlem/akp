@@ -1,0 +1,277 @@
+<%= render partial: 'layouts/breadcrumb' %>
+
+<article class="car-single">
+
+  <div class="top">
+    <div class="wrapper">
+
+      <div class="padder">
+        <figure>
+          <ul>
+            <% @car.car_medias.each do |car_media| %>
+                <li>
+                  <% if car_media.file_type.include? 'image' %>
+                      <img src="<%= car_media.file.url %>" alt=""/>
+                  <% else %>
+                      <video src="<%= car_media.file.url %>" controls width="100%" height="100%"></video>
+                  <% end %>
+                </li>
+            <% end %>
+          </ul>
+
+          <div class="bar">
+            <div class="slider-info">
+
+              <a href="#right" class="fullscreen">
+                <i class="icon fullscreen"></i>
+              </a>
+
+              <div class="photos">
+                fotos <br/>
+                <strong>1</strong>/<%= @car.car_images.length %>
+
+                <div class="arrows">
+                  <a href="#left" class="arrow-left">
+                    <i class="icon arrow-white-left-slider"></i>
+                  </a>
+                  <a href="#right" class="arrow-right">
+                    <i class="icon arrow-white-right-sidebar"></i>
+                  </a>
+                </div>
+                <!-- .arrows -->
+              </div>
+              <!-- .photos -->
+
+              <div class="can-swipe">
+                <span class="icon swipe-white"></span>
+              </div>
+              <!-- .can-swipe -->
+
+            </div>
+            <!-- .slider-info -->
+          </div>
+          <!-- .bar -->
+        </figure>
+
+        <div class="description">
+          <h1><%= @car.display_name %></h1>
+
+          <dl>
+            <dt>Totaal prijs</dt>
+            <dd>&euro; <%= @car.price_total %>,-</dd>
+            <% if @car.price_50_50.present? %>
+                <dt>50/50 deal
+                  <small></small>
+                </dt>
+                <dd>&euro; <%= @car.price_50_50 %>,-</dd>
+            <% end %>
+            <% if @car.price_month.present? %>
+                <dt>Per maand
+                  <small>v.a.</small>
+                </dt>
+                <dd>&euro; <%= @car.price_month %>,-</dd>
+            <% end %>
+          </dl>
+
+          <div class="buttons">
+            <a class="btn btn-small" href="<%= financing_cars_path('bussiness') %>#car/<%= @car.id %>">
+              Zakelijke financieren
+            </a>
+
+            <a class="btn btn-small" href="<%= financing_cars_path('private') %>#car/<%= @car.id %>">
+              Particulier financieren
+            </a>
+
+            <a class="btn btn-small" href="<%= financing_cars_path('50_50') %>#car/<%= @car.id %>">
+              50/50 deals
+            </a>
+          </div>
+          <!-- .buttons -->
+        </div>
+        <!-- .description -->
+      </div>
+      <!-- .padder -->
+
+    </div>
+    <!-- .wrapper -->
+  </div>
+  <!-- .top -->
+
+  <div class="image-list">
+    <div class="wrapper">
+
+      <ul>
+        <% @car.car_medias.each do |car_media| %>
+            <li class="<%= @car.car_medias.first == car_media ? 'selected' : '' %>">
+              <% if car_media.file_type.include? 'image' %>
+                  <a href="">
+                    <img src="<%= car_media.file.thumb.url %>" alt=""/>
+                  </a>
+              <% end %>
+            </li>
+        <% end %>
+      </ul>
+
+    </div>
+    <!-- .wrapper -->
+  </div>
+  <!-- .image-list -->
+
+  <div class="links">
+    <div class="wrapper">
+
+      <div class="share">
+        Share
+
+        <div class="dots">
+          <a href=""><i class="icon share-dots"></i></a>
+
+          <div class="share-networks">
+            <a href="" onclick="return shareCar();" target="_blank"><i class="icon facebook"></i></a>
+
+            <script>
+              function shareCar() {
+                  FB.ui({
+                      method: 'feed',
+                      link: '<%= car_url(@car) %>',
+                      redirect_uri: '<%= car_url(@car) %>',
+                      caption: '',
+                  }, function(response){});
+
+                  return false;
+              }
+            </script>
+
+            <a href="https://twitter.com/home?status=<%= @car.display_name %> <%= car_url @car %>" target="_blank"><i class="icon twitter"></i></a>
+
+            <a href="https://plus.google.com/share?url=<%= car_url @car %>" target="_blank"><i class="icon google-plus"></i></a>
+
+            <a href="https://pinterest.com/pin/create/button/?url=<%= car_url @car %>&amp;description=<%= @car.display_name %>" target="_blank"><i class="icon pinterest"></i></a>
+          </div>
+          <!-- .share-networks -->
+        </div>
+        <!-- .dots -->
+        <a class="mail" href="mailto:?subject=<%= @car.display_name %>&body=<%= car_url @car %>"><i class="icon share-mail"></i></a>
+        <a class="print" href="" onclick="window.print();"><i class="icon share-print"></i></a>
+      </div>
+      <!-- .share -->
+
+      <a class="link scroll-to" data-element=".specifications" href="">Specificaties</a>
+      <a class="link scroll-to" data-element=".accesories" href="">Accesoires</a>
+      <a class="link scroll-to" data-element=".other-cars" href="">Gerelateerde auto's</a>
+
+    </div>
+    <!-- .wrapper -->
+  </div>
+  <!-- .links -->
+
+  <section class="specifications">
+    <div class="wrapper">
+      <div class="right">
+        <% if @car.nap? %>
+            <div class="block nap">
+              <%= image_tag 'nap.png', alt: 'NAP - Nationale Auto Pas' %>
+            </div>
+            <!-- .nap -->
+        <% end %>
+
+        <div class="block energy-label">
+          <%= image_tag 'energy-label.png', alt: 'energy label' %>
+        </div>
+        <!-- .energy-label -->
+      </div>
+      <!-- .right -->
+
+      <h2>Specificaties</h2>
+
+      <dl>
+        <dt>Merk</dt>
+        <dd><%= @car.brand.name %></dd>
+
+        <dt>Model</dt>
+        <dd><%= @car.model.name %></dd>
+
+        <dt>Type</dt>
+        <dd><%= @car.car_type %></dd>
+
+        <dt>Carrosserie</dt>
+        <dd><%= @car.body_type.name %></dd>
+
+        <dt>Transmissie</dt>
+        <dd><%= @car.transmission_type.name %></dd>
+
+        <dt>Kleur</dt>
+        <dd><%= @car.color.capitalize + ' ' + (@car.color_type.present? ? @car.color_type : '') %></dd>
+
+        <dt>KM stand</dt>
+        <dd><%= number_with_delimiter @car.mileage, delimiter: '.' %> km</dd>
+
+        <dt>Brandstof</dt>
+        <dd><%= @car.fuel_type.name.capitalize %></dd>
+
+        <dt>Bouwjaar</dt>
+        <dd><%= @car.manufacture_year %></dd>
+
+        <dt>Cil. inhoud</dt>
+        <dd><%= @car.engine_size %> cc</dd>
+
+        <dt>Aantal cil. 4</dt>
+        <dd><%= @car.cylinders %></dd>
+
+        <dt>Vermogen</dt>
+        <dd><%= @car.engine_power %> pk</dd>
+
+        <dt>Topsnelheid</dt>
+        <dd><%= @car.top_speed %> km/u</dd>
+
+        <dt>Interieur</dt>
+        <dd><%= @car.interior %>&nbsp;</dd>
+
+        <dt>Energielabel</dt>
+        <dd><%= @car.energy_label %></dd>
+
+        <dt>Wegenbelasting</dt>
+        <dd>&euro;<%= @car.road_tax %> p/kw</dd>
+      </dl>
+
+      <div class="description">
+        <p>Zondag 1 Maart geopend van 12-16.00 uur ! Zaterdag 28 Februari Financiering klaar terwijl u wacht ! ! HOGE
+          KORTINGEN EN RENTEVRIJE FINANCIERINGS-AANBIEDINGEN!!* Auto Service Haarlem heeft het motto " U BEPAALT HOEVEEL
+          U BETAALT !" Scherpe maandtarieven voor particulier en (startende) ondernemer . Snelle acceptatie, tijdelijk
+          op de 50/50 deal 0% RENTE!! FINANCIEREN-FINANCIAL LEASE-50/50 DEAL - PRIVATE LEASE. Altijd 350 jong gebruikte
+          auto's op voorraad . Graag verwelkomen wij u in onze showroom op de Munterslaan 2 Haarlem. *vraag naar de
+          voorwaarden</p>
+      </div>
+      <!-- .description -->
+
+    </div>
+    <!-- .wrapper -->
+  </section>
+  <!-- .specifications -->
+
+
+  <section class="accesories">
+    <div class="wrapper">
+
+      <h2>Accesoires</h2>
+
+      <ul>
+        <% @car.options.each do |option| %>
+            <li><%= option.name %></li>
+        <% end %>
+      </ul>
+
+      <div class="footer"></div>
+      <!-- .footer -->
+
+    </div>
+    <!-- .wrapper -->
+  </section>
+  <!-- .accesories -->
+
+</article> <!-- .car-single -->
+
+<%= render partial: 'cars/related_cars', locals: {cars: @car.related_cars} %>
+<%= render partial: 'layouts/search_navigation' %>
+
+<%= render partial: 'layouts/footer_complex' %>

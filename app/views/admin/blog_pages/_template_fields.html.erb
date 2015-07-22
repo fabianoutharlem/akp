@@ -1,0 +1,28 @@
+<div class="form-group">
+
+  <% f.object.class.form_fields.each do |form_field| %>
+      <% case f.object.class.columns_hash[form_field.to_s].type %>
+      <% when :string %>
+          <% if form_field.to_s.include? 'image' %>
+              <div class="field form-group form-group-default">
+                <%= f.label form_field %> <br/>
+                <%= f.file_field form_field, class: 'form-control' %>
+                <%= image_tag f.object.send(form_field).url unless f.object.send(form_field).blank? %>
+              </div>
+          <% else %>
+              <div class="field form-group form-group-default">
+                <%= f.label form_field %> <br/>
+                <%= f.text_field form_field, class: 'form-control' %>
+              </div>
+          <% end %>
+      <% when :text %>
+          <div class="field form-group form-group-default">
+            <%= f.label form_field %> <br/>
+            <%= f.text_area form_field, class: 'form-control wysiwyg5' %>
+          </div>
+      <% else %>
+          <h2>Form could not be build</h2>
+      <% end %>
+  <% end %>
+
+</div>

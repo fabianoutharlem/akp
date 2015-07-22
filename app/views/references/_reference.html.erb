@@ -1,0 +1,23 @@
+<li>
+  <article>
+    <h1>
+        <span class="stars">
+          <% 5.times do |i| %>
+              <i class="icon <%= reference.rating >= i+1 ? 'star-full-small' : 'star-empty-small' %>"></i>
+          <% end %>
+        </span>
+      <%= reference.name %>
+    </h1>
+
+    <div class="description">
+      <p>
+        <%= reference.content %>
+      </p>
+    </div>
+    <!-- .description -->
+    <footer>
+      <strong></strong>
+      <em><%= reference.created_at.strftime('%d-%m-%Y') %></em>
+    </footer>
+  </article>
+</li>

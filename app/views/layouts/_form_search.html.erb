@@ -1,0 +1,157 @@
+<form method="get" action="<%= search_cars_path %>" class="search <%= defined?(advanced) and advanced == true ? 'advanced-open' : '' %>">
+
+  <input type="hidden" name="q[type]" value="" class="search-type"/>
+  <%= token_tag form_authenticity_token %>
+
+  <div class="advanced hidden">
+
+    <div class="row row-1">
+      <p class="select">
+        <%= collection_select :q, :brand, Brand.all, :name, :name, {prompt: true}, {:class => 'search-advanced-brand', 'data-models-url' => models_brands_path} %>
+      </p> <!-- .select -->
+
+      <p class="select">
+        <select class="search-advanced-model" name="q[model]" autocomplete="off">
+          <option value="">Selecteer model</option>
+        </select>
+      </p>
+      <!-- .select -->
+
+      <p class="select">
+        <select class="search-advanced-usage" name="q[usage]" autocomplete="off">
+          <option value="">Kilometerstand</option>
+          <option value="10000">tot 10 000 km</option>
+          <option value="20000">tot 20 000 km</option>
+          <option value="50000">tot 50 000 km</option>
+          <option value="75000">tot 75 000 km</option>
+          <option value="100000">tot 100 000 km</option>
+          <option value="125000">tot 125 000 km</option>
+          <option value="150000">tot 150 000 km</option>
+          <option value="175000">tot 175 000 km</option>
+          <option value="200000">tot 200 000 km</option>
+          <option value="300000">tot 300 000 km</option>
+          <option value="2000000">meer dan 300 000 km</option>
+
+        </select>
+      </p>
+      <!-- .select -->
+    </div>
+    <!-- .row-1 -->
+
+    <div class="row row-2">
+      <p class="select">
+        <%= collection_select :q, :fuel, FuelType.all, :name, :display_name, prompt: true, class: 'search-advanced-fuel' %>
+      </p> <!-- .select -->
+
+      <p class="select">
+
+        <select class="search-advanced-usage" name="q[year]" autocomplete="off">
+          <option value="">Vanaf bouwjaar</option>
+
+          <% for year in [*1950..Date.today.year].reverse.each %>
+            <option value="<%= year %>"><%= year %></option>
+          <% end %>
+
+        </select>
+      </p> <!-- .select -->
+
+      <p class="select">
+        <select class="search-advanced-energy" name="q[energy]" autocomplete="off">
+          <option value="">Energie label</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+        </select>
+      </p>
+      <!-- .select -->
+    </div>
+    <!-- .row-2 -->
+
+    <ul class="car-types">
+      <li class="hatchback">
+        <a href="" data-type="hatchback">Hatchback</a>
+      </li>
+      <li class="wagon">
+        <a href="" data-type="wagon">Stationwagen</a>
+      </li>
+      <li class="sedan">
+        <a href="" data-type="sedan">Sedan</a>
+      </li>
+      <li class="coupe">
+        <a href="" data-type="coupe">Coupe</a>
+      </li>
+      <li class="suv">
+        <a href="" data-type="suv">SUV</a>
+      </li>
+      <li class="mpv">
+        <a href="" data-type="mpv">MPV</a>
+      </li>
+      <li class="cabriolet">
+        <a href="" data-type="cabriolet">Cabriolet</a>
+      </li>
+    </ul>
+    <!-- .car-type -->
+
+    <div class="sliders">
+
+      <div class="slider-container left">
+        <h5>Selecteer op prijs</h5>
+
+        <div class="slider-range" data-min="0" data-max="100000" data-default="<%= @total_range ? @total_range : '5000-95000' %>"></div>
+
+        <input class="slider-value" type="hidden" name="q[price_range]" value="" />
+      </div>
+      <!-- .slider-container -->
+
+      <div class="slider-container right">
+        <h5>Selecteer op prijs per maand v.a.</h5>
+
+        <div class="slider-range" data-min="0" data-max="1000" data-default="<%= @month_range ? @month_range : '250-750' %>" data-sufix="p.m."></div>
+
+        <input class="slider-value" type="hidden" name="q[monthly_price_range]" value="" />
+      </div>
+      <!-- .slider-container -->
+
+      <div class="clear"></div>
+      <!-- .clear -->
+
+    </div>
+    <!-- .sliders -->
+  </div>
+  <!-- .advanced -->
+
+  <div class="simple">
+
+    <div class="left">
+      <div class="input-wrapper">
+        <input type="text" value="" class="text" name="q[query]" placeholder="<%= StaticText.search_input_placeholder %>"/>
+      </div>
+      <!-- .input-wrapper -->
+      <small><%= StaticText.search_input_sub_text %></small>
+    </div>
+    <!-- .left -->
+
+    <div class="right">
+      <button class="btn">
+        Zoeken
+      </button>
+      <small>
+        <a href="" class="more">
+          Meer zoekcriteria
+          <i class="icon arrow-blue-down-small"></i>
+        </a>
+        <a href="" class="less">
+          Minder zoekcriteria
+          <i class="icon arrow-blue-up-small"></i>
+        </a>
+      </small>
+    </div>
+    <!-- .right -->
+
+  </div>
+  <!-- .simple -->
+
+</form> <!-- .search -->

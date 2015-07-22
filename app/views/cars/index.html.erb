@@ -1,0 +1,54 @@
+<%= render partial: 'layouts/breadcrumb' %>
+
+<section class="stock">
+  <div class="wrapper">
+
+    <h2><%= StaticText.voorraad_title %></h2>
+
+    <p>
+      <%= StaticText.voorraad_heading_content %>
+    </p>
+
+    <% unless @cars.any? %>
+        <p><%= StaticText.no_search_results %></p>
+    <% end %>
+
+  </div> <!-- .wrapper -->
+</section> <!-- .stock -->
+
+
+<section class="search-cars">
+  <div class="wrapper">
+
+    <div class="title">
+
+      <div class="info left">
+        <%= page_entries_info @cars %>
+      </div> <!-- .info -->
+
+      <a class="right" href="">
+        Filters
+        <i class="icon arrow-blue-down"></i>
+      </a>
+
+      <div class="submenu">
+        <ul>
+          <%= render 'filters' %>
+        </ul>
+      </div>
+    </div> <!-- .title -->
+
+
+    <ul class="cars">
+
+      <%= render @cars %>
+
+    </ul>
+
+    <%= paginate @cars %>
+
+  </div> <!-- .wrapper -->
+</section> <!-- .search-cars -->
+
+<%= render partial: 'layouts/search_navigation' %>
+<%= render partial: 'layouts/footer_complex' %>

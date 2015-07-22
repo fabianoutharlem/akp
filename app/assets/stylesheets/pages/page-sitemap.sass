@@ -1,0 +1,118 @@
+.page-sitemap
+	background-color: #EEEEEE
+
+	.wrapper
+		padding: 65px 65px 100px 65px
+		text-align: left
+		overflow: auto
+
+		+desktop-small
+			padding: 60px 60px 90px 60px
+
+		+tablet
+			padding: 50px 50px 80px 50px
+
+		+tablet-small
+			padding: 40px
+
+		+mobile-large
+			padding: 30px
+
+	.left
+		float: left
+		width: 35%
+
+		+mobile-large
+			float: none
+			width: auto
+
+	.right
+		float: right
+		width: 65%
+
+		+mobile-large
+			float: none
+			width: auto
+			margin-top: 20px
+
+		h2
+			margin-bottom: 50px
+
+			+tablet-small
+				margin-bottom: 25px
+
+			+mobile-large
+				margin-bottom: 15px
+
+	h2
+		font-size: 36px
+		line-height: 46px
+		font-weight: normal
+
+		margin: 0 0 25px 0
+		padding: 0
+
+		+tablet
+			font-size: 32px
+			line-height: 46px
+
+		+tablet-small
+			font-size: 28px
+			line-height: 42px
+
+		+mobile-large
+			font-size: 24px
+			line-height: 38px
+			margin: 0 0 15px 0
+
+		+mobile
+			font-size: 20px
+			line-height: 34px
+
+	ul
+		list-style: none
+		margin: 0
+		padding: 0
+
+		font-size: 16px
+		line-height: 30px
+
+		+mobile-large
+			font-size: 14px
+			line-height: 28px
+
+		li
+			margin: 0
+			padding: 0
+
+			&.last
+				margin-bottom: 30px
+
+			a
+				color: $marine
+				text-decoration: none
+
+				&:hover
+					text-decoration: underline
+
+	article
+		margin: 0 0 30px 0
+		padding: 0
+
+		float: left
+		width: 33.33%
+
+		+tablet-small
+			width: 50%
+
+		+mobile
+			width: auto
+			float: none
+
+		h1
+			font-weight: 500
+			font-size: 16px
+			line-height: 30px
+
+			margin: 0
+			padding: 0

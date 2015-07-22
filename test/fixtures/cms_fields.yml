@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  home_foto_1: MyString
+  home_foto_2: MyString
+  home_foto_3: MyString
+  service_bg: MyString
+
+two:
+  home_foto_1: MyString
+  home_foto_2: MyString
+  home_foto_3: MyString
+  service_bg: MyString

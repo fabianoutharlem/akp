@@ -1,0 +1,4 @@
+var options = [<%= @models.map do |model|; %Q{$('<option value="#{model.id}" class="brand_specific">#{model.name}</option>')}; end.join(',') %>];
+$('option.brand_specific').remove();
+
+$('.search-advanced-model').append(options);

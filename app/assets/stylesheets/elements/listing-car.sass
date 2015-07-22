@@ -1,0 +1,214 @@
+ul.cars
+	list-style: none
+	margin: 65px 0 40px 0
+	padding: 0
+
+	display: block
+	text-align: left
+	font-size: 0
+
+	+mobile-large
+		margin-top: 40px
+
+	+mobile
+		margin: 30px 0
+
+	li
+		margin: 0 3.5% 3.5% 0
+		padding: 0
+
+		display: inline-block
+		vertical-align: top
+
+		width: 31%
+
+		font-size: 20px
+		line-height: 1.8
+
+		+larger-than-tablet-small
+			&:nth-child(3n)
+				margin-right: 0
+
+		+larger-than-mobile-large-smaller-than-tablet-small
+			margin: 0 6% 6% 0
+
+			&:nth-child(2n)
+				margin-right: 0
+
+		+tablet-small
+			width: 47%
+
+		+mobile-large
+			display: block
+			width: auto
+			margin: 0 0 30px 0
+
+nav.pagination
+	margin-bottom: 20px
+	text-align: center
+
+	font-size: 14px
+	line-height: 20px
+	color: white
+
+	span.next,
+	span.prev,
+	span.first,
+	span.last,
+	span.page
+		display: inline-block
+		vertical-align: middle
+
+		a
+			padding: 6px 12px
+			display: inline-block
+			vertical-align: middle
+
+			text-decoration: none
+			background: white
+			color: $marine
+
+			&:hover
+				background: $orange
+				color: white
+
+		&.current
+			padding: 6px 12px
+			display: inline-block
+			vertical-align: middle
+
+			background: $orange
+			color: white
+
+
+article.listing-car
+	background: white
+	text-align: center
+	overflow: hidden
+
+	figure
+		display: block
+		margin: 0 0 18px 0
+		padding: 0
+
+		font-size: 0
+		white-space: nowrap
+		position: relative
+
+		&::before
+			content: ''
+			@extend .icon
+			@extend .icon.swipe
+
+			position: absolute
+			right: 10px
+			top: 8px
+			z-index: 1
+
+		a
+			display: inline-block
+			width: 100%
+			position: relative
+
+		img
+			display: block
+			width: 100%
+			height: auto
+
+			min-height: 150px
+			background: #333
+	h1
+		color: #414141
+		font-size: 18px
+		line-height: 32px
+		padding: 0 25px
+		margin: 20px 0
+
+		+desktop-small
+			font-size: 16px
+			line-height: 28px
+
+		+mobile
+			padding: 0 20px
+			margin: 15px 0
+
+		a
+			color: #414141
+	.goto
+		padding: 0 25px
+		margin: 0 0 25px 0
+
+		+mobile
+			margin-bottom: 15px
+
+		.btn
+			display: block
+			text-overflow: ellipsis
+			overflow: hidden
+			white-space: nowrap
+
+	footer
+		margin: 0
+		padding: 0
+
+		.tabs
+			.tab-header
+				display: -webkit-flex
+				display: flex
+
+				-webkit-flex-direction: row
+				flex-direction: row
+
+				-webkit-flex-wrap: nowrap
+				flex-wrap: nowrap
+
+				-webkit-align-items: stretch
+				align-items: stretch
+
+				a
+					flex-grow: 1
+					-webkit-flex-grow: 1
+
+					background: $green-dark
+					color: white
+
+					font-size: 16px
+					line-height: 30px
+
+					padding: 5px 0
+
+					+mobile
+						font-size: 14px
+						line-height: 28px
+
+					&:hover,
+					&.selected
+						background-color: $green-light
+
+			.tab-content
+				.tab
+					display: none
+					background-color: $green-light
+					color: white
+					padding: 20px
+
+					+mobile
+						padding: 15px
+
+					&.visible
+						display: block
+
+					h3
+						margin: 0
+						padding: 0
+						font-size: 40px
+						line-height: 50px
+
+						+desktop-small
+							font-size: 32px
+							line-height: 40px
+
+					small
+						display: block
+						font-size: 13px
+						line-height: 16px

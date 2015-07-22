@@ -1,0 +1,48 @@
+section.breadcrumb
+	color: $marine
+	font-size: 14px
+	line-height: 19px
+
+	+print
+		display: none
+
+	.wrapper
+		padding: 10px 40px
+		text-align: left
+
+		+tablet
+			padding: 10px 30px
+
+	ul
+		margin: 0
+		padding: 0
+		list-style: none
+
+		display: inline
+		vertical-align: top
+
+		li
+			margin: 0
+			padding: 0
+
+			display: inline
+			vertical-align: top
+			font-weight: 400
+
+			&:first-child
+				&::before
+					content: ''
+
+			&::before
+				content: '• '
+				font-weight: 300
+
+			a
+				text-decoration: none
+				font-weight: 300
+
+				display: inline
+				vertical-align: top
+
+				&:hover
+					text-decoration: underline

@@ -1,0 +1,114 @@
+<section class="service" style="background-image: url(<%= @cms_fields.service_bg ? @cms_fields.service_bg.url : image_path('service_bg.jpg') %>);">
+  <div class="wrapper">
+
+    <h2><%= StaticText.home_service_head %></h2>
+
+    <p>
+      <%= StaticText.home_service_head_content %> <br/>
+      <%= StaticText.home_service_head_content_2 %> <br/>
+      <%= StaticText.home_service_head_content_3 %>
+    </p>
+
+    <div class="tabs">
+      <div class="tab-header">
+        <a href="#tab-1" data-tab="1" class="selected">Voordelen<br/>Auto krediet Plan</a>
+        <a href="#tab-2" data-tab="2">Referentie<br/>van onze klanten</a>
+        <a href="#tab-3" data-tab="3">Inschrijven<br/>nieuwsbrief</a>
+      </div>
+      <!-- .tab-header -->
+
+      <div class="tab-content">
+        <div class="tab tab-1 visible">
+          <ul class="checks">
+            <% 7.times do |i| %>
+                <li><%= StaticText.send 'service_pros_' + (i+1).to_s %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="tab tab-2 reviews">
+          <a class="more" href="<%= references_path %>">
+            Meer referentie's of referentie schrijven
+          </a> <!-- .more -->
+
+          <h3>
+            <%= reference_avarage %>/5
+            <% if reference_avarage %>
+                <% 5.times do |i| %>
+                    <% i = i+1 %>
+                    <% if reference_avarage >= i %>
+                        <i class="icon star-full-big"></i>
+                    <% elsif reference_avarage > i-1 and reference_avarage < i %>
+                        <i class="icon star-half-big"></i>
+                    <% else %>
+                        <i class="icon star-empty-big"></i>
+                    <% end %>
+                <% end %>
+            <% end %>
+          </h3>
+
+          <div class="subheader">
+            <a href="<%= references_path %>">Uitstekend</a> |
+            <a href="<%= references_path %>"><%= references.length %> beoordelingen</a>
+          </div>
+          <!-- .subheader -->
+
+          <ul>
+            <% references.each do |reference| %>
+                <li>
+                  <article>
+                    <div class="stars">
+                      <% 5.times do |i| %>
+                          <i class="icon <%= reference.rating >= i+1 ? 'star-full-small' : 'star-empty-small' %>"></i>
+                      <% end %>
+                    </div>
+
+                    <h1><%= reference.name %></h1>
+
+                    <div class="description">
+                      <p><%= reference.content %></p>
+                    </div>
+                    <footer><em><%= reference.created_at.strftime('%d-%m-%Y') %></em></footer>
+                  </article>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="tab tab-3 newsletter-subscribe">
+          <h3>Inschrijven nieuwsbrief</h3>
+
+          <p>Laat hier je gegevens achter en wij houden u op de hoogte van onze actie’s.</p>
+
+
+          <!-- Begin MailChimp Signup Form -->
+          <div id="mc_embed_signup">
+            <form action="//autoservicehaarlem.us10.list-manage.com/subscribe/post?u=44430860a9c40c3e2dbade7c2&amp;id=92a5ce40fb" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_44430860a9c40c3e2dbade7c2_92a5ce40fb" tabindex="-1" value=""></div>
+
+              <input class="text first-name" type="text" name="FNAME" placeholder="Voornaam" />
+              <input class="text last-name" type="text" name="LNAME" placeholder="Achternaam" />
+
+              <input class="text email" type="email" name="EMAIL" placeholder="Email adres" />
+
+              <button class="btn submit" type="submit">Verzenden</button>
+            </div>
+            </form>
+          </div>
+          <!--End mc_embed_signup-->
+
+        </div>
+      </div>
+      <!-- .tab-content -->
+    </div>
+    <!-- .tabs -->
+
+    <div class="footer">
+      <i class="icon arrow-white-down-big"></i>
+    </div>
+    <!-- .footer -->
+
+  </div>
+  <!-- .wrapper -->
+</section> <!-- .service -->

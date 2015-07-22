@@ -1,0 +1,48 @@
+<%= render partial: 'layouts/breadcrumb' %>
+
+<section class="article-header">
+  <div class="wrapper">
+    <figure>
+      <%= image_tag @blog_page.templateable.top_image %>
+    </figure>
+
+    <div class="text">
+      <%= @blog_page.templateable.top_white_block.html_safe %>
+    </div> <!-- .text -->
+  </div> <!-- .wrapper -->
+</section> <!-- .article-header -->
+
+
+<section class="blog-listing">
+  <div class="wrapper">
+
+    <article class="split-in-three">
+
+      <figure class="one-third">
+        <%= image_tag @blog_page.templateable.image_left %>
+      </figure> <!-- .one-third -->
+
+      <div class="text one-third small marine">
+        <%= @blog_page.templateable.blue_block_right.html_safe %>
+      </div> <!-- .text one-third -->
+
+      <div class="text one-third mini-ad">
+        <h2>Zakelijke financiering</h2>
+
+        <div class="description">
+          <p>Financial lease</p>
+        </div> <!-- .description -->
+
+        <div class="read-more">
+          <a class="btn btn-small">
+            Direct berekenen
+          </a>
+        </div> <!-- .read-more -->
+      </div> <!-- .text one-third -->
+
+    </article> <!-- .split-in-three -->
+  </div> <!-- .wrapper -->
+</section> <!-- .blog-listing -->
+
+<%= render 'blog_pages/navigation' , page: @blog_page %>
+<%= render partial: 'layouts/footer_simple' %>

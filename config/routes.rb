@@ -1,56 +1,116 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/railsadmin', as: 'rails_admin'
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'cars#home'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get 'finance.php' => redirect('cars/financing/bussiness')
+  get 'finance-form.php' => redirect('cars/financing/private')
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  resources :cars do
+    collection do
+      get :search
+      post :search
+      get :nieuw_binnen
+      get 'financing/:type', to: :financing, as: :financing
+      get :voorraad, action: :index
+    end
+  end
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resources :brands do
+    collection do
+      post :models
+    end
+    resource :cars do
+      get :index, to: 'cars#brand'
+    end
+  end
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  resources :models do
+    resource :cars do
+      get :index, to: 'cars#model'
+    end
+  end
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  resource :faqs do
+    get :index
+  end
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+  resource :wizard do
+    post :pick_a_car
+    post :your_details
+    post :final
+  end
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+  resources :pages, only: [:show] do
+    collection do
+      get :contact
+      get :sitemap
+    end
+  end
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  resources :blog_pages do
+    collection do
+      get :auto_blog
+      get :auto_lease_mogelijkheden
+      get :auto_op_afbetaling
+      get :full_operational_lease
+      get :lease_gebruikte_autos
+      get :opel_eyetracking
+      get :our_workspace
+      get :voordelen_financial_lease
+    end
+  end
+
+  resources :blog_pages, as: :blog, only: [:show]
+
+  resources :references, only: [:index, :create]
+
+  namespace :admin do
+    resource :admin do
+      get :home
+    end
+
+    resources :cars
+    resources :static_texts do
+      collection do
+        put :update_multiple
+      end
+    end
+    resources :faqs
+    resources :pages
+    resources :blog_pages do
+      collection do
+        get 'new/:template', action: :new, as: :new_with_template
+        get 'edit/:id/:template', action: :edit, as: :edit_with_template
+      end
+    end
+
+    resources :brands
+
+    resources :references, only: [:index, :destroy] do
+      collection do
+        get '/approve/:id', action: :approve, as: :approve
+        get '/disapprove/:id', action: :disapprove, as: :disapprove
+      end
+    end
+
+    resources :menu_items do
+      collection do
+        put :update_all
+      end
+    end
+
+    resources :cms_fields, only: [:index, :update]
+
+    resources :car_requests, only: [:index, :show, :destroy]
+
+    root 'cars#index'
+  end
+
+  post '/import', to: 'import#handle'
+
 end

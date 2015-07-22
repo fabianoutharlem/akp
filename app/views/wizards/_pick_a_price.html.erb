@@ -1,0 +1,44 @@
+<div class="<%= if defined? positioned_home_page and positioned_home_page; ''; else; 'wizard'; end %>">
+
+  <section class="private-financing <%= if defined? positioned_home_page and positioned_home_page; 'on-homepage'; else; ''; end %>" data-car-url="<%= your_details_wizard_path %>">
+    <div class="wrapper">
+
+      <h2><%= StaticText.send type + '_financing_header' %></h2>
+
+      <p>
+        <%= StaticText.send type + '_financing_head' %> <br/>
+        <%= StaticText.send type + '_financing_head_2' %> <br/>
+        <%= StaticText.send type + '_financing_head_3' %>
+      </p>
+
+      <%= render 'wizards/steps', step: 1 unless defined? positioned_home_page and positioned_home_page == true %>
+
+      <div class="slider-container">
+
+        <input type="hidden" value="<%= type %>" name="wizard_type"/>
+
+        <% if type == '50_50' %>
+            <div class="slider-range" data-min="0" data-max="100000" data-default="5000-95000"></div>
+            <input id="price_slider_indicator" type="hidden" name="total_value_slider" value="1"/>
+        <% else %>
+            <div class="slider-range" data-min="0" data-max="1000" data-default="250-750"></div>
+        <% end %>
+
+        <h3><%= StaticText.wizard_main_slider_text %></h3>
+
+        <a class="btn btn-big first-step" data-next-step="<%= pick_a_car_wizard_path %>" href="<%= financing_cars_path "private" %>"><%= StaticText.wizard_main_slider_button %></a>
+      </div>
+      <!-- .slider-container -->
+
+      <div class="footer">
+        <i class="icon arrow-orange-down"></i>
+      </div>
+      <!-- .footer -->
+
+    </div>
+    <!-- .wrapper -->
+  </section>
+  <!-- .private-financing -->
+
+</div> <!-- /.wizard -->
+

@@ -1,0 +1,8 @@
+<tr>
+  <td><strong><%= static_text.key %></strong></td>
+  <td>
+    <%= fields_for 'static_texts[]', static_text do |f| %>
+        <%= f.text_field :value, class: 'form-control' %>
+    <% end %>
+  </td>
+</tr>

@@ -1,0 +1,99 @@
+<ul class="menu-items">
+  <li class="m-t-30">
+    <a href="<%= admin_cars_path %>" class="detailed">
+      <span class="title">Cars</span>
+      <span class="details"><%= @total_cars.to_s %> auto <%= @total_cars > 1 ? '\'s' : '' %> in systeem</span>
+    </a>
+    <span class="icon-thumbnail "><i class="fs-14 fa fa-car"></i></span>
+  </li>
+  <li class="">
+    <a href="<%= admin_static_texts_path %>">
+      <span class="title">Statische Text</span>
+    </a>
+    <span class="icon-thumbnail "><i class="fs-14 fa fa-font"></i></span>
+  </li>
+
+  <li class="">
+    <a href="javascript:;">
+      <span class="title">FAQ</span>
+      <span class=" arrow"></span>
+    </a>
+    <span class="icon-thumbnail"><i class="fa fa-question-circle"></i></span>
+    <ul class="sub-menu">
+      <li class="">
+        <a href="<%= admin_faqs_path %>">All FAQ's</a>
+        <span class="icon-thumbnail">A</span>
+      </li>
+      <li class="">
+        <a href="<%= new_admin_faq_path %>">New FAQ</a>
+        <span class="icon-thumbnail">N</span>
+      </li>
+    </ul>
+  </li>
+  <li class="">
+    <a href="javascript:;">
+      <span class="title">Pages</span>
+      <span class=" arrow"></span>
+    </a>
+    <span class="icon-thumbnail"><i class="fa fa-file-text-o"></i></span>
+    <ul class="sub-menu">
+      <li class="">
+        <a href="<%= admin_pages_path %>">All pages</a>
+        <span class="icon-thumbnail">A</span>
+      </li>
+      <li class="">
+        <a href="<%= new_admin_page_path %>">New page</a>
+        <span class="icon-thumbnail">N</span>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="">
+    <a href="javascript:;">
+      <span class="title">Menu builder</span>
+      <span class=" arrow"></span>
+    </a>
+    <span class="icon-thumbnail ">M</span>
+    <ul class="sub-menu">
+      <li class="">
+        <a href="<%= admin_menu_items_path %>">All Menu Items</a>
+        <span class="icon-thumbnail">A</span>
+      </li>
+      <li class="">
+        <a href="<%= new_admin_menu_item_path %>">New menu item</a>
+        <span class="icon-thumbnail">N</span>
+      </li>
+    </ul>
+  </li>
+  <li class="">
+    <a href="<%= admin_brands_path %>">
+      <span class="title">Brands</span>
+    </a>
+    <span class="icon-thumbnail ">B</span>
+  </li>
+  <li class="">
+    <a href="<%= admin_references_path %>">
+      <span class="title">Referenties</span>
+    </a>
+    <span class="icon-thumbnail ">R</span>
+  </li>
+  <li class="">
+    <a href="<%= admin_blog_pages_path %>">
+      <span class="title">Blog Pages</span>
+    </a>
+    <span class="icon-thumbnail ">Bp</span>
+  </li>
+  <li class="">
+    <a href="<%= admin_car_requests_path %>">
+      <span class="title">Finance requests</span>
+    </a>
+    <span class="icon-thumbnail ">F</span>
+  </li>
+  <li class="">
+    <a href="<%= admin_cms_fields_path %>">
+      <span class="title">Home Elements</span>
+    </a>
+    <span class="icon-thumbnail ">H</span>
+  </li>
+</ul>

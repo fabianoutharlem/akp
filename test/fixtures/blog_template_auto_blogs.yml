@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  white_left_block_1: MyText
+  youtube_embed_url: MyString
+  image_left_1: MyString
+  white_block_right_1: MyText
+  image_left_2: MyString
+  blue_block_right_1: MyText
+  orange_block: MyText
+  white_block_left_2: MyText
+  image_right_1: MyString
+  image_left_3: MyString
+  blue_block_right_2: MyText
+
+two:
+  white_left_block_1: MyText
+  youtube_embed_url: MyString
+  image_left_1: MyString
+  white_block_right_1: MyText
+  image_left_2: MyString
+  blue_block_right_1: MyText
+  orange_block: MyText
+  white_block_left_2: MyText
+  image_right_1: MyString
+  image_left_3: MyString
+  blue_block_right_2: MyText

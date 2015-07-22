@@ -2,7 +2,6 @@ default: &default
   adapter: mysql2
   pool: 5
   timeout: 5000
-  database: akp
 
 development:
   <<: *default
@@ -14,4 +13,13 @@ development:
 production:
   <<: *default
   host: localhost
-  database: ash
+  username: akp_p_user
+  password: calculi72
+  database: akp_production
+
+staging:
+    <<: *default
+    host: localhost
+    database: akp
+    username: akp
+    password: E#E0J1uQ0ZJX5s

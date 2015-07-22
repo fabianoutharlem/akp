@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require jquery-ui
+//= require fastclick
+//= require libs/modernizr-2.8.3.min
+//= require libs/mbe-slider.min
+//= require libs/formatMoney
+//= require main

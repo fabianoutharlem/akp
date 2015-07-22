@@ -1,0 +1,95 @@
+<%= render partial: 'layouts/breadcrumb' %>
+
+<section class="references-form">
+  <div class="wrapper">
+
+
+    <div class="title">
+
+      <h1>Referenties</h1>
+
+      <p>Laat een referentie achter of lees wat onze klanten vinden.</p>
+
+      <div class="right">
+        <h3>
+          <span><%= @avarage %>/5</span>
+
+          <span class="stars">
+            <% if @avarage %>
+                <% 5.times do |i| %>
+                    <% i = i+1 %>
+                    <% if @avarage >= i %>
+                        <i class="icon star-full-big"></i>
+                    <% elsif @avarage > i-1 and @avarage < i %>
+                        <i class="icon star-half-big"></i>
+                    <% else %>
+                        <i class="icon star-empty-big"></i>
+                    <% end %>
+                <% end %>
+            <% end %>
+            </span>
+        </h3>
+
+        <div class="subheader">
+          <a href="">Uitstekend</a> | <a href=""><%= @references.length %> beoordelingen</a>
+        </div>
+        <!-- .subheader -->
+
+      </div>
+      <!-- .right -->
+    </div>
+    <!-- .title -->
+
+    <%= form_for Reference.new, action: :create, html: {class: 'review-form'} do |f| %>
+
+        <div class="left">
+          <p class="p-name">
+            <label for="review-form-name">Naam:</label>
+            <%= f.text_field :name, id: 'review-form-title', required: true, class: :text %>
+          </p> <!-- .title -->
+
+          <p class="p-description">
+            <label for="review-form-description">Beoordeling:</label>
+            <%= f.text_area :content, id: 'review-form-description', required: true, style: 'height: 115px;' %>
+          </p> <!-- .description -->
+
+        </div>
+        <!-- .left -->
+
+        <div class="right">
+          <p class="p-email">
+            <label for="review-form-email">Email:</label>
+            <%= f.email_field :email, class: 'text', id: 'review-form-email', required: true %>
+          </p> <!-- .email -->
+
+          <p class="p-stars">
+            <label>Waardering:</label>
+
+            <%= f.hidden_field :rating, id: 'reference-stars-input' %>
+            <span class="stars stars-input">
+                        <i class="icon star-empty-big"></i>
+                        <i class="icon star-empty-big"></i>
+                        <i class="icon star-empty-big"></i>
+                        <i class="icon star-empty-big"></i>
+                        <i class="icon star-empty-big"></i>
+                    </span>
+          </p> <!-- .stars -->
+
+          <p class="p-submit">
+            <%= f.submit 'Verstuur referentie', class: 'btn btn-small' %>
+          </p> <!-- .submit -->
+        </div>
+        <!-- .right -->
+    <% end %>
+
+
+    <ul>
+      <%= render @references %>
+    </ul>
+
+
+  </div>
+  <!-- .wrapper -->
+</section> <!-- .references-form -->
+
+<%= render 'layouts/footer_simple' %>

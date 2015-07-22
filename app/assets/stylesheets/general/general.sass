@@ -1,0 +1,90 @@
+*
+	outline: 0
+html
+	font-family: $main-font
+	font-weight: 300
+	font-size: 20px
+	line-height: 1.8
+	letter-spacing: 0
+	color: $marine
+	background: white
+
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+	+desktop-small
+		font-size: 16px
+
+	&.fullscreen,
+	&.noscroll
+		overflow: hidden
+		position: fixed
+		width: 100%
+		z-index: 0
+		left: 0
+		top: 0 !important
+
+		body
+			overflow: hidden
+			position: fixed
+			width: 100%
+			z-index: 0
+			left: 0
+			top: 0 !important
+
+	+print
+		color: #333333
+
+a
+	color: $marine
+	text-decoration: none
+	display: inline-block
+	vertical-align: middle
+
+	+print
+		color: #333333
+
+h1, h2, h3
+	font-weight: 400
+
+	b, strong
+		font-weight: 600
+
+.wrapper
+	width: 1440px
+	box-sizing: border-box
+	margin: 0 auto
+	text-align: center
+
+	+desktop
+		width: auto
+
+	+print
+		width: auto
+
+.clear
+	height: 0
+	line-height: 0
+	font-size: 0
+	margin: 0
+	padding: 0
+	clear: both
+
+.inactive
+	opacity: 0.2
+	pointer-events: none
+	cursor: default
+
+.go-to-top
+	position: fixed
+	right: 65px
+	bottom: 65px
+	z-index: 1
+	display: none
+
+	+tablet
+		right: 30px
+		bottom: 30px
+
+#google_translate_element
+	display: none

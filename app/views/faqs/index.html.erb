@@ -1,0 +1,25 @@
+<%= render partial: 'layouts/breadcrumb' %>
+
+<section class="page-faq">
+  <div class="wrapper">
+    <h1>Veel gestelde vragen</h1>
+
+    <ul>
+      <% @faqs.each do |faq| %>
+          <li>
+            <h2><a href="#question-<%= faq.id %>"><%= faq.question %></a></h2>
+
+            <div class="description"><%= faq.answer.html_safe %></div>
+            <!-- .description -->
+          </li>
+      <% end %>
+    </ul>
+
+  </div>
+  <!-- .wrapper -->
+</section> <!-- .page-faq -->
+
+
+
+<%= render 'layouts/search_navigation' %>
+<%= render partial: 'layouts/footer_complex' %>

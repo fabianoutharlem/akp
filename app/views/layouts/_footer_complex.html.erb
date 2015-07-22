@@ -1,0 +1,84 @@
+<footer class="main complex">
+  <div class="wrapper">
+
+    <div class="cols col-1">
+      <a class="menu" href="#menu">
+        <i class="icon menu-button"></i>
+        Menu
+      </a>
+
+      <ul>
+        <li><a href="<%= page_path('algemene-voorwaarden') %>">Algemene voorwaarden</a></li>
+        <li><a href="<%= page_path('disclaimer') %>">Disclaimer</a></li>
+      </ul>
+
+      <div class="social-media">
+        <h2>Share op social media</h2>
+
+        <p>
+          <% unless StaticText.facebook_url.blank? %>
+              <a href="<%= StaticText.facebook_url %>" target="_blank"><i class="icon facebook"></i></a>
+          <% end %>
+          <% unless StaticText.twitter_url.blank? %>
+              <a href="<%= StaticText.twitter_url %>" target="_blank"><i class="icon twitter"></i></a>
+          <% end %>
+          <% unless StaticText.google_plus_url.blank? %>
+              <a href="<%= StaticText.google_plus_url %>" target="_blank"><i class="icon google-plus"></i></a>
+          <% end %>
+          <% unless StaticText.pinterest_url.blank? %>
+              <a href="<%= StaticText.pinterest_url %>" target="_blank"><i class="icon pinterest"></i></a>
+          <% end %>
+          <a href="mailto:<%= StaticText.ash_email %>" target="_blank"><i class="icon mail"></i></a>
+        </p>
+      </div>
+      <!-- .social-media -->
+    </div>
+    <!-- .col-1 -->
+
+    <div class="cols col-2">
+      <h2>Contact</h2>
+
+      <address>
+        <%= StaticText.address_name %><br/>
+        <%= StaticText.address_street %><br/>
+        <%= StaticText.address_zip_plus_city %>
+      </address>
+      <p>
+        <a href="<%= StaticText.plan_route_url %>" class="plan" target="_blank">Plan route</a>
+      </p>
+
+      <p>&nbsp;</p>
+
+      <p>
+        T. <a href="tel:<%= StaticText.phone %>"><%= StaticText.phone %></a>
+      </p>
+
+      <p>
+        E. <a href="mailto:<%= StaticText.ash_email %>" target="_blank"><%= StaticText.ash_email %></a>
+      </p>
+
+      <p>
+        F. <a href="<%= StaticText.facebook_url %>" target="_blank"><%= StaticText.facebook_url %></a>
+      </p>
+    </div>
+    <!-- .col-2 -->
+
+    <div class="cols col-3">
+      <h2>Openingstijden</h2>
+
+      <dl>
+        <dt><%= StaticText.opening_hours_head_1 %></dt>
+        <dd><%= StaticText.opening_hours_1 %></dd>
+
+        <dt><%= StaticText.opening_hours_head_2 %></dt>
+        <dd><%= StaticText.opening_hours_2 %></dd>
+
+        <dt><%= StaticText.opening_hours_head_3 %></dt>
+        <dd><%= StaticText.opening_hours_3 %></dd>
+      </dl>
+    </div>
+    <!-- .col-3 -->
+
+  </div>
+  <!-- .wrapper -->
+</footer> <!-- .main -->

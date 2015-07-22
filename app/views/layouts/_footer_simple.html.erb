@@ -1,0 +1,48 @@
+<footer class="main simple">
+    <div class="wrapper">
+
+        <a class="menu" href="#menu">
+            <i class="icon menu-button"></i>
+            Menu
+        </a>
+
+        <div class="cols col-1">
+
+            <h2><%= StaticText.get_in_contact_footer %></h2>
+
+          <p>
+            <% unless StaticText.facebook_url.blank? %>
+                <a href="<%= StaticText.facebook_url %>" target="_blank"><i class="icon facebook"></i></a>
+            <% end %>
+            <% unless StaticText.twitter_url.blank? %>
+                <a href="<%= StaticText.twitter_url %>" target="_blank"><i class="icon twitter"></i></a>
+            <% end %>
+            <% unless StaticText.google_plus_url.blank? %>
+                <a href="<%= StaticText.google_plus_url %>" target="_blank"><i class="icon google-plus"></i></a>
+            <% end %>
+            <% unless StaticText.pinterest_url.blank? %>
+                <a href="<%= StaticText.pinterest_url %>" target="_blank"><i class="icon pinterest"></i></a>
+            <% end %>
+            <a href="mailto:<%= StaticText.ash_email %>" target="_blank"><i class="icon mail"></i></a>
+          </p>
+        </div> <!-- .col-1 -->
+
+        <div class="cols col-2">
+            <h2><%= StaticText.personal_contact_footer %></h2>
+
+            <p>
+                <a href="tel:<%= StaticText.phone %>"><%= StaticText.phone %></a>
+            </p>
+        </div> <!-- .col-2 -->
+
+    </div> <!-- .wrapper -->
+
+    <div class="copyright">
+        <div class="wrapper">
+            &copy; 2015 Auto Krediet Plan
+            &bull; <a href="<%= page_path('algemene-voorwaarden') %>">Algemene voorwaarden</a>
+            &bull; <a href="<%= page_path('disclaimer') %>">Disclaimer</a>
+
+        </div> <!-- .wrapper -->
+    </div> <!-- .copyright -->
+</footer> <!-- .main -->

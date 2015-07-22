@@ -1,0 +1,84 @@
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<header class="main">
+
+  <div class="top">
+    <div class="wrapper">
+
+      <a class="menu" href="#menu">
+        <i class="icon menu-button"></i>
+        Menu
+      </a>
+
+      <a class="search" href="#search">
+        <i class="icon search-orange"></i>
+        Zoeken
+      </a>
+
+      <h1>
+        <a href="<%= root_path %>">
+          <b>Auto Krediet</b> Plan
+        </a>
+      </h1>
+
+    </div>
+    <!-- .wrapper -->
+  </div>
+  <!-- .top -->
+
+  <div class="subheader">
+    <div class="wrapper">
+
+      <span>Heeft u vragen? Wij helpen u graag!</span>
+
+      <a class="phone" href="tel:<%= StaticText.phone %>">
+        <i class="icon iphone-white"></i>
+        <%= StaticText.phone %>
+      </a>
+
+      <a class="email" href="mailto:<%= StaticText.ash_email %>">
+        <i class="icon mail-white"></i>
+        <%= StaticText.ash_email %>
+      </a>
+
+      <div class="language-switch">
+        <h4>
+          Dutch
+          <i class="icon arrow-white-down-small"></i>
+        </h4>
+
+        <div class="submenu">
+          <ul>
+            <li>
+              <a href="#change-dutch" class="selected" data-lang="nl">Dutch</a>
+            </li>
+            <li>
+              <a href="#change-english" data-lang="en">English</a>
+            </li>
+            <li>
+              <a href="#change-german" data-lang="de">German</a>
+            </li>
+            <li>
+              <a href="#change-french" data-lang="fr">French</a>
+            </li>
+            <li>
+              <a href="#change-spanish" data-lang="es">Spanish</a>
+            </li>
+          </ul>
+        </div>
+        <!-- .submenu -->
+      </div>
+      <!-- .language-switch -->
+
+    </div>
+    <!-- .wrapper -->
+  </div>
+  <!-- .subheader -->
+
+</header>
+
+<%= render partial: 'layouts/menu' %>
+<%= render partial: 'layouts/search' %>

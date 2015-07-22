@@ -1,0 +1,22 @@
+<div class="title">
+  <a class="right" href="">
+    Filters
+    <i class="icon arrow-blue-down"></i>
+  </a>
+
+  <h2>
+    <em><%= @cars.length %> <%= (@cars.length > 1 or @cars.length == 0) ? 'resultaten' : 'resultaat' %></em>
+  </h2>
+
+  <div class="submenu">
+    <%= render 'cars/filters' %>
+  </div>
+</div> <!-- .title -->
+<% unless @cars.any? %>
+    <h2><%= StaticText.no_search_results %></h2>
+<% end %>
+
+
+<ul class="cars">
+  <%= render @cars, wizard_type: params[:wizard_type] %>
+</ul>

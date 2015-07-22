@@ -1,0 +1,123 @@
+<%= render partial: 'layouts/breadcrumb' %>
+
+<section class="blog-header">
+  <div class="wrapper">
+    <h1><%= @blog_page.title %></h1>
+
+    <div class="description">
+      <p><%= @blog_page.content.html_safe %></p>
+    </div> <!-- .description -->
+  </div> <!-- .wrapper -->
+</section> <!-- .blog-header -->
+
+
+<section class="blog-listing">
+  <div class="wrapper">
+    <ul>
+      <li>
+        <article class="left-side-text">
+          <div class="text">
+            <%= @blog_page.templateable.white_left_block_1.html_safe %>
+          </div> <!-- .text -->
+
+          <figure>
+            <iframe width="600" height="360" src="<%= @blog_page.templateable.youtube_embed_url %>" frameborder="0" allowfullscreen="true"></iframe>
+          </figure>
+        </article>
+      </li>
+
+      <li>
+        <article class="right-side-text">
+          <figure>
+            <%= image_tag @blog_page.templateable.image_left_1 %>
+          </figure>
+
+          <div class="text">
+            <%= @blog_page.templateable.white_block_right_1.html_safe %>
+          </div> <!-- .text -->
+        </article>
+      </li>
+
+      <li>
+        <article class="right-side-text">
+          <figure>
+            <%= image_tag @blog_page.templateable.image_left_2 %>
+          </figure>
+
+          <div class="text marine">
+            <%= @blog_page.templateable.blue_block_right_1.html_safe %>
+          </div> <!-- .text -->
+        </article>
+      </li>
+
+      <li>
+        <article class="split-in-three">
+
+          <div class="text two-thirds orange on-left">
+            <%= @blog_page.templateable.orange_block.html_safe %>
+          </div> <!-- .text two-thirds -->
+
+          <div class="text one-third mini-ad on-right">
+            <h2>Particuliere financiering</h2>
+
+            <div class="description">
+              <p>U bepaald hoeveel u betaald!</p>
+            </div> <!-- .description -->
+
+            <div class="read-more">
+              <a class="btn btn-small">
+                Direct berekenen
+              </a>
+            </div> <!-- .read-more -->
+          </div> <!-- .text one-third -->
+
+        </article> <!-- .split-in-three -->
+      </li>
+
+      <li>
+        <article class="split-in-three on-left">
+
+          <div class="text one-third">
+            <%= @blog_page.templateable.white_block_left_2.html_safe %>
+          </div> <!-- .text one-third -->
+
+          <figure class="two-thirds on-right">
+            <%= image_tag @blog_page.templateable.image_right_1 %>
+          </figure> <!-- .two-thirds -->
+
+        </article> <!-- .split-in-three -->
+      </li>
+
+      <li>
+
+        <article class="split-in-three">
+
+          <figure class="one-third on-left">
+            <%= image_tag @blog_page.templateable.image_left_3 %>
+          </figure> <!-- .one-third -->
+
+          <div class="text one-third marine small on-left">
+            <%= @blog_page.templateable.blue_block_right_2.html_safe %>
+          </div> <!-- .text one-third -->
+
+          <div class="text one-third mini-ad on-right">
+            <h2>Zakelijke financiering</h2>
+
+            <div class="description">
+              <p>Financial lease</p>
+            </div> <!-- .description -->
+
+            <div class="read-more">
+              <a class="btn btn-small">
+                Direct berekenen
+              </a>
+            </div> <!-- .read-more -->
+          </div> <!-- .text one-third -->
+
+        </article> <!-- .split-in-three -->
+
+      </li>
+
+    </ul>
+  </div> <!-- .wrapper -->
+</section> <!-- .blog-listing -->

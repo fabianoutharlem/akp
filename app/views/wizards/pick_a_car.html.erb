@@ -1,0 +1,17 @@
+<section class="wizard-cars">
+  <div class="wrapper">
+
+    <%= render 'wizards/steps', step: 2 %>
+
+    <%= render partial: 'layouts/form_search' %>
+
+    <div class="search-results">
+
+        <%= render template: 'cars/search' %>
+
+    </div> <!-- /.search-results -->
+
+    <div class="footer"></div> <!-- .footer -->
+
+  </div> <!-- .wrapper -->
+</section> <!-- .wizard-cars -->

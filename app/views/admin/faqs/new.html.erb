@@ -1,0 +1,26 @@
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+  <ul class="breadcrumb">
+    <li>
+      <p><%= link_to 'Home', admin_root_path %></p>
+    </li>
+    <li><a href="" class="active">New FAQ</a></li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <h3 class="page-title">New FAQ</h3>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+  <%= form_for @faq, url: {action: :create}, html: {class: 'form'} do |f| %>
+      <%= render partial: 'admin/faqs/form', locals: {f: f} %>
+      <%= f.submit 'Create', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<% content_for :footer do %>
+    <script>
+        $(document).ready(function() {
+            $('#wysiwyg5').wysihtml5();
+        });
+    </script>
+<% end %>

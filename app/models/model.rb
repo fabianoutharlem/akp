@@ -1,5 +1,8 @@
 class Model < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
+
   has_many :cars
   belongs_to :brand
 

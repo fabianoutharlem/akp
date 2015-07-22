@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  payment: MyString
+  name: MyString
+  amount: MyString
+  phone: MyString
+  license-plate: MyString
+  email: MyString
+  bkr: MyString
+  net-income: MyString
+  partner-net-income: MyString
+  rent: MyString
+  car_id: 1
+
+two:
+  type: 
+  payment: MyString
+  name: MyString
+  amount: MyString
+  phone: MyString
+  license-plate: MyString
+  email: MyString
+  bkr: MyString
+  net-income: MyString
+  partner-net-income: MyString
+  rent: MyString
+  car_id: 1

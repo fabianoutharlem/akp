@@ -1,0 +1,133 @@
+footer.main.simple
+	background-color: #F1F1F1
+	color: $marine
+	font-size: 21px
+	line-height: 40px
+
+	+desktop-small
+		font-size: 18px
+		line-height: 32px
+
+	+print
+		display: none
+
+	.wrapper
+		padding: 210px 65px 0 65px
+		position: relative
+		overflow: hidden
+		text-align: left
+
+		+desktop-small
+			padding: 160px 40px 0 40px
+
+		+tablet
+			padding: 120px 30px 0 30px
+
+	.go-to-top
+		position: absolute
+		right: 65px
+		top: 65px
+
+		+desktop-small
+			right: 40px
+			top: 40px
+
+		+tablet
+			right: 30px
+			top: 30px
+
+	a.menu
+		position: absolute
+		left: 65px
+		top: 65px
+
+		font-size: 24px
+		line-height: 32px
+		font-weight: 400
+		color: $marine
+
+		&:hover
+			text-decoration: none
+
+		+desktop-small
+			left: 40px
+			top: 40px
+
+		+tablet
+			left: 30px
+			top: 30px
+
+			font-size: 18px
+			line-height: 26px
+
+
+	.cols
+		float: left
+		width: 50%
+		text-align: center
+		margin: 0 0 140px 0
+
+		+desktop-small
+			margin-bottom: 80px
+
+		+tablet
+			margin-bottom: 60px
+
+		+mobile-large
+			float: none
+			width: auto
+			margin-bottom: 45px
+
+		p
+			margin: 0
+			padding: 0
+
+		&.col-1
+			p
+				font-size: 0
+
+		h2
+			margin: 0 0 32px 0
+			padding: 0
+			font-size: 32px
+			line-height: 46px
+			font-weight: 600
+
+			+desktop-small
+				font-size: 24px
+				line-height: 32px
+
+			+tablet
+				font-size: 18px
+				line-height: 26px
+				margin-bottom: 20px
+
+	.copyright
+		background-color: #E3E3E3
+		font-size: 18px
+		line-height: 24px
+		font-weight: 300
+		text-align: center
+
+		+desktop-small
+			font-size: 14px
+			line-height: 20px
+
+		.wrapper
+			padding: 24px
+			text-align: center
+
+			+tablet
+				padding: 18px
+
+	a
+		color: $marine
+		text-decoration: none
+
+		display: inline-block
+		vertical-align: middle
+
+		&:hover
+			text-decoration: underline
+
+

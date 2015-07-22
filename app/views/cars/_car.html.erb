@@ -1,0 +1,50 @@
+<li data-price="<%= car.price_total %>" data-name="<%= car.display_name %>">
+  <article class="listing-car">
+    <figure>
+      <% car.car_medias.each do |car_media| %>
+          <% next unless car_media.file_type.include? 'image' %>
+          <a href="<%= car_path car %>"><img src="<%= car_media.file.thumb.url %>" alt=""/></a>
+      <% end %>
+    </figure>
+
+    <h1><a href="<%= car_path car %>"><%= car.display_name %></a></h1>
+
+    <div class="goto">
+      <a href="<%= financing_cars_path('bussiness') %>#car/<%= car.id %>" data-href-1="<%= financing_cars_path('bussiness') %>#car/<%= car.id %>" data-href-2="<%= financing_cars_path('private') %>#car/<%= car.id %>" data-href-3="<%= financing_cars_path('50_50') %>#car/<%= car.id %>" class="btn btn-small btn-full-width" data-select-url="<%= your_details_wizard_path %>" data-id="<%= car.id %>"><%= StaticText.direct_berekenen %></a>
+    </div>
+
+    <footer>
+      <div class="tabs">
+        <div class="tab-header">
+          <% if car.price_month.present? %>
+              <a href="#tab-1" data-tab="1" <%== if defined? wizard_type and wizard_type.present? and wizard_type == 'bussiness'; 'class="selected"'; elsif !defined? wizard_type or !['bussiness', '50_50', 'private'].include? wizard_type; 'class="selected"'; end %>>Zakelijk</a>
+          <% end %>
+          <a href="#tab-2" data-tab="2" <%== if defined? wizard_type and wizard_type.present? and wizard_type == 'private'; 'class="selected"'; end %>>Particulier</a>
+          <% if car.price_50_50.present? %>
+              <a href="#tab-3" data-tab="3" <%== if defined? wizard_type and wizard_type.present? and wizard_type == '50_50'; 'class="selected"'; end %>>50/50 Deal</a>
+          <% end %>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab tab-1 <%== if defined? wizard_type and wizard_type.present? and wizard_type == 'bussiness'; 'visible'; elsif !defined? wizard_type or !['bussiness', '50_50', 'private'].include? wizard_type; 'visible'; end %>">
+            <h3 class="price"><%= number_to_currency car.price_month, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
+            <small>Per maand vanaf</small>
+          </div>
+          <div class="tab tab-2 <%== if defined? wizard_type and wizard_type.present? and wizard_type == 'private'; 'visible'; end %>">
+            <h3 class="price"><%= number_to_currency car.price_total, unit: "€", separator: ",", delimiter: ".", precision: 0  %>,-</h3>
+            <small>De totaal prijs van deze auto</small>
+          </div>
+          <% if car.price_50_50.present? %>
+            <div class="tab tab-3 <%== if defined? wizard_type and wizard_type.present? and wizard_type == '50_50'; 'visible'; end %>">
+              <h3 class="price"><%= number_to_currency car.price_50_50, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
+              <small>De andere helft in 12 of 36 maanden met 0% rente</small>
+            </div>
+          <% end %>
+        </div>
+        <!-- .tab-content -->
+      </div>
+      <!-- .tabs -->
+    </footer>
+  </article>
+
+</li>

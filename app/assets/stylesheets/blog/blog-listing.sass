@@ -1,0 +1,505 @@
+.blog-listing
+	padding-bottom: 80px
+	background-color: #F3F3F3
+
+	.wrapper
+		padding: 0 120px
+
+		+desktop-small
+			padding: 0 80px
+
+		+tablet
+			padding: 0 40px
+
+		+mobile
+			padding: 0 30px
+
+		> ul
+			list-style: none
+			margin: 0
+			padding: 0
+
+			> li
+				margin: 0
+				padding: 0
+
+	.btn
+		width: auto
+
+	.line,
+	article
+		display: -webkit-flex
+		display: flex
+
+		-webkit-flex-direction: row
+		flex-direction: row
+
+		-webkit-flex-wrap: nowrap
+		flex-wrap: nowrap
+
+		-webkit-align-items: stretch
+		align-items: stretch
+
+		width: 100%
+		overflow: hidden
+
+		+mobile-large
+			display: block
+
+		.left
+			float: left
+			width: 50%
+			+box-sizing(border-box)
+			position: relative
+
+			background-color: white
+
+			&.none
+				background: none
+
+			&.marine
+				background-color: $marine
+
+			+mobile-large
+				float: none
+				width: auto
+
+		.right
+			float: right
+			width: 50%
+			+box-sizing(border-box)
+			position: relative
+
+			background-color: white
+
+			&.none
+				background: none
+
+			.text
+				padding: 40px
+
+				+mobile-large
+					padding: 30px
+
+			+mobile-large
+				float: none
+				width: auto
+
+		figure
+			margin: 0
+			padding: 0
+			text-align: center
+			display: block
+			overflow: hidden
+			+box-sizing(border-box)
+
+			iframe
+				display: block
+				width: 100%
+				height: 100%
+			img
+				display: block
+				height: 100%
+				width: auto
+
+				+mobile-large
+					width: 100%
+					height: auto
+
+		.text
+			margin: 0
+			padding: 45px
+			text-align: left
+			+box-sizing(border-box)
+			background-color: white
+
+			font-size: 18px
+			line-height: 32px
+			font-weight: 300
+
+			+desktop-small
+				padding: 30px
+
+			+tablet
+				font-size: 16px
+				line-height: 28px
+
+			+mobile-large
+				font-size: 14px
+				line-height: 26px
+
+			&.marine
+				background-color: $marine
+				color: white
+
+				p > a,
+				> a
+					@extend .btn.white
+					@extend .btn.white.btn-smaller
+
+				ul
+					list-style: disc outside none
+
+					li
+						&::before
+							display: none
+
+			&.orange
+				background-color: $orange
+				color: white
+
+				p > a,
+				> a
+					@extend .btn.white
+					@extend .btn.white.btn-smaller
+
+				ul
+					list-style: disc outside none
+
+					li
+						&::before
+							display: none
+
+			h1
+				font-size: 26px
+				line-height: 36px
+				font-weight: normal
+
+				margin: 0 0 20px 0
+				padding: 0
+
+				+desktop-small
+					font-size: 24px
+					line-height: 32px
+
+				+tablet
+					font-size: 20px
+					line-height: 28px
+
+				+mobile
+					font-size: 18px
+					line-height: 24px
+
+			.description
+				font-size: 18px
+				line-height: 32px
+				font-weight: 300
+
+				margin: 0 0 20px 0
+				padding: 0
+
+				+tablet
+					font-size: 16px
+					line-height: 28px
+
+				+mobile-large
+					font-size: 14px
+					line-height: 26px
+
+				&:last-child
+					margin-bottom: 0
+
+			h2
+				font-size: 26px
+				line-height: 36px
+				font-weight: normal
+
+				margin: 50px 0 30px 0
+				padding: 0
+
+				+desktop-small
+					font-size: 24px
+					line-height: 34px
+
+				+tablet
+					font-size: 20px
+					line-height: 30px
+
+				+mobile
+					font-size: 18px
+					line-height: 28px
+
+				&:first-child
+					margin-top: 0
+
+			p
+				margin: 32px 0
+				padding: 0
+
+				+desktop-small
+					margin: 28px 0
+
+				+tablet
+					margin: 24px 0
+
+				+mobile
+					margin: 20px 0
+
+				&:first-child
+					margin-top: 0
+				&:last-child
+					margin-bottom: 0
+
+			blockquote
+				margin: 32px 0
+				padding: 0
+
+				font-weight: 400
+				font-size: 22px
+				line-height: 32px
+
+				+desktop-small
+					margin: 28px 0
+					font-size: 20px
+					line-height: 30px
+
+				+tablet
+					margin: 24px 0
+					font-size: 18px
+					line-height: 28px
+
+				+mobile
+					margin: 20px 0
+
+				&::after,
+				&::before
+					content: '"'
+
+			ul
+				list-style: none
+				margin: 0
+				padding: 0
+
+				li
+					margin: 0 0 2px 0
+					padding: 0 0 0 35px
+					position: relative
+
+					&::before
+						content: ''
+						@extend .icon
+						@extend .icon.list-check-small
+
+						position: absolute
+						left: 4px
+						top: 7px
+
+			p > a,
+			> a
+				@extend .btn
+				@extend .btn.btn-smaller
+				@extend .btn.transparent
+				@extend .btn.transparent.btn-smaller
+
+			&.small
+				padding: 35px
+
+				+tablet
+					padding: 30px
+
+				+mobile
+					padding: 20px 30px
+
+				h1
+					font-size: 24px
+					line-height: 33px
+					margin-bottom: 20px
+
+					+tablet
+						font-size: 20px
+						line-height: 28px
+						margin-bottom: 15px
+
+				.description
+					font-size: 14px
+					line-height: 28px
+					margin-bottom: 0
+
+					ul
+						list-style: disc
+						margin: 0
+						padding: 0 0 0 15px
+
+						li
+							margin: 0
+							padding: 0
+
+			&.mini-ad
+				text-align: center
+				position: relative
+
+				+mobile-large
+					text-align: left
+
+				h2
+					margin: 50px 0 20px 0
+					padding: 0
+					font-size: 26px
+					line-height: 36px
+					font-weight: 500
+
+					+tablet
+						font-size: 22px
+						line-height: 32px
+
+					+mobile-large
+						margin: 0
+						font-size: 20px
+						line-height: 30px
+
+				.description
+					margin-bottom: 0
+
+				.read-more
+					position: absolute
+					left: 0
+					bottom: 45px
+
+					width: 100%
+
+					+tablet
+						bottom: 30px
+
+					+mobile-large
+						margin-top: 20px
+						position: static
+						width: auto
+
+					a.btn
+						white-space: nowrap
+						overflow: hidden
+						text-overflow: ellipsis
+
+				&.full-height
+					height: 100%
+
+				&.bottom
+					position: absolute
+					bottom: 0
+					left: 0
+
+					+mobile-large
+						position: static
+
+				&.top
+					position: absolute
+					top: 0
+					left: 0
+
+					+mobile-large
+						position: static
+
+				&.two-thirds
+					+tablet
+						width: 100%
+
+					h2
+						margin-top: 0
+
+					.read-more
+						margin-top: 25px
+						position: static
+		.on-left
+			float: left
+
+			+mobile-large
+				float: none
+		.on-right
+			float: right
+
+			+mobile-large
+				float: none
+
+		&.left-side-text
+			.text
+				float: left
+				width: 50%
+
+				+mobile-large
+					float: none
+					width: auto
+
+			figure
+				float: right
+				width: 50%
+
+				+tablet
+					position: relative
+
+					img
+						position: absolute
+						left: 50%
+						top: 0
+
+						+transform(translate(-50%, 0))
+
+				+mobile-large
+					float: none
+					width: auto
+
+					img
+						position: static
+						+transform(none)
+
+
+		&.right-side-text
+			.text
+				float: right
+				width: 50%
+
+				+mobile-large
+					float: none
+					width: auto
+
+			figure
+				float: left
+				width: 50%
+
+				+tablet
+					position: relative
+
+					img
+						position: absolute
+						left: 50%
+						top: 0
+
+						+transform(translate(-50%, 0))
+
+				+mobile-large
+					float: none
+					width: auto
+
+					img
+						position: static
+						+transform(none)
+
+
+		&.split-in-three
+			.two-thirds
+				width: 66.66%
+
+				+tablet
+					width: 50%
+
+				+mobile-large
+					float: none
+					width: auto
+
+			.one-third
+				width: 33.33%
+
+				+tablet
+					width: 50%
+
+				+mobile-large
+					float: none
+					width: auto
+
+
+			+tablet
+				figure.one-third
+					display: none
+
+					+mobile-large
+						display: block
+

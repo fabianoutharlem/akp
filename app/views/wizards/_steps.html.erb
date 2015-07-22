@@ -1,0 +1,27 @@
+<div class="steps">
+  <div class="step first complete">
+    <%= StaticText.wizard_step_1 %>
+  </div> <!-- .step -->
+
+  <span class="icon steps-separator"></span>
+
+  <div class="step <%= step > 1 ? 'complete' : '' %> <%= step == 1 ? 'selected' : '' %>">
+    <%= StaticText.wizard_step_2 %>
+  </div> <!-- .step -->
+
+  <span class="icon steps-separator"></span>
+
+  <div class="step <%= step > 2 ? 'complete' : '' %> <%= step == 2 ? 'selected' : '' %>">
+    <%= StaticText.wizard_step_3 %>
+  </div> <!-- .step -->
+
+  <span class="icon steps-separator"></span>
+
+  <div class="step <%= step > 3 ? 'complete' : '' %> <%= step == 3 ? 'selected' : '' %>">
+    <%= StaticText.wizard_step_4 %>
+  </div> <!-- .step -->
+
+  <span class="icon steps-separator"></span>
+
+  <div class="step last <%= step == 4 ? 'complete' : '' %>"></div> <!-- .step -->
+</div> <!-- .steps -->

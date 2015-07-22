@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  top_image: MyString
+  blue_block: MyText
+  orange_block: MyText
+
+two:
+  top_image: MyString
+  blue_block: MyText
+  orange_block: MyText

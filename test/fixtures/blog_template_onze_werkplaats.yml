@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  top_image: MyString
+  top_white_block: MyText
+  image_left: MyString
+  blue_block_right: MyText
+
+two:
+  top_image: MyString
+  top_white_block: MyText
+  image_left: MyString
+  blue_block_right: MyText

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  content: MyString
+  rating: 
+  approved: false
+
+two:
+  name: MyString
+  content: MyString
+  rating: 
+  approved: false

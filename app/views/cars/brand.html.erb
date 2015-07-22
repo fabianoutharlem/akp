@@ -1,0 +1,37 @@
+<%= render partial: 'layouts/breadcrumb' %>
+
+<section class="search-cars brand-page">
+  <div class="wrapper">
+
+    <div class="title">
+      <a class="right" href="">
+        Filters
+        <i class="icon arrow-blue-down"></i>
+      </a>
+
+      <h2>
+        <%= @brand.name %>
+        <em><%= @cars.length %> op voorraad</em>
+      </h2>
+
+      <div class="submenu">
+        <%= render 'cars/filters' %>
+      </div>
+    </div>
+    <!-- .title -->
+
+
+    <ul class="cars">
+
+      <%= render @cars %>
+
+    </ul>
+
+  </div>
+  <!-- .wrapper -->
+</section> <!-- .search-cars -->
+
+<%= render partial: 'brands/search_description', locals: {brand: @brand} %>
+
+<%= render partial: 'layouts/search_navigation' %>
+<%= render partial: 'layouts/footer_simple' %>
