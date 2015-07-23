@@ -33,7 +33,7 @@
         },
 
         initLazyLoading: function (element) {
-            $("img", element).lazyload({
+            $("img.car_listing", element).lazyload({
                 effect : "fadeIn",
                 failure_limit : 500,
                 event: 'mouseenter'

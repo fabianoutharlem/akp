@@ -4,7 +4,7 @@
       <% car.car_medias.each do |car_media| %>
           <% next unless car_media.file_type.include? 'image' %>
           <a href="<%= car_path car %>">
-            <%= image_tag car_media.file.thumb.url, width: '100%', lazy: true %>
+            <%= image_tag car_media.file.thumb.url, class: 'car_listing', width: '100%', lazy: true %>
           </a>
       <% end %>
     </figure>
