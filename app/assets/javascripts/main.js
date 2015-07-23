@@ -34,7 +34,8 @@
 
         initLazyLoading: function (element) {
             $("img", element).lazyload({
-                threshold: 200
+                effect : "fadeIn",
+                failure_limit : 500
             });
         },
 
