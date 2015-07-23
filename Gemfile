@@ -94,6 +94,9 @@ gem 'mandrill_mailer'
 # font awesome
 gem 'font-awesome-rails'
 
+# lazyloading image_tag
+gem 'lazyload-rails'
+
 group :development do
   gem 'spring'
   gem 'faker'

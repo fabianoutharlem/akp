@@ -17,4 +17,5 @@
 //= require libs/modernizr-2.8.3.min
 //= require libs/mbe-slider.min
 //= require libs/formatMoney
+//= require jquery.lazyload.js
 //= require main

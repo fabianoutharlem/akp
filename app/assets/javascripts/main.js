@@ -29,6 +29,13 @@
             this.initWizardFormValidation(element);
             this.initSectionScroll(element);
             this.initScrollTo(element);
+            this.initLazyLoading(element);
+        },
+
+        initLazyLoading: function (element) {
+            $("img", element).lazyload({
+                threshold: 200
+            });
         },
 
         /**
