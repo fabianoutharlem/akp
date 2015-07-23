@@ -36,7 +36,7 @@
             $("img", element).lazyload({
                 effect : "fadeIn",
                 failure_limit : 500,
-                skip_invisible : true
+                skip_invisible : false
             });
         },
 
