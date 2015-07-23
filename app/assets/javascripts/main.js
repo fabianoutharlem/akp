@@ -36,7 +36,7 @@
             $("img.car_listing", element).lazyload({
                 effect : "fadeIn",
                 failure_limit : 500,
-                event: 'mouseenter'
+                event: 'mouseenter mousemove scroll'
             });
         },
 
