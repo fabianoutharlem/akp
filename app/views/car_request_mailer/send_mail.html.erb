@@ -6,26 +6,26 @@
         <li style="margin-left: 0px !important;">Naam:</li>
         <li style="margin-left: 0px !important;">Email:</li>
         <li style="margin-left: 0px !important;">Telefoonnummer:</li>
-        <li style="margin-left: 0px !important;">Auto:</li>
         <li style="margin-left: 0px !important;">BKR Geregistreerd:</li>
         <li style="margin-left: 0px !important;">Te financieren bedrag:</li>
         <li style="margin-left: 0px !important;">Netto inkomen:</li>
         <li style="margin-left: 0px !important;">Netto inkomen partner:</li>
         <li style="margin-left: 0px !important;">Huur of hypotheeklasten:</li>
+        <li style="margin-left: 0px !important;">Auto:</li>
       </ul>
     </td>
     <td style="padding-top:0; line-height:2em;" height="100%" valign="top">
       <ul style="list-style:none; display:inline; padding:0; color: #373737">
-        <li style="margin-left: 0px !important;"><%= @car_request.request_type %></li>
-        <li style="margin-left: 0px !important;"><%= @car_request.name %></li>
-        <li style="margin-left: 0px !important;"><%= @car_request.email %></li>
-        <li style="margin-left: 0px !important;"><%= @car_request.phone %></li>
-        <li style="margin-left: 0px !important;"><%= @car_request.car.display_name %></li>
-        <li style="margin-left: 0px !important;"><%= @car_request.bkr %></li>
-        <li style="margin-left: 0px !important;">€<%= @car_request.payment %></li>
-        <li style="margin-left: 0px !important;">€<%= @car_request.net_income %></li>
-        <li style="margin-left: 0px !important;">€<%= @car_request.partner_net_income %></li>
-        <li style="margin-left: 0px !important;">€<%= @car_request.rent %></li>
+        <li style="margin-left: 0px !important;"><%= @car_request.request_type %>&nbsp;</li>
+        <li style="margin-left: 0px !important;"><%= @car_request.name %>&nbsp;</li>
+        <li style="margin-left: 0px !important;"><%= @car_request.email %>&nbsp;</li>
+        <li style="margin-left: 0px !important;"><%= @car_request.phone %>&nbsp;</li>
+        <li style="margin-left: 0px !important;"><%= @car_request.bkr %>&nbsp;</li>
+        <li style="margin-left: 0px !important;">€<%= @car_request.payment %>&nbsp;</li>
+        <li style="margin-left: 0px !important;">€<%= @car_request.net_income %>&nbsp;</li>
+        <li style="margin-left: 0px !important;">€<%= @car_request.partner_net_income %>&nbsp;</li>
+        <li style="margin-left: 0px !important;">€<%= @car_request.rent %>&nbsp;</li>
+        <li style="margin-left: 0px !important;"><%= @car_request.car.display_name %>&nbsp;</li>
       </ul>
     </td>
 
