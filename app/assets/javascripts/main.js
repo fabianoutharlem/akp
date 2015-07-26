@@ -35,8 +35,7 @@
         initLazyLoading: function (element) {
             $("img.car_listing", element).lazyload({
                 effect : "fadeIn",
-                failure_limit : 500,
-                event: 'appear'
+                failure_limit : 500
             });
         },
 

@@ -1,7 +1,7 @@
 <li data-price="<%= car.price_total %>" data-name="<%= car.display_name %>">
   <article class="listing-car">
     <figure>
-      <% car.car_medias.each do |car_media| %>
+      <% car.car_medias[1..4].each do |car_media| %>
           <% next unless car_media.file_type.include? 'image' %>
           <a href="<%= car_path car %>">
             <%= image_tag car_media.file.thumb.url, class: 'car_listing', width: '100%', lazy: true %>
