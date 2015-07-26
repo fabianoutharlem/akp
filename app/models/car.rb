@@ -22,7 +22,7 @@ class Car < ActiveRecord::Base
 
   accepts_nested_attributes_for :options
 
-
+  scope :car_includes, -> { includes(:brand, :model, :body_type, :fuel_type, :transmission_type, :car_medias, :options) }
   validates_associated :model, :brand
   validates :mileage, :color, :engine_size, :manufacture_year, :energy_label, :road_tax, presence: true
 
@@ -30,7 +30,7 @@ class Car < ActiveRecord::Base
     puts build_query(params).to_json
     search = Car.search(build_query(params).to_json)
     if search.results.total
-      search.records.to_a
+      search.records.car_includes.to_a
     else
       nil
     end

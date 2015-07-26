@@ -3,7 +3,7 @@ class CarsController < ApplicationController
   add_breadcrumb 'Autos', :voorraad_cars_path
 
   def home
-    @cars = Car.all.limit(3).order(created_at: :asc)
+    @cars = Car.all.car_includes.limit(3).order(created_at: :asc)
     references = Reference.where(approved: true)
     @references = references.limit(2)
     @reference_avarage = Reference.avarage(references)
@@ -17,13 +17,13 @@ class CarsController < ApplicationController
 
   def brand
     @brand = Brand.find(params[:brand_id])
-    @cars = @brand.cars.order(created_at: :asc)
+    @cars = @brand.cars.car_includes.order(created_at: :asc)
     add_breadcrumb @brand.name
   end
 
   def model
     @model = Model.find(params[:model_id])
-    @cars = @model.cars.order(created_at: :asc)
+    @cars = @model.cars.car_includes.order(created_at: :asc)
     add_breadcrumb @model.name
   end
 
