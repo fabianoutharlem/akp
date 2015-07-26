@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'cars#home'
 
   get 'finance.php' => redirect('cars/financing/bussiness')
-  get 'finance-form.php' => redirect('cars/financing/private')
+  get 'finance-form.php', controller: :cars, action: :finance_ash_car
 
   resources :cars do
     collection do
