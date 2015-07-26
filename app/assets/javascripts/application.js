@@ -18,4 +18,5 @@
 //= require libs/mbe-slider.min
 //= require libs/formatMoney
 //= require jquery.lazyload.js
+//= require jquery.appear.js
 //= require main
