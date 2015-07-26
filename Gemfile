@@ -97,6 +97,9 @@ gem 'font-awesome-rails'
 # lazyloading image_tag
 gem 'lazyload-rails'
 
+# action cache
+gem 'actionpack-action_caching'
+
 group :development do
   gem 'spring'
   gem 'faker'
