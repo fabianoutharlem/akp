@@ -11,6 +11,7 @@ class ImportController < ApplicationController
     @data = Hash.from_xml(xml.to_s)["voertuig"].symbolize_keys
       if @data[:actie]
         self.send(@data[:actie])
+        Dalli::Client.new.flush
       end
     rescue Exception => e
       logger.debug e.message
