@@ -2,12 +2,9 @@ class CarsController < ApplicationController
 
   add_breadcrumb 'Autos', :voorraad_cars_path
 
-  caches_action :brand, :model
-
-
-  caches_action :search, :if => proc do
-    request.xhr?
-  end
+  caches_action :search, :if => -> {
+                         request.xhr?
+                       }
 
   def home
     @cars = Car.all.car_includes.limit(3).order(created_at: :asc)
