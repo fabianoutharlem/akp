@@ -52,15 +52,12 @@ class CarsController < ApplicationController
   end
 
   def finance_ash_car
-    if params[:license].present? and (car = Car.find_by_license_plate(params[:license]))
+    if params[:car].present? and (car = Car.find_by_vehicle_number_hexon(params[:car])).present?
       return redirect_to financing_cars_path('private') + '#car/' + car.id.to_s if car.present?
-    elsif params[:car].present?
-      cars = Car.query(query: params[:car])
-      if cars.any?
-        return redirect_to financing_cars_path('private') + '#car/' + cars.first.id.to_s
-      end
     end
-    redirect_to financing_cars_path('private')
+    type = params[:type].present? && ['private', 'business'].include?(params[:type]) ? params[:type] : 'bussiness'
+    type.gsub!('business', 'bussiness')
+    redirect_to financing_cars_path(type)
   end
 
   def financing
