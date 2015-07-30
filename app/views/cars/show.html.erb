@@ -75,15 +75,15 @@
 
           <div class="buttons">
             <a class="btn btn-small" href="<%= financing_cars_path('bussiness') %>#car/<%= @car.id %>">
-              Zakelijke financieren
+              <%= StaticText.car_single_business_button %>
             </a>
 
             <a class="btn btn-small" href="<%= financing_cars_path('private') %>#car/<%= @car.id %>">
-              Particulier financieren
+              <%= StaticText.car_single_private_button %>
             </a>
 
             <a class="btn btn-small" href="<%= financing_cars_path('50_50') %>#car/<%= @car.id %>">
-              50/50 deals
+              <%= StaticText.car_single_50_50_button %>
             </a>
           </div>
           <!-- .buttons -->
