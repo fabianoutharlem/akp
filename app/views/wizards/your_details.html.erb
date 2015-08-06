@@ -16,8 +16,8 @@
           <input type="hidden" name="car_id" value="<%= @car.id %>"/>
           <p class="select">
             <select class="different" name="request_type" id="">
-              <option value="financial" <%== if defined? params[:wizard_type] and params[:wizard_type].present? and params[:wizard_type] == 'bussiness'; 'selected="selected"'; end %>>Zakelijk Financieringen</option>
-              <option value="private" <%== if defined? params[:wizard_type] and params[:wizard_type].present? and params[:wizard_type] == 'private'; 'selected="selected"'; end %>>Particulier Financieringen</option>
+              <option value="financial" <%== if defined? params[:wizard_type] and params[:wizard_type].present? and params[:wizard_type] == 'bussiness'; 'selected="selected"'; end %>>Zakelijk Financieren</option>
+              <option value="private" <%== if defined? params[:wizard_type] and params[:wizard_type].present? and params[:wizard_type] == 'private'; 'selected="selected"'; end %>>Particulier Financieren</option>
               <option value="50_50" <%== if defined? params[:wizard_type] and params[:wizard_type].present? and params[:wizard_type] == '50_50'; 'selected="selected"'; end %>>50/50 deals</option>
             </select>
           </p>
