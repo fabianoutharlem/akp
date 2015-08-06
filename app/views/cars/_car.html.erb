@@ -33,8 +33,8 @@
             <small>Per maand vanaf</small>
           </div>
           <div class="tab tab-2 <%== if defined? wizard_type and wizard_type.present? and wizard_type == 'private'; 'visible'; end %>">
-            <h3 class="price"><%= number_to_currency car.price_month, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
-            <small>Per maand vanaf</small>
+            <h3 class="price"><%= number_to_currency car.price_total, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
+            <small>&nbsp;</small>
           </div>
           <% if car.price_50_50.present? %>
             <div class="tab tab-3 <%== if defined? wizard_type and wizard_type.present? and wizard_type == '50_50'; 'visible'; end %>">
