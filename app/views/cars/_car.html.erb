@@ -28,61 +28,18 @@
         </div>
 
         <div class="tab-content">
-          <div class="tab pad tab-1 <%== if defined? wizard_type and wizard_type.present? and wizard_type == 'bussiness'; 'visible'; elsif !defined? wizard_type or !['bussiness', '50_50', 'private'].include? wizard_type; 'visible'; end %>">
+          <div class="tab tab-1 <%== if defined? wizard_type and wizard_type.present? and wizard_type == 'bussiness'; 'visible'; elsif !defined? wizard_type or !['bussiness', '50_50', 'private'].include? wizard_type; 'visible'; end %>">
             <h3 class="price"><%= number_to_currency car.price_month, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
             <small>Per maand vanaf</small>
           </div>
           <div class="tab tab-2 <%== if defined? wizard_type and wizard_type.present? and wizard_type == 'private'; 'visible'; end %>">
-            <table width="80%">
-              <tr>
-                <td>
-                  <small>
-                    Verkoopprijs:
-                  </small>
-                </td>
-                <td>
-                  <h3 class="price">
-                    <%= number_to_currency car.price_total, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-
-                  </h3>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <small>
-                    Per maand vanaf:
-                  </small>
-                </td>
-                <td>
-                  <h3 class="price">
-                    <%= number_to_currency car.price_month, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-
-                  </h3>
-                </td>
-              </tr>
-            </table>
+            <h3 class="price"><%= number_to_currency car.price_month, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
+            <small>Per maand vanaf</small>
           </div>
           <% if car.price_50_50.present? %>
             <div class="tab tab-3 <%== if defined? wizard_type and wizard_type.present? and wizard_type == '50_50'; 'visible'; end %>">
-
-              <table width="80%">
-                <tr>
-                  <td width="30%">
-                    <small>
-                      Betaal nu:
-                    </small>
-                  </td>
-                  <td>
-                    <h3 class="price"><%= number_to_currency car.price_50_50, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="2">
-                    <small>
-                      en de andere helft in termijnen van 12 tot 36 maanden met 0% rente. Inruil auto kan ook volstaan
-                    </small>
-                  </td>
-                </tr>
-              </table>
-
+              <h3 class="price"><%= number_to_currency car.price_50_50, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
+              <small>De andere helft in 12 of 36 maanden met 0% rente</small>
             </div>
           <% end %>
         </div>
