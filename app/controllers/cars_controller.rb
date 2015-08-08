@@ -7,7 +7,7 @@ class CarsController < ApplicationController
                        }
 
   def home
-    @cars = Car.all.car_includes.limit(3).order(created_at: :asc)
+    @cars = Car.all.car_includes.limit(3).order(created_at: :desc)
     references = Reference.where(approved: true)
     @references = references.limit(2)
     @reference_avarage = Reference.avarage(references)
@@ -21,18 +21,18 @@ class CarsController < ApplicationController
 
   def brand
     @brand = Brand.find(params[:brand_id])
-    @cars = @brand.cars.car_includes.order(created_at: :asc)
+    @cars = @brand.cars.car_includes.order(created_at: :desc)
     add_breadcrumb @brand.name
   end
 
   def model
     @model = Model.find(params[:model_id])
-    @cars = @model.cars.car_includes.order(created_at: :asc)
+    @cars = @model.cars.car_includes.order(created_at: :desc)
     add_breadcrumb @model.name
   end
 
   def index
-    @cars = Car.order(created_at: :asc).page(params[:page]).per(15)
+    @cars = Car.limit(100).order(created_at: :desc).page(params[:page]).per(15)
   end
 
   def search
