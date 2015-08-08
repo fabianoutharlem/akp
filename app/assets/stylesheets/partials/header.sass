@@ -26,12 +26,15 @@ header.main
         float: left
         margin-top: 10px
 
+        +desktop-small
+          margin-top: 0
+
         +tablet
           font-size: 0
 
         +mobile-large
           float: none
-          margin-top: 0px
+          margin-top: -3px
 
           position: absolute
           left: 20px
@@ -45,13 +48,16 @@ header.main
         float: right
         margin-top: 10px
 
+        +desktop-small
+          margin-top: 0
+
         +tablet
           font-size: 0
 
         +mobile-large
           float: none
           margin: 0
-
+          margin-top: -3px
           position: absolute
           right: 20px
           top: 25px
@@ -84,7 +90,7 @@ header.main
       letter-spacing: -2px
       text-align: center
       width: 75%
-      margin: 0 auto
+      margin: 0 auto -10px
 
       img
         width: 40%
@@ -92,7 +98,6 @@ header.main
       +desktop-small
         font-size: 45px
         width: 70%
-        margin-bottom: 0px
 
       +tablet
         font-size: 32px
