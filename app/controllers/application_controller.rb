@@ -17,8 +17,4 @@ class ApplicationController < ActionController::Base
     false if is_a?(Devise::SessionsController)
   end
 
-  def global_variables
-    @menu_brands = Brand.all.includes(:cars)
-  end
-
 end

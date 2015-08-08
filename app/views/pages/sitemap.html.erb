@@ -30,7 +30,7 @@
     <div class="right">
       <h2><%= StaticText.sitemap_stock %></h2>
 
-      <% Brand.all.includes(:cars).includes(:models).each do |brand| %>
+      <% Brand.all_for_menu.includes(:models).each do |brand| %>
           <% if brand.cars.any? %>
               <article>
                 <h1><%= link_to brand.name, brand_cars_path(brand) %></h1>
