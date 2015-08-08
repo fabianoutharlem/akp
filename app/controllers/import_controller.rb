@@ -28,7 +28,7 @@ class ImportController < ApplicationController
       Raise 'Car was not created' unless Car.create!(attributes)
       render text: '1', status: 200
     else
-      render text: 'A car with this hexon number already exists, please use the change option to update the car', status: 409
+      change
     end
   end
 
