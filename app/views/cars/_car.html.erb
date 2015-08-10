@@ -37,9 +37,26 @@
             <small>Per maand vanaf <br/></small>
           </div>
           <% if car.price_50_50.present? %>
-            <div class="tab tab-3 <%== if defined? wizard_type and wizard_type.present? and wizard_type == '50_50'; 'visible'; end %>">
-              <h3 class="price"><%= number_to_currency car.price_50_50, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
-              <small>en de andere helft in termijnen van 12 tot 36 maanden met 0% rente. Inruil auto kan ook volstaan</small>
+            <div class="tab tab-3 <%== if defined? wizard_type and wizard_type.present? and wizard_type == '50_50'; 'visible'; end %>" style="padding-top: 10px; padding-bottom: 30px;">
+              <table width="80%" style="text-align: left; margin: 0 auto;">
+                <tr>
+                  <td width="30%">
+                    <small style="line-height: 36px;">
+                      Betaal nu:
+                    </small>
+                  </td>
+                  <td>
+                    <h3 class="price" style="font-size: 35px;"><%= number_to_currency car.price_50_50, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <small style="text-align: left;">
+                      en de andere helft in termijnen van 12 tot 36 maanden met 0% rente. Inruil auto kan ook volstaan
+                    </small>
+                  </td>
+                </tr>
+              </table>
             </div>
           <% end %>
         </div>
