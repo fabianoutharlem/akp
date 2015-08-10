@@ -11,7 +11,7 @@ class Brand < ActiveRecord::Base
   validates_uniqueness_of :name
 
   def self.all_for_menu
-    distinct.joins(:cars).group('brands.id').having('count(cars.id) > ?', 1)
+    distinct.joins(:cars).group('brands.id').having('count(cars.id) > ?', 0).order('count(cars.id) DESC')
   end
 
 end
