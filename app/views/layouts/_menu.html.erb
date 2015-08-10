@@ -58,7 +58,7 @@
       <ul>
         <% cache do %>
             <% Brand.all_for_menu.each do |brand| %>
-                <li><a href="<%= brand_cars_path brand %>"><%= brand.name %> (<%= brand.cars.length %>)</a></li>
+                <li><a href="<%= brand_cars_path brand %>"><%= brand.name %> (<%= brand.cars.count %>)</a></li>
             <% end %>
         <% end %>
       </ul>
