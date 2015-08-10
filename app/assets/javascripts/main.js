@@ -1311,7 +1311,7 @@
                     $.ajax({
                         type: $this.attr('method'),
                         url: $this.attr('action'),
-                        data: $this.serialize(),
+                        data: $('*:visible, input[type="hidden"]', $this).serialize(),
                         success: function (response) {
 
                             //done

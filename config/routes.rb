@@ -106,7 +106,10 @@ Rails.application.routes.draw do
 
     resources :cms_fields, only: [:index, :update]
 
-    resources :car_requests, only: [:index, :show, :destroy]
+    resources :car_requests, only: [:index, :show, :destroy] do
+      get :show_bussiness
+      delete :destroy_bussiness
+    end
 
     root 'cars#index'
   end
