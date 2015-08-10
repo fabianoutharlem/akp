@@ -21,7 +21,7 @@ class WizardsController < ApplicationController
     klass = params[:request_type] == 'financial' ? CarRequestBusiness : CarRequest
     request = klass.create((params[:request_type] == 'financial' ? send(:car_request_bussiness_params) : send(:car_request_params)))
     CarRequestMailer.send_mail(request, request.email).deliver
-    # CarRequestMailer.send_mail(request, 'info@autokredietplan.nl').deliver
+    CarRequestMailer.send_mail(request, 'info@autokredietplan.nl').deliver
   end
 
   private
