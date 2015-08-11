@@ -126,6 +126,9 @@ class Car < ActiveRecord::Base
   def self.build_query(params)
     query = {
         :query => {
+            :filter => {
+                :and => {}
+            },
             :bool => {
                 :must => [
                     {
@@ -192,7 +195,7 @@ class Car < ActiveRecord::Base
             :query => params[:energy]
         }
     } unless params[:energy].blank?
-    query[:query][:bool][:must] << {
+    query[:filter][:and] << {
         :range => {
             :"car.price_total" => {
                 :gte => params[:price_range].split('-').first,
