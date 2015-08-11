@@ -2,10 +2,6 @@ class CarsController < ApplicationController
 
   add_breadcrumb 'Autos', :voorraad_cars_path
 
-  caches_action :search, :if => -> {
-                         request.xhr?
-                       }
-
   def home
     @cars = Car.all.car_includes.limit(3).order(created_at: :desc)
     references = Reference.where(approved: true)
