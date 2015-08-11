@@ -4,7 +4,7 @@ module Admin
     def index
       car_requests = CarRequest.all.select {|car_request| !car_request.car.blank?}
       car_requests_business = CarRequestBusiness.all.select {|car_request| !car_request.car.blank?}
-      @car_requests = (car_requests + car_requests_business).sort_by { |x| x.created_at}
+      @car_requests = (car_requests + car_requests_business).sort_by { |x| x.created_at}.reverse
     end
 
     def show
