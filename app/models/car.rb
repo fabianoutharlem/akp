@@ -151,7 +151,7 @@ class Car < ActiveRecord::Base
                 ]
             }
         },
-        :from => 0, :size => 100, :sort => [], :facets => {}
+        :from => 0, :size => 999, :sort => [], :facets => {}
     }
     query[:query][:bool][:must] << {
         :query_string => {
