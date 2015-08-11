@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810143857) do
+ActiveRecord::Schema.define(version: 20150811131549) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -206,6 +206,9 @@ ActiveRecord::Schema.define(version: 20150810143857) do
     t.datetime "updated_at"
   end
 
+  add_index "cars", ["price_50_50"], name: "index_cars_on_price_50_50", using: :btree
+  add_index "cars", ["price_month"], name: "index_cars_on_price_month", using: :btree
+  add_index "cars", ["price_total"], name: "index_cars_on_price_total", using: :btree
   add_index "cars", ["slug"], name: "index_cars_on_slug", unique: true, using: :btree
   add_index "cars", ["vehicle_number", "vehicle_number_hexon"], name: "index_cars_on_vehicle_number_and_vehicle_number_hexon", unique: true, using: :btree
 
