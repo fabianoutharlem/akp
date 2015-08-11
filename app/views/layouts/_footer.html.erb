@@ -1,35 +1,47 @@
-
 <a class="go-to-top" href="#go-to-top">
   <i class="icon back-to-top"></i>
 </a>
 
-<div id="google_translate_element"></div><script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'nl', includedLanguages: 'de,en,es,fr,nl', autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'nl',
+            includedLanguages: 'de,en,es,fr,tr',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
 <!-- live chat plugin -->
-<link type="text/css" rel="stylesheet" href="//www.loquendo.nl/loquendo/chat/v1/loquendo.css" />
+<link type="text/css" rel="stylesheet" href="//www.loquendo.nl/loquendo/chat/v1/loquendo.css"/>
 <script type="text/javascript" src="//www.loquendo.nl/loquendo/chat/v1/loquendo.js"></script>
 <script type="text/javascript">
     Loquendo.init({
         client_id: 58,
         site_id: 108,
-        slider: { tabLocation: "bottom" },
+        slider: {tabLocation: "bottom"},
         className: "loquendo-orange"
     });
 </script>
 
 <!-- google analytics -->
 <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-55394434-2', 'auto');
     ga('send', 'pageview');
@@ -38,18 +50,21 @@ function googleTranslateElementInit() {
 
 <!-- facebook -->
 <script>
-    window.fbAsyncInit = function() {
+    window.fbAsyncInit = function () {
         FB.init({
-            appId      : '1395910310739510',
-            xfbml      : true,
-            version    : 'v2.3'
+            appId: '1395910310739510',
+            xfbml: true,
+            version: 'v2.3'
         });
     };
 
-    (function(d, s, id){
+    (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
