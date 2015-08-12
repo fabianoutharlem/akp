@@ -197,6 +197,23 @@ header.main
         font-size: 16px
         line-height: 22px
         font-weight: 300
+        padding-left: 50px
+
+        background-repeat: no-repeat
+        background-position: 10px center
+
+        &[data-lang="nl"]
+          background-image: image-url('flags/NL.png')
+        &[data-lang="en"]
+          background-image: image-url('flags/GB.png')
+        &[data-lang="de"]
+          background-image: image-url('flags/DE.png')
+        &[data-lang="fr"]
+          background-image: image-url('flags/FR.png')
+        &[data-lang="es"]
+          background-image: image-url('flags/ES.png')
+        &[data-lang="tr"]
+          background-image: image-url('flags/TR.png')
 
         +mobile-large
           border-left: 0
@@ -277,6 +294,25 @@ header.main
               padding: 5px 20px
               color: $marine
               cursor: pointer
+              background-position: 8px center
+              background-repeat: no-repeat
+
+              +mobile-large
+                background-position: 37% center
+              
+
+              &[data-lang="nl"]
+                background-image: image-url('flags/NL.png')
+              &[data-lang="en"]
+                background-image: image-url('flags/GB.png')
+              &[data-lang="de"]
+                background-image: image-url('flags/DE.png')
+              &[data-lang="fr"]
+                background-image: image-url('flags/FR.png')
+              &[data-lang="es"]
+                background-image: image-url('flags/ES.png')
+              &[data-lang="tr"]
+                background-image: image-url('flags/TR.png')
 
               &.selected
                 background-color: $orange

@@ -745,6 +745,7 @@
                     }
 
                     $switch.find('h4').text($this.text());
+                    $switch.find('h4').attr('data-lang', lang);
                     $switch.find('ul li a').removeClass('selected');
                     $this.addClass('selected');
 
