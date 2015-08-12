@@ -754,7 +754,7 @@
                     if (document.createEventObject) {
                         var evt = document.createEventObject();
                         $select.get(0).fireEvent('onchange', evt);
-                    } else{
+                    } else {
                         var evt = document.createEvent("HTMLEvents");
                         evt.initEvent('change', false, true);
                         !$select.get(0).dispatchEvent(evt);
