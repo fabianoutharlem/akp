@@ -71,12 +71,22 @@ class Car < ActiveRecord::Base
 
     options = params[:zoekaccessoires]['accessoire']
 
-    media = params[:afbeeldingen]['afbeelding'].map do |image_url|
+    images = params[:afbeeldingen]['afbeelding']
+
+    if images.is_a? Array
+      media = images.map do |image_url|
+        carmedia = CarMedia.new
+        carmedia.remote_file_url = image_url
+        carmedia.save!
+        carmedia
+      end
+    elsif images.is_a? String
       carmedia = CarMedia.new
-      carmedia.remote_file_url = image_url
+      carmedia.remote_file_url = images
       carmedia.save!
-      carmedia
+      media = [carmedia]
     end
+
 
     media << Car.download_video(params[:videos]['video'].last['url']) unless params[:videos].blank?
 
