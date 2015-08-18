@@ -15,7 +15,7 @@ class ImportController < ApplicationController
       end
     rescue Exception => e
       logger.debug e.message
-      render text: 'Something went wrong while executing the import, please contact the system admin', status: 500
+      render text: e.message, status: 500
     end
   end
 
