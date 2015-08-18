@@ -14,7 +14,7 @@ class ImportController < ApplicationController
         Dalli::Client.new.flush
       end
     rescue Exception => e
-      logger.debug e.message
+      Rails.logger.debug e.message
       render text: e.message, status: 500
     end
   end
