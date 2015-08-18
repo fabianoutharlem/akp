@@ -14,8 +14,8 @@ class ImportController < ApplicationController
         Dalli::Client.new.flush
       end
     rescue Exception => e
-      Rails.logger.debug e.message
-      render text: e.message, status: 500
+      logger.debug e.message
+      render text: e.message, status: 422
     end
   end
 
@@ -25,7 +25,8 @@ class ImportController < ApplicationController
     car = Car.find_by_vehicle_number_hexon @data[:voertuignr_hexon]
     if !car
       attributes = Car.parse_cardesk_parameters @data
-      Raise 'Car was not created' unless Car.create!(attributes)
+      car = Car.create!(attributes)
+      Raise car.errors.full_messages.to_sentence unless car.valid?
       render text: '1', status: 200
     else
       change

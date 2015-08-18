@@ -192,13 +192,13 @@
         <dd><%= @car.model.name %></dd>
 
         <dt>Type</dt>
-        <dd><%= @car.car_type %></dd>
+        <dd><%= @car.car_type %>&nbsp;</dd>
 
         <dt>Carrosserie</dt>
-        <dd><%= @car.body_type.name %></dd>
+        <dd><%= @car.body_type.name %>&nbsp;</dd>
 
         <dt>Transmissie</dt>
-        <dd><%= @car.transmission_type.name %></dd>
+        <dd><%= @car.transmission_type.name %>&nbsp;</dd>
 
         <dt>Kleur</dt>
         <dd><%= @car.color.capitalize + ' ' + (@car.color_type.present? ? @car.color_type : '') %></dd>
@@ -207,16 +207,16 @@
         <dd><%= number_with_delimiter @car.mileage, delimiter: '.' %> km</dd>
 
         <dt>Brandstof</dt>
-        <dd><%= @car.fuel_type.name.capitalize %></dd>
+        <dd><%= @car.fuel_type.name.capitalize %>&nbsp;</dd>
 
         <dt>Bouwjaar</dt>
-        <dd><%= @car.manufacture_year %></dd>
+        <dd><%= @car.manufacture_year %>&nbsp;</dd>
 
         <dt>Cil. inhoud</dt>
         <dd><%= @car.engine_size %> cc</dd>
 
         <dt>Aantal cil. 4</dt>
-        <dd><%= @car.cylinders %></dd>
+        <dd><%= @car.cylinders %>&nbsp;</dd>
 
         <dt>Vermogen</dt>
         <dd><%= @car.engine_power %> pk</dd>
@@ -228,7 +228,7 @@
         <dd><%= @car.interior %>&nbsp;</dd>
 
         <dt>Energielabel</dt>
-        <dd><%= @car.energy_label %></dd>
+        <dd><%= @car.energy_label %>&nbsp;</dd>
 
         <dt>Wegenbelasting</dt>
         <dd>&euro;<%= @car.road_tax %> p/kw</dd>
