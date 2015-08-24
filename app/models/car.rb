@@ -73,8 +73,8 @@ class Car < ActiveRecord::Base
 
     images = params[:afbeeldingen]['afbeelding']
 
-    if images.is_a? Array
-      media = images.map do |image_url|
+    media = if images.is_a? Array
+      images.map do |image_url|
         carmedia = CarMedia.new
         carmedia.remote_file_url = image_url
         carmedia.save!
@@ -84,12 +84,11 @@ class Car < ActiveRecord::Base
       carmedia = CarMedia.new
       carmedia.remote_file_url = images
       carmedia.save!
-      media = [carmedia]
+      carmedia
     end
 
 
     media << Car.download_video(params[:videos]['video'].last['url']) unless params[:videos].blank?
-
     {
         vehicle_number: params[:voertuignr],
         vehicle_number_hexon: params[:voertuignr_hexon],
