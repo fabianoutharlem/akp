@@ -6,4 +6,5 @@
   <td><%= car.car_type %></td>
   <td><%= car.manufacture_year %></td>
   <td><%= car.color %></td>
+  <td><%= link_to 'Delete', admin_car_path(car), method: :delete, class: 'btn btn-sm btn-danger' %></td>
 </tr>

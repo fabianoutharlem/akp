@@ -74,7 +74,7 @@ Rails.application.routes.draw do
       get :home
     end
 
-    resources :cars
+    resources :cars, only: [:index, :destroy]
     resources :static_texts do
       collection do
         put :update_multiple
