@@ -158,7 +158,7 @@
 
       <a class="link scroll-to" data-element=".specifications" href="">Specificaties</a>
       <a class="link scroll-to" data-element=".accesories" href="">Accesoires</a>
-      <a class="link scroll-to" data-element=".other-cars" href="">Gerelateerde auto's</a>
+      <a class="link scroll-to" data-element=".other-cars" href="">Anderen bekeken ook</a>
 
     </div>
     <!-- .wrapper -->
@@ -224,14 +224,8 @@
         <dt>Topsnelheid</dt>
         <dd><%= @car.top_speed %> km/u</dd>
 
-        <dt>Interieur</dt>
-        <dd><%= @car.interior %>&nbsp;</dd>
-
         <dt>Energielabel</dt>
         <dd><%= @car.energy_label %>&nbsp;</dd>
-
-        <dt>Wegenbelasting</dt>
-        <dd>&euro;<%= @car.road_tax %> p/kw</dd>
       </dl>
 
       <div class="description">
