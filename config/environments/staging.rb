@@ -75,6 +75,8 @@ Rails.application.configure do
 
   config.action_mailer.asset_host = 'http://autokredietplan.nl'
 
+  config.routes.default_url_options[:host] = 'http://autokredietplan.nl'
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
