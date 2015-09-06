@@ -2,6 +2,8 @@ class Car < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  include Rails.application.routes.url_helpers
+
   extend FriendlyId
 
   acts_as_taggable_on :options
@@ -225,7 +227,7 @@ class Car < ActiveRecord::Base
   def share_on_facebook
     begin
       @page_graph = Koala::Facebook::API.new('CAACEdEose0cBAEWGuZBTKhTceHIKHVgGRgUZBrkju4TEEVVThsNigNdT84KlOj92keRSTr82KsD1ayPcNWMgq8vMfTDeURmnX8vydE1hu4HiZABM1aUZCGWfWdXqymHXMTK6yHQEGIsopZB7LWR4CjbyXZC7Cf187nYeCFhAibI2TbFG6JNto8PAsnEHHiQUojwStrD0rjeAZDZD')
-      @page_graph.put_connections('1486194365036244', 'feed', :message => self.display_name, :picture => self.car_images.first.file.large.url, :link =>  Rails.application.routes.url_helpers.car_url(self))
+      @page_graph.put_connections('1486194365036244', 'feed', :message => self.display_name, :picture => URI.join(root_url, self.car_images.first.file.large.url), :link => car_url(self))
     rescue Exception => e
       Rails.logger.debug 'The car with id ' + self.id.to_s + ' was not shared on facebook'
       Rails.logger.debug e.message
