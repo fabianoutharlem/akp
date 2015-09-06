@@ -226,7 +226,7 @@ class Car < ActiveRecord::Base
 
   def share_on_facebook
     begin
-      @page_graph = Koala::Facebook::API.new('CAACEdEose0cBAEWGuZBTKhTceHIKHVgGRgUZBrkju4TEEVVThsNigNdT84KlOj92keRSTr82KsD1ayPcNWMgq8vMfTDeURmnX8vydE1hu4HiZABM1aUZCGWfWdXqymHXMTK6yHQEGIsopZB7LWR4CjbyXZC7Cf187nYeCFhAibI2TbFG6JNto8PAsnEHHiQUojwStrD0rjeAZDZD')
+      @page_graph = Koala::Facebook::API.new('CAAHvZBlZAPcdQBAGAGfGopWphHJksn5plAJZAzZAzv2Y59P6y72ZBnNuk6K8GlX19upLvCao95XKe8reBW3eFepbd8ZAkrVJSklCb1TMGVHdkbOHX7HgU8A3Na2BkadJdqF7E6pxzPZAOBf92U5iZCWNse1WgDY1XdVbWLymgzmX8zTWpHGPUiLBWv8Vk0olxZANb3RhrZCwt7tgZDZD')
       @page_graph.put_connections('1486194365036244', 'feed', :message => self.display_name, :picture => URI.join(root_url, self.car_images.first.file.large.url), :link => car_url(self))
     rescue Exception => e
       Rails.logger.debug 'The car with id ' + self.id.to_s + ' was not shared on facebook'
