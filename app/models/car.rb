@@ -2,6 +2,8 @@ class Car < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  include Rails.application.routes.url_helpers
+
   extend FriendlyId
 
   acts_as_taggable_on :options
@@ -25,6 +27,8 @@ class Car < ActiveRecord::Base
   scope :car_includes, -> { includes(:brand, :model, :body_type, :fuel_type, :transmission_type, :car_medias, :options) }
   validates_associated :model, :brand
   validates :mileage, :color, :engine_size, :manufacture_year, :road_tax, presence: true
+
+  after_create :share_on_facebook
 
   def self.query(params)
     puts build_query(params).to_json
@@ -51,7 +55,7 @@ class Car < ActiveRecord::Base
   end
 
   def car_images
-    car_medias.select { |car_media| car_media.file_type.include? 'image'}
+    car_medias.select { |car_media| car_media.file_type.include? 'image' }
   end
 
   def as_indexed_json(options={})
@@ -74,18 +78,18 @@ class Car < ActiveRecord::Base
     images = params[:afbeeldingen]['afbeelding']
 
     media = if images.is_a? Array
-      images.map do |image_url|
-        carmedia = CarMedia.new
-        carmedia.remote_file_url = image_url
-        carmedia.save!
-        carmedia
-      end
-    elsif images.is_a? String
-      carmedia = CarMedia.new
-      carmedia.remote_file_url = images
-      carmedia.save!
-      carmedia
-    end
+              images.map do |image_url|
+                carmedia = CarMedia.new
+                carmedia.remote_file_url = image_url
+                carmedia.save!
+                carmedia
+              end
+            elsif images.is_a? String
+              carmedia = CarMedia.new
+              carmedia.remote_file_url = images
+              carmedia.save!
+              carmedia
+            end
 
 
     media << Car.download_video(params[:videos]['video'].last['url']) unless params[:videos].blank?
@@ -218,6 +222,17 @@ class Car < ActiveRecord::Base
         }
     } unless (params[:monthly_price_range].blank? or params[:monthly_price_range].split('-').length != 2)
     return query
+  end
+
+  def share_on_facebook
+    begin
+      @page_graph = Koala::Facebook::API.new('CAACEdEose0cBAEWGuZBTKhTceHIKHVgGRgUZBrkju4TEEVVThsNigNdT84KlOj92keRSTr82KsD1ayPcNWMgq8vMfTDeURmnX8vydE1hu4HiZABM1aUZCGWfWdXqymHXMTK6yHQEGIsopZB7LWR4CjbyXZC7Cf187nYeCFhAibI2TbFG6JNto8PAsnEHHiQUojwStrD0rjeAZDZD')
+      @page_graph.put_connections('1486194365036244', 'feed', :message => self.display_name, :picture => self.car_medias.first.large.url, :link => url_for(self))
+    rescue Exception => e
+      Rails.logger.debug 'The car with id ' + self.id.to_s + ' was not shared on facebook'
+      Rails.logger.debug e.message
+      Rails.logger.debug e.backtrace
+    end
   end
 
 

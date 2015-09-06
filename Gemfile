@@ -100,6 +100,9 @@ gem 'lazyload-rails'
 # action cache
 gem 'actionpack-action_caching'
 
+# facebook api
+gem 'koala'
+
 group :development do
   gem 'spring'
   gem 'faker'

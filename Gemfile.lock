@@ -48,6 +48,7 @@ GEM
       tzinfo (~> 1.1)
     acts_as_list (0.7.0)
       activerecord (>= 3.0)
+    addressable (2.3.8)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.10)
     breadcrumbs_on_rails (2.3.0)
@@ -147,6 +148,10 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    koala (1.10.1)
+      addressable
+      faraday
+      multi_json
     lazyload-rails (0.3.1)
       nokogiri (~> 1.5)
     less (2.6.0)
@@ -327,6 +332,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   kaminari
+  koala
   lazyload-rails
   less-rails
   mandrill_mailer
@@ -350,4 +356,4 @@ DEPENDENCIES
   viddl-rb
 
 BUNDLED WITH
-   1.10.3
+   1.10.6
