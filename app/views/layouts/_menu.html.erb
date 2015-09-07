@@ -46,7 +46,7 @@
               <a href="<%= StaticText.pinterest_url %>" target="_blank"><i class="icon pinterest"></i></a>
           <% end %>
           <% unless StaticText.ash_whatsapp.blank? %>
-              <a href="tel:<%= StaticText.ash_whatsapp %>" target="_blank"><i class="icon whatsapp large"></i></a>
+              <a href="tel:<%= StaticText.ash_whatsapp.gsub(' ', '') %>" target="_blank"><i class="icon whatsapp large"></i></a>
           <% end %>
           <a href="mailto:<%= StaticText.ash_email %>" target="_blank"><i class="icon mail"></i></a>
         </p>
