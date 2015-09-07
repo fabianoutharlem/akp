@@ -44,9 +44,9 @@
         <%= StaticText.ash_email %>
       </a>
 
-      <a class="whatsapp" href="tel:<%= StaticText.ash_whatsapp %>">
+      <a class="whatsapp" href="tel:<%= StaticText.ash_whatsapp.gsub(' ', '') %>">
         <i class="icon whatsapp"></i>
-        WhatsApp <%= StaticText.ash_whatsapp.gsub(' ', '') %>
+        WhatsApp <%= StaticText.ash_whatsapp %>
       </a>
 
       <div class="language-switch">
