@@ -26,9 +26,9 @@ class Car < ActiveRecord::Base
 
   scope :car_includes, -> { includes(:brand, :model, :body_type, :fuel_type, :transmission_type, :car_medias, :options) }
   validates_associated :model, :brand
-  validates :mileage, :color, :engine_size, :manufacture_year, :road_tax, presence: true
+  validates :mileage, :color, :engine_size, :manufacture_year, presence: true
 
-  after_create :share_on_facebook
+  after_commit :share_on_facebook, on: :create
 
   def self.query(params)
     puts build_query(params).to_json
