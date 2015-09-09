@@ -117,3 +117,5 @@ group :development do
   # web server
   gem 'puma'
 end
+
+gem 'sinatra', :require => nil
