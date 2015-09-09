@@ -225,7 +225,7 @@ class Car < ActiveRecord::Base
   end
 
   def share_on_facebook_delayed
-    self.delay_for(30.minutes, queue: 'ash_facebook').share_on_facebook
+    self.delay_for(30.minutes, queue: 'ash_facebook').send(:share_on_facebook)
   end
 
   def share_on_facebook
