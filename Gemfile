@@ -35,6 +35,7 @@ gem 'rmagick', require: 'RMagick'
 
 # que handling
 gem 'sidekiq'
+gem 'sidekiq-status'
 
 # Search module
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
