@@ -103,6 +103,7 @@
          */
         initSelect2: function (element) {
             $('form.search select', element).select2();
+            $('.model_brand_container select', element).select2();
         },
 
         /**
@@ -247,7 +248,7 @@
          */
         initSearchFormAction: function (element) {
 
-            $('form.search select[name="q[brand]"]', element).on('change', function (e) {
+            $('select[name="q[brand]"]', element).on('change', function (e) {
                 var $this = $(e.currentTarget),
                     $form = $this.closest('form'),
                     $models = $form.find('select[name="q[model]"]');
@@ -263,7 +264,7 @@
                         $models.select2('destroy');
                         $models.empty();
 
-                        $models.append('<option value="">Selecteer Model</option>');
+                        $models.append('<option value="">Selecteer model</option>');
 
                         if (response.length) {
                             $.each(response, function (index, element) {
@@ -1067,7 +1068,9 @@
                     var $this = $(e.currentTarget),
                         $sliderContainer = $this.closest('.slider-container'),
                         $slider = $sliderContainer.find('.slider-range'),
-                        href = $this.attr('href');
+                        $brand = $('.on-homepage #q_brand'),
+                        $model = $('.on-homepage #q_model'),
+                        href = $this.attr('href') + '?brand=' + $brand.val() + '&model=' + $model.val();
 
                     //fade the button
                     $this.addClass('inactive');
@@ -1157,7 +1160,9 @@
                             'min': $slider.slider('values', 0),
                             'max': $slider.slider('values', 1),
                             'total_value_slider': !!$('#price_slider_indicator').length,
-                            'wizard_type': $('input[name="wizard_type"]').val()
+                            'wizard_type': $('input[name="wizard_type"]').val(),
+                            'brand': $('input[name="brand"]').val(),
+                            'model': $('input[name="model"]').val()
                         },
                         success: function (response) {
 
