@@ -33,7 +33,7 @@ class CarsController < ApplicationController
 
   def search
     @cars = Car.query(params[:q])
-    @cars = Kaminari.paginate_array(@cars.order(order_hash)).page(params[:page])
+    @cars = Kaminari.paginate_array(@cars).page(params[:page])
     if request.xhr?
       render :search, layout: false
     else
