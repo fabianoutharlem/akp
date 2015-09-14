@@ -6,7 +6,6 @@ class CarMediaUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-  include CarrierWave::Backgrounder::Delay
 
   include CarrierWave::MimeTypes
 

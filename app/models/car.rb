@@ -28,7 +28,7 @@ class Car < ActiveRecord::Base
   validates_associated :model, :brand
   validates :mileage, :color, :engine_size, :manufacture_year, presence: true
 
-  after_commit :share_on_facebook_delayed, on: :create
+  after_create :share_on_facebook
 
   def self.query(params)
     puts build_query(params).to_json
@@ -222,10 +222,6 @@ class Car < ActiveRecord::Base
         }
     } unless (params[:monthly_price_range].blank? or params[:monthly_price_range].split('-').length != 2)
     return query
-  end
-
-  def share_on_facebook_delayed
-    self.delay_for(30.minutes, queue: 'ash_facebook').send(:share_on_facebook)
   end
 
   def share_on_facebook
