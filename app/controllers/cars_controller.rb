@@ -28,7 +28,7 @@ class CarsController < ApplicationController
   end
 
   def index
-    @cars = Car.limit(100).order(order_hash).page(params[:page]).per(15)
+    @cars = Car.car_includes.limit(100).order(order_hash).page(params[:page]).per(15)
   end
 
   def search
@@ -43,7 +43,7 @@ class CarsController < ApplicationController
   end
 
   def nieuw_binnen
-    @cars = Kaminari.paginate_array(Car.week_old.order(order_hash)).page(params[:page])
+    @cars = Kaminari.paginate_array(Car.car_includes.week_old.order(order_hash)).page(params[:page])
     render :index
   end
 
