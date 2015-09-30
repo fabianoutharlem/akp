@@ -21,11 +21,6 @@ set :linked_files, %w{log/sidekiq.log}
 set :branch, fetch(:branch, "master")
 set :env, fetch(:env, "production")
 
-set :sidekiq_queue, [:carrierwave_akp, :akp_facebook]
-set :sidekiq_monit_conf_dir, -> { '/etc/monit.d' }
-set :pty,  false
-set :monit_alert_email, 'fabjan.x@gmail.com'
-
 namespace :deploy do
 
   desc 'Restart application'
