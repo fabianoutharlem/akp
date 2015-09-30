@@ -6,6 +6,8 @@ class Car < ActiveRecord::Base
 
   extend FriendlyId
 
+  index_name "akp_cars_#{Rails.env}"
+
   acts_as_taggable_on :options
 
   friendly_id :display_name, use: [:slugged, :finders]
