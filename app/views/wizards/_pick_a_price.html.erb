@@ -1,40 +1,75 @@
-<div class="<%= if defined? positioned_home_page and positioned_home_page; ''; else; 'wizard'; end %>">
+<div class="<%= if defined? positioned_home_page and positioned_home_page;
+                  '';
+                else
+                  ; 'wizard';
+                end %>">
 
-  <section class="private-financing <%= if defined? positioned_home_page and positioned_home_page; 'on-homepage'; else; ''; end %>" data-car-url="<%= your_details_wizard_path %>">
+  <section class="private-financing <%= if defined? positioned_home_page and positioned_home_page;
+                                          'on-homepage';
+                                        else
+                                          ; '';
+                                        end %>" data-car-url="<%= your_details_wizard_path %>">
     <div class="wrapper">
+      <form action="" autocomplete="off">
 
-      <h2><%= StaticText.send type + '_financing_header' %></h2>
+        <input type="hidden" name="brand" value="<%= params[:brand] %>"/>
+        <input type="hidden" name="model" value="<%= params[:model] %>"/>
 
-      <p>
-        <%= StaticText.send type + '_financing_head' %> <br/>
-        <%= StaticText.send type + '_financing_head_2' %> <br/>
-        <%= StaticText.send type + '_financing_head_3' %>
-      </p>
+        <h2><%= StaticText.send type + '_financing_header' %></h2>
 
-      <%= render 'wizards/steps', step: 1 unless defined? positioned_home_page and positioned_home_page == true %>
+        <p>
+          <%= StaticText.send type + '_financing_head' %> <br/>
+          <%= StaticText.send type + '_financing_head_2' %> <br/>
+          <%= StaticText.send type + '_financing_head_3' %>
+        </p>
 
-      <div class="slider-container">
+        <%= render 'wizards/steps', step: 1 unless defined? positioned_home_page and positioned_home_page == true %>
 
-        <input type="hidden" value="<%= type %>" name="wizard_type"/>
+        <% if defined? positioned_home_page and positioned_home_page %>
+            <div class="model_brand_container row row-1">
 
-        <% if type == '50_50' %>
-            <div class="slider-range" data-min="0" data-max="100000" data-default="5000-95000"></div>
-            <input id="price_slider_indicator" type="hidden" name="total_value_slider" value="1"/>
-        <% else %>
-            <div class="slider-range" data-min="0" data-max="1000" data-default="250-750"></div>
+              <h3>Please select a brand and a model</h3>
+
+              <p class="select">
+                <%= collection_select :q, :brand, Brand.all, :name, :name, {prompt: true}, {:class => 'search-advanced-brand', 'data-models-url' => models_brands_path} %>
+              </p> <!-- .select -->
+
+              <p class="select">
+                <select class="search-advanced-model" name="q[model]" autocomplete="off" id="q_model">
+                  <option value="">Selecteer model</option>
+                </select>
+              </p>
+            </div>
         <% end %>
 
-        <h3><%= StaticText.wizard_main_slider_text %></h3>
+        <div class="slider-container">
 
-        <a class="btn btn-big first-step" data-next-step="<%= pick_a_car_wizard_path %>" href="<%= financing_cars_path "private" %>"><%= StaticText.wizard_main_slider_button %></a>
-      </div>
-      <!-- .slider-container -->
+          <input type="hidden" value="<%= type %>" name="wizard_type"/>
 
-      <div class="footer">
-        <i class="icon arrow-orange-down"></i>
-      </div>
-      <!-- .footer -->
+          <% if type == '50_50' %>
+              <div class="slider-range" data-min="0" data-max="25000" data-default="5000-20000"></div>
+              <input id="price_slider_indicator" type="hidden" name="total_value_slider" value="1"/>
+          <% else %>
+              <div class="slider-range" data-min="0" data-max="1000" data-default="250-750"></div>
+          <% end %>
 
+          <h3>
+            <% if type == '50_50' %>
+                <%= StaticText.wizard_main_slider_50_50_text %>
+            <% else %>
+                <%= StaticText.wizard_main_slider_text %>
+            <% end %>
+          </h3>
+
+          <a class="btn btn-big first-step" data-next-step="<%= pick_a_car_wizard_path %>" href="<%= financing_cars_path "private" %>"><%= StaticText.wizard_main_slider_button %></a>
+        </div>
+        <!-- .slider-container -->
+
+        <div class="footer">
+          <i class="icon arrow-orange-down"></i>
+        </div>
+        <!-- .footer -->
+      </form>
     </div>
     <!-- .wrapper -->
   </section>

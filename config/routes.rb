@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/railsadmin', as: 'rails_admin'
   devise_for :users
+
+  require 'sidekiq/web'
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -8,7 +14,7 @@ Rails.application.routes.draw do
   root 'cars#home'
 
   get 'finance.php' => redirect('cars/financing/bussiness')
-  get 'finance-form.php' => redirect('cars/financing/private')
+  get 'finance-form.php', controller: :cars, action: :finance_ash_car
 
   resources :cars do
     collection do
@@ -74,7 +80,7 @@ Rails.application.routes.draw do
       get :home
     end
 
-    resources :cars
+    resources :cars, only: [:index, :destroy]
     resources :static_texts do
       collection do
         put :update_multiple
@@ -106,7 +112,10 @@ Rails.application.routes.draw do
 
     resources :cms_fields, only: [:index, :update]
 
-    resources :car_requests, only: [:index, :show, :destroy]
+    resources :car_requests, only: [:index, :show, :destroy] do
+      get :show_bussiness
+      delete :destroy_bussiness
+    end
 
     root 'cars#index'
   end

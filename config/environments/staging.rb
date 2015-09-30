@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.domain = 'http://autokredietplan.nl'
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -73,7 +75,11 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.asset_host = 'http://autokredietplan.nl'
+  config.action_mailer.asset_host = config.domain
+  config.asset_host = config.domain
+
+  Rails.application.routes.default_url_options[:host] = config.domain
+
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

@@ -29,6 +29,14 @@
             this.initWizardFormValidation(element);
             this.initSectionScroll(element);
             this.initScrollTo(element);
+            this.initLazyLoading(element);
+        },
+
+        initLazyLoading: function (element) {
+            $("img.car_listing", element).lazyload({
+                effect : "fadeIn",
+                failure_limit : 500
+            });
         },
 
         /**
@@ -95,6 +103,7 @@
          */
         initSelect2: function (element) {
             $('form.search select', element).select2();
+            $('.model_brand_container select', element).select2();
         },
 
         /**
@@ -239,7 +248,7 @@
          */
         initSearchFormAction: function (element) {
 
-            $('form.search select[name="q[brand]"]', element).on('change', function (e) {
+            $('select[name="q[brand]"]', element).on('change', function (e) {
                 var $this = $(e.currentTarget),
                     $form = $this.closest('form'),
                     $models = $form.find('select[name="q[model]"]');
@@ -255,7 +264,7 @@
                         $models.select2('destroy');
                         $models.empty();
 
-                        $models.append('<option value="">Selecteer Model</option>');
+                        $models.append('<option value="">Selecteer model</option>');
 
                         if (response.length) {
                             $.each(response, function (index, element) {
@@ -737,6 +746,7 @@
                     }
 
                     $switch.find('h4').text($this.text());
+                    $switch.find('h4').attr('data-lang', lang);
                     $switch.find('ul li a').removeClass('selected');
                     $this.addClass('selected');
 
@@ -745,7 +755,7 @@
                     if (document.createEventObject) {
                         var evt = document.createEventObject();
                         $select.get(0).fireEvent('onchange', evt);
-                    } else{
+                    } else {
                         var evt = document.createEvent("HTMLEvents");
                         evt.initEvent('change', false, true);
                         !$select.get(0).dispatchEvent(evt);
@@ -1058,7 +1068,9 @@
                     var $this = $(e.currentTarget),
                         $sliderContainer = $this.closest('.slider-container'),
                         $slider = $sliderContainer.find('.slider-range'),
-                        href = $this.attr('href');
+                        $brand = $('.on-homepage #q_brand'),
+                        $model = $('.on-homepage #q_model'),
+                        href = $this.attr('href') + '?brand=' + $brand.val() + '&model=' + $model.val();
 
                     //fade the button
                     $this.addClass('inactive');
@@ -1148,7 +1160,9 @@
                             'min': $slider.slider('values', 0),
                             'max': $slider.slider('values', 1),
                             'total_value_slider': !!$('#price_slider_indicator').length,
-                            'wizard_type': $('input[name="wizard_type"]').val()
+                            'wizard_type': $('input[name="wizard_type"]').val(),
+                            'brand': $('input[name="brand"]').val(),
+                            'model': $('input[name="model"]').val()
                         },
                         success: function (response) {
 
@@ -1303,7 +1317,7 @@
                     $.ajax({
                         type: $this.attr('method'),
                         url: $this.attr('action'),
-                        data: $this.serialize(),
+                        data: $('*:visible, input[type="hidden"]', $this).serialize(),
                         success: function (response) {
 
                             //done

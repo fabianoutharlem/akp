@@ -5,7 +5,6 @@ class CarMedia < ActiveRecord::Base
   default_scope { where(avatar_processing: 0)}
 
   mount_uploader :file, CarMediaUploader
-  process_in_background :file
 
   before_save :update_asset_attributes
 

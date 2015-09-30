@@ -3,7 +3,7 @@ class CarsController < ApplicationController
   add_breadcrumb 'Autos', :voorraad_cars_path
 
   def home
-    @cars = Car.all.limit(3).order(created_at: :asc)
+    @cars = Car.all.car_includes.limit(3).order(order_hash)
     references = Reference.where(approved: true)
     @references = references.limit(2)
     @reference_avarage = Reference.avarage(references)
@@ -17,18 +17,18 @@ class CarsController < ApplicationController
 
   def brand
     @brand = Brand.find(params[:brand_id])
-    @cars = @brand.cars
+    @cars = @brand.cars.car_includes.order(order_hash)
     add_breadcrumb @brand.name
   end
 
   def model
     @model = Model.find(params[:model_id])
-    @cars = @model.cars
+    @cars = @model.cars.car_includes.order(order_hash)
     add_breadcrumb @model.name
   end
 
   def index
-    @cars = Car.page(params[:page]).per(15)
+    @cars = Car.car_includes.limit(100).order(order_hash).page(params[:page]).per(15)
   end
 
   def search
@@ -43,8 +43,17 @@ class CarsController < ApplicationController
   end
 
   def nieuw_binnen
-    @cars = Kaminari.paginate_array(Car.week_old).page(params[:page])
+    @cars = Kaminari.paginate_array(Car.car_includes.week_old.order(order_hash)).page(params[:page])
     render :index
+  end
+
+  def finance_ash_car
+    if params[:car].present? and (car = Car.find_by_vehicle_number_hexon(params[:car])).present?
+      return redirect_to financing_cars_path('private') + '#car/' + car.id.to_s if car.present?
+    end
+    type = params[:type].present? && ['private', 'business'].include?(params[:type]) ? params[:type] : 'bussiness'
+    type.gsub!('business', 'bussiness')
+    redirect_to financing_cars_path(type)
   end
 
   def financing
@@ -53,6 +62,14 @@ class CarsController < ApplicationController
       @type = params[:type]
     end
     add_breadcrumb 'Financieren'
+  end
+
+  private
+
+  def order_hash
+    field = (params[:sort_field] || :created_at)
+    direction = (params[:sort_direction] || :desc).to_sym
+    "#{field} #{direction}"
   end
 
 end

@@ -20,7 +20,7 @@
 
       <h1>
         <a href="<%= root_path %>">
-          <b>Auto Krediet</b> Plan
+          <%= image_tag 'logo_akp_1.png' %>
         </a>
       </h1>
 
@@ -32,7 +32,7 @@
   <div class="subheader">
     <div class="wrapper">
 
-      <span>Heeft u vragen? Wij helpen u graag!</span>
+      <span>Heeft u vragen?</span>
 
       <a class="phone" href="tel:<%= StaticText.phone %>">
         <i class="icon iphone-white"></i>
@@ -44,9 +44,14 @@
         <%= StaticText.ash_email %>
       </a>
 
+      <a class="whatsapp" href="tel:<%= StaticText.ash_whatsapp.gsub(' ', '') %>">
+        <i class="icon whatsapp"></i>
+        WhatsApp <%= StaticText.ash_whatsapp %>
+      </a>
+
       <div class="language-switch">
-        <h4>
-          Dutch
+        <h4 data-lang="nl">
+          Nederlands
           <i class="icon arrow-white-down-small"></i>
         </h4>
 
@@ -66,6 +71,9 @@
             </li>
             <li>
               <a href="#change-spanish" data-lang="es">Spanish</a>
+            </li>
+            <li>
+              <a href="#change-turkish" data-lang="tr">Turkish</a>
             </li>
           </ul>
         </div>

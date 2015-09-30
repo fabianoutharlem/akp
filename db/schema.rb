@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722183216) do
+ActiveRecord::Schema.define(version: 20150811131549) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -134,6 +134,25 @@ ActiveRecord::Schema.define(version: 20150722183216) do
     t.boolean  "avatar_processing", default: false, null: false
   end
 
+  create_table "car_request_businesses", force: true do |t|
+    t.string   "request_type"
+    t.integer  "car_id"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "kvk"
+    t.string   "date_creation"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "notes"
+    t.string   "payment"
+    t.string   "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "newsletter_subscribe"
+  end
+
+  add_index "car_request_businesses", ["car_id"], name: "index_car_request_businesses_on_car_id", using: :btree
+
   create_table "car_requests", force: true do |t|
     t.string   "request_type"
     t.string   "payment"
@@ -187,6 +206,9 @@ ActiveRecord::Schema.define(version: 20150722183216) do
     t.datetime "updated_at"
   end
 
+  add_index "cars", ["price_50_50"], name: "index_cars_on_price_50_50", using: :btree
+  add_index "cars", ["price_month"], name: "index_cars_on_price_month", using: :btree
+  add_index "cars", ["price_total"], name: "index_cars_on_price_total", using: :btree
   add_index "cars", ["slug"], name: "index_cars_on_slug", unique: true, using: :btree
   add_index "cars", ["vehicle_number", "vehicle_number_hexon"], name: "index_cars_on_vehicle_number_and_vehicle_number_hexon", unique: true, using: :btree
 

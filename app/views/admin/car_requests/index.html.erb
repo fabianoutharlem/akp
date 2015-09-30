@@ -42,8 +42,8 @@
             <%= car_request.created_at.strftime('%d-%m-%Y') %>
           </td>
           <td>
-            <%= link_to 'View', admin_car_request_path(car_request), class: 'btn btn-primary' %>
-            <%= link_to 'Delete', admin_car_request_path(car_request), method: :delete, class: 'btn btn-danger' %>
+            <%= link_to 'View', send((car_request.is_a?(CarRequest) ? :admin_car_request_path : :admin_car_request_show_bussiness_path), car_request), class: 'btn btn-primary' %>
+            <%= link_to 'Delete', send((car_request.is_a?(CarRequest) ? :admin_car_request_path : :admin_car_request_destroy_bussiness_path), car_request), method: :delete, class: 'btn btn-danger' %>
           </td>
         </tr>
     <% end %>

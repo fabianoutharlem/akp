@@ -1,9 +1,11 @@
 <li data-price="<%= car.price_total %>" data-name="<%= car.display_name %>">
   <article class="listing-car">
     <figure>
-      <% car.car_medias.each do |car_media| %>
+      <% car.car_medias[0..4].each do |car_media| %>
           <% next unless car_media.file_type.include? 'image' %>
-          <a href="<%= car_path car %>"><img src="<%= car_media.file.thumb.url %>" alt=""/></a>
+          <a href="<%= car_path car %>">
+            <%= image_tag car_media.file.thumb.url, class: 'car_listing', width: '100%', lazy: false %>
+          </a>
       <% end %>
     </figure>
 
@@ -28,16 +30,33 @@
         <div class="tab-content">
           <div class="tab tab-1 <%== if defined? wizard_type and wizard_type.present? and wizard_type == 'bussiness'; 'visible'; elsif !defined? wizard_type or !['bussiness', '50_50', 'private'].include? wizard_type; 'visible'; end %>">
             <h3 class="price"><%= number_to_currency car.price_month, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
-            <small>Per maand vanaf</small>
+            <small>Per maand vanaf <br/></small>
           </div>
           <div class="tab tab-2 <%== if defined? wizard_type and wizard_type.present? and wizard_type == 'private'; 'visible'; end %>">
-            <h3 class="price"><%= number_to_currency car.price_total, unit: "€", separator: ",", delimiter: ".", precision: 0  %>,-</h3>
-            <small>De totaal prijs van deze auto</small>
+            <h3 class="price"><%= number_to_currency car.price_month, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
+            <small>Per maand vanaf <br/></small>
           </div>
           <% if car.price_50_50.present? %>
-            <div class="tab tab-3 <%== if defined? wizard_type and wizard_type.present? and wizard_type == '50_50'; 'visible'; end %>">
-              <h3 class="price"><%= number_to_currency car.price_50_50, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
-              <small>De andere helft in 12 of 36 maanden met 0% rente</small>
+            <div class="tab tab-3 <%== if defined? wizard_type and wizard_type.present? and wizard_type == '50_50'; 'visible'; end %>" style="padding-top: 10px; padding-bottom: 30px;">
+              <table width="80%" style="text-align: left; margin: 0 auto;">
+                <tr>
+                  <td width="30%">
+                    <small style="line-height: 36px;">
+                      Betaal nu:
+                    </small>
+                  </td>
+                  <td>
+                    <h3 class="price" style="font-size: 35px;"><%= number_to_currency car.price_50_50, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <small style="text-align: left;">
+                      en de andere helft in termijnen van 12 tot 36 maanden met 0% rente. Inruil auto kan ook volstaan
+                    </small>
+                  </td>
+                </tr>
+              </table>
             </div>
           <% end %>
         </div>

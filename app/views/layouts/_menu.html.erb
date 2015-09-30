@@ -45,6 +45,9 @@
           <% unless StaticText.pinterest_url.blank? %>
               <a href="<%= StaticText.pinterest_url %>" target="_blank"><i class="icon pinterest"></i></a>
           <% end %>
+          <% unless StaticText.ash_whatsapp.blank? %>
+              <a href="tel:<%= StaticText.ash_whatsapp.gsub(' ', '') %>" target="_blank"><i class="icon whatsapp large"></i></a>
+          <% end %>
           <a href="mailto:<%= StaticText.ash_email %>" target="_blank"><i class="icon mail"></i></a>
         </p>
       </div>
@@ -58,7 +61,7 @@
       <ul>
         <% cache do %>
             <% Brand.all_for_menu.each do |brand| %>
-                <li><a href="<%= brand_cars_path brand %>"><%= brand.name %> (<%= brand.cars.length %>)</a></li>
+                <li><a href="<%= brand_cars_path brand %>"><%= brand.name %> (<%= brand.cars.count %>)</a></li>
             <% end %>
         <% end %>
       </ul>
@@ -101,6 +104,9 @@
 
         <dt><%= StaticText.opening_hours_head_3 %></dt>
         <dd><%= StaticText.opening_hours_3 %></dd>
+
+        <dt><%= StaticText.opening_hours_head_4 %></dt>
+        <dd><%= StaticText.opening_hours_4 %></dd>
       </dl>
     </div>
     <!-- .cols -->

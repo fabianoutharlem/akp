@@ -18,8 +18,8 @@ production:
   database: akp_production
 
 staging:
-    <<: *default
-    host: localhost
-    database: akp
-    username: akp
-    password: E#E0J1uQ0ZJX5s
+  <<: *default
+  host: localhost
+  database: akp
+  username: akp
+  password: E#E0J1uQ0ZJX5s

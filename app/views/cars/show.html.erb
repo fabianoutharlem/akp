@@ -75,15 +75,15 @@
 
           <div class="buttons">
             <a class="btn btn-small" href="<%= financing_cars_path('bussiness') %>#car/<%= @car.id %>">
-              Zakelijke financieren
+              <%= StaticText.car_single_business_button %>
             </a>
 
             <a class="btn btn-small" href="<%= financing_cars_path('private') %>#car/<%= @car.id %>">
-              Particulier financieren
+              <%= StaticText.car_single_private_button %>
             </a>
 
             <a class="btn btn-small" href="<%= financing_cars_path('50_50') %>#car/<%= @car.id %>">
-              50/50 deals
+              <%= StaticText.car_single_50_50_button %>
             </a>
           </div>
           <!-- .buttons -->
@@ -158,7 +158,7 @@
 
       <a class="link scroll-to" data-element=".specifications" href="">Specificaties</a>
       <a class="link scroll-to" data-element=".accesories" href="">Accesoires</a>
-      <a class="link scroll-to" data-element=".other-cars" href="">Gerelateerde auto's</a>
+      <a class="link scroll-to" data-element=".other-cars" href="">Anderen bekeken ook</a>
 
     </div>
     <!-- .wrapper -->
@@ -192,13 +192,13 @@
         <dd><%= @car.model.name %></dd>
 
         <dt>Type</dt>
-        <dd><%= @car.car_type %></dd>
+        <dd><%= @car.car_type %>&nbsp;</dd>
 
         <dt>Carrosserie</dt>
-        <dd><%= @car.body_type.name %></dd>
+        <dd><%= @car.body_type.name %>&nbsp;</dd>
 
         <dt>Transmissie</dt>
-        <dd><%= @car.transmission_type.name %></dd>
+        <dd><%= @car.transmission_type.name %>&nbsp;</dd>
 
         <dt>Kleur</dt>
         <dd><%= @car.color.capitalize + ' ' + (@car.color_type.present? ? @car.color_type : '') %></dd>
@@ -207,16 +207,16 @@
         <dd><%= number_with_delimiter @car.mileage, delimiter: '.' %> km</dd>
 
         <dt>Brandstof</dt>
-        <dd><%= @car.fuel_type.name.capitalize %></dd>
+        <dd><%= @car.fuel_type.name.capitalize %>&nbsp;</dd>
 
         <dt>Bouwjaar</dt>
-        <dd><%= @car.manufacture_year %></dd>
+        <dd><%= @car.manufacture_year %>&nbsp;</dd>
 
         <dt>Cil. inhoud</dt>
         <dd><%= @car.engine_size %> cc</dd>
 
         <dt>Aantal cil. 4</dt>
-        <dd><%= @car.cylinders %></dd>
+        <dd><%= @car.cylinders %>&nbsp;</dd>
 
         <dt>Vermogen</dt>
         <dd><%= @car.engine_power %> pk</dd>
@@ -224,23 +224,12 @@
         <dt>Topsnelheid</dt>
         <dd><%= @car.top_speed %> km/u</dd>
 
-        <dt>Interieur</dt>
-        <dd><%= @car.interior %>&nbsp;</dd>
-
         <dt>Energielabel</dt>
-        <dd><%= @car.energy_label %></dd>
-
-        <dt>Wegenbelasting</dt>
-        <dd>&euro;<%= @car.road_tax %> p/kw</dd>
+        <dd><%= @car.energy_label %>&nbsp;</dd>
       </dl>
 
       <div class="description">
-        <p>Zondag 1 Maart geopend van 12-16.00 uur ! Zaterdag 28 Februari Financiering klaar terwijl u wacht ! ! HOGE
-          KORTINGEN EN RENTEVRIJE FINANCIERINGS-AANBIEDINGEN!!* Auto Service Haarlem heeft het motto " U BEPAALT HOEVEEL
-          U BETAALT !" Scherpe maandtarieven voor particulier en (startende) ondernemer . Snelle acceptatie, tijdelijk
-          op de 50/50 deal 0% RENTE!! FINANCIEREN-FINANCIAL LEASE-50/50 DEAL - PRIVATE LEASE. Altijd 350 jong gebruikte
-          auto's op voorraad . Graag verwelkomen wij u in onze showroom op de Munterslaan 2 Haarlem. *vraag naar de
-          voorwaarden</p>
+
       </div>
       <!-- .description -->
 

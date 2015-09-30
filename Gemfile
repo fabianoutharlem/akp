@@ -35,6 +35,7 @@ gem 'rmagick', require: 'RMagick'
 
 # que handling
 gem 'sidekiq'
+gem 'sidekiq-status'
 
 # Search module
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
@@ -94,6 +95,15 @@ gem 'mandrill_mailer'
 # font awesome
 gem 'font-awesome-rails'
 
+# lazyloading image_tag
+gem 'lazyload-rails'
+
+# action cache
+gem 'actionpack-action_caching'
+
+# facebook api
+gem 'koala'
+
 group :development do
   gem 'spring'
   gem 'faker'
@@ -108,3 +118,5 @@ group :development do
   # web server
   gem 'puma'
 end
+
+gem 'sinatra', :require => nil
