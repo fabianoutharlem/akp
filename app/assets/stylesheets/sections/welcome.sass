@@ -1,216 +1,227 @@
 section.welcome
-	background: #EEEEEE
-	text-align: center
+  background: #EEEEEE
+  text-align: center
 
-	.wrapper
-		padding: 60px 40px
+  .wrapper
+    padding: 60px 40px
 
-		+tablet
-			padding: 40px 30px
+    +tablet
+      padding: 40px 30px
 
-		+mobile
-			padding: 20px 30px
+    +mobile
+      padding: 20px 30px
 
-	h2
-		font-size: 36px
-		line-height: 50px
-		margin: 0 0 10px 0
-		padding: 0
+  h2
+    font-size: 36px
+    line-height: 50px
+    margin: 0 0 10px 0
+    padding: 0
 
-		+desktop-small
-			font-size: 28px
-			line-height: 1.5
+    +desktop-small
+      font-size: 28px
+      line-height: 1.5
 
-		+mobile-large
-			font-size: 24px
-			margin-bottom: 10px
+    +mobile-large
+      font-size: 24px
+      margin-bottom: 10px
 
-		+mobile
-			font-size: 22px
+    +mobile
+      font-size: 22px
 
-	p
-		margin: 10px 0
-		padding: 0
+  p
+    margin: 10px 0
+    padding: 0
 
-	ul
-		list-style: none
-		margin: 60px 0 35px 0
-		padding: 0
-		width: 100%
+  ul
+    list-style: none
+    margin: 60px 0 35px 0
+    padding: 0
+    width: 100%
 
-		display: -webkit-flex
-		display: flex
+    display: -webkit-flex
+    display: flex
 
-		-webkit-flex-direction: row
-		flex-direction: row
+    -webkit-flex-direction: row
+    flex-direction: row
 
-		-webkit-flex-wrap: nowrap
-		flex-wrap: nowrap
+    -webkit-flex-wrap: nowrap
+    flex-wrap: nowrap
 
-		-webkit-align-items: stretch
-		align-items: stretch
+    -webkit-align-items: stretch
+    align-items: stretch
 
-		+tablet
-			display: block
-			margin-top: 35px
+    +tablet
+      display: block
+      margin-top: 35px
 
-		+mobile-large
-			margin-bottom: 20px
+    +mobile-large
+      margin-bottom: 20px
 
-		li
-			background: white
-			margin: 0 0 0 3.5%
-			padding: 0
+    li
+      background: white
+      margin: 0 0 0 3.5%
+      padding: 0
 
-			flex-grow: 1
-			position: relative
-			width: 33%
+      flex-grow: 1
+      position: relative
+      width: 33%
 
-			+desktop-small
-				margin-left: 2.5%
+      +desktop-small
+        margin-left: 2.5%
 
-			+tablet
-				margin: 0 0 30px 0
-				display: block
-				width: auto
+      +tablet
+        margin: 0 0 30px 0
+        display: block
+        width: auto
 
-			&:first-child
-				margin-left: 0
+      &:first-child
+        margin-left: 0
 
-			article
-				padding-bottom: 110px
+      article
+        padding-bottom: 110px
 
-				+tablet
-					overflow: hidden
-					padding-bottom: 0
+        +tablet
+          overflow: hidden
+          padding-bottom: 0
 
-					position: relative
-					padding-left: 250px
+          position: relative
+          padding-left: 250px
 
-				+mobile-large
-					padding-left: 0
+        +mobile-large
+          padding-left: 0
 
-				figure
-					margin: 0 0 30px 0
-					padding: 0
-					display: block
+        figure
+          margin: 0 0 30px 0
+          padding: 0
+          display: block
 
-					a
-						display: block
+          a
+            display: block
 
-						+tablet
-							position: absolute
-							left: 0
-							top: 0
+            +tablet
+              position: absolute
+              left: 0
+              top: 0
 
-							height: 100%
-							width: 240px
+              height: 100%
+              width: 240px
 
-							overflow: hidden
+              overflow: hidden
 
-						+mobile-large
-							height: 240px
-							width: auto
+            +mobile-large
+              height: 240px
+              width: auto
 
-							position: relative
+              position: relative
 
-						+mobile
-							width: auto
-							height: auto
-							overflow: visible
+            +mobile
+              width: auto
+              height: auto
+              overflow: visible
 
-					img
-						display: block
-						width: 100%
-						height: auto
+          img
+            display: block
+            width: 100%
+            height: auto
 
-						+tablet
-							margin-bottom: 0
+            +tablet
+              margin-bottom: 0
 
-							height: 100%
-							width: auto
+              height: 100%
+              width: auto
 
-							position: absolute
-							left: 50%
-							top: 50%
+              position: absolute
+              left: 50%
+              top: 50%
 
-							+transform(translate(-50%, -50%))
+              +transform(translate(-50%, -50%))
 
-						+mobile-large
-							width: 100%
-							height: auto
+            +mobile-large
+              width: 100%
+              height: auto
 
-						+mobile
-							position: static
-							+transform(none)
+            +mobile
+              position: static
+              +transform(none)
 
-					+mobile-large
-						margin-bottom: 20px
+          +mobile-large
+            margin-bottom: 20px
 
-					+mobile
-						display: block
+          +mobile
+            display: block
 
-				h1
-					margin: 0 0 7px 0
-					padding: 0 45px
+        h1
+          margin: 0 0 7px 0
+          padding: 0 45px
 
-					font-size: 24px
-					line-height: 33px
+          font-size: 24px
+          line-height: 33px
 
-					+box-sizing(border-box)
+          +box-sizing(border-box)
 
-					+desktop-small
-						padding: 0 30px
+          +desktop-small
+            padding: 0 30px
 
-					+tablet
-						padding: 10px 20px 0 20px
-						width: auto
-						text-align: left
+          +tablet
+            padding: 10px 20px 0 20px
+            width: auto
+            text-align: left
 
-					+mobile-large
-						padding-top: 0
+          +mobile-large
+            padding-top: 0
 
-					small
-						font-size: 16px
+          small
+            font-size: 16px
 
-				.description
-					margin: 0
-					padding: 0 45px
-					font-size: 14px
+        .description
+          margin: 0
+          padding: 0 45px
+          font-size: 14px
 
-					+box-sizing(border-box)
+          +box-sizing(border-box)
 
-					+desktop-small
-						padding: 0 30px
+          +desktop-small
+            padding: 0 30px
 
-					+tablet
-						padding: 0 20px
-						width: auto
-						text-align: left
+          +tablet
+            padding: 0 20px
+            width: auto
+            text-align: left
 
-					p
-						margin: 0
-						padding: 0
+          p
+            margin: 0
+            padding: 0
 
-				footer
-					position: absolute
-					bottom: 0
-					left: 0
+        footer
+          position: absolute
+          bottom: 0
+          left: 0
 
-					width: 100%
-					box-sizing: border-box
+          width: 100%
+          box-sizing: border-box
 
-					padding: 0 45px 30px 45px
+          padding: 0 45px 30px 45px
 
-					+desktop-small
-						padding: 0 30px 30px 30px
+          +desktop-small
+            padding: 0 30px 30px 30px
 
-					+tablet
-						padding: 20px
-						width: auto
-						text-align: left
-						position: static
+          +tablet
+            padding: 20px
+            width: auto
+            text-align: left
+            position: static
 
-	.footer
-		.icon
-			cursor: pointer
+  .warning.home
+    width: 100%
+    height: 75px
+    background: white image_url('letop.png') no-repeat center center
+    -webkit-background-size: 30%
+    background-size: 30%
+    margin-bottom: 40px
+    +tablet
+      -webkit-background-size: 60%
+      background-size: 60%
+
+  .footer
+    .icon
+      cursor: pointer
