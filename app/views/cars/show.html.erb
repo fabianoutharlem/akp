@@ -132,10 +132,8 @@
             <script>
               function shareCar() {
                   FB.ui({
-                      method: 'feed',
-                      link: '<%= car_url(@car) %>',
-                      redirect_uri: '<%= car_url(@car) %>',
-                      caption: '',
+                      method: 'share',
+                      href: '<%= car_url @car %>'
                   }, function(response){});
 
                   return false;
