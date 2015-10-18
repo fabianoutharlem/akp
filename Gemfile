@@ -71,9 +71,6 @@ gem 'squeel'
 gem 'cocoon'
 gem 'haml-rails'
 
-# touch fast click
-gem 'fastclick-rails', '~> 1.0.1'
-
 # list
 gem 'acts_as_list'
 
