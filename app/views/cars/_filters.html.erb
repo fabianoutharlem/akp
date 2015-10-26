@@ -1,14 +1,14 @@
 <ul class="car-filters">
   <li>
-    <%= link_to StaticText.filter_by_price_asc, params.merge(:sort_field => :price_total, :sort_direction => :asc) %>
+    <%= link_to StaticText.filter_by_price_asc, params.merge(:sort_field => :price_total, :sort_direction => :asc), data: {field: :price, order: :asc} %>
   </li>
   <li>
-    <%= link_to StaticText.filter_by_price_desc, params.merge(:sort_field => :price_total, :sort_direction => :desc) %>
+    <%= link_to StaticText.filter_by_price_desc, params.merge(:sort_field => :price_total, :sort_direction => :desc), data: {field: :price, order: :desc} %>
   </li>
   <li>
-    <%= link_to StaticText.filter_by_name_asc, params.merge(:sort_field => 'brands.name, models.name, car_type', :sort_direction => :asc) %>
+    <%= link_to StaticText.filter_by_name_asc, params.merge(:sort_field => 'brands.name, models.name, car_type', :sort_direction => :asc), data: {field: :name, order: :asc} %>
   </li>
   <li>
-    <%= link_to StaticText.filter_by_name_desc, params.merge(:sort_field => 'brands.name desc, models.name desc, car_type', :sort_direction => :desc) %>
+    <%= link_to StaticText.filter_by_name_desc, params.merge(:sort_field => 'brands.name desc, models.name desc, car_type', :sort_direction => :desc), data: {field: :name, order: :desc} %>
   </li>
 </ul>
