@@ -117,7 +117,7 @@ Rails.application.routes.draw do
       delete :destroy_bussiness
     end
 
-    root 'cars#index'
+    root 'car_requests#index'
   end
 
   post '/import', to: 'import#handle'
