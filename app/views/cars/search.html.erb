@@ -1,14 +1,14 @@
 <div class="title">
-  <% if defined? filters && filters == true %>
-      <a class="right" href="">
-        Filters
-        <i class="icon arrow-blue-down"></i>
-      </a>
-  <% end %>
+  <a class="right" href="">
+    Filters
+    <i class="icon arrow-blue-down"></i>
+  </a>
 
-  <h2>
-    <em><%= @cars.length %> <%= (@cars.length > 1 or @cars.length == 0) ? 'resultaten' : 'resultaat' %></em>
-  </h2>
+  <% if defined? results && results %>
+      <h2>
+        <em><%= @cars.length %> <%= (@cars.length > 1 or @cars.length == 0) ? 'resultaten' : 'resultaat' %></em>
+      </h2>
+  <% end %>
 
   <div class="submenu">
     <%= render 'cars/filters' %>
