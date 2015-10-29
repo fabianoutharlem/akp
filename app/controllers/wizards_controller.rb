@@ -30,11 +30,11 @@ class WizardsController < ApplicationController
   private
 
   def car_request_params
-    params.permit(:request_type, :payment, :name, :amount, :phone, :license_plate, :email, :bkr, :net_income, :partner_net_income, :rent, :car_id, :newsletter_subscribe, :bkr)
+    params.permit(:request_type, :payment, :name, :amount, :phone, :license_plate, :email, :bkr, :net_income, :partner_net_income, :rent, :car_id, :newsletter_subscribe, :bkr, :woonachtig)
   end
 
   def car_request_bussiness_params
-    params.permit(:request_type, :payment, :first_name, :last_name, :amount, :phone, :email, :kvk, :car_id, :notes, :newsletter_subscribe, :date_creation)
+    params.permit(:request_type, :payment, :first_name, :last_name, :amount, :phone, :email, :kvk, :car_id, :notes, :newsletter_subscribe, :date_creation, :woonachtig)
   end
 
 end

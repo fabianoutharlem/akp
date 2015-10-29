@@ -65,7 +65,10 @@
               <label for="payment-net-income">Netto inkomen</label>
             </p>
 
-            <p class="empty right">&nbsp;</p>
+            <p class="text right" data-rules="required">
+              <input type="text" name="woonachtig" class="text" id="woonachtig" required="required" />
+              <label for="woonachtig">Woonachtig in</label>
+            </p>
 
             <p class="checkbox right" data-rules="required|alphanumeric">
               <input type="checkbox" name="bkr" class="checkbox" id="payment-bkr"/>
@@ -130,7 +133,11 @@
               <input type="text" name="notes" class="text" id="payment-notes" required="required" />
               <label for="payment-notes">Opmerking</label>
             </p>
-            <p></p>
+
+            <p class="text" data-rules="required">
+              <input type="text" name="woonachtig" class="text" id="woonachtig" required="required" />
+              <label for="woonachtig">Woonachtig in</label>
+            </p>
 
           </div>
 
