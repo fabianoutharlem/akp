@@ -10,7 +10,15 @@ class Car < ActiveRecord::Base
 
   acts_as_taggable_on :options
 
-  friendly_id :display_name, use: [:slugged, :finders]
+  friendly_id :slug_candidates, use: [:slugged, :finders]
+
+  def slug_candidates
+    [
+        :display_name,
+        [:display_name, :manufacture_year],
+    [:display_name, :mileage]
+    ]
+  end
 
   belongs_to :body_type
   belongs_to :fuel_type
