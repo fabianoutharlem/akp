@@ -3,7 +3,7 @@ class CarsController < ApplicationController
   add_breadcrumb 'Autos', :voorraad_cars_path
 
   def home
-    @cars = Car.all.car_includes.limit(3).order(order_hash)
+    @cars = Car.all.car_includes.limit(3).order(created_at: :desc)
     references = Reference.where(approved: true)
     @references = references.limit(2)
     @reference_avarage = Reference.avarage(references)
@@ -67,8 +67,8 @@ class CarsController < ApplicationController
   private
 
   def order_hash
-    field = (params[:sort_field] || :created_at)
-    direction = (params[:sort_direction] || :desc).to_sym
+    field = (params[:sort_field] || 'brands.name, models.name, car_type')
+    direction = (params[:sort_direction] || :asc).to_sym
     "#{field} #{direction}"
   end
 
