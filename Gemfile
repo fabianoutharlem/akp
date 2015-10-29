@@ -117,3 +117,5 @@ group :development do
 end
 
 gem 'sinatra', :require => nil
+
+gem 'ar_after_transaction'

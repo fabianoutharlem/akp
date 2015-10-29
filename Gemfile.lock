@@ -49,6 +49,8 @@ GEM
     acts_as_list (0.7.0)
       activerecord (>= 3.0)
     addressable (2.3.8)
+    ar_after_transaction (0.4.0)
+      activerecord
     arel (5.0.1.20140414130214)
     bcrypt (3.1.10)
     breadcrumbs_on_rails (2.3.0)
@@ -314,6 +316,7 @@ DEPENDENCIES
   actionpack-action_caching
   acts-as-taggable-on (~> 3.4)!
   acts_as_list
+  ar_after_transaction
   breadcrumbs_on_rails
   cancancan
   capistrano

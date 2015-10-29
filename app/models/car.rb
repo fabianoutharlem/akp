@@ -228,8 +228,10 @@ class Car < ActiveRecord::Base
 
   def share_on_facebook
     begin
-      @page_graph = Koala::Facebook::API.new('CAAHvZBlZAPcdQBAOp3Rq1SZBJISVyZB9ocs9wwNdel966PjhbZCWBjO8eAp3VbqZBZBZCqRkXvPUSMSxO3mIUo0pYRoUhqh5qvVaM02U6dTaewe2LSbXS2mO3ZBmNZBI437sYMmhy7gz4aH95KdA5JXG5pwl20Sm2T7YqipJPJYhOrZABgihOqqGuUe')
-      @page_graph.put_connections('1486194365036244', 'feed', :message => self.display_name, :picture => URI.join(root_url, self.car_images.first.file.large.url), :link => car_url(self))
+      after_transaction do
+        @page_graph = Koala::Facebook::API.new('CAAHvZBlZAPcdQBAOp3Rq1SZBJISVyZB9ocs9wwNdel966PjhbZCWBjO8eAp3VbqZBZBZCqRkXvPUSMSxO3mIUo0pYRoUhqh5qvVaM02U6dTaewe2LSbXS2mO3ZBmNZBI437sYMmhy7gz4aH95KdA5JXG5pwl20Sm2T7YqipJPJYhOrZABgihOqqGuUe')
+        @page_graph.put_connections('1486194365036244', 'feed', :message => self.display_name, :picture => URI.join(root_url, self.car_images.first.file.large.url), :link => car_url(self))
+      end
     rescue Exception => e
       Rails.logger.debug 'The car with id ' + self.id.to_s + ' was not shared on facebook'
       Rails.logger.debug e.message
