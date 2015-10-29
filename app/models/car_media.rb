@@ -8,6 +8,12 @@ class CarMedia < ActiveRecord::Base
 
   before_save :update_asset_attributes
 
+  after_save :check_for_car
+
+  def check_for_car
+    destroy if (car_id == nil)
+  end
+
   def file_type
     if @file_type.present?
       @file_type
