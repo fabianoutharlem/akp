@@ -14,18 +14,25 @@ ul.cars
     margin: 30px 0
 
   li
-    margin: 0 3.5% 3.5% 0
+    margin: 0 4% 4% 0
     padding: 0
 
     display: inline-block
     vertical-align: top
 
-    width: 31%
+    width: 22%
 
-    font-size: 20px
+    font-size: 14px
     line-height: 1.8
 
-    +larger-than-tablet-small
+    +larger-than-desktop-small
+      &:nth-child(4n)
+        margin-right: 0
+
+    +desktop-small
+      width: 31%
+      margin: 0 3.5% 3.5% 0
+
       &:nth-child(3n)
         margin-right: 0
 
@@ -118,14 +125,14 @@ article.listing-car
       background: #333
   h1
     color: #414141
-    font-size: 18px
-    line-height: 32px
+    font-size: 14px
+    line-height: 24px
     padding: 0 25px
     margin: 20px 0
 
     +desktop-small
-      font-size: 16px
-      line-height: 28px
+      font-size: 13px
+      line-height: 22px
 
     +mobile
       padding: 0 20px
@@ -145,6 +152,7 @@ article.listing-car
       text-overflow: ellipsis
       overflow: hidden
       white-space: nowrap
+      font-size: 18px
 
   footer
     margin: 0
@@ -171,7 +179,7 @@ article.listing-car
           background: $green-dark
           color: white
 
-          font-size: 16px
+          font-size: 14px
           line-height: 30px
 
           padding: 5px 0
@@ -189,7 +197,7 @@ article.listing-car
           display: none
           background-color: $green-light
           color: white
-          padding: 20px
+          padding: 20px 0px
 
           +mobile
             padding: 15px
@@ -200,12 +208,12 @@ article.listing-car
           h3
             margin: 0
             padding: 0
-            font-size: 40px
-            line-height: 50px
+            font-size: 32px
+            line-height: 38px
 
             +desktop-small
-              font-size: 32px
-              line-height: 40px
+              font-size: 28px
+              line-height: 34px
 
           small
             display: block

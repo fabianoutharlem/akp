@@ -3,7 +3,7 @@ class CarsController < ApplicationController
   add_breadcrumb 'Autos', :voorraad_cars_path
 
   def home
-    @cars = Car.all.car_includes.limit(3).order(created_at: :desc)
+    @cars = Car.all.car_includes.limit(4).order(created_at: :desc)
     references = Reference.where(approved: true)
     @references = references.limit(2)
     @reference_avarage = Reference.avarage(references)
