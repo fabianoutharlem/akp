@@ -74,7 +74,8 @@ module Admin
                 BlogTemplateOnzeWerkplaats.permitted_attributes +
                 BlogTemplateVoordelenFinancialLease.permitted_attributes +
                 BlogTemplateOpelEyeTracking.permitted_attributes +
-                BlogTemplateAutoBlog.permitted_attributes).uniq
+                BlogTemplateAutoBlog.permitted_attributes +
+                BlogTemplateKeywords.permitted_attributes).uniq
       )
     end
 

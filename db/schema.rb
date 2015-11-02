@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029203010) do
+ActiveRecord::Schema.define(version: 20151102214205) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 20151029203010) do
     t.string   "image_right_1"
     t.string   "image_left_1"
     t.text     "white_block_right_1"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_template_keywords", force: true do |t|
+    t.string   "nieuw_binnen_titel"
+    t.text     "nieuw_binnen_content"
+    t.string   "blocks_titel"
+    t.text     "blocks_heading"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
