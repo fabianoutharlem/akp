@@ -38,8 +38,6 @@ class Car < ActiveRecord::Base
   validates_associated :model, :brand
   validates :mileage, :color, :engine_size, :manufacture_year, presence: true
 
-  after_create :share_on_facebook
-
   def self.query(params)
     puts build_query(params).to_json
     search = Car.search(build_query(params).to_json)
@@ -74,6 +72,19 @@ class Car < ActiveRecord::Base
         include: [:model, :brand, :body_type, :fuel_type, :transmission_type, :options],
         methods: [:display_name]
     )
+  end
+
+  def share_on_facebook
+    begin
+      after_transaction do
+        @page_graph = Koala::Facebook::API.new('CAAHvZBlZAPcdQBAOp3Rq1SZBJISVyZB9ocs9wwNdel966PjhbZCWBjO8eAp3VbqZBZBZCqRkXvPUSMSxO3mIUo0pYRoUhqh5qvVaM02U6dTaewe2LSbXS2mO3ZBmNZBI437sYMmhy7gz4aH95KdA5JXG5pwl20Sm2T7YqipJPJYhOrZABgihOqqGuUe')
+        @page_graph.put_connections('1486194365036244', 'feed', :message => self.display_name, :picture => URI.join(root_url, self.car_images.first.file.large.url), :link => car_url(self))
+      end
+    rescue Exception => e
+      Rails.logger.debug 'The car with id ' + self.id.to_s + ' was not shared on facebook'
+      Rails.logger.debug e.message
+      Rails.logger.debug e.backtrace
+    end
   end
 
   def self.parse_cardesk_parameters(params)
@@ -232,19 +243,6 @@ class Car < ActiveRecord::Base
         }
     } unless (params[:monthly_price_range].blank? or params[:monthly_price_range].split('-').length != 2)
     return query
-  end
-
-  def share_on_facebook
-    begin
-      after_transaction do
-        @page_graph = Koala::Facebook::API.new('CAAHvZBlZAPcdQBAOp3Rq1SZBJISVyZB9ocs9wwNdel966PjhbZCWBjO8eAp3VbqZBZBZCqRkXvPUSMSxO3mIUo0pYRoUhqh5qvVaM02U6dTaewe2LSbXS2mO3ZBmNZBI437sYMmhy7gz4aH95KdA5JXG5pwl20Sm2T7YqipJPJYhOrZABgihOqqGuUe')
-        @page_graph.put_connections('1486194365036244', 'feed', :message => self.display_name, :picture => URI.join(root_url, self.car_images.first.file.large.url), :link => car_url(self))
-      end
-    rescue Exception => e
-      Rails.logger.debug 'The car with id ' + self.id.to_s + ' was not shared on facebook'
-      Rails.logger.debug e.message
-      Rails.logger.debug e.backtrace
-    end
   end
 
 
