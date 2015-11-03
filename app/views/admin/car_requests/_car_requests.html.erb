@@ -1,0 +1,38 @@
+<table id="myDataTable" class="table table-hover" cellspacing="0" width="100%">
+  <thead>
+  <tr>
+    <th>Foto</th>
+    <th>Email</th>
+    <th>Telefoon</th>
+    <th>Auto</th>
+    <th>Datum</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% car_requests.each do |car_request| %>
+      <tr>
+        <td>
+          <%= image_tag car_request.car.car_images.first.file.thumb, height: 100 unless car_request.car.blank? %>
+        </td>
+        <td>
+          <%= mail_to car_request.email %>
+        </td>
+        <td>
+          <%= car_request.phone %>
+        </td>
+        <td>
+          <%= car_request.car.display_name unless car_request.car.blank? %>
+        </td>
+        <td>
+          <%= car_request.created_at.strftime('%d-%m-%Y') %>
+        </td>
+        <td>
+          <%= link_to 'View', send((car_request.is_a?(CarRequest) ? :admin_car_request_path : :admin_car_request_show_bussiness_path), car_request), class: 'btn btn-primary' %>
+          <%= link_to 'Delete', send((car_request.is_a?(CarRequest) ? :admin_car_request_path : :admin_car_request_destroy_bussiness_path), car_request), method: :delete, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
