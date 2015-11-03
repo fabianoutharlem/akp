@@ -153,6 +153,11 @@ article.listing-car
       overflow: hidden
       white-space: nowrap
       font-size: 18px
+      +larger-than-desktop-small
+        padding: 7px 65px 9px 20px
+        &:after
+          height: 36px
+          background-position: -285px -221px
 
   footer
     margin: 0
@@ -184,6 +189,9 @@ article.listing-car
 
           padding: 5px 0
 
+          +larger-than-desktop-small
+            line-height: 26px
+
           +mobile
             font-size: 14px
             line-height: 28px
@@ -197,7 +205,12 @@ article.listing-car
           display: none
           background-color: $green-light
           color: white
-          padding: 20px 0px
+          padding: 15px 0
+
+          &.fifty-fifty
+            padding-top: 4px
+            padding-bottom: 26px
+            font-size: 11px
 
           +mobile
             padding: 15px

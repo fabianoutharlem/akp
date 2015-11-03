@@ -12,16 +12,18 @@
     <div class="wrapper">
       <h2><%= @blog_page.templateable.nieuw_binnen_titel %></h2>
 
-      <%= @blog_page.templateable.nieuw_binnen_content.html_safe %>
+      <div class="content">
+        <%= @blog_page.templateable.nieuw_binnen_content.html_safe %>
+      </div>
+
+      <p>
+        <a class="btn btn-big" href="<%= voorraad_cars_path %>">Ontdek het aanbod</a>
+      </p>
 
       <ul class="cars">
         <%= render Car.first(8) %>
       </ul>
 
-      <div class="footer">
-        <i class="icon arrow-gray-down"></i>
-      </div>
-      <!-- .footer -->
     </div>
     <!-- .wrapper -->
   </section>
@@ -33,7 +35,9 @@
 
       <h2><%= @blog_page.templateable.blocks_titel %></h2>
 
-      <%= @blog_page.templateable.blocks_heading.html_safe %>
+      <div class="content">
+        <%= @blog_page.templateable.blocks_heading.html_safe %>
+      </div>
 
       <ul>
 
@@ -105,9 +109,6 @@
 
       <div class="warning home"></div>
 
-      <div class="footer">
-        <i class="icon arrow-orange-down"></i>
-      </div>
       <!-- .footer -->
 
     </div>
