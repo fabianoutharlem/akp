@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require fastclick
 //= require libs/modernizr-2.8.3.min
 //= require libs/mbe-slider.min
 //= require libs/formatMoney
+//= require libs/fastclick
 //= require jquery.lazyload.js
 //= require jquery.appear.js
 //= require main

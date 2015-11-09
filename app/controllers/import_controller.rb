@@ -27,6 +27,7 @@ class ImportController < ApplicationController
       attributes = Car.parse_cardesk_parameters @data
       car = Car.create!(attributes)
       Raise car.errors.full_messages.to_sentence unless car.valid?
+      car.share_on_facebook
       render text: '1', status: 200
     else
       change

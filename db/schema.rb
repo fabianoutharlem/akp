@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811131549) do
+ActiveRecord::Schema.define(version: 20151102214205) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 20150811131549) do
     t.string   "image_right_1"
     t.string   "image_left_1"
     t.text     "white_block_right_1"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_template_keywords", force: true do |t|
+    t.string   "nieuw_binnen_titel"
+    t.text     "nieuw_binnen_content"
+    t.string   "blocks_titel"
+    t.text     "blocks_heading"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -149,6 +158,7 @@ ActiveRecord::Schema.define(version: 20150811131549) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "newsletter_subscribe"
+    t.string   "woonachtig"
   end
 
   add_index "car_request_businesses", ["car_id"], name: "index_car_request_businesses_on_car_id", using: :btree
@@ -169,6 +179,7 @@ ActiveRecord::Schema.define(version: 20150811131549) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "newsletter_subscribe"
+    t.string   "woonachtig"
   end
 
   create_table "cars", force: true do |t|

@@ -1,130 +1,135 @@
 .search-navigation
-	background: white
+  background: white
 
-	+print
-		display: none
+  +print
+    display: none
 
-	.wrapper
-		padding: 0 65px
+  .wrapper
+    padding: 0 65px
 
-		+desktop-small
-			padding: 0 40px
+    +desktop-small
+      padding: 0 40px
 
-		+tablet
-			padding: 0 30px
+    +tablet
+      padding: 0 30px
 
-	ul
-		margin: 0
-		padding: 0
-		list-style: none
-		overflow: hidden
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+    overflow: hidden
 
-		font-size: 30px
-		line-height: 41px
-		font-weight: 300
-		color: $marine
+    font-size: 30px
+    line-height: 41px
+    font-weight: 300
+    color: $marine
 
-		+desktop-small
-			font-size: 24px
-			line-height: 32px
+    +desktop-small
+      font-size: 24px
+      line-height: 32px
 
-		+tablet
-			font-size: 18px
+    +tablet
+      font-size: 18px
 
-		+mobile-large
-			padding: 10px
-			font-size: 16px
-			line-height: 26px
+    +mobile-large
+      padding: 10px
+      font-size: 16px
+      line-height: 26px
 
-		li
-			margin: 0
-			padding: 0
+    li
+      margin: 0
+      padding: 0
 
-			width: 33%
-			float: left
-			position: relative
+      width: 33%
+      float: left
+      position: relative
 
-			+mobile-large
-				width: auto
-				float: none
+      +mobile-large
+        width: auto
+        float: none
 
-			+mobile-large
-				margin: 10px 0 0 0
+      +mobile-large
+        margin: 10px 0 0 0
 
-				&:first-child
-					margin-top: 0
+        &:first-child
+          margin-top: 0
 
-			&:last-child
-				float: right
+      &:last-child
+        float: right
 
-				&::after
-					display: none
+        &::after
+          display: none
 
-				+mobile-large
-					float: none
+        +mobile-large
+          float: none
 
-				a
-					&::before
-						content: ''
-						position: absolute
-						right: 0
-						top: 30px
+        a
+          &::before
+            content: ''
+            position: absolute
+            right: 0
+            top: 38px
 
-						@extend .icon
-						@extend .icon.arrow-blue-right
+            @extend .icon
+            @extend .icon.arrow-blue-right
 
-						+desktop-small
-							top: 30px
+            +desktop-small
+              top: 30px
 
-						+mobile-large
-							display: none
+            +mobile-large
+              display: none
 
-			&::after
-				content: ''
-				position: absolute
-				right: 0
-				top: 23px
+      &::after
+        content: ''
+        position: absolute
+        right: 0
+        top: 23px
 
-				@extend .icon
-				@extend .icon.dots
+        @extend .icon
+        @extend .icon.dots
 
-				+desktop-small
-					top: 12px
+        +desktop-small
+          top: 12px
 
-				+mobile-large
-					display: none
+        +mobile-large
+          display: none
 
-			&:first-child
-				a
-					&::before
-						content: ''
-						position: absolute
-						left: 0
-						top: 40px
+      &:first-child
+        a
+          &::before
+            content: ''
+            position: absolute
+            left: 0
+            top: 40px
 
-						@extend .icon
-						@extend .icon.arrow-blue-left
+            @extend .icon
+            @extend .icon.arrow-blue-left
 
-						+desktop-small
-							top: 30px
+            +desktop-small
+              top: 30px
 
-						+mobile-large
-							display: none
+            +mobile-large
+              display: none
 
-			a
-				padding: 30px 0
-				display: block
+      a
+        padding: 30px 0
+        padding-left: 25px !important
+        padding-right: 25px !important
+        display: block
+        text-overflow: ellipsis
+        overflow: hidden
+        white-space: nowrap
 
-				+desktop-small
-					padding: 25px 0
+        +desktop-small
+          padding: 25px 0
 
-				+mobile-large
-					padding: 0
+        +mobile-large
+          padding: 0
 
-	&.double
-		ul
-			li
-				width: 50%
+  &.double
+    ul
+      li
+        width: 50%
 
-				+mobile-large
-					width: auto
+        +mobile-large
+          width: auto

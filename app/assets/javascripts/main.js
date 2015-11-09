@@ -609,7 +609,7 @@
              */
             sameHeight: function (element) {
                 var windowWidth = $(window).width(),
-                    perRow = (windowWidth > 768 ? 3 : (windowWidth > 640 ? 2 : 1));
+                    perRow = (windowWidth > 1280 ? 4 : (windowWidth > 768 ? 3 : (windowWidth > 640 ? 2 : 1)));
                     filter = (perRow > 1 ? ':nth-child(' + perRow + 'n+1)' : '');
 
                 $('ul.cars li' + filter, element).each(function (index, element) {
@@ -619,6 +619,8 @@
 
                     //first we set the elements array;
                     switch (perRow) {
+                        case 4:
+                            $elements = $elements.add($this.next().next().next().find('h1'));
                         case 3:
                             $elements = $elements.add($this.next().next().find('h1'));
                         case 2:

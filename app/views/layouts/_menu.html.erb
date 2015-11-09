@@ -15,7 +15,6 @@
           <li><%= link_to 'Zakelijke financiering', financing_cars_path('bussiness') %></li>
           <li><%= link_to 'Particuliere financiering', financing_cars_path('private') %></li>
           <li><%= link_to '50/50 Deals', financing_cars_path('50_50') %></li>
-          <li class="last"><a href="<%= page_path('contact') %>">Contact</a></li>
 
           <% MenuItem.all.each do |menu_item| %>
               <li class="<%= menu_item.last ? 'last' : '' %>"><a href="<%= menu_item.path %>"><%= menu_item.label %></a>
@@ -76,9 +75,6 @@
         <%= StaticText.address_street %><br/>
         <%= StaticText.address_zip_plus_city %>
       </address>
-      <p>
-        <a href="" class="plan" target="_blank"><%= StaticText.plan_route %></a>
-      </p>
 
       <p>&nbsp;</p>
 

@@ -29,8 +29,8 @@ gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Uploading files
-gem 'carrierwave'
-gem 'carrierwave_backgrounder'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'fog-aws'
 gem 'rmagick', require: 'RMagick'
 
 # que handling
@@ -70,9 +70,6 @@ gem 'squeel'
 # nested forms helper
 gem 'cocoon'
 gem 'haml-rails'
-
-# touch fast click
-gem 'fastclick-rails', '~> 1.0.1'
 
 # list
 gem 'acts_as_list'
@@ -120,3 +117,5 @@ group :development do
 end
 
 gem 'sinatra', :require => nil
+
+gem 'ar_after_transaction'

@@ -11,7 +11,7 @@
 
       <h2>
         <%= @brand.name %>
-        <em><%= @cars.count %> op voorraad</em>
+        <em><%= @cars.total_count %> op voorraad</em>
       </h2>
 
       <div class="submenu">
@@ -26,6 +26,8 @@
       <%= render @cars %>
 
     </ul>
+
+    <%= paginate @cars %>
 
   </div>
   <!-- .wrapper -->
