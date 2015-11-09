@@ -29,8 +29,8 @@ gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Uploading files
-gem 'carrierwave'
-gem 'carrierwave_backgrounder'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'fog-aws'
 gem 'rmagick', require: 'RMagick'
 
 # que handling
