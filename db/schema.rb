@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102214205) do
+ActiveRecord::Schema.define(version: 20151110203814) do
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -142,6 +142,8 @@ ActiveRecord::Schema.define(version: 20151102214205) do
     t.datetime "updated_at"
     t.boolean  "avatar_processing", default: false, null: false
   end
+
+  add_index "car_media", ["car_id"], name: "index_car_media_on_car_id", using: :btree
 
   create_table "car_request_businesses", force: true do |t|
     t.string   "request_type"
