@@ -13,7 +13,7 @@ class CarMediaUploader < CarrierWave::Uploader::Base
   storage :fog
 
   def self.fog_public
-    false
+    true
   end
 
   # Override the directory where uploaded files will be stored.
