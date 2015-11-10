@@ -4,7 +4,7 @@ CarrierWave.configure do |config|
       provider:              'AWS',                        # required
       aws_access_key_id:     'AKIAJYRWYDU3OSUJ3O6Q',                        # required
       aws_secret_access_key: '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',                        # required
-      region:                'eu-central-1',                  # optional, defaults to 'us-east-1'
-      endpoint:                  'https://akp-' + Rails.env + '.s3.amazonaws.com'
+      region:                'eu-central-1'                  # optional, defaults to 'us-east-1'
   }
+  config.fog_directory  = 'akp-' + Rails.env                          # required
 end
