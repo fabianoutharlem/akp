@@ -30,6 +30,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Uploading files
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave-aws'
 gem 'fog-aws'
 gem 'rmagick', require: 'RMagick'
 
