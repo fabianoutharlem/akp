@@ -11,7 +11,10 @@ class CarMediaUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   storage :fog
-  # storage :fog
+
+  def self.fog_public
+    true
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
