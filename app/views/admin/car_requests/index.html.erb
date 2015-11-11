@@ -17,7 +17,7 @@
       <a data-toggle="tab" href="#tab2all">All (<%= @car_requests.length %>)</a>
     </li>
     <li>
-      <a data-toggle="tab" href="#tab2financial">Financial (<%= @car_requests.select { |car_request| car_request.request_type == 'bussiness' }.length %>)</a>
+      <a data-toggle="tab" href="#tab2financial">Financial (<%= @car_requests.select { |car_request| car_request.request_type == 'financial' }.length %>)</a>
     </li>
     <li>
       <a data-toggle="tab" href="#tab2fiftyfifty">50/50 (<%= @car_requests.select { |car_request| car_request.request_type == '50_50' }.length %>)</a>
@@ -34,7 +34,7 @@
     </div>
     <div class="tab-pane slide-right" id="tab2financial">
 
-      <%= render 'car_requests', car_requests: @car_requests.select { |car_request| car_request.request_type == 'bussiness' } %>
+      <%= render 'car_requests', car_requests: @car_requests.select { |car_request| car_request.request_type == 'financial' } %>
 
     </div>
     <div class="tab-pane slide-right" id="tab2fiftyfifty">
