@@ -13,6 +13,7 @@ class CarsController < ApplicationController
   def show
     @car = Car.find(params[:id])
     add_breadcrumb @car.display_name
+    redirect_to root_path unless @car.present?
   end
 
   def brand
