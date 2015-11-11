@@ -11,9 +11,13 @@ class CarsController < ApplicationController
   end
 
   def show
-    @car = Car.find(params[:id])
-    add_breadcrumb @car.display_name
-    redirect_to root_path unless @car.present?
+    begin
+      @car = Car.find(params[:id])
+      add_breadcrumb @car.display_name
+    rescue Exception => e
+      Rails.logger.info e.message
+      redirect_to root_path unless @car.present?
+    end
   end
 
   def brand
