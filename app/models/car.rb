@@ -123,7 +123,7 @@ class Car < ActiveRecord::Base
             end
 
 
-    media << Car.download_video(params[:videos]['video'].last['url']) unless params[:videos].blank? || params[:videos]['video'].blank?
+    # media << Car.download_video(params[:videos]['video'].last['url']) unless params[:videos].blank? || params[:videos]['video'].blank?
     {
         vehicle_number: params[:voertuignr],
         vehicle_number_hexon: params[:voertuignr_hexon],
