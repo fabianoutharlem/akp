@@ -16,8 +16,8 @@ class Car < ActiveRecord::Base
   before_update :invalidate_cache
 
   def invalidate_cache
-    expire_fragment("car_images_#{self.id}")
-    expire_fragment("admin_car_#{self.id}")
+    ActionController::Base.new.expire_fragment("car_images_#{self.id}")
+    ActionController::Base.new.expire_fragment("admin_car_#{self.id}")
   end
 
 

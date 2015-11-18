@@ -4,7 +4,7 @@ class CarRequestBusiness < ActiveRecord::Base
   before_destroy :invalidate_cache
 
   def invalidate_cache
-    expire_fragment("admin_car_request_#{self.id}")
+    ActionController::Base.new.expire_fragment("admin_car_request_#{self.id}")
   end
 
   def to_partial_path
