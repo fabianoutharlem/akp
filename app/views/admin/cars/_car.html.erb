@@ -1,12 +1,12 @@
 <% cache("admin_car_#{car.id}") do %>
-<tr>
-  <td><%= image_tag(car.car_images.first.file.thumb, height: 100) rescue '' %></td>
-  <td><%= car.license_plate %></td>
-  <td><%= car.brand.name %></td>
-  <td><%= car.model.name %></td>
-  <td><%= car.car_type %></td>
-  <td><%= car.manufacture_year %></td>
-  <td><%= car.color %></td>
-  <td><%= link_to 'Delete', admin_car_path(car), method: :delete, class: 'btn btn-sm btn-danger' %></td>
-</tr>
+    <tr>
+      <td><%= image_tag(car.car_images.first.file.thumb, height: 100) rescue '' %></td>
+      <td><%= car.license_plate %></td>
+      <td><%= car.brand.name %></td>
+      <td><%= car.model.name %></td>
+      <td><%= car.car_type %></td>
+      <td><%= car.manufacture_year %></td>
+      <td><%= car.color %></td>
+      <td><%= link_to 'Delete', admin_car_path(car), method: :delete, class: 'btn btn-sm btn-danger' %></td>
+    </tr>
 <% end %>
