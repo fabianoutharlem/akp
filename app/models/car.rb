@@ -12,6 +12,15 @@ class Car < ActiveRecord::Base
 
   friendly_id :slug_candidates, use: [:slugged, :finders]
 
+  before_destroy :invalidate_cache
+  before_update :invalidate_cache
+
+  def invalidate_cache
+    expire_fragment("car_images_#{self.id}")
+    expire_fragment("admin_car_#{self.id}")
+  end
+
+
   def slug_candidates
     [
         :display_name,
