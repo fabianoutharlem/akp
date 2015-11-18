@@ -40,6 +40,7 @@ class ImportController < ApplicationController
     if car
       car.car_medias.destroy_all
       car.update(attributes)
+      expire_fragment("car_tile_#{car.id}")
       render text: '1', status: 200
     else
       render text: 'The car you are trying to update does not exist', status: 404
@@ -50,6 +51,8 @@ class ImportController < ApplicationController
   def delete
     car = Car.find_by_vehicle_number_hexon @data[:voertuignr_hexon]
     if car
+      expire_fragment("car_tile_#{car.id}")
+      car.car_medias.destroy_all
       car.destroy!
       render text: '1', status: 200
     else

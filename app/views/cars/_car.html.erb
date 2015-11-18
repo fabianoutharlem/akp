@@ -1,3 +1,4 @@
+<% cache("car_tile_#{car.id}") do %>
 <li data-price="<%= car.price_total %>" data-name="<%= car.display_name %>">
   <article class="listing-car">
     <figure>
@@ -69,3 +70,4 @@
   </article>
 
 </li>
+<% end %>
