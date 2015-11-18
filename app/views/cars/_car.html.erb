@@ -1,13 +1,14 @@
-<% cache("car_tile_#{car.id}") do %>
 <li data-price="<%= car.price_total %>" data-name="<%= car.display_name %>">
   <article class="listing-car">
-    <figure>
-      <% car.car_images[0..4].each do |car_media| %>
-          <a href="<%= car_path car %>">
-            <%= image_tag car_media.file.thumb.url, class: 'car_listing', width: '100%', lazy: false %>
-          </a>
-      <% end %>
-    </figure>
+    <% cache("car_images_#{car.id}") do %>
+        <figure>
+          <% car.car_images[0..4].each do |car_media| %>
+              <a href="<%= car_path car %>">
+                <%= image_tag car_media.file.thumb.url, class: 'car_listing', width: '100%', lazy: false %>
+              </a>
+          <% end %>
+        </figure>
+    <% end %>
 
     <h1><a href="<%= car_path car %>"><%= car.display_name %></a></h1>
 
@@ -69,4 +70,3 @@
   </article>
 
 </li>
-<% end %>
