@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.domain = 'http://autokredietplan.nl'
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -24,7 +26,7 @@ Rails.application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
@@ -76,5 +78,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.asset_host = 'http://autokredietplan.nl'
+  Rails.application.routes.default_url_options[:host] = config.domain
+
+  config.action_mailer.asset_host = config.domain
 end
