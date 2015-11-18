@@ -25,7 +25,7 @@ class Car < ActiveRecord::Base
     [
         :display_name,
         [:display_name, :manufacture_year],
-    [:display_name, :mileage]
+        [:display_name, :mileage]
     ]
   end
 
@@ -86,10 +86,8 @@ class Car < ActiveRecord::Base
   def share_on_facebook(image_url)
     return unless Rails.env.production?
     begin
-      after_transaction do
-        @page_graph = Koala::Facebook::API.new('CAAHvZBlZAPcdQBAOp3Rq1SZBJISVyZB9ocs9wwNdel966PjhbZCWBjO8eAp3VbqZBZBZCqRkXvPUSMSxO3mIUo0pYRoUhqh5qvVaM02U6dTaewe2LSbXS2mO3ZBmNZBI437sYMmhy7gz4aH95KdA5JXG5pwl20Sm2T7YqipJPJYhOrZABgihOqqGuUe')
-        @page_graph.put_connections('1486194365036244', 'feed', :message => self.display_name, :picture => image_url, :link => car_url(self))
-      end
+      @page_graph = Koala::Facebook::API.new('CAAHvZBlZAPcdQBAOp3Rq1SZBJISVyZB9ocs9wwNdel966PjhbZCWBjO8eAp3VbqZBZBZCqRkXvPUSMSxO3mIUo0pYRoUhqh5qvVaM02U6dTaewe2LSbXS2mO3ZBmNZBI437sYMmhy7gz4aH95KdA5JXG5pwl20Sm2T7YqipJPJYhOrZABgihOqqGuUe')
+      @page_graph.put_connections('1486194365036244', 'feed', :message => self.display_name, :picture => image_url, :link => car_url(self))
     rescue Exception => e
       Rails.logger.debug 'The car with id ' + self.id.to_s + ' was not shared on facebook'
       Rails.logger.debug e.message
