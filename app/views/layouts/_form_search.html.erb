@@ -7,7 +7,7 @@
 
     <div class="row row-1">
       <p class="select">
-        <%= collection_select :q, :brand, Brand.all, :name, :name, {prompt: true}, {:class => 'search-advanced-brand', 'data-models-url' => models_brands_path} %>
+        <%= collection_select :q, :brand, Brand.all.order(name: :asc), :name, :name, {prompt: true}, {:class => 'search-advanced-brand', 'data-models-url' => models_brands_path} %>
       </p> <!-- .select -->
 
       <p class="select">
@@ -100,7 +100,7 @@
       <div class="slider-container left">
         <h5>Selecteer op prijs</h5>
 
-        <div class="slider-range" data-min="0" data-max="100000" data-default="<%= @total_range ? @total_range : '5000-95000' %>"></div>
+        <div class="slider-range" data-min="0" data-max="100000" data-default="<%= @total_range ? @total_range : '0-100000' %>"></div>
 
         <input class="slider-value" type="hidden" name="q[price_range]" value="<%= @total_range || '' %>" />
       </div>
@@ -109,7 +109,7 @@
       <div class="slider-container right">
         <h5>Selecteer op prijs per maand v.a.</h5>
 
-        <div class="slider-range" data-min="0" data-max="1000" data-default="<%= @month_range ? @month_range : '250-750' %>" data-sufix="p.m."></div>
+        <div class="slider-range" data-min="0" data-max="1000" data-default="<%= @month_range ? @month_range : '0-1000' %>" data-sufix="p.m."></div>
 
         <input class="slider-value" type="hidden" name="q[monthly_price_range]" value="<%= @month_range || '' %>" />
       </div>
