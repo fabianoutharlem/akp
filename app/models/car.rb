@@ -236,7 +236,7 @@ class Car < ActiveRecord::Base
     } unless params[:energy].blank?
     query[:query][:bool][:must] << {
         :range => {
-            :"car.price_total" => {
+            :"car.price_50_50" => {
                 :gte => params[:price_range].split('-').first,
                 :lte => params[:price_range].split('-').last
             }
