@@ -51,7 +51,7 @@ class Car < ActiveRecord::Base
     puts build_query(params).to_json
     search = Car.search(build_query(params).to_json)
     if search.results.total
-      search.records.car_includes.to_a
+      search.records.car_includes
     else
       nil
     end
