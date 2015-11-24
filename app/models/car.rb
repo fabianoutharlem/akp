@@ -72,7 +72,7 @@ class Car < ActiveRecord::Base
   end
 
   def car_images
-    car_medias.select { |car_media| car_media.file_type.include? 'image' }
+    car_medias.where('file_type LIKE ?', 'image')
   end
 
   def as_indexed_json(options={})
