@@ -3,7 +3,7 @@ class WizardsController < ApplicationController
   layout false
 
   def pick_a_car
-    comparison_price_field = params[:total_value_slider] == 'true' ? 'price_total' : 'price_month'
+    comparison_price_field = params[:total_value_slider] == 'true' ? 'price_50_50' : 'price_month'
     default_range = params[:min] + '-' + params[:max]
     if params[:total_value_slider] == 'true'
       @total_range = default_range
