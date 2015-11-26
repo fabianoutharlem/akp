@@ -43,7 +43,7 @@ class Car < ActiveRecord::Base
 
   accepts_nested_attributes_for :options
 
-  scope :car_includes, -> { includes(:brand, :model, :body_type, :fuel_type, :transmission_type, :car_medias, :options) }
+  scope :car_includes, -> { joins(:brand, :model, :body_type, :fuel_type, :transmission_type, :car_medias, :options) }
   validates_associated :model, :brand
   validates :mileage, :color, :engine_size, :manufacture_year, presence: true
 
