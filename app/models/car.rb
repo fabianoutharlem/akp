@@ -52,7 +52,7 @@ class Car < ActiveRecord::Base
     puts build_query(params).to_json
     search = Car.search(build_query(params).to_json)
     if search.results.total
-      search.records.includes(:brand, :model).to_a
+      search.records
     else
       nil
     end
