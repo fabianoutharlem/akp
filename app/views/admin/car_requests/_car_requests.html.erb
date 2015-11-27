@@ -12,7 +12,7 @@
 
   <tbody>
   <% car_requests.each do |car_request| %>
-      <%= render patial: :car_request, car_request: car_request %>
+      <%= render partial: :car_request, locals: { car_request: car_request } %>
   <% end %>
   </tbody>
 </table>

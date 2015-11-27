@@ -1155,6 +1155,8 @@
                     //fade the button
                     $this.addClass('inactive');
 
+                    window.ga('send', 'event', 'Wizard', 'Started', $('input[name="wizard_type"]').val());
+
                     $.ajax({
                         type: 'post',
                         url: nextStepUrl,
@@ -1303,14 +1305,14 @@
 
                     if (navigator.userAgent.indexOf("Safari") > -1) {
                         if (!e.target.checkValidity()) {
-                            alert('The form you submitted is not valid. Please check all the fields and try again.')
+                            alert('The form you submitted is not valid. Please check all the fields and try again.');
                             return;
                         }
                     }
 
                     var $this = $(e.currentTarget);
 
-                    window.ga('send', 'event', 'Wizard', 'Completed', $('select[name="request_type"]', $this).val());
+                    ga('send', 'event', 'Wizard', 'Completed', $('select[name="request_type"]', $this).val());
 
                     //remove next steps
                     $('.wizard .wizard-final').remove();

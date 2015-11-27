@@ -82,7 +82,7 @@ gem 'sitemap_generator'
 gem 'nokogiri'
 
 # youtube downloader
-gem 'viddl-rb'
+gem 'viddl-rb', github: 'rb2k/viddl-rb'
 
 # pagination
 gem 'kaminari'

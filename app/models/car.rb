@@ -16,8 +16,8 @@ class Car < ActiveRecord::Base
   before_update :invalidate_cache
 
   def invalidate_cache
-    expire_fragment("car_images_#{self.id}")
-    expire_fragment("admin_car_#{self.id}")
+    ActionController::Base.new.expire_fragment("car_images_#{self.id}")
+    ActionController::Base.new.expire_fragment("admin_car_#{self.id}")
   end
 
   default_scope { includes(:car_medias) }
@@ -26,7 +26,7 @@ class Car < ActiveRecord::Base
     [
         :display_name,
         [:display_name, :manufacture_year],
-    [:display_name, :mileage]
+        [:display_name, :mileage]
     ]
   end
 
@@ -47,8 +47,6 @@ class Car < ActiveRecord::Base
   scope :car_includes, -> { joins(:brand, :model, :body_type, :fuel_type, :transmission_type, :car_medias, :options) }
   validates_associated :model, :brand
   validates :mileage, :color, :engine_size, :manufacture_year, presence: true
-
-
 
   def self.query(params)
     puts build_query(params).to_json
@@ -75,7 +73,7 @@ class Car < ActiveRecord::Base
   end
 
   def car_images
-    car_medias.select { |car_media| car_media.file_type.include? 'image' }
+    car_medias.where('file_type LIKE ?', '%image%')
   end
 
   def as_indexed_json(options={})
@@ -89,10 +87,8 @@ class Car < ActiveRecord::Base
   def share_on_facebook(image_url)
     return unless Rails.env.production?
     begin
-      after_transaction do
-        @page_graph = Koala::Facebook::API.new('CAAHvZBlZAPcdQBAOp3Rq1SZBJISVyZB9ocs9wwNdel966PjhbZCWBjO8eAp3VbqZBZBZCqRkXvPUSMSxO3mIUo0pYRoUhqh5qvVaM02U6dTaewe2LSbXS2mO3ZBmNZBI437sYMmhy7gz4aH95KdA5JXG5pwl20Sm2T7YqipJPJYhOrZABgihOqqGuUe')
-        @page_graph.put_connections('1486194365036244', 'feed', :message => self.display_name, :picture => image_url, :link => car_url(self))
-      end
+      @page_graph = Koala::Facebook::API.new('CAAHvZBlZAPcdQBAOp3Rq1SZBJISVyZB9ocs9wwNdel966PjhbZCWBjO8eAp3VbqZBZBZCqRkXvPUSMSxO3mIUo0pYRoUhqh5qvVaM02U6dTaewe2LSbXS2mO3ZBmNZBI437sYMmhy7gz4aH95KdA5JXG5pwl20Sm2T7YqipJPJYhOrZABgihOqqGuUe')
+      @page_graph.put_connections('1486194365036244', 'feed', :message => self.display_name, :picture => image_url, :link => car_url(self))
     rescue Exception => e
       Rails.logger.debug 'The car with id ' + self.id.to_s + ' was not shared on facebook'
       Rails.logger.debug e.message
@@ -126,7 +122,7 @@ class Car < ActiveRecord::Base
             end
 
 
-    media << Car.download_video(params[:videos]['video'].last['url']) unless params[:videos].blank? || params[:videos]['video'].blank?
+    # media << Car.download_video(params[:videos]['video'].last['url']) unless params[:videos].blank? || params[:videos]['video'].blank?
     {
         vehicle_number: params[:voertuignr],
         vehicle_number_hexon: params[:voertuignr_hexon],
@@ -241,7 +237,7 @@ class Car < ActiveRecord::Base
     } unless params[:energy].blank?
     query[:query][:bool][:must] << {
         :range => {
-            :"car.price_total" => {
+            :"car.price_50_50" => {
                 :gte => params[:price_range].split('-').first,
                 :lte => params[:price_range].split('-').last
             }
