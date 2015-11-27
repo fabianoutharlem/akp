@@ -2,8 +2,8 @@ module Admin
   class CarRequestsController < AdminBaseController
 
     def index
-      car_requests = CarRequest.all.includes(:car).select {|car_request| !car_request.car.blank?}
-      car_requests_business = CarRequestBusiness.all.includes(:car).select {|car_request| !car_request.car.blank?}
+      car_requests = CarRequest.all.includes(:car).where.not(car: nil)
+      car_requests_business = CarRequestBusiness.all.includes(:car).where.not(car: nil)
       @car_requests = (car_requests + car_requests_business).sort_by { |x| x.created_at}.reverse
     end
 

@@ -3,7 +3,7 @@ class CarsController < ApplicationController
   add_breadcrumb 'Autos', :voorraad_cars_path
 
   def home
-    @cars = Car.all.car_includes.limit(4).order(created_at: :desc)
+    @cars = Car.all.limit(4).order(created_at: :desc)
     references = Reference.where(approved: true)
     @references = references.limit(2)
     @reference_avarage = Reference.avarage(references)
@@ -12,7 +12,7 @@ class CarsController < ApplicationController
 
   def show
     begin
-      @car = Car.find(params[:id])
+      @car = Car.car_includes.find(params[:id])
       add_breadcrumb @car.display_name
     rescue Exception => e
       Rails.logger.info e.message
@@ -22,18 +22,18 @@ class CarsController < ApplicationController
 
   def brand
     @brand = Brand.find(params[:brand_id])
-    @cars = @brand.cars.car_includes.order(order_hash).page(params[:page]).per(16)
+    @cars = @brand.cars.order(order_hash).page(params[:page]).per(16)
     add_breadcrumb @brand.name
   end
 
   def model
     @model = Model.find(params[:model_id])
-    @cars = @model.cars.car_includes.order(order_hash).page(params[:page]).per(16)
+    @cars = @model.cars.order(order_hash).page(params[:page]).per(16)
     add_breadcrumb @model.name
   end
 
   def index
-    @cars = Car.car_includes.limit(100).order(order_hash).page(params[:page]).per(16)
+    @cars = Car.limit(100).order(order_hash).page(params[:page]).per(16)
   end
 
   def search
@@ -48,7 +48,7 @@ class CarsController < ApplicationController
   end
 
   def nieuw_binnen
-    @cars = Kaminari.paginate_array(Car.car_includes.week_old.order(order_hash)).page(params[:page])
+    @cars = Kaminari.paginate_array(Car.week_old.order(order_hash)).page(params[:page])
     render :index
   end
 

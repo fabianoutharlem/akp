@@ -20,6 +20,7 @@ class Car < ActiveRecord::Base
     expire_fragment("admin_car_#{self.id}")
   end
 
+  default_scope { includes(:car_medias) }
 
   def slug_candidates
     [
@@ -47,11 +48,13 @@ class Car < ActiveRecord::Base
   validates_associated :model, :brand
   validates :mileage, :color, :engine_size, :manufacture_year, presence: true
 
+
+
   def self.query(params)
     puts build_query(params).to_json
     search = Car.search(build_query(params).to_json)
     if search.results.total
-      search.records.car_includes.to_a
+      search.records.to_a
     else
       nil
     end
