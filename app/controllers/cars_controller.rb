@@ -22,22 +22,22 @@ class CarsController < ApplicationController
 
   def brand
     @brand = Brand.find(params[:brand_id])
-    @cars = @brand.cars.order(order_hash).page(params[:page]).per(16)
+    @cars = @brand.cars.includes(:brand, :model).order(order_hash).page(params[:page]).per(16)
     add_breadcrumb @brand.name
   end
 
   def model
     @model = Model.find(params[:model_id])
-    @cars = @model.cars.order(order_hash).page(params[:page]).per(16)
+    @cars = @model.cars.includes(:brand, :model).order(order_hash).page(params[:page]).per(16)
     add_breadcrumb @model.name
   end
 
   def index
-    @cars = Car.limit(100).order(order_hash).page(params[:page]).per(16)
+    @cars = Car.limit(100).includes(:brand, :model).order(order_hash).page(params[:page]).per(16)
   end
 
   def search
-    @cars = Car.query(params[:q]).order(order_hash).to_a
+    @cars = Car.query(params[:q]).includes(:brand, :model).order(order_hash).to_a
     @cars = Kaminari.paginate_array(@cars).page(params[:page])
     if request.xhr?
       render :search, layout: false

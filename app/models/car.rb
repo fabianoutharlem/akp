@@ -20,7 +20,7 @@ class Car < ActiveRecord::Base
     ActionController::Base.new.expire_fragment("admin_car_#{self.id}")
   end
 
-  default_scope { includes(:car_medias, :brand, :model) }
+  default_scope { includes(:car_medias) }
 
   def slug_candidates
     [
