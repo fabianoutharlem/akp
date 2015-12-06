@@ -47,7 +47,7 @@ class CarsController < ApplicationController
   end
 
   def nieuw_binnen
-    @cars = Kaminari.paginate_array(Car.week_old.order(order_hash)).page(params[:page])
+    @cars = Car.week_old.includes(:brand, :model).order(order_hash).page(params[:page])
     render :index
   end
 
