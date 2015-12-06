@@ -1,3 +1,13 @@
 $('ul.cars').html('<%= escape_javascript render(partial: 'cars/car', collection: @cars) %>');
 
 $('nav.pagination').replaceWith('<%= escape_javascript paginate(@cars, :remote => true) %>');
+
+$('.wizard .wizard-cars .search-results article.listing-car .goto a').on('click', function (e) {
+    e.preventDefault();
+
+    var $this = $(e.currentTarget),
+            carId = $this.data('id'),
+            nextStepUrl = $this.data('select-url');
+
+    app.wizard.getCarForm($this, carId, nextStepUrl);
+});
