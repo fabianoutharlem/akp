@@ -10,10 +10,14 @@ class WizardsController < ApplicationController
     else
       @month_range = default_range
     end
-    @cars = Car.where("#{comparison_price_field} >= :min_price AND #{comparison_price_field} <= :max_price", min_price: params[:min], max_price: params[:max])
+    @cars = Car.includes(:brand, :model).where("#{comparison_price_field} >= :min_price AND #{comparison_price_field} <= :max_price", min_price: params[:min], max_price: params[:max])
     @cars = @cars.where(brand: {name: params[:brand]}) if params[:brand].present?
     @cars = @cars.where(model: {name: params[:model]}) if params[:model].present?
-    @cars = @cars.limit(100)
+    @cars = @cars.per(50).page(params[:page])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def your_details
