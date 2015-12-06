@@ -1,11 +1,11 @@
 namespace :cars do
   desc "generate some dummy cars"
   task generate_dummies: :environment do
-    4000.times do
+    200.times do
       brand = Brand.order('RAND()').first
       model = brand.models.sample
 
-      Car.create(
+      car = Car.create(
           brand: brand,
           model: model,
           mileage: rand(10000..200000),
@@ -15,6 +15,10 @@ namespace :cars do
           energy_label: Faker::Lorem.characters(1),
           road_tax: rand(20..300)
       )
+      4.times do
+        car.car_medias.build(remote_file_url: 'http://lorempixel.com/300/300')
+        car.save!
+      end
     end
   end
 

@@ -20,7 +20,7 @@ class Car < ActiveRecord::Base
     ActionController::Base.new.expire_fragment("admin_car_#{self.id}")
   end
 
-  default_scope { includes(:car_medias) }
+  default_scope { includes(:car_images) }
 
   def slug_candidates
     [
@@ -36,6 +36,11 @@ class Car < ActiveRecord::Base
   belongs_to :brand
   belongs_to :transmission_type
   has_many :car_medias, dependent: :destroy
+
+  has_many :car_images, -> { where('file_type LIKE ?', '%image%') }, class_name: 'CarMedia'
+
+  has_many :car_request_businesses, dependent: :destroy
+  has_many :car_requests, dependent: :destroy
 
   enum nap: {true: 'j', false: 'n'}
   enum reserved: {'Gereserveerd' => 'j', 'Niet Gereserveerd' => 'n'}
@@ -70,10 +75,6 @@ class Car < ActiveRecord::Base
 
   def self.week_old
     where('created_at >= ?', 1.week.ago.utc).limit(30)
-  end
-
-  def car_images
-    car_medias.where('file_type LIKE ?', '%image%')
   end
 
   def as_indexed_json(options={})

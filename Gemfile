@@ -32,7 +32,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
 gem 'fog-aws'
-gem 'rmagick', require: 'RMagick'
+gem 'rmagick'
 
 # que handling
 gem 'sidekiq'
