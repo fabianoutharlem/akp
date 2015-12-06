@@ -11,3 +11,7 @@ $('.wizard .wizard-cars .search-results article.listing-car .goto a').on('click'
 
     app.wizard.getCarForm($this, carId, nextStepUrl);
 });
+
+$('nav.pagination a').on('click', function() {
+    $('nav.pagination').fadeTo('slow', 0.3);
+});
