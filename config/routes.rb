@@ -47,6 +47,7 @@ Rails.application.routes.draw do
 
   resource :wizard do
     post :pick_a_car
+    get :pick_a_car
     post :your_details
     post :final
   end

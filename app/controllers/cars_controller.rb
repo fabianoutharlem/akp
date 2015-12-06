@@ -37,8 +37,7 @@ class CarsController < ApplicationController
   end
 
   def search
-    @cars = Car.query(params[:q]).includes(:brand, :model).order(order_hash).to_a
-    @cars = Kaminari.paginate_array(@cars).page(params[:page])
+    @cars = Car.query(params[:q]).includes(:brand, :model).order(order_hash).page(params[:page])
     if request.xhr?
       render :search, layout: false
     else
@@ -48,7 +47,7 @@ class CarsController < ApplicationController
   end
 
   def nieuw_binnen
-    @cars = Kaminari.paginate_array(Car.week_old.order(order_hash)).page(params[:page])
+    @cars = Car.week_old.includes(:brand, :model).order(order_hash).page(params[:page])
     render :index
   end
 

@@ -1312,7 +1312,7 @@
 
                     var $this = $(e.currentTarget);
 
-                    ga('send', 'event', 'Wizard', 'Completed', $('select[name="request_type"]', $this).val());
+                    window.ga('send', 'event', 'Wizard', 'Completed', $('select[name="request_type"]', $this).val());
 
                     //remove next steps
                     $('.wizard .wizard-final').remove();
