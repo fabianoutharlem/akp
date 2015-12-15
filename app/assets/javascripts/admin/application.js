@@ -34,6 +34,7 @@
 //= require pages-plugins/dropzone/dropzone.min
 //= require pages-plugins/classie/classie
 //= require pages-plugins/switchery/js/switchery.min
+//= require pages-plugins/bootstrap-select2/select2
 
 //= require cocoon
 

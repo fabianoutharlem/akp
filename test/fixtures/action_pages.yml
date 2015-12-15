@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  banner_title: MyString
+  banner_subtitle: MyString
+  banner_image: MyString
+  active: false
+
+two:
+  banner_title: MyString
+  banner_subtitle: MyString
+  banner_image: MyString
+  active: false

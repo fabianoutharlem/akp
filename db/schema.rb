@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110204340) do
+ActiveRecord::Schema.define(version: 20151215163035) do
+
+  create_table "action_pages", force: true do |t|
+    t.string   "banner_title"
+    t.string   "banner_subtitle"
+    t.string   "banner_image"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "brand_id"
+    t.integer  "model_id"
+  end
 
   create_table "blog_pages", force: true do |t|
     t.string   "title"
@@ -183,8 +194,6 @@ ActiveRecord::Schema.define(version: 20151110204340) do
     t.boolean  "newsletter_subscribe"
     t.string   "woonachtig"
   end
-
-  add_index "car_requests", ["car_id"], name: "index_car_requests_on_car_id", using: :btree
 
   create_table "cars", force: true do |t|
     t.string   "slug"

@@ -33,7 +33,7 @@ class CarsController < ApplicationController
   end
 
   def index
-    @cars = Car.limit(100).includes(:brand, :model).order(order_hash).page(params[:page]).per(16)
+    @cars = Car.includes(:brand, :model).order(order_hash).page(params[:page]).per(16)
   end
 
   def search
