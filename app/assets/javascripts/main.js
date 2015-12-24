@@ -13,6 +13,10 @@ var init = {
             FastClick.attach(element);
         }
 
+        $('nav.pagination a').on('click', function() {
+            $('nav.pagination').fadeTo('slow', 0.3);
+        });
+
         //init the stuff
         this.initRangeSliders(element);
         this.initSelect2(element);
