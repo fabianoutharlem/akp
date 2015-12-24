@@ -45,7 +45,7 @@
 
     </ul>
 
-    <%= paginate @cars %>
+    <%= paginate @cars, params: {wizard_type: params[:wizard_type]} %>
 
   </div> <!-- .wrapper -->
 </section> <!-- .search-cars -->

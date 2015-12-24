@@ -1,4 +1,4 @@
-$('ul.cars').html('<%= escape_javascript render(partial: 'cars/car', collection: @cars) %>');
+$('ul.cars').html('<%= escape_javascript render(partial: 'cars/car', collection: @cars, locals: {wizard_type: params[:wizard_type]}) %>');
 
 $('nav.pagination').replaceWith('<%= escape_javascript paginate(@cars, :remote => true) %>');
 
