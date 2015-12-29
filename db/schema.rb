@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215163035) do
+ActiveRecord::Schema.define(version: 20151229134055) do
 
   create_table "action_pages", force: true do |t|
     t.string   "banner_title"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20151215163035) do
     t.datetime "updated_at"
     t.integer  "brand_id"
     t.integer  "model_id"
+    t.string   "slug"
   end
 
   create_table "blog_pages", force: true do |t|

@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
     redirect_to '/users/sign_in', :alert => exception.message
   end
 
+  def order_hash
+    field = (params[:sort_field] || 'brands.name, models.name, car_type')
+    direction = (params[:sort_direction] || :asc).to_sym
+    "#{field} #{direction}"
+  end
+
   private
 
   def layout

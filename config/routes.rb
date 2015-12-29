@@ -72,6 +72,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :action_pages, path: :action, only: [:show]
+
   resources :blog_pages, as: :blog, only: [:show]
 
   resources :references, only: [:index, :create]

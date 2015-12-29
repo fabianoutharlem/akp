@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="898px" height="846px" viewBox="0 0 898 846" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>Mask</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="26.8948484%" y1="6.28885538%" x2="71.4031094%" y2="95.8993067%" id="linearGradient-1">
+            <stop stop-color="#F97844" offset="0%"></stop>
+            <stop stop-color="#F35026" offset="100%"></stop>
+        </linearGradient>
+        <path id="path-2" d="M599,845.451906 C268.182288,845.451906 0,577.800389 0,247.626678 C0,-82.5422261 1198,-82.5422261 1198,247.626678 C1198,577.800389 929.822528,845.451906 599,845.451906 Z"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="AKP---1440px---Actiepagina---Audi" sketch:type="MSArtboardGroup" transform="translate(0.000000, -2753.000000)">
+            <g id="04_Zorgeloos_rijden" sketch:type="MSLayerGroup" transform="translate(-300.000000, 2716.000000)">
+                <g id="audi-a3-sportback-6-e1348104746369" transform="translate(0.000000, 37.000000)">
+                    <mask id="mask-3" sketch:name="Mask" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Mask" fill="url(#linearGradient-1)" sketch:type="MSShapeGroup" xlink:href="#path-2"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

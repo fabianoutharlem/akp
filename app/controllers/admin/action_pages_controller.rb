@@ -64,7 +64,7 @@ module Admin
     end
 
     def action_page_params
-      params.require(:action_page).permit(:id, :banner_title, :banner_subtitle, :banner_image, :banner_image_cache, :brand_id, :model_id, :active)
+      params.require(:action_page).permit(:id, :banner_title, :slug, :banner_subtitle, :banner_image, :banner_image_cache, :brand_id, :model_id, :active)
     end
 
   end

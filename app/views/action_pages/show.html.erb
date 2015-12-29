@@ -1,0 +1,94 @@
+<section class="action_banner">
+  <div class="wrapper" style="background-image: url('<%= @action_page.banner_image.large.url %>');">
+
+    <article class="balloon">
+      <h2>Zoekt u een Audi?</h2>
+
+      <h2>Nu met extra voordeel!</h2>
+
+      <p>
+        Financier een Audi A3 tijdens de Audi Weken en ontvang:
+      </p>
+
+      <ul>
+        <li>€ 1.000 aan accessoires/inbouw</li>
+        <li>€ 500 extra inruilvoordeel</li>
+      </ul>
+    </article>
+
+    <h1 class="right"><%= @action_page.banner_title %></h1>
+
+    <p class="right"><%= @action_page.banner_subtitle %></p>
+
+  </div>
+
+  <div class="footer">
+    <i class="icon arrow-orange-down"></i>
+  </div>
+  <!-- .footer -->
+</section>
+
+<section class="search-cars brand-page action-page-cars">
+  <div class="wrapper">
+
+    <h2>Auto sectie heading</h2>
+
+    <p>
+      Auto sectie sub heading
+    </p>
+
+    <div class="title">
+      <a class="right" href="">
+        Filters
+        <i class="icon arrow-blue-down"></i>
+      </a>
+
+      <h2>
+        <strong><%= "#{@action_page.try(:brand).try(:name)} #{@action_page.try(:model).try(:name)}" %></strong>
+        <em><%= @cars.total_count %> op voorraad</em>
+      </h2>
+
+      <div class="submenu">
+        <%= render 'cars/filters' %>
+      </div>
+    </div>
+    <!-- .title -->
+
+
+    <ul class="cars">
+
+      <%= render @cars %>
+
+    </ul>
+
+    <%= paginate @cars %>
+
+  </div>
+  <!-- .wrapper -->
+</section> <!-- .search-cars -->
+
+<section class="action_banner second">
+  <div class="wrapper">
+
+    <figure style="background-image: url('<%= image_url 'action_pages/audi-a3-sportback.png' %>');"></figure>
+
+    <article>
+      <h2>
+        Zorgeloos rijden in een Audi A3 op maat!
+      </h2>
+
+      <p>
+        U weet vooraf precies wat de kosten per maand zijn. Zaken als onderhoud, reparatie, wegenbelasting en
+        verzekering zijn bij de prijs inbegrepen. U kunt uw nieuwe Audi A3 volledig naar eigen wens laten inrichten.
+      </p>
+
+      <p>
+        Wij leveren de Audi A3 compleet voor u af, zodat u deze direct kunt gebruiken.
+        Zit de Audi A3 van uw keuze er niet bij? Zoek dan nu in ons volledige aanbod.
+      </p>
+    </article>
+
+    <div class="clearfix"></div>
+
+  </div>
+</section>

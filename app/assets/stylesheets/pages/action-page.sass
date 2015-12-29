@@ -1,0 +1,182 @@
+section.action_banner
+  padding: 30px
+  background-color: #EEEEEE
+  div.wrapper
+    padding: 85px 135px
+    color: white
+    text-align: left
+    height: 780px
+    -webkit-background-size: cover
+    background-size: cover
+    position: relative
+    overflow: hidden
+    +mobile-large
+      padding: 55px 50px
+    +mobile
+      padding: 55px 20px
+
+    article.balloon
+      background-image: image-url('action_pages/text_balloon.png')
+      -webkit-background-size: contain
+      background-size: contain
+      background-repeat: no-repeat
+      width: 600px
+      height: 360px
+      position: absolute
+      top: 0
+      left: 0
+      padding: 50px
+      +desktop-small
+        width: 450px
+        height: 270px
+      +tablet
+        width: 510px
+        height: 320px
+      +mobile-large
+        width: 100%
+        height: 400px
+        padding: 50px 30px
+      +mobile
+        background-size: 140%
+      h2
+        font-size: 34px
+        color: #FFFFFF
+        line-height: 46px
+        margin: 0
+        font-weight: 600
+      p
+        font-size: 16px
+        line-height: 22px
+        margin-top: 20px
+      ul
+        list-style: none
+        margin: 0
+        padding: 0
+        li
+          margin: 0 0 2px 0
+          padding: 0 0 0 35px
+          position: relative
+          font-size: 16px
+          line-height: 30px
+          font-weight: 600
+
+          &::before
+            content: ''
+            @extend .icon
+            @extend .icon.list-check-small
+
+            position: absolute
+            left: 4px
+            top: 7px
+
+    h1
+      margin: 0
+      font-size: 70px
+      text-transform: uppercase
+      font-weight: bold
+      line-height: 80px
+      animation-delay: 1s
+      &.right
+        margin-left: 630px
+        +desktop-small
+          margin-left: 420px
+        +tablet
+          margin: 380px auto 0
+          text-align: center
+        +mobile-large
+          margin-top: 450px
+      +tablet-small
+        font-size: 40px
+        line-height: 50px
+
+    p
+      font-size: 23px
+      margin-top: 10px
+      font-weight: 400
+      animation-delay: 2s
+      &.right
+        margin-left: 630px
+        +desktop-small
+          margin-left: 420px
+        +tablet
+          margin: 20px auto 0
+          text-align: center
+
+    .btn
+      padding: 18px 70px 20px 0
+      width: 370px
+      animation-delay: 3s
+      +tablet-small
+        width: 310px
+      +mobile
+        width: 300px
+        margin: 0 auto
+
+  div.footer
+    margin: 20px auto
+    text-align: center
+
+
+
+section.action-page-cars
+  .wrapper
+    h2:first-child + p
+      margin-bottom: 50px
+
+section.action_banner.second
+  .wrapper
+    background-image: linear-gradient(-153deg, #F97844 1%, #F87240 15%, #F8723F 16%, #F8723F 16%, #F35026 100%)
+    height: auto
+    position: relative
+    padding-left: 0
+    padding-right: 15px
+    padding-top: 20px
+
+    figure
+      margin: -50px 0px 0 0
+      width: 62.5%
+      height: 800px
+      -webkit-background-size: cover
+      background-size: cover
+      mask-image: image_url('action_pages/car_image_mask.svg')
+      -moz-mask-image: image_url('action_pages/car_image_mask.svg')
+      -webkit-mask-image: image_url('action_pages/car_image_mask.svg')
+      -webkit-mask-repeat: no-repeat
+      -moz-mask-repeat: no-repeat
+      mask-repeat: no-repeat
+      mask-size: contain
+      -moz-mask-size: contain
+      -webkit-mask-size: contain
+      display: inline-block
+      float: left
+      +tablet
+        height: 540px
+        width: 80%
+      +mobile-large
+        height: 380px
+        margin-bottom: 30px
+
+    article
+      width: 35%
+      display: inline-block
+      padding-left: 15px
+      float: left
+      font-size: 21px
+      color: #FFFFFF
+      line-height: 42px
+      +tablet
+        float: none
+        margin: 15px auto
+        text-align: center
+        display: block
+        width: 80%
+      h2
+        font-size: 60px
+        color: #FFFFFF
+        line-height: 70px
+
+
+
+
+
+

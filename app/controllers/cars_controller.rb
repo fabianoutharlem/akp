@@ -68,12 +68,4 @@ class CarsController < ApplicationController
     add_breadcrumb 'Financieren'
   end
 
-  private
-
-  def order_hash
-    field = (params[:sort_field] || 'brands.name, models.name, car_type')
-    direction = (params[:sort_direction] || :asc).to_sym
-    "#{field} #{direction}"
-  end
-
 end

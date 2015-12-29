@@ -75,7 +75,7 @@ class Car < ActiveRecord::Base
   end
 
   def related_cars
-    Car.tagged_with(option_list, any: true).where.not(vehicle_number_hexon: vehicle_number_hexon).limit(3)
+    Car.tagged_with(option_list, any: true).where.not(vehicle_number_hexon: vehicle_number_hexon).limit(4)
   end
 
   def as_indexed_json(options={})

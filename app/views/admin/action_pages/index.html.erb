@@ -16,6 +16,7 @@
         <thead>
         <tr>
           <th>Title</th>
+          <th>Slug</th>
           <th>Brand</th>
           <th>Model</th>
           <th>Active</th>
@@ -25,10 +26,12 @@
         <% @action_pages.each do |action_page| %>
             <tr>
               <td><%= action_page.banner_title %></td>
+              <td><%= action_page.slug %></td>
               <td><%= action_page.brand.name %></td>
               <td><%= action_page.try(:model).try(:name) %></td>
               <td><%= action_page.active? %></td>
               <td>
+                <%= link_to 'View', action_page_path(action_page), class: 'btn btn-primary', target: :blank %>
                 <%= link_to 'Edit', edit_admin_action_page_path(action_page), class: 'btn btn-info' %>
                 <%= link_to 'Delete', admin_action_page_path(action_page), confirm: 'Are you sure you want to delete this action_page?', method: :delete, class: 'btn btn-danger' %>
               </td>
