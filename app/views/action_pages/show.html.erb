@@ -94,3 +94,106 @@
 
   </div>
 </section>
+
+<section class="welcome">
+  <div class="wrapper">
+
+    <% @cms_fields = CmsField.first %>
+
+    <h2>Financier je nieuwe <%= "#{@action_page.try(:brand).try(:name)} #{@action_page.try(:model).try(:name)}" %> met
+      Auto Krediet Plan</h2>
+
+    <p>
+      Kies hieronder 1 van onze financierings mogelijkheden met Auto Krediet Plan
+    </p>
+
+    <ul>
+
+      <li>
+        <article>
+          <figure>
+            <a href="<%= financing_cars_path 'bussiness' %>"><%= image_tag @cms_fields.home_foto_1 ? @cms_fields.home_foto_1.url : 'image-zakelijk.jpg' %></a>
+          </figure>
+
+          <h1>
+            <a href="<%= financing_cars_path 'bussiness' %>"><%= StaticText.home_business_finance_head %></a>
+          </h1>
+
+          <div class="description">
+            <p><%= StaticText.home_bussiness_finance_sub_text %></p>
+          </div>
+
+          <footer>
+            <a class="btn btn-small btn-full-width" href="<%= financing_cars_path 'bussiness' %>"><%= StaticText.home_bussiness_finance_button %></a>
+          </footer>
+        </article>
+      </li>
+
+      <li>
+        <article>
+          <figure>
+            <a href="<%= financing_cars_path 'private' %>"><%= image_tag @cms_fields.home_foto_2 ? @cms_fields.home_foto_2.url : 'image-particuliere.jpg' %></a>
+          </figure>
+
+          <h1>
+            <a href="<%= financing_cars_path 'private' %>"><%= StaticText.home_private_finance_head %></a>
+          </h1>
+
+          <div class="description">
+            <p><%= StaticText.home_private_finance_sub_text %></p>
+          </div>
+
+          <footer>
+            <a class="btn btn-small btn-full-width" href="<%= financing_cars_path 'private' %>"><%= StaticText.home_private_finance_button %></a>
+          </footer>
+        </article>
+      </li>
+
+      <li>
+        <article>
+          <figure>
+            <a href="<%= financing_cars_path '50_50' %>"><%= image_tag @cms_fields.home_foto_3 ? @cms_fields.home_foto_3.url : 'image-5050.jpg' %></a>
+          </figure>
+
+          <h1>
+            <a href="<%= financing_cars_path '50_50' %>">50/50 Deals
+              <small>(Particulier)</small>
+            </a>
+          </h1>
+
+          <div class="description">
+            <p><%= StaticText.home_50_50_sub_text %></p>
+          </div>
+
+          <footer>
+            <a class="btn btn-small btn-full-width" href="<%= financing_cars_path '50_50' %>"><%= StaticText.home_50_50_finance_button %></a>
+          </footer>
+        </article>
+      </li>
+
+    </ul>
+
+    <div class="warning home"></div>
+
+  </div>
+  <!-- .wrapper -->
+</section> <!-- .welcome -->
+
+<section class="pros_akp">
+  <div class="wrapper">
+    <div class="pros">
+      <ul class="pros">
+        <li class="car">Groot aanbod</li>
+        <li class="cert">Onderhoudshistorie & schadeverleden bekend</li>
+        <li class="badge">Standaard 3 maanden garantie</li>
+        <li class="wrench">Goed onderhouden</li>
+      </ul>
+      <ul class="pros">
+        <li class="spacer">&nbsp;</li>
+        <li class="hand">Gunstige aanschafprijs</li>
+        <li class="person">Van de 1e eigenaar</li>
+        <li class="moneybag">Mogelijkheid om uw auto te financieren</li>
+      </ul>
+    </div>
+  </div>
+</section>

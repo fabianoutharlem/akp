@@ -116,8 +116,6 @@ section.action_banner
     margin: 20px auto
     text-align: center
 
-
-
 section.action-page-cars
   .wrapper
     h2:first-child + p
@@ -175,8 +173,53 @@ section.action_banner.second
         color: #FFFFFF
         line-height: 70px
 
-
-
-
+section.pros_akp
+  div.wrapper
+    background-image: image_url('action_pages/pros_akp.png')
+    background-repeat: no-repeat
+    background-position: top -900px center
+    background-size: 100%
+    height: 800px
+    text-align: left
+    padding-top: 300px
+    +desktop
+      background-position: top -62vw center
+    div.pros
+      width: 90%
+      margin: 0 auto
+      ul.pros
+        list-style: none
+        width: 48%
+        display: inline-block
+        padding: 0 0 0 20px
+        +desktop-small
+          margin: 0 auto
+          display: block
+          width: 80%
+        li
+          font-size: 24px
+          color: #09005D
+          line-height: 36px
+          padding: 30px 0 30px 80px
+          background-position: left center
+          background-repeat: no-repeat
+          background-size: 50px
+          +desktop
+            &.spacer
+              display: none
+          &.car
+            background-image: image_url('action_pages/icons/cars.png')
+          &.cert
+            background-image: image_url('action_pages/icons/cert.png')
+          &.badge
+            background-image: image_url('action_pages/icons/badge.png')
+          &.wrench
+            background-image: image_url('action_pages/icons/wrench.png')
+          &.hand
+            background-image: image_url('action_pages/icons/hand.png')
+          &.person
+            background-image: image_url('action_pages/icons/person.png')
+          &.moneybag
+            background-image: image_url('action_pages/icons/moneybag.png')
 
 
