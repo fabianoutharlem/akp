@@ -4,23 +4,14 @@
   <div class="wrapper" style="background-image: url('<%= @action_page.banner_image.large.url %>');">
 
     <article class="balloon">
-      <h2>Zoekt u een Audi?</h2>
+      <h2><%= @action_page.header_title %></h2>
 
-      <h2>Nu met extra voordeel!</h2>
-
-      <p>
-        Financier een Audi A3 tijdens de Audi Weken en ontvang:
-      </p>
-
-      <ul>
-        <li>€ 1.000 aan accessoires/inbouw</li>
-        <li>€ 500 extra inruilvoordeel</li>
-      </ul>
+      <%= @action_page.header_text.html_safe %>
     </article>
 
     <h1 class="right"><%= @action_page.banner_title %></h1>
 
-    <p class="right"><%= @action_page.banner_subtitle %></p>
+    <p class="right"><%= h @action_page.banner_subtitle %></p>
 
   </div>
 
@@ -33,10 +24,10 @@
 <section class="search-cars brand-page action-page-cars">
   <div class="wrapper">
 
-    <h2>Auto sectie heading</h2>
+    <h2><%= @action_page.car_section_title.html_safe %></h2>
 
     <p>
-      Auto sectie sub heading
+      <%= @action_page.car_section_subtitle.html_safe %>
     </p>
 
     <div class="title">
@@ -69,31 +60,28 @@
   <!-- .wrapper -->
 </section> <!-- .search-cars -->
 
-<section class="action_banner second">
-  <div class="wrapper">
+<% if @action_page.orange_banner_enabled? %>
 
-    <figure style="background-image: url('<%= image_url 'action_pages/audi-a3-sportback.png' %>');"></figure>
+    <section class="action_banner second">
+      <div class="wrapper">
 
-    <article>
-      <h2>
-        Zorgeloos rijden in een Audi A3 op maat!
-      </h2>
+        <figure style="background-image: url('<%= image_url @action_page.orange_banner_image.processed %>');"></figure>
 
-      <p>
-        U weet vooraf precies wat de kosten per maand zijn. Zaken als onderhoud, reparatie, wegenbelasting en
-        verzekering zijn bij de prijs inbegrepen. U kunt uw nieuwe Audi A3 volledig naar eigen wens laten inrichten.
-      </p>
+        <article>
+          <h2>
+            <%= @action_page.orange_banner_title.html_safe %>
+          </h2>
 
-      <p>
-        Wij leveren de Audi A3 compleet voor u af, zodat u deze direct kunt gebruiken.
-        Zit de Audi A3 van uw keuze er niet bij? Zoek dan nu in ons volledige aanbod.
-      </p>
-    </article>
+          <%= @action_page.orange_banner_text.html_safe %>
 
-    <div class="clearfix"></div>
+        </article>
 
-  </div>
-</section>
+        <div class="clearfix"></div>
+
+      </div>
+    </section>
+
+<% end %>
 
 <section class="welcome">
   <div class="wrapper">
@@ -179,80 +167,75 @@
   <!-- .wrapper -->
 </section> <!-- .welcome -->
 
-<section class="pros_akp">
-  <div class="wrapper">
-    <div class="pros">
-      <ul class="pros">
-        <li class="car">Groot aanbod</li>
-        <li class="cert">Onderhoudshistorie & schadeverleden bekend</li>
-        <li class="badge">Standaard 3 maanden garantie</li>
-        <li class="wrench">Goed onderhouden</li>
-      </ul>
-      <ul class="pros">
-        <li class="spacer">&nbsp;</li>
-        <li class="hand">Gunstige aanschafprijs</li>
-        <li class="person">Van de 1e eigenaar</li>
-        <li class="moneybag">Mogelijkheid om uw auto te financieren</li>
-      </ul>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-</section>
+<% if @action_page.pros_list_enabled? %>
 
-<section class="rating">
-  <div class="wrapper">
-    <div class="right">
-      <h2><%= @action_page.banner_title %></h2>
+    <section class="pros_akp">
+      <div class="wrapper">
+        <div class="pros">
+          <ul class="pros">
+            <li class="car">Groot aanbod</li>
+            <li class="cert">Onderhoudshistorie & schadeverleden bekend</li>
+            <li class="badge">Standaard 3 maanden garantie</li>
+            <li class="wrench">Goed onderhouden</li>
+          </ul>
+          <ul class="pros">
+            <li class="spacer">&nbsp;</li>
+            <li class="hand">Gunstige aanschafprijs</li>
+            <li class="person">Van de 1e eigenaar</li>
+            <li class="moneybag">Mogelijkheid om uw auto te financieren</li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </section>
 
-      <p>Ook zakelijk zeer voordelig te financieren via Auto Krediet Plan</p>
+<% end %>
 
-      <%= image_tag 'action_pages/audi_a1.png', class: 'car_image' %>
+<% if @action_page.reference_banner_enabled? %>
 
-      <a href="" class="btn btn-medium">Zakelijke auto financieren</a>
-    </div>
-    <!-- div.right -->
+    <section class="rating">
+      <div class="wrapper">
+        <div class="right">
+          <h2><%= @action_page.banner_title %></h2>
 
-    <div class="left">
-      <figure>
-        <img src="http://lorempixel.com/138/138" alt="">
-      </figure>
-      <div class="rating_text">
+          <p>Ook zakelijk zeer voordelig te financieren via Auto Krediet Plan</p>
+
+          <%= image_tag @action_page.reference_car_image.processed, class: 'car_image' %>
+
+          <%= link_to 'Zakelijke auto financieren', financing_cars_path('bussiness'), class: 'btn btn-medium' %>
+        </div>
+        <!-- div.right -->
+
+        <div class="left">
+          <figure>
+            <%= image_tag @action_page.reference_image %>
+          </figure>
+          <div class="rating_text">
         <span class="stars">
-              <i class="icon star-full-small"></i>
-              <i class="icon star-full-small"></i>
-              <i class="icon star-full-small"></i>
-              <i class="icon star-full-small"></i>
-              <i class="icon star-empty-small"></i>
+              <% 5.times do |i| %>
+              <i class="icon <%= @action_page.reference_stars >= i + 1 ? 'star-full-small' : 'star-empty-small' %>"></i>
+          <% end %>
         </span>
 
-        <p>
-          Mike, ondernemer
-        </p>
-        <blockquote>
-          “Rijden is voor mij ook genieten. Deze
-          uitvoering had enorm veel luxe zoals
-          extra vette spreakers voor heel weinig
-          extra.”
-        </blockquote>
-        <span class="caption">
-            Mike, least voor €290,- en betaalt
-            prive €192,- bijtelling aan de fiscus.
-          </span>
+            <%= @action_page.reference_text.html_safe %>
+            <div class="clear"></div>
+          </div>
+
+        </div>
+        <!-- div.left -->
+
         <div class="clear"></div>
+
+        <p class="warning">
+          *Let op: Deze samenstellingen zijn gebaseerd op populaire
+          keuzes van <%= "#{@action_page.try(:brand).try(:name)} #{@action_page.try(:model).try(:name)}" %> rijders.
+          Namen zijn gefineerd.
+        </p>
+
       </div>
+    </section>
 
-    </div>
-    <!-- div.left -->
-
-    <div class="clear"></div>
-
-    <p class="warning">
-      *Let op: Deze samenstellingen zijn gebaseerd op populaire
-      keuzes van Audi A3 rijders. Namen zijn gefineerd.
-    </p>
-
-  </div>
-</section>
+<% end %>
 
 <%= render partial: 'cars/financing_icons' %>
 

@@ -7,13 +7,18 @@ class ActionPage < ActiveRecord::Base
   belongs_to :model
 
   attr_accessor :banner_image_cache
+  attr_accessor :orange_banner_image_cache
+  attr_accessor :reference_image_cache
+  attr_accessor :reference_car_image_cache
 
   scope :active_actions, -> { where(active: true) }
 
   before_save :ensure_one_active_record
   before_save :ensure_model_matches_brand
 
-  validates :banner_image, :banner_subtitle, :banner_title, :brand, presence: true
+  validates :banner_image, :banner_subtitle, :banner_title, :brand, :header_title, :header_text, :car_section_title, :car_section_subtitle, presence: true
+  validates_presence_of :orange_banner_image, :orange_banner_title, :orange_banner_text, if: lambda { orange_banner_enabled? }
+  validates_presence_of :reference_image, :reference_text, :reference_stars, :reference_car_image, if: lambda { reference_banner_enabled? }
 
   def ensure_one_active_record
     if self.active?
@@ -28,6 +33,10 @@ class ActionPage < ActiveRecord::Base
   end
 
   mount_uploader :banner_image, ActionPageUploader
+  mount_uploader :orange_banner_image, ActionPageUploader
+  mount_uploader :reference_image, ActionPageUploader
+  mount_uploader :reference_car_image, ActionPageUploader
+
 
   def self.active_action
     active_actions.first

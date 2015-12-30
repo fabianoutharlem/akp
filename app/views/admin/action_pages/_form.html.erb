@@ -1,4 +1,11 @@
 <div class="form-group form-group-default">
+  <%= f.label :active %>
+  <%= f.check_box :active, class: 'switchery' %>
+</div>
+
+<h2>General action info</h2>
+
+<div class="form-group form-group-default">
   <%= f.label :banner_title %>
   <%= f.text_field :banner_title, class: 'form-control', required: true %>
 </div>
@@ -33,10 +40,88 @@
 <% end %>
 
 <div class="form-group form-group-default">
-  <%= f.label :active %>
-  <%= f.check_box :active, class: 'switchery' %>
+  <%= f.label :header_title %>
+  <%= f.text_field :header_title, class: 'form-control', required: true %>
 </div>
 
+<div class="form-group form-group-default">
+  <%= f.label :header_text %>
+  <%= f.text_area :header_text, class: 'wysiwyg form-control', placeholder: 'Type something..', style: 'height: 250px;', required: true %>
+</div>
+
+<h2>Cars section</h2>
+
+<div class="form-group form-group-default">
+  <%= f.label :car_section_title %>
+  <%= f.text_field :car_section_title, class: 'form-control', required: true %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :car_section_subtitle %>
+  <%= f.text_area :car_section_subtitle, class: 'wysiwyg form-control', placeholder: 'Type something..', style: 'height: 250px;', required: true %>
+</div>
+
+<h2>Orange banner</h2>
+
+<div class="form-group form-group-default">
+  <%= f.label :orange_banner_enabled %>
+  <%= f.check_box :orange_banner_enabled, class: 'switchery' %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :orange_banner_image %>
+  <%= f.file_field :orange_banner_image, class: 'form-control' %>
+  <%= f.hidden_field :orange_banner_image_cache %>
+  <%= image_tag f.object.orange_banner_image.try(:admin) if f.object.orange_banner_image.present? %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :orange_banner_title %>
+  <%= f.text_field :orange_banner_title, class: 'form-control' %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :orange_banner_text %>
+  <%= f.text_area :orange_banner_text, class: 'wysiwyg form-control', placeholder: 'Type something..', style: 'height: 250px;' %>
+</div>
+
+<h2>Lijst met voordelen AKP</h2>
+
+<div class="form-group form-group-default">
+  <%= f.label :pros_list_enabled %>
+  <%= f.check_box :pros_list_enabled, class: 'switchery' %>
+</div>
+
+<h2>Referentie</h2>
+
+<div class="form-group form-group-default">
+  <%= f.label :reference_banner_enabled %>
+  <%= f.check_box :reference_banner_enabled, class: 'switchery' %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :reference_image %>
+  <%= f.file_field :reference_image, class: 'form-control' %>
+  <%= f.hidden_field :reference_image_cache %>
+  <%= image_tag f.object.reference_image.try(:admin) if f.object.reference_image.present? %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :reference_stars %>
+  <%= f.select :reference_stars, (1..5), {include_blank: false}, data: {'init-plugin' => 'select2'} %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :reference_text %>
+  <%= f.text_area :reference_text, class: 'wysiwyg form-control', placeholder: 'Type something..', style: 'height: 250px;' %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :reference_car_image %>
+  <%= f.file_field :reference_car_image, class: 'form-control' %>
+  <%= f.hidden_field :reference_car_image_cache %>
+  <%= image_tag f.object.reference_car_image.try(:admin) if f.object.reference_car_image.present? %>
+</div>
 
 <% content_for :footer do %>
     <script type="text/javascript" charset="utf-8">
@@ -45,7 +130,7 @@
         elems.forEach(function (html) {
             var switchery = new Switchery(html, {color: '#10CFBD'});
         });
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Avoid applying plugin to <select> with data-init-plugin="select2"
 
             // Only apply on elements that don't have data-init-plugin="select2"
@@ -53,6 +138,9 @@
                 placeholder: "Select a model",
                 allowClear: true
             });
+
+            $('.wysiwyg').wysihtml5();
+
         });
     </script>
 <% end %>
