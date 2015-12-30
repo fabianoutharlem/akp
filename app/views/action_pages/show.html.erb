@@ -195,5 +195,65 @@
         <li class="moneybag">Mogelijkheid om uw auto te financieren</li>
       </ul>
     </div>
+    <div class="clearfix"></div>
   </div>
 </section>
+
+<section class="rating">
+  <div class="wrapper">
+    <div class="right">
+      <h2><%= @action_page.banner_title %></h2>
+
+      <p>Ook zakelijk zeer voordelig te financieren via Auto Krediet Plan</p>
+
+      <%= image_tag 'action_pages/audi_a1.png', class: 'car_image' %>
+
+      <a href="" class="btn btn-medium">Zakelijke auto financieren</a>
+    </div>
+    <!-- div.right -->
+
+    <div class="left">
+      <figure>
+        <img src="http://lorempixel.com/138/138" alt="">
+      </figure>
+      <div class="rating_text">
+        <span class="stars">
+              <i class="icon star-full-small"></i>
+              <i class="icon star-full-small"></i>
+              <i class="icon star-full-small"></i>
+              <i class="icon star-full-small"></i>
+              <i class="icon star-empty-small"></i>
+        </span>
+
+        <p>
+          Mike, ondernemer
+        </p>
+        <blockquote>
+          “Rijden is voor mij ook genieten. Deze
+          uitvoering had enorm veel luxe zoals
+          extra vette spreakers voor heel weinig
+          extra.”
+        </blockquote>
+        <span class="caption">
+            Mike, least voor €290,- en betaalt
+            prive €192,- bijtelling aan de fiscus.
+          </span>
+        <div class="clear"></div>
+      </div>
+
+    </div>
+    <!-- div.left -->
+
+    <div class="clear"></div>
+
+    <p class="warning">
+      *Let op: Deze samenstellingen zijn gebaseerd op populaire
+      keuzes van Audi A3 rijders. Namen zijn gefineerd.
+    </p>
+
+  </div>
+</section>
+
+<%= render partial: 'cars/financing_icons' %>
+
+<%= render partial: 'layouts/footer_complex' %>
