@@ -1,4 +1,4 @@
-<!--[if lt IE 8]>
+<!--[if lt IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -7,55 +7,42 @@
 
   <div class="top">
     <div class="wrapper">
-
-      <a class="menu" href="#menu">
-        <i class="icon menu-button"></i>
-        Menu
+      <a href="" class="logo">
+        <%= image_tag 'logo_akp_1.png' %>
       </a>
-
-      <a class="search" href="#search">
-        <i class="icon search-orange"></i>
-        Zoeken
-      </a>
-
-      <h1>
-        <a href="<%= root_path %>">
-          <%= image_tag 'logo_akp_1.png' %>
-        </a>
-      </h1>
-
+      <ul class="contact_icons">
+        <li><a href="" class="phone">+31 (0) 23 792 00 03</a></li>
+        <li><a href="" class="whatsapp">WhatsApp 06 55 23 29 11</a></li>
+        <li><a href="" class="email">info@autokredietplan.nl </a></li>
+      </ul>
     </div>
-    <!-- .wrapper -->
   </div>
-  <!-- .top -->
 
-  <div class="subheader">
+  <div class="bottom">
     <div class="wrapper">
-
-      <span>Heeft u vragen?</span>
-
-      <a class="phone" href="tel:<%= StaticText.phone %>">
-        <i class="icon iphone-white"></i>
-        <%= StaticText.phone %>
-      </a>
-
-      <a class="email" href="mailto:<%= StaticText.ash_email %>">
-        <i class="icon mail-white"></i>
-        <%= StaticText.ash_email %>
-      </a>
-
-      <a class="whatsapp" href="tel:<%= StaticText.ash_whatsapp.gsub(' ', '') %>">
-        <i class="icon whatsapp"></i>
-        WhatsApp <%= StaticText.ash_whatsapp %>
-      </a>
-
-      <div class="language-switch">
-        <h4 data-lang="nl">
-          Nederlands
-          <i class="icon arrow-white-down-small"></i>
-        </h4>
-
-        <div class="submenu">
+      <ul class="left_menu">
+        <li>
+          <%= link_to 'Home', root_path %>
+        </li>
+        <li>
+          <a class="arrow">Voorraad</a>
+        </li>
+        <li>
+          <a class="arrow">Financieringen</a>
+        </li>
+        <li>
+          <a class="arrow">Alles over financieren</a>
+        </li>
+        <li class="arrow">
+          <a>Contact</a>
+        </li>
+      </ul>
+      <ul class="right_menu">
+        <li class="search">
+          <a href="">Auto zoeken</a>
+        </li>
+        <li class="language-switch">
+          <a href="">Dutch</a>
           <ul>
             <li>
               <a href="#change-dutch" class="selected" data-lang="nl">Dutch</a>
@@ -76,17 +63,54 @@
               <a href="#change-turkish" data-lang="tr">Turkish</a>
             </li>
           </ul>
-        </div>
-        <!-- .submenu -->
-      </div>
-      <!-- .language-switch -->
+        </li>
+      </ul>
 
     </div>
-    <!-- .wrapper -->
+    <!-- wrapper -->
   </div>
-  <!-- .subheader -->
-
+  <!-- bottom -->
+  <div class="menu">
+    <div class="wrapper">
+      <hr>
+      <ul class="stock_menu">
+        <li><a href="">Alfa romeo (2)</a></li>
+        <li><a href="">Alfa romeo (2)</a></li>
+        <li><a href="">Alfa romeo (2)</a></li>
+        <li><a href="">Alfa romeo (2)</a></li>
+        <li><a href="">Alfa romeo (2)</a></li>
+        <li><a href="">Alfa romeo (2)</a></li>
+        <li><a href="">Alfa romeo (2)</a></li>
+        <li><a href="">Alfa romeo (2)</a></li>
+        <li><a href="">Alfa romeo (2)</a></li>
+        <li><a href="">Alfa romeo (2)</a></li>
+        <li><a href="">Alfa romeo (2)</a></li>
+        <li><a href="">Alfa romeo (2)</a></li>
+      </ul>
+      <hr>
+      <ul class="financing">
+        <li><a href="">Particuliere financieringen</a></li>
+        <li><a href="">Particuliere financieringen</a></li>
+        <li><a href="">Particuliere financieringen</a></li>
+        <li><a href="">Particuliere financieringen</a></li>
+      </ul>
+      <hr>
+      <ul class="about_financing">
+        <li><a href="">Particuliere financieringen</a></li>
+        <li><a href="">Particuliere financieringen</a></li>
+        <li><a href="">Particuliere financieringen</a></li>
+        <li><a href="">Particuliere financieringen</a></li>
+      </ul>
+      <hr>
+      <ul class="contact">
+        <li><a href="">Particuliere financieringen</a></li>
+        <li><a href="">Particuliere financieringen</a></li>
+        <li><a href="">Particuliere financieringen</a></li>
+        <li><a href="">Particuliere financieringen</a></li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
 </header>
 
-<%= render partial: 'layouts/menu' %>
 <%= render partial: 'layouts/search' %>

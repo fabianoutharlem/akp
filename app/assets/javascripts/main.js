@@ -695,7 +695,7 @@ var app = {
          */
         search: function () {
             //show the search
-            $('header.main .top a.search').on('click', function (e) {
+            $('header.main .bottom li.search a').on('click', function (e) {
                 e.preventDefault();
 
                 var $search = $('.search-container');
@@ -729,7 +729,7 @@ var app = {
          * @return void
          */
         languageSwitch: function () {
-            $('.language-switch h4').on('click', function (e) {
+            $('.language-switch a').on('click', function (e) {
                 e.preventDefault();
 
                 $(e.currentTarget).closest('.language-switch').toggleClass('visible');
