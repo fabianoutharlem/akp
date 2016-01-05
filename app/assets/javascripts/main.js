@@ -729,7 +729,7 @@ var app = {
          * @return void
          */
         languageSwitch: function () {
-            $('.language-switch a').on('click', function (e) {
+            $('.language-switch h4').on('click', function (e) {
                 e.preventDefault();
 
                 $(e.currentTarget).closest('.language-switch').toggleClass('visible');

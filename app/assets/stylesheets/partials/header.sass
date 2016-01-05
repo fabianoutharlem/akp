@@ -13,7 +13,7 @@ header.main
 
       a.logo
         width: 25%
-        max-width: 360px
+        max-width: 340px
         img
           width: 100%
 
@@ -57,6 +57,150 @@ header.main
               padding-left: 35px
               background: image-url('menu_search.png') no-repeat left center
           li.language-switch
+            position: relative
+
+            +mobile-large
+              float: none
+              display: block
+
+            +print
+              display: none
+
+            h4
+              margin: 0
+              padding: 0
+              padding-left: 50px
+              font-size: 16px
+              color: #FFFFFF
+              line-height: 42px
+              font-weight: 400
+              cursor: pointer
+
+              background-repeat: no-repeat
+              background-position: 10px center
+
+              &[data-lang="nl"]
+                background-image: image-url('flags/NL.png')
+              &[data-lang="en"]
+                background-image: image-url('flags/GB.png')
+              &[data-lang="de"]
+                background-image: image-url('flags/DE.png')
+              &[data-lang="fr"]
+                background-image: image-url('flags/FR.png')
+              &[data-lang="es"]
+                background-image: image-url('flags/ES.png')
+              &[data-lang="tr"]
+                background-image: image-url('flags/TR.png')
+
+              +mobile-large
+                border-left: 0
+                border-top: 1px solid $menu-language-separator-color
+
+              .icon
+                margin-left: 10px
+
+                +transform-origin(50% 50%)
+                +transition(transform 0.25s ease-in-out)
+
+              +tablet
+                font-size: 14px
+
+            &.visible
+              .submenu
+                max-height: 200px
+                opacity: 1
+
+              h4
+                .icon
+                  +transform(rotate(-180deg))
+
+            .submenu
+              max-height: 0
+              opacity: 0
+              overflow: hidden
+              +transition(all 0.25s ease-in-out)
+
+              position: absolute
+              right: 15px
+              top: 40px
+              z-index: 10
+
+              width: 150px
+              background-color: #dcdcdc
+              border-radius: 4px
+
+              +mobile-large
+                position: static
+                width: auto
+                border-radius: 0
+
+              +print
+                display: none
+
+              ul
+                list-style: none
+                margin: 0
+                padding: 5px
+
+                font-size: 13px
+                line-height: 18px
+
+                +mobile-large
+                  padding: 0
+
+                li
+                  margin: 0
+                  padding: 0
+
+                  &:first-child
+                    a
+                      border-radius: 3px 3px 0 0
+
+                      +mobile-large
+                        border-radius: 0
+
+                  &:last-child
+                    a
+                      border-radius: 0 0 3px 3px
+
+                      +mobile-large
+                        border-radius: 0
+
+                  a
+                    display: block
+                    padding: 5px 20px
+                    color: $marine
+                    cursor: pointer
+                    background-position: 8px center
+                    background-repeat: no-repeat
+
+                    +mobile-large
+                      background-position: 37% center
+
+                    &[data-lang="nl"]
+                      background-image: image-url('flags/NL.png')
+                    &[data-lang="en"]
+                      background-image: image-url('flags/GB.png')
+                    &[data-lang="de"]
+                      background-image: image-url('flags/DE.png')
+                    &[data-lang="fr"]
+                      background-image: image-url('flags/FR.png')
+                    &[data-lang="es"]
+                      background-image: image-url('flags/ES.png')
+                    &[data-lang="tr"]
+                      background-image: image-url('flags/TR.png')
+
+                    &.selected
+                      background-color: $orange
+                      color: white
+                      font-weight: 500
+
+                      +mobile-large
+                        background-color: $marine
+
+                    &:hover
+                      background-color: $marine
+                      color: white
 
         > li
           display: block
@@ -65,6 +209,11 @@ header.main
           padding: 0 50px 0 40px
           border-left: 1px solid #FC8161
           position: relative
+          +desktop
+            padding: 0 30px 0 20px
+          +desktop-small
+            height: 35px
+            padding: 0 20px 0 10px
           &:hover
             &::after
               content: ''
@@ -78,7 +227,7 @@ header.main
               z-index: 20
           &:last-child
             border-right: 1px solid #FC8161
-          span, a
+          span, a, h4
             font-size: 16px
             color: #FFFFFF
             line-height: 28px
@@ -97,7 +246,7 @@ header.main
                 position: absolute
                 right: -15px
                 top: 13px
-              
+
           > ul
             display: none
 
@@ -105,34 +254,38 @@ header.main
     position: absolute
     top: 150px
     width: 100%
+    padding: 0
+    height: 0
+    overflow: hidden
     div.wrapper
-      padding: 0
+      padding: 0 40px
       background: #fff
       text-align: left
-      padding-left: 136px
-      hr
-        width: 1px
-        height: 44px
-        background: #FC8161
-        margin-top: 28px
-        float: left
-        outline: none
-        border: none
       ul
         list-style: none
         padding: 0
-        float: left
-        &.stock_menu
-          width: 160px
-        &.financing
-          width: 199px
-        &.about_financing
-          width: 250px
+        position: relative
+        &::before
+          position: absolute
+          top: 8px
+          left: 20px
+          content: ''
+          width: 1px
+          height: 44px
+          background: #FC8161
+          margin-top: 28px
+          float: left
+          outline: none
+          border: none
         li
           font-size: 13px
           color: #09004A
           line-height: 26px
-          padding-left: 30px
+          padding-left: 40px
+          &.head
+            color: #F35026
+            font-size: 20px
+            font-weight: 400
           a
             &:hover,
             &:active

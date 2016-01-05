@@ -1,132 +1,134 @@
 .search-cars
-	background-color: #F3F3F3
-	text-align: center
+  background-color: #F3F3F3
+  text-align: center
 
-	.wrapper
-		padding: 20px 65px 65px 65px
+  .wrapper
+    padding: 20px 65px 65px 65px
 
-		+desktop-small
-			padding: 20px 40px 40px 40px
+    +desktop-small
+      padding: 20px 40px 40px 40px
 
-		+tablet
-			padding: 20px 30px
+    +tablet
+      padding: 20px 30px
 
-	&.brand-page
-		.wrapper
-			padding-bottom: 80px
+  &.brand-page
+    .wrapper
+      padding-bottom: 80px
 
-			+tablet
-				padding-bottom: 40px
+      +tablet
+        padding-bottom: 40px
 
-		ul.cars
-			margin-bottom: 0
+    ul.cars
+      margin-bottom: 0
 
-	.title
-		margin: 0 0 35px 0
-		text-align: left
-		position: relative
+  .title
+    margin: 0 0 35px 0
+    text-align: left
+    position: relative
+    border: 1px solid #060D5D
+    padding: 5px 15px
 
-		h2
-			font-weight: 300
-			font-size: 30px
-			line-height: 40px
+    h2
+      font-weight: 300
+      font-size: 20px
+      line-height: 40px
 
-			margin: 0
-			padding: 0
+      margin: 0
+      padding: 0
 
-			+tablet
-				font-size: 24px
-				line-height: 34px
+      +tablet
+        font-size: 18px
+        line-height: 34px
 
-			+mobile-large
-				font-size: 18px
-				line-height: 28px
+      +mobile-large
+        font-size: 18px
+        line-height: 28px
 
-			em
-				font-style: normal
-				display: inline
+      em
+        font-style: normal
+        display: inline
 
-				&::before
-					content: '• '
+        &::before
+          content: '• '
 
-		.left
-			float: left
-			margin-top: 5px
+    .left
+      float: left
+      margin-top: 5px
 
-			+mobile
-				display: none
+      +mobile
+        display: none
 
-		a.right
-			float: right
-			margin-top: 5px
+    a.right
+      float: right
+      margin-top: 0px
 
-			.icon
-				margin-left: 15px
-				+transition(transform 0.25s ease-in-out)
+      .icon
+        margin-left: 15px
+        +transition(transform 0.25s ease-in-out)
 
-			&.open
-				.icon
-					+transform(rotate(-180deg))
+      &.open
+        .icon
+          +transform(rotate(-180deg))
 
-		.submenu
-			max-height: 0
-			opacity: 0
-			overflow: hidden
-			+transition(all 0.25s ease-in-out)
+    .submenu
+      max-height: 0
+      opacity: 0
+      overflow: hidden
+      +transition(all 0.25s ease-in-out)
 
-			position: absolute
-			right: 0
-			top: 45px
-			z-index: 1
+      position: absolute
+      right: 0
+      top: 45px
+      z-index: 1
 
-			border-radius: 5px
-			padding: 5px
+      border-radius: 5px
+      padding: 5px
 
-			width: 250px
-			background-color: white
-			text-align: left
+      width: 250px
+      background-color: white
+      text-align: left
 
-			font-size: 18px
-			line-height: 28px
+      font-size: 18px
+      line-height: 28px
 
-			&.visible
-				max-height: 180px
-				opacity: 1
+      &.visible
+        max-height: 180px
+        opacity: 1
 
-			ul
-				list-style: none
-				margin: 0
-				padding: 0
+      ul
+        list-style: none
+        margin: 0
+        padding: 0
 
-				li
-					margin: 0
-					padding: 0
+        li
+          margin: 0
+          padding: 0
 
-					&:first-child
-						a
-							border-radius: 4px 4px 0 0
+          &:first-child
+            a
+              border-radius: 4px 4px 0 0
 
-					&:last-child
-						a
-							border-radius: 0 0 4px 4px
+          &:last-child
+            a
+              border-radius: 0 0 4px 4px
 
-					a
-						display: block
-						padding: 5px 10px
+          a
+            display: block
+            padding: 5px 10px
 
-						&.selected
-							background-color: $orange
-							color: white
+            &.selected
+              background-color: $orange
+              color: white
 
-						&:hover
-							background-color: $marine
-							color: white
+            &:hover
+              background-color: $marine
+              color: white
 
-	ul.cars
-		margin-bottom: 0
+  ul.cars
+    margin-bottom: 0
 
-		+tablet
-			margin-bottom: 50px
+    +tablet
+      margin-bottom: 50px
 
-	.footer
-		text-align: right
+  .footer
+    text-align: right

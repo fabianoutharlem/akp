@@ -187,6 +187,8 @@ section.pros_akp
       background-position: top -62vw center
     +tablet
       padding-top: 200px
+    +mobile-large
+      padding-top: 100px
     div.pros
       width: 90%
       margin: 0 auto
@@ -210,6 +212,9 @@ section.pros_akp
           +desktop
             &.spacer
               display: none
+          +mobile-large
+            font-size: 18px
+            padding: 15px 0 15px 80px
           &.car
             background-image: image_url('action_pages/icons/cars.png')
           &.cert
@@ -226,6 +231,7 @@ section.pros_akp
             background-image: image_url('action_pages/icons/moneybag.png')
 
 section.rating
+  padding: 0 15px
   div.wrapper
     border: 8px solid #F35026
     height: auto
@@ -260,13 +266,15 @@ section.rating
         margin: 20px auto
       .btn
         background-image: linear-gradient(-180deg, #F35528 0%, #F71C1C 100%)
-        box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.25)
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25)
         float: right
         margin-right: 30px
         width: 380px
         +tablet
           float: none
           margin: 0 auto
+        +mobile
+          width: 100%
 
     div.left
       width: 30%
@@ -329,3 +337,42 @@ section.rating
         margin-top: 25px
     div.clear
       clear: both
+
+footer.action_page
+  div.top
+    height: 100px
+    background-color: #F4F4F4
+
+    div.wrapper
+      display: flex
+      justify-content: space-between
+      flex-direction: row
+      align-items: center
+      height: 100px
+
+      a.logo
+        width: 25%
+        max-width: 270px
+        img
+          width: 100%
+
+      ul.contact_icons
+        list-style: none
+        li
+          display: inline-block
+          a
+            font-size: 16px
+            color: #060D5D
+            margin-left: 50px
+            background-repeat: no-repeat
+            background-position: left center
+            line-height: 34px
+            &.phone
+              background-image: image-url('phone_icon.png')
+              padding-left: 27px
+            &.whatsapp
+              background-image: image-url('whatsapp_icon.png')
+              padding-left: 44px
+            &.email
+              background-image: image-url('email_icon.png')
+              padding-left: 38px

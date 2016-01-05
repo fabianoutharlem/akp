@@ -120,3 +120,5 @@ end
 gem 'sinatra', :require => nil
 
 gem 'ar_after_transaction'
+
+gem 'bootstrap-sass'
