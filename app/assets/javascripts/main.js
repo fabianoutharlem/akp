@@ -47,6 +47,7 @@ var init = {
             e.preventDefault();
 
             $('.menu').toggleClass('visible');
+            $('.left_menu .arrow').toggleClass('twisted');
         });
     },
 

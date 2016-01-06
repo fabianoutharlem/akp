@@ -7,13 +7,11 @@
 
   <div class="top">
     <div class="wrapper">
-      <a href="" class="logo">
-        <%= image_tag 'logo_akp_1.png' %>
-      </a>
+      <%= link_to image_tag('logo_akp_1.png'), root_url, class: 'logo' %>
       <ul class="contact_icons">
-        <li><a href="" class="phone">+31 (0) 23 792 00 03</a></li>
-        <li><a href="" class="whatsapp">WhatsApp 06 55 23 29 11</a></li>
-        <li><a href="" class="email">info@autokredietplan.nl </a></li>
+        <li><a class="phone" href="tel:<%= StaticText.phone %>"><%= StaticText.phone %></a></li>
+        <li><a class="whatsapp" href="tel:<%= StaticText.ash_whatsapp %>">WhatsApp <%= StaticText.ash_whatsapp %></a></li>
+        <li><a class="email" href="mailto:<%= StaticText.ash_email %>"><%= StaticText.ash_email %></a></li>
       </ul>
     </div>
   </div>
@@ -80,7 +78,7 @@
     <!-- wrapper -->
   </div>
   <!-- bottom -->
-  <div class="menu container-fluid">
+  <div class="menu container-fluid visible">
     <div class="wrapper row">
       <ul class="stock_menu col-md-3 col-sm-6">
         <li class="head">Voorraad</li>
@@ -118,6 +116,9 @@
         <li><a href="">Particuliere financieringen</a></li>
         <li><a href="">Particuliere financieringen</a></li>
       </ul>
+      <div class="action col-md-8 pull-left">
+        <%= render('action_pages/menu_action_banner', action_page: ActionPage.active_action) if ActionPage.active_action.present? %>
+      </div>
       <div class="clear"></div>
     </div>
   </div>
