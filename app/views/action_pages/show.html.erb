@@ -4,7 +4,7 @@
   <div class="wrapper" style="background-image: url('<%= @action_page.banner_image.large.url %>');">
 
     <article class="balloon">
-      <h2><%= @action_page.header_title %></h2>
+      <h2><%= @action_page.header_title.html_safe %></h2>
 
       <%= @action_page.header_text.html_safe %>
     </article>
