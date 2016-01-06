@@ -78,43 +78,34 @@
     <!-- wrapper -->
   </div>
   <!-- bottom -->
-  <div class="menu container-fluid visible">
+  <div class="menu container-fluid">
     <div class="wrapper row">
       <ul class="stock_menu col-md-3 col-sm-6">
         <li class="head">Voorraad</li>
-        <li><a href="">Alfa romeo (2)</a></li>
-        <li><a href="">Alfa romeo (2)</a></li>
-        <li><a href="">Alfa romeo (2)</a></li>
-        <li><a href="">Alfa romeo (2)</a></li>
-        <li><a href="">Alfa romeo (2)</a></li>
-        <li><a href="">Alfa romeo (2)</a></li>
-        <li><a href="">Alfa romeo (2)</a></li>
-        <li><a href="">Alfa romeo (2)</a></li>
-        <li><a href="">Alfa romeo (2)</a></li>
-        <li><a href="">Alfa romeo (2)</a></li>
-        <li><a href="">Alfa romeo (2)</a></li>
-        <li><a href="">Alfa romeo (2)</a></li>
+        <% cache do %>
+            <% Brand.all_for_menu.each do |brand| %>
+                <li><a href="<%= brand_cars_path brand %>"><%= brand.name %> (<%= brand.cars.count %>)</a></li>
+            <% end %>
+        <% end %>
       </ul>
       <ul class="financing col-md-3 col-sm-6">
-        <li class="head">Voorraad</li>
-        <li><a href="">Particuliere financieringen</a></li>
-        <li><a href="">Particuliere financieringen</a></li>
-        <li><a href="">Particuliere financieringen</a></li>
-        <li><a href="">Particuliere financieringen</a></li>
+        <li class="head">Financieringen</li>
+        <li><%= link_to 'Zakelijke financiering', financing_cars_path('bussiness') %></li>
+        <li><%= link_to 'Particuliere financiering', financing_cars_path('private') %></li>
+        <li><%= link_to '50/50 Deals', financing_cars_path('50_50') %></li>
       </ul>
       <ul class="about_financing col-md-3 col-sm-6">
-        <li class="head">Voorraad</li>
-        <li><a href="">Particuliere financieringen</a></li>
-        <li><a href="">Particuliere financieringen</a></li>
-        <li><a href="">Particuliere financieringen</a></li>
-        <li><a href="">Particuliere financieringen</a></li>
+        <li class="head">Alles over Financieren</li>
+        <% MenuItem.all.each do |menu_item| %>
+            <li class="<%= menu_item.last ? 'last' : '' %>"><a href="<%= menu_item.path %>"><%= menu_item.label %></a></li>
+        <% end %>
       </ul>
       <ul class="contact col-md-3 col-sm-6">
-        <li class="head">Voorraad</li>
-        <li><a href="">Particuliere financieringen</a></li>
-        <li><a href="">Particuliere financieringen</a></li>
-        <li><a href="">Particuliere financieringen</a></li>
-        <li><a href="">Particuliere financieringen</a></li>
+        <li class="head">Contact</li>
+        <li><a href="<%= page_path('sitemap') %>">Sitemap</a></li>
+        <li><a href="<%= faqs_path %>">Veel gestelde vragen</a></li>
+        <li><a href="<%= page_path('algemene-voorwaarden') %>">Algemene voorwaarden</a></li>
+        <li><a href="<%= page_path('disclaimer') %>">Disclaimer</a></li>
       </ul>
       <div class="action col-md-8 pull-left">
         <%= render('action_pages/menu_action_banner', action_page: ActionPage.active_action) if ActionPage.active_action.present? %>
