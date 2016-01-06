@@ -10,7 +10,8 @@
       <%= link_to image_tag('logo_akp_1.png'), root_url, class: 'logo' %>
       <ul class="contact_icons">
         <li><a class="phone" href="tel:<%= StaticText.phone %>"><%= StaticText.phone %></a></li>
-        <li><a class="whatsapp" href="tel:<%= StaticText.ash_whatsapp %>">WhatsApp <%= StaticText.ash_whatsapp %></a></li>
+        <li><a class="whatsapp" href="tel:<%= StaticText.ash_whatsapp %>">WhatsApp <%= StaticText.ash_whatsapp %></a>
+        </li>
         <li><a class="email" href="mailto:<%= StaticText.ash_email %>"><%= StaticText.ash_email %></a></li>
       </ul>
     </div>
@@ -32,7 +33,7 @@
           <a class="arrow">Financieringen</a>
         </li>
         <li>
-          <a class="arrow">Alles over financieren</a>
+          <a class="arrow">Alles over Financieren</a>
         </li>
         <li>
           <a class="arrow">Contact</a>
@@ -97,7 +98,8 @@
       <ul class="about_financing col-md-3 col-sm-6">
         <li class="head">Alles over Financieren</li>
         <% MenuItem.all.each do |menu_item| %>
-            <li class="<%= menu_item.last ? 'last' : '' %>"><a href="<%= menu_item.path %>"><%= menu_item.label %></a></li>
+            <li class="<%= menu_item.last ? 'last' : '' %>"><a href="<%= menu_item.path %>"><%= menu_item.label %></a>
+            </li>
         <% end %>
       </ul>
       <ul class="contact col-md-3 col-sm-6">
@@ -107,9 +109,11 @@
         <li><a href="<%= page_path('algemene-voorwaarden') %>">Algemene voorwaarden</a></li>
         <li><a href="<%= page_path('disclaimer') %>">Disclaimer</a></li>
       </ul>
-      <div class="action col-md-8 pull-left">
-        <%= render('action_pages/menu_action_banner', action_page: ActionPage.active_action) if ActionPage.active_action.present? %>
-      </div>
+      <% if ActionPage.active_action.present? %>
+          <div class="action col-md-8 pull-left">
+            <%= render('action_pages/menu_action_banner', action_page: ActionPage.active_action) %>
+          </div>
+      <% end %>
       <div class="clear"></div>
     </div>
   </div>
