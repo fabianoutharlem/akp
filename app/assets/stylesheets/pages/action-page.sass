@@ -342,19 +342,24 @@ footer.action_page
   div.top
     height: 100px
     background-color: #F4F4F4
-
     div.wrapper
       display: flex
       justify-content: space-between
       flex-direction: row
       align-items: center
       height: 100px
+      padding: 0 10px
 
       a.logo
         width: 25%
-        max-width: 270px
+        max-width: 280px
+        min-width: 180px
+        display: flex
+        justify-content: center
+        align-items: center
         img
           width: 100%
+          margin: 0
 
       ul.contact_icons
         list-style: none
@@ -367,6 +372,10 @@ footer.action_page
             background-repeat: no-repeat
             background-position: left center
             line-height: 34px
+            +desktop-small
+              margin-left: 25px
+            +ipad
+              font-size: 0
             &.phone
               background-image: image-url('phone_icon.png')
               padding-left: 27px
@@ -376,3 +385,13 @@ footer.action_page
             &.email
               background-image: image-url('email_icon.png')
               padding-left: 38px
+
+  div.bottom
+    background-color: #E9E9E9
+    div.wrapper
+      text-align: left
+      div
+        box-sizing: border-box
+        ul
+          list-style: none
+          padding: 0

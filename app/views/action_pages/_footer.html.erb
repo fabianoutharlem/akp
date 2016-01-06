@@ -1,17 +1,48 @@
 <footer class="action_page">
   <div class="top">
     <div class="wrapper">
-      <a href="" class="logo">
-        <%= image_tag 'logo_akp_1.png' %>
-      </a>
+      <%= link_to image_tag('logo_akp_1.png'), root_url, class: 'logo' %>
       <ul class="contact_icons">
-        <li><a href="" class="phone">+31 (0) 23 792 00 03</a></li>
-        <li><a href="" class="whatsapp">WhatsApp 06 55 23 29 11</a></li>
-        <li><a href="" class="email">info@autokredietplan.nl </a></li>
+        <li><a class="phone" href="tel:<%= StaticText.phone %>"><%= StaticText.phone %></a></li>
+        <li><a class="whatsapp" href="tel:<%= StaticText.ash_whatsapp %>">WhatsApp <%= StaticText.ash_whatsapp %></a>
+        </li>
+        <li><a class="email" href="mailto:<%= StaticText.ash_email %>"><%= StaticText.ash_email %></a></li>
       </ul>
     </div>
   </div>
   <div class="bottom">
+    <div class="wrapper">
+      <div class="container-fluid">
+        <div class="col-md-4 col-sm-6">
+          <h2>Contact</h2>
 
+          <p>
+            Auto Krediet Plan <br>
+            24/7 staan wij voor u klaar <br>
+            F. <a href="www.facebook.com/autokredietplan">www.facebook.com/autokredietplan</a>
+          </p>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <h2>Sitemap</h2>
+
+          <p>
+            <a href="<%= page_path('sitemap') %>">Sitemap</a> <br>
+            <a href="<%= faqs_path %>">Faq</a> <br>
+            <a href="<%= page_path('algemene-voorwaarden') %>">Algemene voorwaarden</a> <br>
+            <a href="<%= page_path('disclaimer') %>">Disclaimer</a>
+          </p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <h2><%= action_page.brand.name %> aanbod</h2>
+          <ul class="row">
+            <% action_page.brand.models.order(name: :asc).each do |model| %>
+                <li class="col-md-6">
+                    <%= link_to "#{action_page.brand.name} #{model.name}", model_cars_path(model) %>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
