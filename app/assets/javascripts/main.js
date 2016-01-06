@@ -13,7 +13,7 @@ var init = {
             FastClick.attach(element);
         }
 
-        $('nav.pagination a').on('click', function() {
+        $('nav.pagination a').on('click', function () {
             $('nav.pagination').fadeTo('slow', 0.3);
         });
 
@@ -32,12 +32,21 @@ var init = {
         this.initSectionScroll(element);
         this.initScrollTo(element);
         this.initLazyLoading(element);
+        this.initMenu(element);
     },
 
     initLazyLoading: function (element) {
         $("img.car_listing", element).lazyload({
             effect: "fadeIn",
             failure_limit: 500
+        });
+    },
+
+    initMenu: function (element) {
+        $('.left_menu a.arrow', element).click(function (e) {
+            e.preventDefault();
+
+            $('.menu').toggleClass('visible');
         });
     },
 
