@@ -36,16 +36,18 @@ header.main
             line-height: 34px
             +desktop-small
               margin-left: 25px
+            +mobile
+              margin-left: 5px
             +ipad
               font-size: 0
             &.phone
-              background-image: image-url('phone_icon.png')
+              background-image: image-url('phone_icon.svg')
               padding-left: 27px
             &.whatsapp
-              background-image: image-url('whatsapp_icon.png')
+              background-image: image-url('whatsapp_icon.svg')
               padding-left: 44px
             &.email
-              background-image: image-url('email_icon.png')
+              background-image: image-url('mail_icon.svg')
               padding-left: 38px
 
   div.bottom
@@ -329,6 +331,8 @@ header.main
           background-repeat: no-repeat
           background-position: center center
           color: white
+          +mobile-large
+            padding: 20px
           h1
             margin: 0
             font-size: 70px
@@ -367,7 +371,11 @@ header.main
             width: 300px
             animation-delay: 3s
             +mobile
-              width: 250px
+              width: 100%
+              margin: 0 auto
+              font-size: 14px
+              height: 55px
+              line-height: 20px
 
 
 

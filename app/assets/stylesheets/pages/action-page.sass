@@ -10,8 +10,10 @@ section.action_banner
     background-size: cover
     position: relative
     overflow: hidden
+
     +mobile-large
       padding: 55px 50px
+      height: 500px
     +mobile
       padding: 55px 20px
 
@@ -44,6 +46,9 @@ section.action_banner
         line-height: 46px
         margin: 0
         font-weight: 600
+        +mobile-large
+          font-size: 24px
+          line-height: 30px
       p
         font-size: 16px
         line-height: 22px
@@ -79,7 +84,7 @@ section.action_banner
       &.right
         margin-left: 630px
         +desktop-small
-          margin-left: 420px
+          margin-left: 440px
         +tablet
           margin: 380px auto 0
           text-align: center
@@ -109,17 +114,36 @@ section.action_banner
       +tablet-small
         width: 310px
       +mobile
-        width: 300px
+        width: 100%
         margin: 0 auto
 
   div.footer
     margin: 20px auto
     text-align: center
+    button.btn
+      +transform(translateY(-60px))
+      +tablet
+        display: none
+      &:after
+        transform: rotate(90deg)
+        border-left: none
+        border-bottom: 1px solid #ff7c59
 
 section.action-page-cars
   .wrapper
+    h2:first-child
+      font-size: 58px
+      line-height: 63px
     h2:first-child + p
+      margin-top: -20px
       margin-bottom: 50px
+      font-size: 32px
+      line-height: 40px
+      +mobile
+        margin-top: -30px
+    nav.pagination
+      +mobile
+        font-size: 11px
 
 section.action_banner.second
   .wrapper
@@ -147,12 +171,18 @@ section.action_banner.second
       -webkit-mask-size: contain
       display: inline-block
       float: left
+      &.mobile
+        display: none
       +tablet
         height: 540px
-        width: 80%
+        width: 100%
       +mobile-large
-        height: 380px
+        height: 280px
         margin-bottom: 30px
+        &.desktop
+          display: none
+        &.mobile
+          display: inline-block
 
     article
       width: 35%
@@ -165,13 +195,19 @@ section.action_banner.second
       +tablet
         float: none
         margin: 15px auto
-        text-align: center
         display: block
         width: 80%
       h2
         font-size: 60px
         color: #FFFFFF
         line-height: 70px
+        +mobile-large
+          font-size: 40px
+          line-height: 53px
+      p
+        +mobile-large
+          font-size: 14px
+          line-height: 22px
 
 section.pros_akp
   div.wrapper
@@ -236,6 +272,8 @@ section.rating
     border: 8px solid #F35026
     height: auto
     padding: 40px
+    +mobile-large
+      padding: 10px 20px
     &::after
       content: ''
       display: table
@@ -275,6 +313,7 @@ section.rating
           margin: 0 auto
         +mobile
           width: 100%
+          font-size: 14px
 
     div.left
       width: 30%
@@ -287,6 +326,8 @@ section.rating
         display: flex
         justify-content: center
         align-items: center
+      +mobile
+        display: block
 
       figure
         width: 138px
@@ -302,6 +343,7 @@ section.rating
         +mobile-large
           width: 90px
           height: 90px
+          margin-right: 10px
         img
           width: 100%
           height: auto
@@ -315,8 +357,11 @@ section.rating
         font-style: italic
         font-weight: 400
         +tablet
-          width: 60%
+          min-width: 60%
           display: inline-block
+        +mobile
+          font-size: 10px
+          line-height: 16px
         p
           margin-top: 25px
         blockquote
@@ -325,6 +370,9 @@ section.rating
           color: #F35026
           font-style: normal
           font-size: 14px
+          +mobile
+            font-size: 10px
+            line-height: 16px
     p.warning
       font-size: 12px
       color: #060D5D
@@ -335,6 +383,9 @@ section.rating
       max-width: 400px
       +tablet
         margin-top: 25px
+      +mobile
+        font-size: 10px
+        line-height: 16px
     div.clear
       clear: both
 
@@ -374,16 +425,18 @@ footer.action_page
             line-height: 34px
             +desktop-small
               margin-left: 25px
+            +mobile
+              margin-left: 5px
             +ipad
               font-size: 0
             &.phone
-              background-image: image-url('phone_icon.png')
+              background-image: image-url('phone_icon.svg')
               padding-left: 27px
             &.whatsapp
-              background-image: image-url('whatsapp_icon.png')
+              background-image: image-url('whatsapp_icon.svg')
               padding-left: 44px
             &.email
-              background-image: image-url('email_icon.png')
+              background-image: image-url('mail_icon.svg')
               padding-left: 38px
 
   div.bottom

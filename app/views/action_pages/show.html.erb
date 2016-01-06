@@ -16,7 +16,7 @@
   </div>
 
   <div class="footer">
-    <i class="icon arrow-orange-down"></i>
+    <button class="btn scroll_down">Ontdek het aanbod</button>
   </div>
   <!-- .footer -->
 </section>
@@ -65,7 +65,7 @@
     <section class="action_banner second">
       <div class="wrapper">
 
-        <figure style="background-image: url('<%= image_url @action_page.orange_banner_image.processed %>');"></figure>
+        <figure class="desktop" style="background-image: url('<%= image_url @action_page.orange_banner_image.processed %>');"></figure>
 
         <article>
           <h2>
@@ -75,6 +75,8 @@
           <%= @action_page.orange_banner_text.html_safe %>
 
         </article>
+
+        <figure class="mobile" style="background-image: url('<%= image_url @action_page.orange_banner_image.processed %>');"></figure>
 
         <div class="clearfix"></div>
 

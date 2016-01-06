@@ -347,7 +347,7 @@ var init = {
     initSectionScroll: function (element) {
 
         //scroll to element
-        $('section .footer > .icon', element).on('click', function (e) {
+        $('section .footer > .icon, .scroll_down', element).on('click', function (e) {
             e.preventDefault();
 
             var $this = $(e.currentTarget),
