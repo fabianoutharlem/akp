@@ -104,7 +104,6 @@ gem 'koala'
 
 group :development do
   gem 'spring'
-  gem 'faker'
   gem 'seed_dump'
   gem 'capistrano'
   gem 'capistrano-bundler'
@@ -116,6 +115,8 @@ group :development do
   # web server
   gem 'puma'
 end
+
+gem 'faker'
 
 gem 'sinatra', :require => nil
 
