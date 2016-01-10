@@ -1,6 +1,13 @@
 section.action_banner
   padding: 30px
   background-color: #EEEEEE
+  &.home_action_banner
+    div.wrapper
+      +mobile
+        padding: 55px 20px
+        height: 750px
+        background-position: -180px bottom
+        background-size: 900px
   div.wrapper
     padding: 90px
     color: white
@@ -14,8 +21,6 @@ section.action_banner
     +mobile-large
       padding: 55px 50px
       height: 500px
-    +mobile
-      padding: 55px 20px
 
     article.balloon
       background-image: image-url('action_pages/text_balloon.png')

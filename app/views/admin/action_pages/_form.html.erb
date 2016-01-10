@@ -71,7 +71,7 @@
 <div class="form-group form-group-default">
   <%= f.label :orange_banner_image %>
   <%= f.file_field :orange_banner_image, class: 'form-control' %>
-  <%= f.hidden_field :orange_banner_image %>
+  <%= f.hidden_field :orange_banner_image_cache %>
   <%= image_tag f.object.orange_banner_image.try(:admin) if f.object.orange_banner_image.present? %>
 </div>
 
