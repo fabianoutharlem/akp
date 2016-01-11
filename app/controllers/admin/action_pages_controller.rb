@@ -40,7 +40,6 @@ module Admin
         flash[:error] = ['Some fields were not correct, please correct them and try again.']
         render :edit
       end
-
     end
 
     def destroy

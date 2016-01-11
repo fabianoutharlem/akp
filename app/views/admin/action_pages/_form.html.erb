@@ -100,6 +100,16 @@
 </div>
 
 <div class="form-group form-group-default">
+  <%= f.label :reference_header %>
+  <%= f.text_field :reference_header, class: 'form-control' %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :reference_subtitle %>
+  <%= f.text_field :reference_subtitle, class: 'form-control' %>
+</div>
+
+<div class="form-group form-group-default">
   <%= f.label :reference_image %>
   <%= f.file_field :reference_image, class: 'form-control' %>
   <%= f.hidden_field :reference_image_cache %>
