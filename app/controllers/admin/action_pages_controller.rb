@@ -40,14 +40,13 @@ module Admin
         flash[:error] = ['Some fields were not correct, please correct them and try again.']
         render :edit
       end
-
     end
 
     def destroy
       if @action_page.destroy
-        flash[:notice] = ['The FAQ has been deleted.']
+        flash[:notice] = ['The page has been deleted.']
       else
-        flash[:error] = ['The FAQ was not deleted']
+        flash[:error] = ['The page was not deleted']
       end
       redirect_to admin_action_pages_path
     end
@@ -64,7 +63,7 @@ module Admin
     end
 
     def action_page_params
-      params.require(:action_page).permit(:id, :banner_title, :slug, :banner_subtitle, :banner_image, :banner_image_cache, :brand_id, :model_id, :active, :header_title, :header_text, :car_section_title, :car_section_subtitle, :orange_banner_enabled, :orange_banner_image, :orange_banner_title, :orange_banner_text, :pros_list_enabled, :reference_banner_enabled, :reference_image, :reference_stars, :reference_text, :reference_car_image)
+      params.require(:action_page).permit(:id, :banner_title, :slug, :banner_subtitle, :banner_image, :banner_image_cache, :brand_id, :model_id, :active, :header_title, :header_text, :car_section_title, :car_section_subtitle, :orange_banner_enabled, :orange_banner_image, :orange_banner_title, :orange_banner_text, :pros_list_enabled, :reference_banner_enabled, :reference_image, :reference_stars, :reference_text, :reference_car_image, :reference_header, :reference_subtitle)
     end
 
   end
