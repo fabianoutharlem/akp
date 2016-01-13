@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111200138) do
+ActiveRecord::Schema.define(version: 20160113195556) do
 
   create_table "action_pages", force: true do |t|
     t.string   "banner_title"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20160111200138) do
     t.string   "reference_car_image"
     t.string   "reference_header"
     t.string   "reference_subtitle"
+    t.string   "pro_1"
+    t.string   "pro_2"
+    t.string   "pro_3"
+    t.string   "pro_4"
+    t.string   "pro_5"
+    t.string   "pro_6"
+    t.string   "pro_7"
   end
 
   create_table "blog_pages", force: true do |t|

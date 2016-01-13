@@ -63,7 +63,7 @@ module Admin
     end
 
     def action_page_params
-      params.require(:action_page).permit(:id, :banner_title, :slug, :banner_subtitle, :banner_image, :banner_image_cache, :brand_id, :model_id, :active, :header_title, :header_text, :car_section_title, :car_section_subtitle, :orange_banner_enabled, :orange_banner_image, :orange_banner_title, :orange_banner_text, :pros_list_enabled, :reference_banner_enabled, :reference_image, :reference_stars, :reference_text, :reference_car_image, :reference_header, :reference_subtitle)
+      params.require(:action_page).permit(:id, :banner_title, :slug, :banner_subtitle, :banner_image, :banner_image_cache, :brand_id, :model_id, :active, :header_title, :header_text, :car_section_title, :car_section_subtitle, :orange_banner_enabled, :orange_banner_image, :orange_banner_title, :orange_banner_text, :pros_list_enabled, :reference_banner_enabled, :reference_image, :reference_stars, :reference_text, :reference_car_image, :reference_header, :reference_subtitle, :pro_1, :pro_2, :pro_3, :pro_4, :pro_5, :pro_6, :pro_7)
     end
 
   end
