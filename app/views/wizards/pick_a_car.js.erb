@@ -1,4 +1,5 @@
-$('ul.cars').html('<%= escape_javascript render(partial: 'cars/car', collection: @cars, locals: {wizard_type: params[:wizard_type]}) %>');
+var carListing = $('ul.cars')
+carListing.html('<%= escape_javascript render(partial: 'cars/car', collection: @cars, locals: {wizard_type: params[:wizard_type]}) %>');
 
 $('nav.pagination').replaceWith('<%= escape_javascript paginate(@cars, :remote => true) %>');
 
@@ -17,3 +18,6 @@ $('nav.pagination a').on('click', function() {
 });
 
 helpers.scrollTo('.wizard .wizard-cars .search-results');
+
+init.initCarSliders(carListing);
+app.carListing.sameHeight(carListing);
