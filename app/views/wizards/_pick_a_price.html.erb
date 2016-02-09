@@ -31,7 +31,7 @@
               <h3>Please select a brand and a model</h3>
 
               <p class="select">
-                <%= collection_select :q, :brand, Brand.all, :name, :name, {prompt: true}, {:class => 'search-advanced-brand', 'data-models-url' => models_brands_path} %>
+                <%= collection_select :q, :brand, Brand.all, :name, :name, {include_blank: 'Selecteer merk'}, {:class => 'search-advanced-brand', 'data-models-url' => models_brands_path} %>
               </p> <!-- .select -->
 
               <p class="select">

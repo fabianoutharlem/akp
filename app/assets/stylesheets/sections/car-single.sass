@@ -1,700 +1,696 @@
 .car-single
 
-	.top
-		overflow: hidden
-		background-color: #EEEEEE
+  .top
+    overflow: hidden
+    background-color: #EEEEEE
 
-		+print
-			background: none
+    +print
+      background: none
 
-		.wrapper
-			overflow: hidden
-
-			.padder
-				position: relative
-				padding-left: 65%
+    .wrapper
+      overflow: hidden
+
+      .padder
+        position: relative
+        padding-left: 65%
 
-				+desktop-small
-					padding-left: 65%
+        +desktop-small
+          padding-left: 65%
 
-				+mobile-large
-					padding-left: 0
+        +mobile-large
+          padding-left: 0
 
-				+print
-					padding: 0
+        +print
+          padding: 0
 
-		figure
-			position: absolute
-			left: 0
-			top: 0
+    figure
+      position: absolute
+      left: 0
+      top: 0
 
-			width: 65%
-			height: 100%
+      width: 65%
+      height: 100%
 
-			background: #333333
+      background: #333333
 
-			margin: 0
-			padding: 0
+      margin: 0
+      padding: 0
 
-			+desktop-small
-				width: 65%
+      +desktop-small
+        width: 65%
 
-			+mobile-large
-				position: static
-				float: none
-				width: auto
-				height: auto
+      +mobile-large
+        position: static
+        float: none
+        width: auto
+        height: auto
 
-			+print
-				position: static
-				float: none
-				width: auto
-				background: none
+      +print
+        position: static
+        float: none
+        width: auto
+        background: none
 
-			.mbe-slider
-				height: 100%
+      .mbe-slider
+        height: 100%
 
-				ul
-					list-style: none
-					margin: 0
-					padding: 0
-					height: 100%
+        ul
+          list-style: none
+          margin: 0
+          padding: 0
+          height: 100%
 
-					-webkit-transform-style: preserve-3d
-					-webkit-backface-visibility: hidden
+          -webkit-transform-style: preserve-3d
+          -webkit-backface-visibility: hidden
 
-					li
-						margin: 0
-						padding: 0
-						background-color: #333333
-						height: 100%
+          li
+            margin: 0
+            padding: 0
+            background-color: #333333
+            height: 100%
 
-						position: relative
+            position: relative
 
-						img
-							display: inline-block
-							vertical-align: middle
-							width: 100%
-							height: auto
+            img
+              display: inline-block
+              vertical-align: middle
+              width: 100%
+              height: auto
 
-							max-height: 100%
+              max-height: 100%
 
-							position: absolute
-							left: 50%
-							top: 50%
-							+transform(translate(-50%, -50%))
+              position: absolute
+              left: 50%
+              top: 50%
+              +transform(translate(-50%, -50%))
 
-							+mobile-large
-								position: static
-								+transform(none)
+              +mobile-large
+                position: static
+                +transform(none)
 
-							+print
-								position: static
-								+transform(none)
+              +print
+                position: static
+                +transform(none)
 
-						iframe,
-						video
-							display: block
-							width: 100%
-							height: 100%
+            iframe,
+            video
+              display: block
+              width: 100%
+              height: 100%
 
-			.bar
-				padding: 15px
-				height: 100%
-				+box-sizing(border-box)
+      .bar
+        padding: 15px
+        height: 100%
+        +box-sizing(border-box)
 
-				background: rgba(0, 0, 0, 0.5)
-				color: white
+        background: rgba(0, 0, 0, 0.5)
+        color: white
 
-				position: absolute
-				right: 0
-				top: 0
+        position: absolute
+        right: 0
+        top: 0
 
-				-webkit-transform-style: preserve-3d
-				-webkit-backface-visibility: hidden
+        -webkit-transform-style: preserve-3d
+        -webkit-backface-visibility: hidden
 
-				+tablet
-					display: none
+        +tablet
+          display: none
 
-				+print
-					display: none
+        +print
+          display: none
 
-				.photos
-					font-size: 14px
-					line-height: 20px
-					font-weight: 300
+        .photos
+          font-size: 14px
+          line-height: 20px
+          font-weight: 300
 
-					border-top: 1px solid #979797
-					border-bottom: 1px solid #979797
+          border-top: 1px solid #979797
+          border-bottom: 1px solid #979797
 
-					padding: 15px 0 20px 0
+          padding: 15px 0 20px 0
 
-					strong
-						font-weight: 300
+          strong
+            font-weight: 300
 
-					.arrows
-						margin: 20px 0 0 0
-						text-align: center
+          .arrows
+            margin: 20px 0 0 0
+            text-align: center
 
-						a
-							display: block
-							text-align: center
+            a
+              display: block
+              text-align: center
 
-							&.arrow-right
-								margin-top: 10px
+              &.arrow-right
+                margin-top: 10px
 
-				.can-swipe
-					position: absolute
-					right: 0
-					bottom: 20px
-					width: 100%
-					text-align: center
+        .can-swipe
+          position: absolute
+          right: 0
+          bottom: 20px
+          width: 100%
+          text-align: center
 
-				a.fullscreen
-					display: block
-					text-align: center
-					margin-bottom: 20px
+        a.fullscreen
+          display: block
+          text-align: center
+          margin-bottom: 20px
 
-		.description
-			padding: 50px
-			+box-sizing(border-box)
-			text-align: left
+    .description
+      padding: 50px
+      +box-sizing(border-box)
+      text-align: left
 
-			color: #38393B
+      color: #38393B
 
-			-webkit-transform-style: preserve-3d
-			-webkit-backface-visibility: hidden
+      -webkit-transform-style: preserve-3d
+      -webkit-backface-visibility: hidden
 
-			+tablet
-				padding: 30px
+      +tablet
+        padding: 30px
 
-			+print
-				padding: 0
+      +print
+        padding: 0
 
-			h1
-				font-size: 24px
-				line-height: 46px
-				font-weight: 400
+      h1
+        font-size: 24px
+        line-height: 46px
+        font-weight: 400
 
-				margin: 0 0 45px 0
-				padding: 0
+        margin: 0 0 45px 0
+        padding: 0
 
-				+desktop-small
-					font-size: 20px
-					line-height: 40px
+        +desktop-small
+          font-size: 20px
+          line-height: 40px
 
-				+tablet
-					margin-bottom: 25px
+        +tablet
+          margin-bottom: 25px
 
-				+mobile
-					font-size: 20px
-					line-height: 40px
+        +mobile
+          font-size: 20px
+          line-height: 40px
 
-				+print
-					margin: 15px 0
+        +print
+          margin: 15px 0
 
-			dl
-				overflow: hidden
-				margin: 0 0 125px 0
-				padding: 0
+      dl
+        overflow: hidden
+        margin: 0 0 125px 0
+        padding: 0
 
-				font-size: 30px
-				line-height: 62px
+        font-size: 30px
+        line-height: 62px
 
-				+desktop-small
-					margin-bottom: 100px
+        +desktop-small
+          margin-bottom: 100px
 
-					font-size: 24px
-					line-height: 50px
+          font-size: 24px
+          line-height: 50px
 
-				+tablet
-					margin-bottom: 60px
+        +tablet
+          margin-bottom: 60px
 
-				+mobile
-					margin-bottom: 30px
+        +mobile
+          margin-bottom: 30px
 
-				+print
-					margin: 0
+        +print
+          margin: 0
 
-				dt
-					float: left
-					width: 55%
-					text-align: left
+        dt
+          float: left
+          width: 55%
+          text-align: left
 
-					margin: 0
-					padding: 0
-					font-size: 28px
-					line-height: 62px
-					font-weight: 300
+          margin: 0
+          padding: 0
+          font-size: 28px
+          line-height: 62px
+          font-weight: 300
 
-					overflow: hidden
-					white-space: nowrap
-					text-overflow: ellipsis
+          overflow: hidden
+          white-space: nowrap
+          text-overflow: ellipsis
 
-					small
-						font-size: 21px
+          small
+            font-size: 21px
 
-						+tablet
-							font-size: 18px
+            +tablet
+              font-size: 18px
 
-					+desktop-small
-						font-size: 24px
-						line-height: 50px
+          +desktop-small
+            font-size: 24px
+            line-height: 50px
 
-					+tablet
-						font-size: 18px
-						line-height: 42px
+          +tablet
+            font-size: 18px
+            line-height: 42px
 
-					+print
-						font-size: 18px
-						line-height: 30px
-						width: 25%
+          +print
+            font-size: 18px
+            line-height: 30px
+            width: 25%
 
+        dd
+          float: right
+          width: 45%
+          text-align: left
 
-				dd
-					float: right
-					width: 45%
-					text-align: left
+          margin: 0
+          padding: 0
+          font-weight: 400
+          color: $orange
 
-					margin: 0
-					padding: 0
-					font-weight: 400
-					color: $orange
+          overflow: hidden
+          white-space: nowrap
+          text-overflow: ellipsis
 
-					overflow: hidden
-					white-space: nowrap
-					text-overflow: ellipsis
+          +tablet
+            font-size: 18px
+            line-height: 42px
 
-					+tablet
-						font-size: 18px
-						line-height: 42px
+          +print
+            font-size: 18px
+            line-height: 30px
+            width: 75%
 
-					+print
-						font-size: 18px
-						line-height: 30px
-						width: 75%
+      .buttons
+        a.btn
+          width: 100%
+          display: block
+          margin-top: 7px
 
-			.buttons
-				a.btn
-					width: 100%
-					display: block
-					margin-top: 7px
+          +box-sizing(border-box)
 
-					+box-sizing(border-box)
+          white-space: nowrap
+          text-overflow: ellipsis
+          overflow: hidden
 
-					white-space: nowrap
-					text-overflow: ellipsis
-					overflow: hidden
+          &:first-child
+            margin-top: 0
 
-					&:first-child
-						margin-top: 0
+  .image-list
+    background-color: #E6E6E6
+    padding: 10px 0
 
-	.image-list
-		background-color: #E6E6E6
-		padding: 10px 0
+    +mobile-large
+      display: none
 
-		+mobile-large
-			display: none
+    +print
+      display: none
 
-		+print
-			display: none
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
 
-		ul
-			list-style: none
-			margin: 0
-			padding: 0
+      overflow: auto
+      text-align: left
+      white-space: nowrap
+      -webkit-overflow-scrolling: touch
 
-			overflow: auto
-			text-align: left
-			white-space: nowrap
-			-webkit-overflow-scrolling: touch
+      li
+        margin: 0 0 0 10px
+        padding: 0
 
-			li
-				margin: 0 0 0 10px
-				padding: 0
+        display: inline-block
+        vertical-align: middle
+        border: 4px solid #E6E6E6
 
-				display: inline-block
-				vertical-align: middle
-				border: 4px solid #E6E6E6
+        &:hover,
+          border-color: $marine
+        &.selected
+          border-color: $orange
 
-				&:hover,
-					border-color: $marine
-				&.selected
-					border-color: $orange
+        img
+          width: 200px
+          height: 150px
 
-				img
-					width: 200px
-					height: 150px
+          display: inline-block
+          vertical-align: middle
+          background-color: #333333
 
-					display: inline-block
-					vertical-align: middle
-					background-color: #333333
+          +desktop-small
+            width: 150px
+            height: auto
 
-					+desktop-small
-						width: 150px
-						height: auto
+  .links
+    font-size: 24px
+    line-height: 32px
+    font-weight: 300
+    color: $marine
 
-	.links
-		font-size: 24px
-		line-height: 32px
-		font-weight: 300
-		color: $marine
+    +desktop-small
+      font-size: 18px
+      line-height: 26px
 
-		+desktop-small
-			font-size: 18px
-			line-height: 26px
+    +print
+      display: none
 
-		+print
-			display: none
+    .wrapper
+      padding: 35px 65px
+      text-align: left
 
-		.wrapper
-			padding: 35px 65px
-			text-align: left
+      +desktop-small
+        padding: 25px 40px
 
-			+desktop-small
-				padding: 25px 40px
+      +tablet
+        padding: 15px 30px
 
-			+tablet
-				padding: 15px 30px
+      &::after
+        content: ''
+        display: block
+        clear: both
+        font-size: 0
+        line-height: 0
+        height: 0
 
-			&::after
-				content: ''
-				display: block
-				clear: both
-				font-size: 0
-				line-height: 0
-				height: 0
+    .share
+      float: right
+      color: $marine
 
-		.share
-			float: right
-			color: $marine
+      a
+        display: inline-block
+        vertical-align: middle
 
-			a
-				display: inline-block
-				vertical-align: middle
+      +mobile-large
+        float: none
+        margin-bottom: 15px
+        display: none
 
-			+mobile-large
-				float: none
-				margin-bottom: 15px
-				display: none
+      .dots
+        margin-left: 15px
+        position: relative
 
-			.dots
-				margin-left: 15px
-				position: relative
+        display: inline-block
+        vertical-align: middle
 
-				display: inline-block
-				vertical-align: middle
+        .share-networks
+          position: absolute
+          bottom: 50px
+          right: 0
+          width: 50px
+          z-index: 1
+          font-size: 0
 
-				.share-networks
-					position: absolute
-					bottom: 50px
-					right: 0
-					width: 50px
-					z-index: 1
-					font-size: 0
+          display: none
 
-					display: none
+          &.visible
+            display: block
 
-					&.visible
-						display: block
+    a.link
+      color: $marine
+      text-decoration: none
+      margin: 6px 120px 0 0
 
+      +desktop-small
+        margin-right: 60px
 
-		a.link
-			color: $marine
-			text-decoration: none
-			margin: 6px 120px 0 0
+      &:last-child
+        margin-right: 0
 
-			+desktop-small
-				margin-right: 60px
+      &::after
+        content: ''
+        margin-left: 15px
 
-			&:last-child
-				margin-right: 0
+        @extend .icon
+        @extend .icon.arrow-blue-right-big
 
-			&::after
-				content: ''
-				margin-left: 15px
+      +tablet-small
+        display: block
 
-				@extend .icon
-				@extend .icon.arrow-blue-right-big
+  .specifications
+    background-color: #EEEEEE
 
-			+tablet-small
-				display: block
+    +print
+      background: none
+      color: #333333
+      margin-top: 25px
 
-	.specifications
-		background-color: #EEEEEE
+    .wrapper
+      padding: 65px
+      text-align: left
 
-		+print
-			background: none
-			color: #333333
-			margin-top: 25px
+      +desktop-small
+        padding: 40px
 
-		.wrapper
-			padding: 65px
-			text-align: left
+      +tablet
+        padding: 30px
 
-			+desktop-small
-				padding: 40px
+      +print
+        padding: 0
 
-			+tablet
-				padding: 30px
+    h2
+      font-size: 36px
+      line-height: 49px
+      font-weight: 500
+      color: $marine
 
-			+print
-				padding: 0
+      margin: 0 0 45px 0
+      padding: 0
 
-		h2
-			font-size: 36px
-			line-height: 49px
-			font-weight: 500
-			color: $marine
+      +tablet
+        font-size: 24px
+        line-height: 36px
+        margin-bottom: 20px
 
-			margin: 0 0 45px 0
-			padding: 0
+      +mobile
+        font-size: 20px
+        line-height: 32px
+        margin-bottom: 15px
 
-			+tablet
-				font-size: 24px
-				line-height: 36px
-				margin-bottom: 20px
+      +print
+        font-size: 20px
+        line-height: 32px
+        margin-bottom: 15px
+        color: #333333
 
-			+mobile
-				font-size: 20px
-				line-height: 32px
-				margin-bottom: 15px
+    .right
+      float: right
+      width: 400px
+      margin-top: 50px
 
-			+print
-				font-size: 20px
-				line-height: 32px
-				margin-bottom: 15px
-				color: #333333
+      +desktop-small
+        width: 300px
 
-		.right
-			float: right
-			width: 400px
-			margin-top: 50px
+      +tablet
+        display: none
 
-			+desktop-small
-				width: 300px
+      +print
+        display: none
 
-			+tablet
-				display: none
+      .block
+        background-color: white
+        padding: 50px
+        text-align: center
+        margin: 30px 0 0 0
 
-			+print
-				display: none
+        +desktop
+          padding: 35px
 
-			.block
-				background-color: white
-				padding: 50px
-				text-align: center
-				margin: 30px 0 0 0
+        +desktop-small
+          padding: 30px
 
-				+desktop
-					padding: 35px
+        &:first-child
+          margin-top: 0
 
-				+desktop-small
-					padding: 30px
+        img
+          max-width: 100%
+          height: auto
 
-				&:first-child
-					margin-top: 0
+    dl
+      margin: 0
+      padding: 0
+      overflow: hidden
 
-				img
-					max-width: 100%
-					height: auto
+      font-size: 18px
+      line-height: 32px
+      font-weight: 300
+      color: $marine
 
-		dl
-			margin: 0
-			padding: 0
-			overflow: hidden
+      +desktop-small
+        font-size: 16px
+        line-height: 30px
 
-			font-size: 18px
-			line-height: 32px
-			font-weight: 300
-			color: $marine
+      +mobile
+        font-size: 14px
+        line-height: 28px
 
-			+desktop-small
-				font-size: 16px
-				line-height: 30px
+      +print
+        font-size: 14px
+        line-height: 28px
+        color: #333333
 
-			+mobile
-				font-size: 14px
-				line-height: 28px
+      dt
+        float: left
+        width: 25%
+        font-weight: 400
 
-			+print
-				font-size: 14px
-				line-height: 28px
-				color: #333333
+        margin: 0
+        padding: 0
 
-			dt
-				float: left
-				width: 25%
-				font-weight: 400
+        +tablet
+          width: 30%
 
-				margin: 0
-				padding: 0
+        +tablet-small
+          width: 45%
 
-				+tablet
-					width: 30%
+        +print
+          width: 25%
 
-				+tablet-small
-					width: 45%
+      dd
+        float: left
+        width: 75%
 
-				+print
-					width: 25%
+        margin: 0
+        padding: 0
 
-			dd
-				float: left
-				width: 75%
+        +tablet
+          width: 65%
 
-				margin: 0
-				padding: 0
+        +tablet-small
+          width: 55%
 
-				+tablet
-					width: 65%
+        +print
+          width: 75%
 
-				+tablet-small
-					width: 55%
+    .description
+      clear: both
+      margin-top: 100px
 
-				+print
-					width: 75%
+      font-size: 18px
+      line-height: 32px
+      font-weight: 300
 
-		.description
-			clear: both
-			margin-top: 100px
+      +desktop-small
+        font-size: 16px
+        line-height: 30px
 
-			font-size: 18px
-			line-height: 32px
-			font-weight: 300
+      +tablet
+        margin-top: 40px
 
-			+desktop-small
-				font-size: 16px
-				line-height: 30px
+      +print
+        margin-top: 25px
+        font-size: 14px
+        line-height: 28px
 
-			+tablet
-				margin-top: 40px
+  .accesories
+    background-color: white
 
-			+print
-				margin-top: 25px
-				font-size: 14px
-				line-height: 28px
+    font-size: 18px
+    line-height: 42px
+    font-weight: 300
+    color: #38393B
 
-	.accesories
-		background-color: white
+    +mobile
+      font-size: 14px
+      line-height: 30px
 
-		font-size: 18px
-		line-height: 42px
-		font-weight: 300
-		color: #38393B
+    +print
+      background: none
+      font-size: 14px
+      line-height: 30px
 
-		+mobile
-			font-size: 14px
-			line-height: 30px
+    .wrapper
+      padding: 90px 65px 40px 65px
+      text-align: left
 
-		+print
-			background: none
-			font-size: 14px
-			line-height: 30px
+      +desktop-small
+        padding: 70px 40px 30px 40px
 
-		.wrapper
-			padding: 90px 65px 40px 65px
-			text-align: left
+      +tablet
+        padding: 30px 30px 20px 30px
 
-			+desktop-small
-				padding: 70px 40px 30px 40px
+      +print
+        padding: 0
 
-			+tablet
-				padding: 30px 30px 20px 30px
+    h2
+      font-size: 36px
+      line-height: 49px
+      font-weight: 500
+      color: $marine
 
-			+print
-				padding: 0
+      margin: 0 0 35px 0
+      padding: 0
 
-		h2
-			font-size: 36px
-			line-height: 49px
-			font-weight: 500
-			color: $marine
+      +desktop-small
+        font-size: 28px
+        line-height: 40px
+        margin-bottom: 25px
 
-			margin: 0 0 35px 0
-			padding: 0
+      +tablet
+        font-size: 24px
+        line-height: 36px
+        margin-bottom: 20px
 
-			+desktop-small
-				font-size: 28px
-				line-height: 40px
-				margin-bottom: 25px
+      +mobile
+        font-size: 20px
+        line-height: 32px
+        margin-bottom: 15px
 
-			+tablet
-				font-size: 24px
-				line-height: 36px
-				margin-bottom: 20px
+      +print
+        font-size: 20px
+        line-height: 32px
+        margin-bottom: 15px
+        color: #333333
 
-			+mobile
-				font-size: 20px
-				line-height: 32px
-				margin-bottom: 15px
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+      overflow: hidden
 
-			+print
-				font-size: 20px
-				line-height: 32px
-				margin-bottom: 15px
-				color: #333333
+      li
+        margin: 0
+        padding: 0
 
-		ul
-			list-style: none
-			margin: 0
-			padding: 0
-			overflow: hidden
+        float: left
+        width: 50%
 
-			li
-				margin: 0
-				padding: 0
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
 
-				float: left
-				width: 50%
+        &::before
+          content: ''
+          margin: 0 15px 0 0
 
-				white-space: nowrap
-				overflow: hidden
-				text-overflow: ellipsis
+          @extend .icon
+          @extend .icon.list-check
 
-				&::before
-					content: ''
-					margin: 0 15px 0 0
+          +print
+            content: '●'
+            background: none
+            width: auto
+            display: inline
+            margin-right: 5px
 
-					@extend .icon
-					@extend .icon.list-check
+        +tablet-small
+          float: none
+          width: auto
+          white-space: normal
 
-					+print
-						content: '●'
-						background: none
-						width: auto
-						display: inline
-						margin-right: 5px
+        +mobile
+          position: relative
+          padding-left: 35px
 
-				+tablet-small
-					float: none
-					width: auto
-					white-space: normal
+          &::before
+            position: absolute
+            left: 0
+            top: 4px
 
-				+mobile
-					position: relative
-					padding-left: 35px
+    .footer
+      text-align: right
 
-					&::before
-						position: absolute
-						left: 0
-						top: 4px
-
-		.footer
-			text-align: right
-
-			+print
-				display: none
-
+      +print
+        display: none
 
 .fullscreen
-	.car-single
-		.top
-			figure
-				position: fixed
-				left: 0
-				top: 0
-				width: 100%
-				height: 100%
-				z-index: 100
-
+  .car-single
+    .top
+      figure
+        position: fixed
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+        z-index: 100

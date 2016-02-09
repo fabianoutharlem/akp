@@ -7,7 +7,7 @@
 
     <div class="row row-1">
       <p class="select">
-        <%= collection_select :q, :brand, Brand.all.order(name: :asc), :name, :name, {prompt: true}, {:class => 'search-advanced-brand', 'data-models-url' => models_brands_path} %>
+        <%= collection_select :q, :brand, Brand.all.order(name: :asc), :name, :name, {include_blank: 'Selecteer merk'}, {:class => 'search-advanced-brand', 'data-models-url' => models_brands_path} %>
       </p> <!-- .select -->
 
       <p class="select">
@@ -40,7 +40,7 @@
 
     <div class="row row-2">
       <p class="select">
-        <%= collection_select :q, :fuel, FuelType.all, :name, :display_name, prompt: true, class: 'search-advanced-fuel' %>
+        <%= collection_select :q, :fuel, FuelType.all, :name, :display_name, {include_blank: 'Selecteer brandstof'}, class: 'search-advanced-fuel' %>
       </p> <!-- .select -->
 
       <p class="select">
