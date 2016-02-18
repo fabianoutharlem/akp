@@ -140,7 +140,7 @@ class Car < ActiveRecord::Base
         car_type: params[:type],
         nap: params[:nap_weblabel],
         price_total: params[:verkoopprijs_particulier],
-        price_month: params[:lease]['maandbedrag'],
+        price_month: (params[:lease]['maandbedrag'] rescue nil),
         price_50_50: params[:verkoopprijs_handel],
         manufacture_year: params[:bouwjaar],
         cylinders: params[:cilinder_aantal],

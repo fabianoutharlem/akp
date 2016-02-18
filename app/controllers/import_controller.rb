@@ -15,7 +15,7 @@ class ImportController < ApplicationController
       end
     rescue Exception => e
       logger.debug e.message
-      render text: e.message, status: 422
+      render text: e.message, status: 422 and return
     end
   end
 
