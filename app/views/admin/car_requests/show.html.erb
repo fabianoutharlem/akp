@@ -17,9 +17,6 @@
       <li class="active">
         <a data-toggle="tab" href="#tab2hellowWorld">Auto info</a>
       </li>
-      <li>
-        <a data-toggle="tab" href="#tab2FollowUs">Financierings info</a>
-      </li>
     </ul>
     <div class="tab-content">
       <div class="tab-pane active slide-right" id="tab2hellowWorld">
@@ -82,24 +79,9 @@
 
           </div>
           <div class="col-md-6">
-            <h3 class="semi-bold">
-              Info
-            </h3>
-            <h4>
-              <%= @car_request.car.display_name unless @car_request.car.blank? %>
-            </h4>
-            <strong>Accesoires</strong>
-            <ul>
-              <% @car_request.car.options.each do |option| %>
-                <li><%= option.name %></li>
-              <% end unless @car_request.car.blank? %>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane slide-left" id="tab2FollowUs">
-        <div class="row">
-          <div class="col-md-6">
+
+            <button class="print btn btn-success hidden-print" onClick="window.print();">PRINT PAGINA</button>
+
             <h3>
               Persoons gegevens
             </h3>
@@ -115,8 +97,7 @@
               <dt>Woonachtig in</dt>
               <dd><%= @car_request.woonachtig %></dd>
             </dl>
-          </div>
-          <div class="col-md-6">
+
             <h3>
               Financierings gegevens
             </h3>
@@ -135,11 +116,6 @@
               <dd><%= @car_request.partner_net_income %></dd>
             </dl>
           </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="tab2Inspire">
-        <div class="row">
-
         </div>
       </div>
     </div>

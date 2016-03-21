@@ -5,6 +5,7 @@ module Admin
       car_requests = CarRequest.all.includes(:car).where.not(car: nil)
       car_requests_business = CarRequestBusiness.all.includes(:car).where.not(car: nil)
       @car_requests = (car_requests + car_requests_business).sort_by { |x| x.created_at}.reverse
+      @car_requests = Kaminari.paginate_array(@car_requests).page(params[:page]).per(params[:per_page])
     end
 
     def show

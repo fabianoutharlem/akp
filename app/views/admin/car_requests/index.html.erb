@@ -10,11 +10,10 @@
   <h3 class="page-title">Finance requests</h3>
 </div>
 
-
 <div class="panel">
   <ul class="nav nav-tabs nav-tabs-fillup">
     <li class="active">
-      <a data-toggle="tab" href="#tab2all">All (<%= @car_requests.length %>)</a>
+      <a data-toggle="tab" href="#tab2all">All (<%= "#{@car_requests.length} / #{@car_requests.total_count}" %>)</a>
     </li>
     <li>
       <a data-toggle="tab" href="#tab2financial">Financial (<%= @car_requests.select { |car_request| car_request.request_type == 'financial' }.length %>)</a>
@@ -47,8 +46,13 @@
       <%= render 'car_requests', car_requests: @car_requests.select { |car_request| car_request.request_type == 'private' } %>
 
     </div>
+
+    <%= paginate @car_requests %>
+
   </div>
 </div>
+
+
 
 <% content_for :footer do %>
 <% end %>
