@@ -1,4 +1,6 @@
 class CarRequestBusiness < ActiveRecord::Base
+  include MailchimpSubscriber
+
   belongs_to :car
 
   before_destroy :invalidate_cache

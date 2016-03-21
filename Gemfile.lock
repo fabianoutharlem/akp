@@ -216,6 +216,9 @@ GEM
     libv8 (3.16.14.7)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mailchimp-api (2.0.6)
+      excon (>= 0.16.0)
+      json (>= 1.7.7)
     mandrill-api (1.0.53)
       excon (>= 0.16.0, < 1.0)
       json (>= 1.7.7, < 2.0)
@@ -240,9 +243,8 @@ GEM
     polyamorous (1.1.0)
       activerecord (>= 3.0)
     progressbar (0.21.0)
-    puma (2.11.2)
-      rack (>= 1.1, < 2.0)
-    rack (1.5.2)
+    puma (3.2.0)
+    rack (1.5.5)
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
       rack (~> 1.1)
@@ -402,6 +404,7 @@ DEPENDENCIES
   koala
   lazyload-rails
   less-rails
+  mailchimp-api
   mandrill_mailer
   mysql2
   nokogiri
@@ -425,4 +428,4 @@ DEPENDENCIES
   viddl-rb!
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
