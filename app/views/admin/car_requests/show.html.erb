@@ -1,5 +1,5 @@
 <!-- START PAGE COVER -->
-<div class="container-fluid container-fixed-lg ">
+<div class="container-fluid container-fixed-lg hidden-print">
   <ul class="breadcrumb">
     <li>
       <p><%= link_to 'Home', admin_root_path %></p>
@@ -22,7 +22,7 @@
       <div class="tab-pane active slide-right" id="tab2hellowWorld">
         <div class="row column-seperation">
           <div class="col-md-6">
-            <%= image_tag @car_request.car.car_images.first.file.thumb unless @car_request.car.blank? %>
+            <%= image_tag @car_request.car.car_images.first.file.thumb, width: 150 unless @car_request.car.blank? %>
 
             <br/>
 
