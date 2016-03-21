@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113195556) do
+ActiveRecord::Schema.define(version: 20160321114528) do
 
   create_table "action_pages", force: true do |t|
     t.string   "banner_title"
