@@ -6,7 +6,7 @@ module MailchimpSubscriber # currently only for finance requests
     LISTS = {
         private: '542565ccc6',
         financial: 'dda669b93e',
-        '50_50': 'e6ec617236'
+        '50_50' => 'e6ec617236'
     }.freeze
 
     after_create :subscribe_to_newsletter
