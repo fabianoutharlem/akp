@@ -64,6 +64,7 @@ var init = {
             var $this = $(this),
                 max = $this.data('max'),
                 min = $this.data('min'),
+                spacing = parseInt($this.data('spacing')),
                 _default = $this.data('default').split('-'),
                 type = $this.data('type') || 'moveable',
                 sufix = $this.data('sufix');
@@ -75,6 +76,10 @@ var init = {
                 values: _default,
                 slide: function (event, ui) {
 
+                    if ((ui.values[0] + spacing) > ui.values[1]) {
+                        return false;
+                    }
+
                     var min = ui.values[0].formatMoney(2, ',', '.', sufix);
                     var max = ui.values[1].formatMoney(2, ',', '.', sufix);
 
@@ -82,7 +87,9 @@ var init = {
                     $this.find('.ui-slider-handle:last .value').html(max);
 
                     $this.siblings('.slider-value').val(ui.values.join('-'));
+
                 },
+
                 change: function (event, ui) {
 
                     var min = ui.values[0].formatMoney(2, ',', '.', sufix);

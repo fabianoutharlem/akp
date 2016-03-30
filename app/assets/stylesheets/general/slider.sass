@@ -1,105 +1,109 @@
 .ui-slider
-	background: #595A5D
-	height: 15px
-	position: relative
-	border-radius: 8px
+  background: #595A5D
+  height: 15px
+  position: relative
+  border-radius: 8px
 
-	+desktop-small
-		height: 10px
+  +desktop-small
+    height: 10px
 
-	.ui-slider-range
-		position: absolute
-		z-index: 1
-		background: $green-light
-		height: 15px
+  .ui-slider-range
+    position: absolute
+    z-index: 1
+    background: $green-light
+    height: 15px
 
-		+desktop-small
-			height: 10px
+    +desktop-small
+      height: 10px
 
-	.ui-slider-handle
-		position: absolute
-		z-index: 2
-		background: #F1F1F1
-		cursor: pointer
+  .ui-slider-handle
+    position: absolute
+    z-index: 2
+    background: #F1F1F1
+    cursor: pointer
 
-		border: 1px solid rgba(0, 0, 0, 0.1)
-		+border-radius (45px)
+    border: 1px solid rgba(0, 0, 0, 0.1)
+    +border-radius(45px)
 
-		width: 90px
-		height: 90px
+    width: 90px
+    height: 90px
 
-		margin-top: 7px
+    margin-top: 7px
 
-		+box-shadow (0 0 15px rgba(0, 0, 0, 0.05), 0 5px 2px rgba(0, 0, 0, 0.05))
-		+transform (translate(-50%, -50%))
+    +box-shadow(0 0 15px rgba(0, 0, 0, 0.05), 0 5px 2px rgba(0, 0, 0, 0.05))
 
+    &:nth-child(2)
+      +transform(translate(-100%, -50%))
 
-		+desktop-small
-			width: 60px
-			height: 60px
+    &:nth-child(3)
+      +transform(translate(0%, -50%))
 
-		+tablet
-			width: 40px
-			height: 40px
+    +desktop-small
+      width: 60px
+      height: 60px
 
-		.value
-			text-align: center
-			width: 270px
+    +tablet
+      width: 40px
+      height: 40px
 
-			position: absolute
-			top: -50px
-			left: -90px
+    .value
+      text-align: center
+      width: 270px
 
-			font-family: $main-font
-			font-size: 32px
-			line-height: 40px
-			font-weight: 300
-			color: $marine
+      position: absolute
+      top: -50px
+      left: -90px
 
-			+desktop-small
-				width: 200px
+      font-family: $main-font
+      font-size: 32px
+      line-height: 40px
+      font-weight: 300
+      color: $marine
 
-				font-size: 24px
-				line-height: 34px
+      +desktop-small
+        width: 200px
 
-				top: -40px
-				left: -70px
+        font-size: 24px
+        line-height: 34px
 
-			+tablet
-				width: 150px
+        top: -40px
+        left: -70px
 
-				font-size: 18px
-				line-height: 24px
+      +tablet
+        width: 150px
 
-				top: -35px
-				left: -50px
+        font-size: 18px
+        line-height: 24px
 
-	.slider-value-min,
-	.slider-value-max
-		margin: 0
-		text-align: left
+        top: -35px
+        left: -50px
 
-		position: absolute
-		z-index: 1
-		top: 45px
+  .slider-value-min,
+  .slider-value-max
+    margin: 0
+    text-align: left
 
-		font-family: $main-font
-		font-size: 32px
-		line-height: 40px
-		font-weight: 300
-		color: $marine
+    position: absolute
+    z-index: 1
+    top: 45px
 
-		+desktop-small
-			font-size: 24px
-			line-height: 34px
+    font-family: $main-font
+    font-size: 32px
+    line-height: 40px
+    font-weight: 300
+    color: $marine
 
-		+tablet
-			font-size: 18px
-			line-height: 24px
+    +desktop-small
+      font-size: 24px
+      line-height: 34px
 
-		&.slider-value-min
-			left: 0
+    +tablet
+      font-size: 18px
+      line-height: 24px
 
-		&.slider-value-max
-			right: 0
+    &.slider-value-min
+      left: 0
+
+    &.slider-value-max
+      right: 0
 
