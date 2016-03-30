@@ -25,8 +25,13 @@ header.main
 
       ul.contact_icons
         list-style: none
+
+        +mobile
+        padding: 0     //aanpassing
+
         li
           display: inline-block
+
           a
             font-size: 16px
             color: #060D5D
@@ -37,15 +42,15 @@ header.main
             +desktop-small
               margin-left: 25px
             +mobile
-              margin-left: 5px
+              margin-left: 0  //aanpassing was 5px
             +ipad
               font-size: 0
             &.phone
               background-image: image-url('phone_icon.svg')
-              padding-left: 27px
+              padding-left: 20px      //aanpassing was 27px
             &.whatsapp
               background-image: image-url('whatsapp_icon.svg')
-              padding-left: 44px
+              padding-left: 37px      //aanpassing was 44px
             &.email
               background-image: image-url('mail_icon.svg')
               padding-left: 38px
@@ -55,16 +60,20 @@ header.main
     background-color: #F35026
     position: relative
     z-index: 10
+
     div.wrapper
       display: flex
       justify-content: space-between
       flex-direction: row
       align-items: center
       height: 50px
+
       > ul
         list-style: none
         padding: 0
+
         &.left_menu
+
           > li
             +ipad
               &.mobile
@@ -74,20 +83,30 @@ header.main
             &.mobile
               display: none
               border-right: 1px solid #FC8161
-              padding-right: 40px
+              padding: 0 32px 0 15px    //aanpassing right (40) de rest 0
+
+          li     //aanpassing
+            a
+              +mobile
+              font-size: 10px
+
 
         &.right_menu
+
           li.search
             height: 42px
             border-left: none
+
             a
               padding-left: 35px
               background: image-url('menu_search.png') no-repeat left center
               +mobile
                 font-size: 0
+
           li.language-switch
             position: relative
             height: 42px
+            width: 130px
 
             +print
               display: none
@@ -100,6 +119,10 @@ header.main
               line-height: 42px
               font-weight: 400
               cursor: pointer
+              float: right         //aanpassing
+
+              +mobile //aanpassing
+              font-size: 10px
 
               background-repeat: no-repeat
               background-position: 10px center
@@ -121,6 +144,8 @@ header.main
 
                 +transform-origin(50% 50%)
                 +transition(transform 0.25s ease-in-out)
+
+
 
             &.visible
               .submenu
