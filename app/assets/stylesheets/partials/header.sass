@@ -88,7 +88,7 @@ header.main
           li     //aanpassing
             a
               +mobile
-              font-size: 10px
+                font-size: 10px
 
 
         &.right_menu
@@ -106,7 +106,9 @@ header.main
           li.language-switch
             position: relative
             height: 42px
-            width: 130px
+
+            +mobile
+              width: 130px
 
             +print
               display: none
@@ -122,7 +124,7 @@ header.main
               float: right         //aanpassing
 
               +mobile //aanpassing
-              font-size: 10px
+                font-size: 10px
 
               background-repeat: no-repeat
               background-position: 10px center
