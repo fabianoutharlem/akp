@@ -15,6 +15,8 @@ module Akp
 
     config.cache_store = :dalli_store, nil, { namespace: "akp-#{Rails.env}", expires_in: 7.days, compress: true }
 
+    config.exceptions_app = self.routes
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
