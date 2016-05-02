@@ -17,6 +17,11 @@
 //= require libs/mbe-slider.min
 //= require libs/formatMoney
 //= require libs/fastclick
+//= require libs/jquery.nicescroll.min
+//= require libs/jquery.mCustomScrollbar.concat.min
+//= require libs/jquery.jscrollpane.min
+//= require libs/arrive.min.js
 //= require jquery.lazyload.js
 //= require jquery.appear.js
 //= require main
+
