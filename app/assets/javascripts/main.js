@@ -20,7 +20,6 @@ var init = {
         //init the stuff
         this.initRangeSliders(element);
         this.initSelect2(element);
-        this.initNiceScrollbar(element);
         this.initTextbox(element);
         this.initTabs(element);
         this.initCarSliders(element);
@@ -122,17 +121,14 @@ var init = {
      * @return void
      */
     initSelect2: function (element) {
-        selects = $('form.search select', element);
-        selects.select2();
-        $('.model_brand_container select', element).select2();
-    },
+        $('form.search select, .model_brand_container select', element).select2();
+        $('form.search select, .model_brand_container select', element).on('select2:select', function(e) {
+            if ($(this).val()) {
+                $(this).next('span.select2').addClass('select2-selected');
+            } else {
+                $(this).next('span.select2').removeClass('select2-selected');
+            }
 
-
-    initNiceScrollbar: function (element) {
-        $(document).arrive('.select2-results__options', function () {
-            $(this).jScrollPane({
-                'mouseWheelSpeed': 40
-            });
         });
     },
 
