@@ -52,8 +52,8 @@ class CarsController < ApplicationController
   end
 
   def finance_ash_car
-    if params[:car].present? and (car = Car.find_by_vehicle_number_hexon(params[:car])).present?
-      return redirect_to financing_cars_path('private') + '#car/' + car.id.to_s if car.present?
+    car = Car.find_by_vehicle_number_hexon(params[:car]
+      return redirect_to financing_cars_path(params[:type] || 'private') + '#car/' + car.id.to_s if car.present?
     end
     type = params[:type].present? && ['private', 'business', '50_50'].include?(params[:type]) ? params[:type] : 'bussiness'
     type.gsub!('business', 'bussiness')
