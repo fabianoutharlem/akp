@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       get :nieuw_binnen
       get 'financing/:type', to: :financing, as: :financing
       get :voorraad, action: :index
+      get 'finance_ash_car/:car/:type', to: 'cars#finance_ash_car'
     end
   end
 
