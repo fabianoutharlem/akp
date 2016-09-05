@@ -1377,3 +1377,31 @@ $(window).on('resize', app.resize.bind(app));
 $(window).on('load', app.load.bind(app));
 $(window).on('scroll', app.scroll);
 
+$(document).ready(function() {
+
+    $('.owl_carousel_zekerheden').owlCarousel({
+        nav: true,
+        dots: true,
+        navText: [' ', ' '],
+        slideBy: 4,
+        items: 2,
+        responsive: {
+            0: {
+                items: 1,
+                slideBy: 1
+            },
+            700: {
+                items: 2,
+                slideBy: 2
+            },
+            1040: {
+                items: 3,
+                slideBy: 3
+            },
+            1281: {
+                items: 4
+            }
+        }
+    });
+});
+
