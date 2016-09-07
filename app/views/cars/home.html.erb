@@ -89,19 +89,19 @@
   <div class="wrapper">
     <div class="container-fluid content_container" style="background: url('<%= image_url 'bg_mogelijkheden.jpg' %>') no-repeat center; background-size: cover">
 
-      <h2>Wilt u deze auto financieren?</h2>
+      <h2><%= StaticText.home_finance_header %></h2>
 
-      <h3>Bekijk hier de mogelijkheden!</h3>
+      <h3><%= StaticText.home_finance_sub_header %></h3>
 
       <section class="article_financieren">
 
         <div class="circle_container">
           <div class="orange_circle">
-            <h4>ZAKELIJKE FINANCIERINGEN</h4>
+            <h4><%= StaticText.home_finance_circle_1_head %></h4>
 
-            <p>Financial lease voor de (startende) ondernemer en zzp'r zonder jaarcijfers</p>
+            <p><%= StaticText.home_finance_circle_1_text %></p>
 
-            <a href="http://autokredietplan.nl/cars/financing/50_50" target="_blank" class="orange_btn">Klik hier</a>
+            <a href="<%= StaticText.home_finance_circle_1_link %>" target="_blank" class="orange_btn"><%= StaticText.home_finance_circle_1_button_text %></a>
 
             <div class="white_circle"></div>
           </div>
@@ -113,12 +113,11 @@
 
         <div class="circle_container">
           <div class="orange_circle">
-            <h4>PARTICULIERE FINANCIERINGEN</h4>
+            <h4><%= StaticText.home_finance_circle_2_head %></h4>
 
-            <p>U bepaald hoeveel u betaald! meer dan 6000 klanten gingen u voor</p>
+            <p><%= StaticText.home_finance_circle_2_text %></p>
 
-            <a href="http://autokredietplan.nl/cars/financing/private" target="_blank" class="orange_btn animated">Klik
-              hier</a>
+            <a href="<%= StaticText.home_finance_circle_2_link %>" target="_blank" class="orange_btn"><%= StaticText.home_finance_circle_2_button_text %></a>
 
             <div class="white_circle"></div>
           </div>
@@ -130,12 +129,11 @@
 
         <div class="circle_container">
           <div class="orange_circle">
-            <h4>50/50 Deals (Particulier)</h4>
+            <h4><%= StaticText.home_finance_circle_3_head %></h4>
 
-            <p>Betaal nu de helft (inruilauto kan ook volstaan) en de andere helft in 12-48 mnd</p>
+            <p><%= StaticText.home_finance_circle_3_text %></p>
 
-            <a href="http://autokredietplan.nl/cars/financing/bussiness" target="_blank" class="orange_btn">Klik
-              hier</a>
+            <a href="<%= StaticText.home_finance_circle_3_link %>" target="_blank" class="orange_btn"><%= StaticText.home_finance_circle_3_button_text %></a>
 
             <div class="white_circle"></div>
           </div>
@@ -195,28 +193,32 @@
     </div>
   </section>
 
+  <% top_review = TopReview.find_random %>
+
+  <% if top_review.present? %>
   <section class="recentie">
     <div class="row_recentie">
       <div class="col_recentie">
         <div class="recentie_img">
-          <%= image_tag 'audi_weken.png' %>
+          <%= image_tag top_review.image.square %>
         </div>
       </div>
       <div class="col_recentie">
         <span class="helper"></span>
 
         <p class="recenctie_text">
-          “Top recentie Top recentie Top recentie Top recentie Top recentie”
+          <%= top_review.review %>
         </p>
       </div>
     </div>
   </section>
 
+  <% end %>
+
   <section class="zekerheden">
     <div class="wrapper">
       <div class="container-fluid content_container">
-
-        <h2>De zekerheden van <span>Auto Service Haarlem</span></h2>
+        <h2><%= StaticText.home_zekerheden_title %></h2>
 
         <div class="row row_text_blokken">
           <div class="col keuze">
@@ -224,45 +226,45 @@
               <span class="helper"></span>
               <%= image_tag 'autos.png' %>
             </div>
-            <h4>brands-zekerheden-1-titel</h4>
+            <h4><%= StaticText.zekerheden_1_title %></h4>
 
-            <p>brands-zekerheden-1-content</p>
+            <p><%= StaticText.zekerheden_1_content %></p>
           </div>
           <div class="col bepaald">
             <div class="image">
               <span class="helper"></span>
               <%= image_tag 'onderhoud.png' %>
             </div>
-            <h4>brands-zekerheden-2-titel</h4>
+            <h4><%= StaticText.zekerheden_2_title %></h4>
 
-            <p>brands-zekerheden-2-content</p>
+            <p><%= StaticText.zekerheden_2_content %></p>
           </div>
           <div class="col specialist">
             <div class="image">
               <span class="helper"></span>
               <%= image_tag 'medail.png' %>
             </div>
-            <h4>brands-zekerheden-3-titel</h4>
+            <h4><%= StaticText.zekerheden_3_title %></h4>
 
-            <p>brands-zekerheden-3-content</p>
+            <p><%= StaticText.zekerheden_3_content %></p>
           </div>
           <div class="col historie">
             <div class="image">
               <span class="helper"></span>
               <%= image_tag 'historie.png' %>
             </div>
-            <h4>brands-zekerheden-4-titel</h4>
+            <h4><%= StaticText.zekerheden_4_title %></h4>
 
-            <p>brands-zekerheden-4-content</p>
+            <p><%= StaticText.zekerheden_4_content %></p>
           </div>
           <div class="col huurkoop">
             <div class="image">
               <span class="helper"></span>
               <%= image_tag 'geld_zak.png' %>
             </div>
-            <h4>brands-zekerheden-5-titel</h4>
+            <h4><%= StaticText.zekerheden_5_title %></h4>
 
-            <p>brands-zekerheden-5-content</p>
+            <p><%= StaticText.zekerheden_5_content %></p>
           </div>
         </div>
 
@@ -273,9 +275,9 @@
                 <span class="helper"></span>
                 <%= image_tag 'autos.png' %>
               </div>
-              <h4>brands-zekerheden-1-titel</h4>
+              <h4><%= StaticText.zekerheden_1_title %></h4>
 
-              <p>brands-zekerheden-1-content</p>
+              <p><%= StaticText.zekerheden_1_content %></p>
             </div>
           </div>
           <div class="item">
@@ -284,9 +286,9 @@
                 <span class="helper"></span>
                 <%= image_tag 'onderhoud.png' %>
               </div>
-              <h4>brands-zekerheden-2-titel</h4>
+              <h4><%= StaticText.zekerheden_2_title %></h4>
 
-              <p>brands-zekerheden-2-content</p>
+              <p><%= StaticText.zekerheden_2_content %></p>
             </div>
           </div>
           <div class="item">
@@ -295,9 +297,9 @@
                 <span class="helper"></span>
                 <%= image_tag 'medail.png' %>
               </div>
-              <h4>brands-zekerheden-3-titel</h4>
+              <h4><%= StaticText.zekerheden_3_title %></h4>
 
-              <p>brands-zekerheden-3-content</p>
+              <p><%= StaticText.zekerheden_3_content %></p>
             </div>
           </div>
           <div class="item">
@@ -306,9 +308,9 @@
                 <span class="helper"></span>
                 <%= image_tag 'historie.png' %>
               </div>
-              <h4>brands-zekerheden-4-titel</h4>
+              <h4><%= StaticText.zekerheden_4_title %></h4>
 
-              <p>brands-zekerheden-4-content</p>
+              <p><%= StaticText.zekerheden_4_content %></p>
             </div>
           </div>
           <div class="item">
@@ -317,9 +319,9 @@
                 <span class="helper"></span>
                 <%= image_tag 'geld_zak.png' %>
               </div>
-              <h4>brands-zekerheden-5-titel</h4>
+              <h4><%= StaticText.zekerheden_5_title %></h4>
 
-              <p>brands-zekerheden-5-content</p>
+              <p><%= StaticText.zekerheden_5_content %></p>
             </div>
           </div>
         </div>

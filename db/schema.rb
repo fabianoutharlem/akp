@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321114528) do
+ActiveRecord::Schema.define(version: 20160729113130) do
 
   create_table "action_pages", force: true do |t|
     t.string   "banner_title"
@@ -368,6 +368,14 @@ ActiveRecord::Schema.define(version: 20160321114528) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
+  create_table "top_reviews", force: true do |t|
+    t.string   "image"
+    t.text     "review"
+    t.boolean  "enabled",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "transmission_types", force: true do |t|
     t.string   "name"

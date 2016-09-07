@@ -1,0 +1,35 @@
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+  <ul class="breadcrumb">
+    <li>
+      <p><%= link_to 'Home', admin_root_path %></p>
+    </li>
+    <li><a href="#" class="active">Top reviews</a></li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <h3 class="page-title">Top Reviews</h3>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+  <%= form_tag update_multiple_admin_static_texts_path, method: :put do %>
+      <table id="myDataTable" class="table table-hover" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Review</th>
+          <th>Zichtbaarheid</th>
+          <th>Acties</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <%= render @top_reviews %>
+        </tbody>
+      </table>
+
+
+  <% end %>
+</div>
+
+<% content_for :footer do %>
+<% end %>

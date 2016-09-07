@@ -108,6 +108,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :top_reviews
+
     resources :brands
 
     resources :references, only: [:index, :destroy] do

@@ -1,0 +1,21 @@
+<div class="form-group">
+  <%= f.label :image, 'Foto', class: 'col-sm-2 control-label' %>
+  <%= image_tag(f.object.image.thumb) if f.object.image.present? %>
+  <%= f.file_field :image, class: 'form-control' %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :review, 'Recensie', class: 'col-sm-2 control-label' %>
+  <%= f.text_area :review, id: 'wysiwyg5', class: 'wysiwyg form-control', placeholder: 'Enter the answer...', required: true, style: 'height: 250px;' %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= f.label :enabled, 'Zichtbaar', class: 'control-label' do %>
+      <%= f.check_box :enabled %> <i></i> Zichtbaar
+  <% end %>
+</div>
+
+<div class="form-group form-group-default">
+  <%= link_to 'Annuleren', admin_top_reviews_path, class: 'btn btn-white' %>
+  <%= f.submit 'Opslaan', class: 'btn btn-primary' %>
+</div>
