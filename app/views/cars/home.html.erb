@@ -1,6 +1,6 @@
 <%= render('action_pages/home_action_banner', action_page: ActionPage.active_action) if ActionPage.active_action.present? %>
 
-<section class="welcome">
+<section class="welcome" style="display:none;">
   <div class="wrapper">
 
 
@@ -59,7 +59,9 @@
           </figure>
 
           <h1>
-            <a href="<%= financing_cars_path '50_50' %>">50/50 Deals <small>(Particulier)</small></a>
+            <a href="<%= financing_cars_path '50_50' %>">50/50 Deals
+              <small>(Particulier)</small>
+            </a>
           </h1>
 
           <div class="description">
@@ -82,6 +84,68 @@
 
   </div> <!-- .wrapper -->
 </section> <!-- .welcome -->
+
+<section class="finance_circles">
+  <div class="wrapper">
+    <div class="container-fluid content_container" style="background: url('<%= image_url 'bg_mogelijkheden.jpg' %>') no-repeat center; background-size: cover">
+
+      <h2>Wilt u deze auto financieren?</h2>
+
+      <h3>Bekijk hier de mogelijkheden!</h3>
+
+      <section class="article_financieren">
+
+        <div class="circle_container">
+          <div class="orange_circle">
+            <h4>ZAKELIJKE FINANCIERINGEN</h4>
+
+            <p>Financial lease voor de (startende) ondernemer en zzp'r zonder jaarcijfers</p>
+
+            <a href="http://autokredietplan.nl/cars/financing/50_50" target="_blank" class="orange_btn">Klik hier</a>
+
+            <div class="white_circle"></div>
+          </div>
+
+          <div class="mini_logo"></div>
+        </div>
+      </section>
+      <section class="article_financieren">
+
+        <div class="circle_container">
+          <div class="orange_circle">
+            <h4>PARTICULIERE FINANCIERINGEN</h4>
+
+            <p>U bepaald hoeveel u betaald! meer dan 6000 klanten gingen u voor</p>
+
+            <a href="http://autokredietplan.nl/cars/financing/private" target="_blank" class="orange_btn animated">Klik
+              hier</a>
+
+            <div class="white_circle"></div>
+          </div>
+
+          <div class="mini_logo"></div>
+        </div>
+      </section>
+      <section class="article_financieren">
+
+        <div class="circle_container">
+          <div class="orange_circle">
+            <h4>50/50 Deals (Particulier)</h4>
+
+            <p>Betaal nu de helft (inruilauto kan ook volstaan) en de andere helft in 12-48 mnd</p>
+
+            <a href="http://autokredietplan.nl/cars/financing/bussiness" target="_blank" class="orange_btn">Klik
+              hier</a>
+
+            <div class="white_circle"></div>
+          </div>
+
+          <div class="mini_logo"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
 
 <section class="new-cars">
   <div class="wrapper">
@@ -107,6 +171,161 @@
 
 <%= render partial: 'wizards/pick_a_price', locals: {type: 'private', positioned_home_page: true} %>
 <%= render partial: 'financing_icons' %>
-<%= render partial: 'service', locals: {reference_avarage: @reference_avarage, references: @references} %>
+
+<section class="service_part">
+
+  <section class="nieuwsbrief" id="newsletter">
+    <div class="wrapper">
+      <div class="container-fluid">
+        <h3>Op de hoogte blijven van onze dagelijks vernieuwende voorraad?</h3>
+
+        <p>Schrijf je dan hier in<span>voor onze nieuwsbrief!</span></p>
+
+        <form action="//autoservicehaarlem.us10.list-manage.com/subscribe/post?u=44430860a9c40c3e2dbade7c2&amp;id=92a5ce40fb" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate news_letter newsletter_require" target="_blank" novalidate>
+          <div class="first-row">
+            <input type="text" value="" name="FNAME" class="" id="mce-FNAME" placeholder="Vul hier je voornaam in" required>
+            <input type="text" value="" name="LNAME" class="" id="mce-LNAME" placeholder="Vul hier je achternaam in" required>
+          </div>
+          <div class="second-row">
+            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Vul hier je e-mail adres in" required>
+            <button type="submit" value="Subscribe" class="orange_btn">Verstuur inschrijving</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="recentie">
+    <div class="row_recentie">
+      <div class="col_recentie">
+        <div class="recentie_img">
+          <%= image_tag 'audi_weken.png' %>
+        </div>
+      </div>
+      <div class="col_recentie">
+        <span class="helper"></span>
+
+        <p class="recenctie_text">
+          “Top recentie Top recentie Top recentie Top recentie Top recentie”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="zekerheden">
+    <div class="wrapper">
+      <div class="container-fluid content_container">
+
+        <h2>De zekerheden van <span>Auto Service Haarlem</span></h2>
+
+        <div class="row row_text_blokken">
+          <div class="col keuze">
+            <div class="image">
+              <span class="helper"></span>
+              <%= image_tag 'autos.png' %>
+            </div>
+            <h4>brands-zekerheden-1-titel</h4>
+
+            <p>brands-zekerheden-1-content</p>
+          </div>
+          <div class="col bepaald">
+            <div class="image">
+              <span class="helper"></span>
+              <%= image_tag 'onderhoud.png' %>
+            </div>
+            <h4>brands-zekerheden-2-titel</h4>
+
+            <p>brands-zekerheden-2-content</p>
+          </div>
+          <div class="col specialist">
+            <div class="image">
+              <span class="helper"></span>
+              <%= image_tag 'medail.png' %>
+            </div>
+            <h4>brands-zekerheden-3-titel</h4>
+
+            <p>brands-zekerheden-3-content</p>
+          </div>
+          <div class="col historie">
+            <div class="image">
+              <span class="helper"></span>
+              <%= image_tag 'historie.png' %>
+            </div>
+            <h4>brands-zekerheden-4-titel</h4>
+
+            <p>brands-zekerheden-4-content</p>
+          </div>
+          <div class="col huurkoop">
+            <div class="image">
+              <span class="helper"></span>
+              <%= image_tag 'geld_zak.png' %>
+            </div>
+            <h4>brands-zekerheden-5-titel</h4>
+
+            <p>brands-zekerheden-5-content</p>
+          </div>
+        </div>
+
+        <div class="owl_carousel_zekerheden">
+          <div class="item">
+            <div class="col keuze">
+              <div class="image">
+                <span class="helper"></span>
+                <%= image_tag 'autos.png' %>
+              </div>
+              <h4>brands-zekerheden-1-titel</h4>
+
+              <p>brands-zekerheden-1-content</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="col bepaald">
+              <div class="image">
+                <span class="helper"></span>
+                <%= image_tag 'onderhoud.png' %>
+              </div>
+              <h4>brands-zekerheden-2-titel</h4>
+
+              <p>brands-zekerheden-2-content</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="col specialist">
+              <div class="image">
+                <span class="helper"></span>
+                <%= image_tag 'medail.png' %>
+              </div>
+              <h4>brands-zekerheden-3-titel</h4>
+
+              <p>brands-zekerheden-3-content</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="col historie">
+              <div class="image">
+                <span class="helper"></span>
+                <%= image_tag 'historie.png' %>
+              </div>
+              <h4>brands-zekerheden-4-titel</h4>
+
+              <p>brands-zekerheden-4-content</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="col huurkoop">
+              <div class="image">
+                <span class="helper"></span>
+                <%= image_tag 'geld_zak.png' %>
+              </div>
+              <h4>brands-zekerheden-5-titel</h4>
+
+              <p>brands-zekerheden-5-content</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
 
 <%= render partial: 'layouts/footer_simple' %>
