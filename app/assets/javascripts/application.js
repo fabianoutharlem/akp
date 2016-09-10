@@ -25,5 +25,6 @@
 //= require libs/arrive.min.js
 //= require jquery.lazyload.js
 //= require jquery.appear.js
+//= require sliders.js
 //= require main
 
