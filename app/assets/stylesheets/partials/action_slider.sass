@@ -1,5 +1,51 @@
+section.action_slider
+  padding: 30px 0 0 0
+  margin-bottom: 10px
+
+  ul#slider_action_banners
+    //height: auto !important
+
+    li
+
+      &.disnone
+        display: none
+
+      figure
+        width: 100%
+        margin: 0
+
+        img
+          width: 100%
+          height: 100%
+
+ul.article_slider
+
+  .lSSlideOuter .lSPager.lSpg
+    display: none
+
+.lSSlideOuter .lSPager.lSpg
+  position: absolute
+  transform: translateX(-50%)
+  left: 50%
+  bottom: 50px
+
+  +tablet-small
+    bottom: 35px
+
+  +mobile-large
+    bottom: 25px
+
+  +mobile
+    bottom: 17px
+    display: none
+
+.lSSlideOuter
+  position: relative
+
+
 section.finance_circles
-  margin-top: 30px
+  //margin-top: 30px
+  height: 100%
 
   div.content_container
     padding: 100px 0 120px 0
@@ -7,10 +53,10 @@ section.finance_circles
     //height: 740px
 
     +desktop-small
-      padding: 100px 50px 120px 50px
+      padding: 50px 50px 120px 50px
 
     +tablet-small
-      padding: 50px 25px
+      padding: 10px 25px 75px 25px
 
     h2
       font-size: 52px
@@ -26,7 +72,7 @@ section.finance_circles
         font-size: 28px
 
       +mobile
-        font-size: 22px
+        font-size: 16px
 
     h3
       font-size: 36px
@@ -39,13 +85,14 @@ section.finance_circles
         font-size: 30px
 
       +tablet-small
-        margin-bottom: 30px
+        margin-bottom: 0
 
       +mobile-large
         font-size: 20px
 
       +mobile
         font-size: 17px
+        display: none
 
 //circles
 
@@ -74,9 +121,13 @@ section.article_financieren
 
     +tablet-small
       margin: 0 auto
+      width: 200px
+      height: 200px
 
-    +mobile-small
-      margin-left: -10px
+    +mobile
+      //margin-left: -10px
+      width: 140px
+      height: 140px
 
     div.orange_circle
       overflow: hidden
@@ -103,15 +154,36 @@ section.article_financieren
           font-size: 24.2px
           margin: 30px 0 6px 0
 
+        +tablet-small
+          font-size: 17px
+          margin-top: 20px
+
+        +mobile
+          font-size: 11px
+          margin-top: 8px
+
+
       p
         font-size: 16px
         line-height: 1.5
         font-weight: 500
         color: #ffffff
-        margin: 0 30px
+        margin: 0 20px
 
         +desktop-small
           font-size: 11.6px
+          height: 50px
+
+        +tablet-small
+          font-size: 9.6px
+          height: 35px
+
+        +mobile-large
+
+
+        +mobile
+          font-size: 7.5px
+          margin: 0 20px
 
       div
         font-size: 16px
@@ -141,6 +213,12 @@ section.article_financieren
           padding-left: 21px
           font-weight: 500
 
+        +mobile
+          width: 25px
+          height: 25px
+          bottom: 23px
+          line-height: 24px
+
         &:after
           background-color: #00b04a
           border-left: 1px solid #23c467
@@ -148,6 +226,9 @@ section.article_financieren
 
           +desktop-small
             width: 36px
+
+          +mobile
+            width: 25px
 
         &:hover
           width: 200px
@@ -160,11 +241,16 @@ section.article_financieren
           +desktop-small
             width: 110px
 
+          +mobile
+            width: 75px
+
           &:after
             right: -100%
 
+
       div.white_circle
-        position: absolute
+        //position: absolute
+        margin-top: 7px
         bottom: -57%
         width: 358px
         height: 358px
@@ -172,9 +258,20 @@ section.article_financieren
         border-radius: 50%
 
         +desktop-small
+          margin-top: 15px
           width: 260px
           height: 260px
           bottom: -61%
+
+        +tablet-small
+          width: 200px
+          height: 200px
+          border-radius: 0
+
+        +mobile
+          width: 140px
+          height: 140px
+          margin-top: 8px
 
     div.mini_logo
       position: absolute
@@ -185,3 +282,7 @@ section.article_financieren
       background-size: contain
       width: 70px
       height: 70px
+
+      +mobile
+        width: 50px
+        right: -26px

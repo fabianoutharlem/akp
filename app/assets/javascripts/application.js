@@ -21,6 +21,7 @@
 //= require libs/jquery.mCustomScrollbar.concat.min
 //= require libs/jquery.jscrollpane.min
 //= require libs/owl.carousel.min.js
+//= require libs/lightslider.js
 //= require libs/arrive.min.js
 //= require jquery.lazyload.js
 //= require jquery.appear.js

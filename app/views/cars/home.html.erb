@@ -1,6 +1,83 @@
 <%= render('action_pages/home_action_banner', action_page: ActionPage.active_action) if ActionPage.active_action.present? %>
 
-<section class="welcome" style="display:none;">
+<Section class="action_slider">
+  <div class="wrapper">
+    <ul id="slider_action_banners">
+      <li>
+        <figure>
+          <%= image_tag 'AKP_action_slide.png' %>
+        </figure>
+      </li>
+      <li class="">
+        <section class="finance_circles">
+          <div class="wrapper">
+            <div class="container-fluid content_container" style="background: url('<%= image_url 'bg_mogelijkheden.jpg' %>') no-repeat center; background-size: cover">
+
+              <h2>Wilt u deze auto financieren?</h2>
+
+              <h3>Bekijk hier de mogelijkheden!</h3>
+
+              <div class="article_slider">
+                <div><section class="article_financieren">
+
+                  <div class="circle_container">
+                    <div class="orange_circle">
+                      <h4>ZAKELIJKE FINANCIERINGEN</h4>
+
+                      <p>Financial lease voor de (startende) ondernemer en zzp'r zonder jaarcijfers</p>
+
+                      <a href="http://autokredietplan.nl/cars/financing/50_50" target="_blank" class="orange_btn">Klik hier</a>
+
+                      <div class="white_circle"></div>
+                    </div>
+
+                    <div class="mini_logo"></div>
+                  </div>
+                </section></div>
+                <div><section class="article_financieren">
+
+                  <div class="circle_container">
+                    <div class="orange_circle">
+                      <h4>PARTICULIERE FINANCIERINGEN</h4>
+
+                      <p>U bepaald hoeveel u betaald! meer dan 6000 klanten gingen u voor</p>
+
+                      <a href="http://autokredietplan.nl/cars/financing/private" target="_blank" class="orange_btn animated">Klik
+                        hier</a>
+
+                      <div class="white_circle"></div>
+                    </div>
+
+                    <div class="mini_logo"></div>
+                  </div>
+                </section></div>
+                <div><section class="article_financieren">
+
+                  <div class="circle_container">
+                    <div class="orange_circle">
+                      <h4>50/50 Deals (Particulier)</h4>
+
+                      <p>Betaal nu de helft (inruilauto kan ook volstaan) en de andere helft in 12-48 mnd</p>
+
+                      <a href="http://autokredietplan.nl/cars/financing/bussiness" target="_blank" class="orange_btn">Klik
+                        hier</a>
+
+                      <div class="white_circle"></div>
+                    </div>
+
+                    <div class="mini_logo"></div>
+                  </div>
+                </section></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </li>
+    </ul>
+  </div>
+</Section>
+
+<section class="welcome disnone" style="display:none;">
   <div class="wrapper">
 
 
@@ -84,66 +161,6 @@
 
   </div> <!-- .wrapper -->
 </section> <!-- .welcome -->
-
-<section class="finance_circles">
-  <div class="wrapper">
-    <div class="container-fluid content_container" style="background: url('<%= image_url 'bg_mogelijkheden.jpg' %>') no-repeat center; background-size: cover">
-
-      <h2><%= StaticText.home_finance_header %></h2>
-
-      <h3><%= StaticText.home_finance_sub_header %></h3>
-
-      <section class="article_financieren">
-
-        <div class="circle_container">
-          <div class="orange_circle">
-            <h4><%= StaticText.home_finance_circle_1_head %></h4>
-
-            <p><%= StaticText.home_finance_circle_1_text %></p>
-
-            <a href="<%= StaticText.home_finance_circle_1_link %>" target="_blank" class="orange_btn"><%= StaticText.home_finance_circle_1_button_text %></a>
-
-            <div class="white_circle"></div>
-          </div>
-
-          <div class="mini_logo"></div>
-        </div>
-      </section>
-      <section class="article_financieren">
-
-        <div class="circle_container">
-          <div class="orange_circle">
-            <h4><%= StaticText.home_finance_circle_2_head %></h4>
-
-            <p><%= StaticText.home_finance_circle_2_text %></p>
-
-            <a href="<%= StaticText.home_finance_circle_2_link %>" target="_blank" class="orange_btn"><%= StaticText.home_finance_circle_2_button_text %></a>
-
-            <div class="white_circle"></div>
-          </div>
-
-          <div class="mini_logo"></div>
-        </div>
-      </section>
-      <section class="article_financieren">
-
-        <div class="circle_container">
-          <div class="orange_circle">
-            <h4><%= StaticText.home_finance_circle_3_head %></h4>
-
-            <p><%= StaticText.home_finance_circle_3_text %></p>
-
-            <a href="<%= StaticText.home_finance_circle_3_link %>" target="_blank" class="orange_btn"><%= StaticText.home_finance_circle_3_button_text %></a>
-
-            <div class="white_circle"></div>
-          </div>
-
-          <div class="mini_logo"></div>
-        </div>
-      </section>
-    </div>
-  </div>
-</section>
 
 <section class="new-cars">
   <div class="wrapper">
