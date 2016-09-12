@@ -24,6 +24,7 @@
 //= require libs/lightslider.js
 //= require libs/arrive.min.js
 //= require jquery.lazyload.js
+//= require libs/jquery.bxslider.min.js
 //= require jquery.appear.js
 //= require sliders.js
 //= require main

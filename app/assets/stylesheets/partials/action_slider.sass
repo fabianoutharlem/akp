@@ -1,6 +1,10 @@
 section.action_slider
   padding: 20px 0 0 0
-  margin-bottom: 10px
+  margin-bottom: 30px
+
+  +mobile-large
+    margin-bottom: 20px
+    padding-top: 10px
 
   ul#slider_action_banners
     //height: auto !important
@@ -15,8 +19,46 @@ section.action_slider
         margin: 0
 
         img
-          width: 100%
+          width: 99%
           height: 100%
+
+.bx-viewport
+  padding-bottom: 10px
+
+.bx-wrapper
+  position: relative
+
+.bx-pager-link
+  color: transparent
+  z-index: 3
+  width: 8px
+  height: 8px
+  margin: 0 5px
+  background: #F14A26
+  border-radius: 50%
+  overflow: hidden
+  text-indent: -999em
+  border: 2px solid #F14A26
+  cursor: pointer
+
+  +mobile-large
+    width: 5px
+    height: 5px
+
+  &.active
+    background: transparent
+
+.bx-controls
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+  bottom: 30px
+
+  +mobile-large
+    bottom: 15px
+
+.bx-pager-item
+  display: inline-block
 
 ul.article_slider
 
@@ -27,7 +69,7 @@ ul.article_slider
   position: absolute
   transform: translateX(-50%)
   left: 50%
-  bottom: 50px
+  bottom: 30px
 
   +tablet-small
     bottom: 35px
@@ -42,13 +84,13 @@ ul.article_slider
   li
     z-index: 3
     width: 0px
-    height: 10px
+    height: 9px
     margin: 0 5px
     background: #F14A26
     border-radius: 50%
     overflow: hidden
     text-indent: -999em
-    border: 3px solid #F14A26
+    border: 2px solid #F14A26
     cursor: pointer
 
     &.active
@@ -145,6 +187,7 @@ section.article_financieren
       height: 140px
 
     div.orange_circle
+      -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)
       overflow: hidden
       position: relative
       display: inline-block
@@ -162,12 +205,11 @@ section.article_financieren
         letter-spacing: 1px
         color: #ffffff
         font-weight: 300
-        margin: 48px 40px 15px 40px
+        margin: 30px 10px 6px 10px
         font-family: bebas
 
         +desktop-small
           font-size: 24.2px
-          margin: 30px 0 6px 0
 
         +tablet-small
           font-size: 17px
@@ -218,6 +260,7 @@ section.article_financieren
         overflow: hidden
         transition: 300ms
         cursor: pointer
+        z-index: 10
 
         +desktop-small
           width: 60px
@@ -271,6 +314,7 @@ section.article_financieren
         height: 358px
         background-color: #ffffff
         border-radius: 50%
+        position: absolute
 
         +desktop-small
           margin-top: 15px
