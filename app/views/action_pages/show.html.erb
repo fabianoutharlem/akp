@@ -1,19 +1,21 @@
 <%= render partial: 'layouts/breadcrumb' %>
 
 <section class="action_banner">
-  <div class="wrapper" style="background-image: url('<%= @action_page.banner_image.large.url %>');">
+  <a href="#">
+    <div class="wrapper" style="background-image: url('AKP_action_slide.png');">
 
-    <article class="balloon">
-      <h2><%= @action_page.header_title.html_safe %></h2>
+      <article class="balloon">
+        <h2><%= @action_page.header_title.html_safe %></h2>
 
-      <%= @action_page.header_text.html_safe %>
-    </article>
+        <%= @action_page.header_text.html_safe %>
+      </article>
 
-    <h1 class="right"><%= @action_page.banner_title %></h1>
+      <h1 class="right"><%= @action_page.banner_title %></h1>
 
-    <p class="right"><%= h @action_page.banner_subtitle %></p>
+      <p class="right"><%= h @action_page.banner_subtitle %></p>
 
-  </div>
+    </div>
+  </a>
 
   <div class="footer">
     <button class="btn scroll_down">Ontdek het aanbod</button>
