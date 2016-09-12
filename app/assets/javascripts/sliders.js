@@ -4,7 +4,8 @@ $(document).ready(function() {
         auto: true,
         pause: 8000,
         loop: true,
-        item: 1
+        item: 1,
+        //pager: ($("#slider_action_banners>.wrap").length > 1) ? true: false
     });
 
     var sub_slider = $(".article_slider").owlCarousel({

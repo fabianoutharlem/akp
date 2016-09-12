@@ -1,6 +1,6 @@
 <!--[if lt IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
+  your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <header class="main">
@@ -108,11 +108,9 @@
         <li><a href="<%= page_path('algemene-voorwaarden') %>">Algemene voorwaarden</a></li>
         <li><a href="<%= page_path('disclaimer') %>">Disclaimer</a></li>
       </ul>
-      <% if ActionPage.active_action.present? %>
-          <div class="action col-md-8 pull-left">
-            <%= render('action_pages/menu_action_banner', action_page: ActionPage.active_action) %>
-          </div>
-      <% end %>
+      <div class="action_ col-md-8 pull-left">
+        <%= image_tag 'AKP_action_slide.png', class: 'akp_banner' %>
+      </div>
       <div class="clear"></div>
     </div>
   </div>

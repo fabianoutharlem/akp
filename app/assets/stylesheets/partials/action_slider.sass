@@ -1,5 +1,5 @@
 section.action_slider
-  padding: 30px 0 0 0
+  padding: 20px 0 0 0
   margin-bottom: 10px
 
   ul#slider_action_banners
@@ -39,6 +39,21 @@ ul.article_slider
     bottom: 17px
     display: none
 
+  li
+    z-index: 3
+    width: 0px
+    height: 10px
+    margin: 0 5px
+    background: #F14A26
+    border-radius: 50%
+    overflow: hidden
+    text-indent: -999em
+    border: 3px solid #F14A26
+    cursor: pointer
+
+    &.active
+      background: transparent
+
 .lSSlideOuter
   position: relative
 
@@ -53,10 +68,10 @@ section.finance_circles
     //height: 740px
 
     +desktop-small
-      padding: 50px 50px 120px 50px
+      padding: 50px 50px 70px 50px
 
     +tablet-small
-      padding: 10px 25px 75px 25px
+      padding: 30px 25px 45px 25px
 
     h2
       font-size: 52px
@@ -192,7 +207,7 @@ section.article_financieren
 
       a.orange_btn
         display: inline-block
-        z-index: 10
+        //z-index: 10
         position: absolute
         bottom: 56px
         left: 50%
