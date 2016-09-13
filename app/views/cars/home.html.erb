@@ -3,7 +3,7 @@
     <ul id="slider_action_banners">
       <% if ActionPage.active_action.present? %>
           <li>
-            <a href="<%= action_page_path(ActionPage.active_action) %>">
+            <a href="<%= action_page_path(ActionPage.active_action) %>" class="banner_link">
               <figure>
                 <%= image_tag ActionPage.active_action.banner_image.large %>
               </figure>
