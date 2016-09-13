@@ -1,0 +1,40 @@
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+  <ul class="breadcrumb">
+    <li>
+      <p><%= link_to 'Home', admin_root_path %></p>
+    </li>
+    <li><a href="#" class="active">Banners</a></li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <h3 class="page-title">Banners</h3>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+  <table id="sortable" class="table table-bordered table-striped" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+      <th>Banner</th>
+      <th>Active</th>
+      <th>Link</th>
+      <th>Acties</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @banners.each do |banner| %>
+        <tr data-item-id="<%= "#{banner.id}" %>" class="item">
+          <td><%= image_tag banner.image.thumb %></td>
+          <td><%= banner.active? %></td>
+          <td><%= banner.link %></td>
+          <td>
+            <%= link_to 'Edit', edit_admin_banner_path(banner), class: 'btn btn-info' %>
+            <%= link_to 'Delete', admin_banner_path(banner), confirm: 'Are you sure you want to delete this banner?', method: :delete, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% content_for :footer do %>
+<% end %>

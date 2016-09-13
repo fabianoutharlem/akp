@@ -1,0 +1,33 @@
+<!-- START PAGE COVER -->
+<div class="container-fluid container-fixed-lg ">
+  <ul class="breadcrumb">
+    <li>
+      <p><%= link_to 'Home', admin_root_path %></p>
+    </li>
+    <li><a href="" class="active">Edit Banner</a></li>
+  </ul>
+  <!-- END BREADCRUMB -->
+  <h3 class="page-title">Edit Banner</h3>
+</div>
+
+<div class="container-fluid container-fixed-lg">
+  <%= form_for @banner, url: {action: :update}, html: {class: 'form'} do |f| %>
+      <%= render partial: 'admin/banners/form', locals: {f: f} %>
+      <%= f.submit 'Update', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<% content_for :footer do %>
+    <script>
+      $(document).ready(function () {
+        $('#wysiwyg5').wysihtml5();
+
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+        // Success color: #10CFBD
+        elems.forEach(function (html) {
+          var switchery = new Switchery(html, {color: '#10CFBD'});
+        });
+
+      });
+    </script>
+<% end %>

@@ -16,7 +16,7 @@ class ActionPage < ActiveRecord::Base
   before_save :ensure_one_active_record
   before_save :ensure_model_matches_brand
 
-  validates :banner_image, :banner_subtitle, :banner_title, :brand, :header_title, :header_text, :car_section_title, :car_section_subtitle, presence: true
+  validates :banner_image, :banner_title, :brand, :header_title, :header_text, :car_section_title, :car_section_subtitle, presence: true
   validates_presence_of :orange_banner_image, :orange_banner_title, :orange_banner_text, if: lambda { orange_banner_enabled? }
   validates_presence_of :reference_image, :reference_text, :reference_stars, :reference_car_image, if: lambda { reference_banner_enabled? }
 

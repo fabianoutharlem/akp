@@ -14,7 +14,6 @@
 // BEGIN VENDOR JS FOR PAGES (plus add in jquery.turbolinks)
 //= require jquery
 //= require pages-plugins/pace/pace.min
-//= require pages-plugins/jquery/jquery-1.11.1.min
 //= require pages-plugins/modernizr.custom
 //= require pages-plugins/jquery-ui/jquery-ui.min
 //= require pages-plugins/boostrapv3/js/bootstrap.min
@@ -38,6 +37,8 @@
 
 //= require cocoon
 
+//= require jquery-ui/sortable
+//= require jquery-ui/effect-highlight
 
 // BEGIN CORE TEMPLATE JS FOR PAGES
 //= require pages-core/js/pages
@@ -47,3 +48,5 @@
 //  I prefer to list scripts in a specific order, so I comment out require_tree .
 // require_tree .
 //= require jquery_ujs
+
+//= require ./update_banner_row_order
