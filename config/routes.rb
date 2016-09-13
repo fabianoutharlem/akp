@@ -112,6 +112,10 @@ Rails.application.routes.draw do
 
     resources :brands
 
+    resources :banners, path: :banner do
+      post :update_row_order, on: :collection
+    end
+
     resources :references, only: [:index, :destroy] do
       collection do
         get '/approve/:id', action: :approve, as: :approve

@@ -1,0 +1,13 @@
+<div class="form-group form-group-default">
+  <%= f.label :image %>
+  <%= f.file_field :image, class: 'form-control' %>
+  <%= image_tag f.object.image.try(:thumb) if f.object.image.present? %>
+</div>
+<div class="form-group form-group-default">
+  <%= f.label :link %>
+  <%= f.text_field :link, class: 'form-control' %>
+</div>
+<div class="form-group form-group-default">
+  <%= f.label :active %>
+  <%= f.check_box :active, class: 'switchery' %>
+</div>

@@ -109,7 +109,11 @@
         <li><a href="<%= page_path('disclaimer') %>">Disclaimer</a></li>
       </ul>
       <div class="action_ col-md-8 pull-left">
-        <%= image_tag 'AKP_action_slide.png', class: 'akp_banner' %>
+        <% if ActionPage.active_action.present? %>
+            <%= link_to action_page_path(ActionPage.active_action) do %>
+                <%= image_tag ActionPage.active_action.banner_image.large, class: 'akp_banner' %>
+            <% end %>
+        <% end %>
       </div>
       <div class="clear"></div>
     </div>

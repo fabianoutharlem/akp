@@ -1,13 +1,24 @@
 <Section class="action_slider">
   <div class="wrapper">
     <ul id="slider_action_banners">
-      <li>
-        <a href="#">
-          <figure>
-            <%= image_tag 'AKP_action_slide.png' %>
-          </figure>
-        </a>
-      </li>
+      <% if ActionPage.active_action.present? %>
+          <li>
+            <a href="<%= action_page_path(ActionPage.active_action) %>">
+              <figure>
+                <%= image_tag ActionPage.active_action.banner_image.large %>
+              </figure>
+            </a>
+          </li>
+      <% end %>
+      <% Banner.active.each do |banner| %>
+          <li>
+            <a href="<%= banner.link %>">
+              <figure>
+                <%= image_tag banner.image.large %>
+              </figure>
+            </a>
+          </li>
+      <% end %>
     </ul>
   </div>
 </Section>
@@ -19,7 +30,6 @@
       <h2><%= StaticText.home_finance_header %></h2>
 
       <h3><%= StaticText.home_finance_sub_header %></h3>
-
 
       <section class="article_financieren">
 

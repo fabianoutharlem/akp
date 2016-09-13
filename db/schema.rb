@@ -11,11 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729113130) do
+ActiveRecord::Schema.define(version: 20160913134047) do
 
   create_table "action_pages", force: true do |t|
-    t.string   "banner_title"
-    t.string   "banner_subtitle"
     t.string   "banner_image"
     t.boolean  "active"
     t.datetime "created_at"
@@ -46,6 +44,16 @@ ActiveRecord::Schema.define(version: 20160729113130) do
     t.string   "pro_5"
     t.string   "pro_6"
     t.string   "pro_7"
+    t.string   "banner_title"
+  end
+
+  create_table "banners", force: true do |t|
+    t.string   "image"
+    t.boolean  "active"
+    t.integer  "row_order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "link"
   end
 
   create_table "blog_pages", force: true do |t|
