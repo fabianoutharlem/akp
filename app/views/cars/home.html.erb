@@ -12,7 +12,7 @@
       <% end %>
       <% Banner.active.each do |banner| %>
           <li>
-            <a href="<%= banner.link %>">
+            <a href="<%= banner.link %>" class="banner_link">
               <figure>
                 <%= image_tag banner.image.large %>
               </figure>
