@@ -33,6 +33,7 @@ var init = {
         this.initScrollTo(element);
         this.initLazyLoading(element);
         this.initMenu(element);
+        this.initMainSlider(element);
     },
 
     initLazyLoading: function (element) {
@@ -49,6 +50,30 @@ var init = {
             $('.menu').toggleClass('visible');
             $('.left_menu .arrow').toggleClass('twisted');
         });
+    },
+
+    initMainSlider: function(element) {
+
+        var main_slider = $('#slider_action_banners').bxSlider({
+            controls: false,
+            infiniteLoop: true,
+            auto: true,
+            pager: true,
+            pause: 6000,
+            autoHover: true
+        });
+
+        var count = main_slider.getSlideCount();
+        if (count <= 1) {
+            main_slider.reloadSlider({
+                controls: false,
+                infiniteLoop: true,
+                auto: false,
+                pager: false
+            });
+
+            $('.bx-pager-item').css({'display': 'none'});
+        }
     },
 
     /**
