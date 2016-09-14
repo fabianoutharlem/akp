@@ -11,14 +11,14 @@ $(document).ready(function () {
     //    }
     //});
 
-    var main_slider = $('#slider_action_banners').bxSlider({
-        controls: false,
-        infiniteLoop: true,
-        auto: true,
-        pager: true,
-        pause: 6000,
-        autoHover: true
-    });
+    //var main_slider = $('#slider_action_banners').bxSlider({
+    //    controls: false,
+    //    infiniteLoop: true,
+    //    auto: true,
+    //    pager: true,
+    //    pause: 6000,
+    //    autoHover: true
+    //});
 
     var sub_slider = $(".article_slider").owlCarousel({
     items: 3,
