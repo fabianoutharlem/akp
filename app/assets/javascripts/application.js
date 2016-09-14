@@ -16,6 +16,7 @@
 //= require libs/modernizr-2.8.3.min
 //= require libs/mbe-slider.min
 //= require libs/formatMoney
+//= require sliders.js
 //= require libs/fastclick
 //= require libs/jquery.nicescroll.min
 //= require libs/jquery.mCustomScrollbar.concat.min
@@ -27,5 +28,4 @@
 //= require libs/jquery.bxslider.min.js
 //= require jquery.appear.js
 //= require main
-//= require sliders.js
 

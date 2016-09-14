@@ -3,8 +3,8 @@ $(document).ready(function () {
     var main_slider = $('#slider_action_banners').bxSlider({
         controls: false,
         infiniteLoop: true,
-        auto: true,
-        pager: true,
+        auto: ($(".slider_action_banners li").length > 1) ? true: false,
+        pager: ($(".slider_action_banners li").length > 1) ? true: false,
         pause: 6000,
         autoHover: true
     });
@@ -77,5 +77,4 @@ $(document).ready(function () {
         }
     }
 });
-
 });
