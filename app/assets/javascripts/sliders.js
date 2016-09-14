@@ -20,18 +20,6 @@ $(document).ready(function () {
         autoHover: true
     });
 
-    var count = main_slider.getSlideCount();
-    if (count <= 1) {
-        main_slider.reloadSlider({
-            controls: false,
-            infiniteLoop: true,
-            auto: false,
-            pager: false
-        });
-
-        $('.bx-pager-item').css({'display': 'none'});
-    }
-
     var sub_slider = $(".article_slider").owlCarousel({
     items: 3,
     loop: true,
