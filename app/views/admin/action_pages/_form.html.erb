@@ -24,7 +24,7 @@
 
 <div class="form-group form-group-default">
   <%= f.label :brand_id %>
-  <%= f.collection_select :brand_id, Brand.all, :id, :name, {include_blank: false}, class: 'full-width', data: {'init-plugin' => 'select2'}, required: true %>
+  <%= f.collection_select :brand_id, Brand.all.push(Brand.new({id: nil, name: 'Geen merk'})), :id, :name, {include_blank: true}, class: 'full-width', data: {'init-plugin' => 'select2'}, required: false %>
 </div>
 
 <% if f.object.brand %>
