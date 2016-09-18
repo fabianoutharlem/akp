@@ -34,12 +34,20 @@
           </p>
         </div>
         <div class="col-md-4 col-sm-12">
-          <h2><%= action_page.brand.name %> aanbod</h2>
+          <h2><%= action_page.brand.try(:name) || 'Ons' %> aanbod</h2>
           <ul class="row">
-            <% action_page.brand.models.order(name: :asc).each do |model| %>
-                <li class="col-md-6">
-                    <%= link_to "#{action_page.brand.name} #{model.name}", model_cars_path(model) %>
-                </li>
+            <% if action_page.brand.present? %>
+                <% action_page.brand.models.order(name: :asc).each do |model| %>
+                    <li class="col-md-6">
+                      <%= link_to "#{action_page.brand.name} #{model.name}", model_cars_path(model) %>
+                    </li>
+                <% end %>
+            <% else %>
+                <% Brand.all_for_menu.each do |brand| %>
+                    <li class="col-md-6">
+                      <%= link_to "#{brand.name}", brand_cars_path(brand) %>
+                    </li>
+                <% end %>
             <% end %>
           </ul>
         </div>

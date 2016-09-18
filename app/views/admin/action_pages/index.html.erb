@@ -27,7 +27,7 @@
             <tr>
               <td><%= action_page.banner_title %></td>
               <td><%= action_page.slug %></td>
-              <td><%= action_page.brand.name %></td>
+              <td><%= action_page.brand.try(:name) || 'Alle autos' %></td>
               <td><%= action_page.try(:model).try(:name) %></td>
               <td><%= action_page.active? %></td>
               <td>
