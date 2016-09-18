@@ -78,6 +78,7 @@ var init = {
             }
         });
 
+
         $('.owl_carousel_zekerheden').owlCarousel({
             nav: true,
             dots: true,
