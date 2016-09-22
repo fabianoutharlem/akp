@@ -35,6 +35,7 @@ var init = {
         this.initMenu(element);
         this.initMainSlider(element);
         this.initHomeSliders(element);
+        this.initZekerhedenCarousel(element);
     },
 
     initLazyLoading: function (element) {
@@ -78,6 +79,9 @@ var init = {
             }
         });
 
+    },
+
+    initZekerhedenCarousel: function(element) {
 
         $('.owl_carousel_zekerheden').owlCarousel({
             nav: true,
@@ -103,7 +107,6 @@ var init = {
                 }
             }
         });
-
     },
 
     initMainSlider: function (element) {
