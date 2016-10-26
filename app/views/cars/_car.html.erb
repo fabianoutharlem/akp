@@ -23,7 +23,7 @@
           <div class="tab tab-1 <%== if defined? wizard_type and wizard_type.present? and wizard_type == 'bussiness'; 'visible'; elsif !defined? wizard_type or !['bussiness', '50_50', 'private'].include? wizard_type; 'visible'; end %>">
             <h3 class="price"><%= number_to_currency car.price_month, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
             <small>p.m. vanaf <br/></small>
-            <small class="underline">Op basis van financial lease</small>
+            <small class="underline">Op basis van Financial lease</small>
           </div>
           <div class="tab tab-2 <%== if defined? wizard_type and wizard_type.present? and wizard_type == 'private'; 'visible'; end %>">
             <h3 class="price"><%= number_to_currency car.price_month, unit: "€", separator: ",", delimiter: ".", precision: 0 %>,-</h3>
