@@ -31,14 +31,14 @@
           </p>
           <div class="normal_fields">
             <p class="text right" data-rules="required">
-              <input type="text" name="payment" class="text" id="payment-payment" required="required" value="<%== if defined? params[:wizard_type] and params[:wizard_type].present? and params[:wizard_type] == '50_50';
+              <input type="text" name="payment" class="text" id="payment-payment"  value="<%== if defined? params[:wizard_type] and params[:wizard_type].present? and params[:wizard_type] == '50_50';
                                                                                                                     @car.price_50_50;
                                                                                                                   end %>"/>
               <label for="payment-payment">Aanbetaling</label>
             </p>
 
             <p class="text" data-rules="required">
-              <input type="text" name="name" class="text" id="payment-name" required="required"/>
+              <input type="text" name="name" class="text" id="payment-name"/>
               <label for="payment-name">Naam</label>
             </p>
 
@@ -58,12 +58,12 @@
             </p>
 
             <p class="text" data-rules="required|numeric">
-              <input type="text" name="net_income" class="text" required="required" id="payment-net-income"/>
+              <input type="text" name="net_income" class="text" id="payment-net-income"/>
               <label for="payment-net-income">Netto inkomen</label>
             </p>
 
             <p class="text right" data-rules="required">
-              <input type="text" name="woonachtig" class="text" id="woonachtig" required="required" />
+              <input type="text" name="woonachtig" class="text" id="woonachtig" />
               <label for="woonachtig">Woonachtig in</label>
             </p>
 
@@ -74,12 +74,12 @@
 
 
             <p class="text" data-rules="required|numeric">
-              <input type="text" name="partner_net_income" class="text" required="required" id="payment-partner-net-income"/>
+              <input type="text" name="partner_net_income" class="text"  id="payment-partner-net-income"/>
               <label for="payment-partner-net-income">Netto inkomen partner</label>
             </p>
 
             <p class="text" data-rules="required">
-              <input type="text" name="rent" class="text" required="required" id="payment-rent"/>
+              <input type="text" name="rent" class="text"  id="payment-rent"/>
               <label for="payment-rent">Huur of hypotheeklasten</label>
             </p>
           </div>
@@ -102,37 +102,37 @@
             </p>
 
             <p class="text" data-rules="required">
-              <input type="text" name="first_name" class="text" id="payment-name-first" required="required"/>
+              <input type="text" name="first_name" class="text" id="payment-name-first" />
               <label for="payment-name-first">Voornaam</label>
             </p>
 
             <p class="text right" data-rules="required">
-              <input type="text" name="last_name" class="text" id="payment-name-last" required="required"/>
+              <input type="text" name="last_name" class="text" id="payment-name-last" />
               <label for="payment-name-last">Achternaam</label>
             </p>
 
             <p class="text" data-rules="required|numeric">
-              <input type="text" name="payment" class="text" id="payment-payment" required="required" />
+              <input type="text" name="payment" class="text" id="payment-payment" />
               <label for="payment-payment">Aanbetaling</label>
             </p>
 
             <p class="text right" data-rules="required">
-              <input type="text" name="kvk" class="text" id="payment-kvk" required="required" />
+              <input type="text" name="kvk" class="text" id="payment-kvk" />
               <label for="payment-kvk">KvK Dossiernummer</label>
             </p>
 
             <p class="text">
-              <input type="text" name="date_creation" class="text" id="payment-creation" />
+              <input type="text" name="date_creation" class="text" id="payment-creation"/>
               <label for="payment-creation">Datum oprichting</label>
             </p>
 
             <p class="text right">
-              <input type="text" name="notes" class="text" id="payment-notes" required="required" />
+              <input type="text" name="notes" class="text" id="payment-notes" />
               <label for="payment-notes">Opmerking</label>
             </p>
 
             <p class="text" data-rules="required">
-              <input type="text" name="woonachtig" class="text" id="woonachtig" required="required" />
+              <input type="text" name="woonachtig" class="text" id="woonachtig" />
               <label for="woonachtig">Woonachtig in</label>
             </p>
 
@@ -166,32 +166,32 @@
 </section> <!-- .wizard-form -->
 
 <script type="text/javascript" charset="utf-8">
-    $(document).ready(function () {
-        switch_form_fields();
+  $(document).ready(function () {
+    switch_form_fields();
 
-        $('select[name="request_type"]').on('change', function () {
-           switch_form_fields();
-        });
-
+    $('select[name="request_type"]').on('change', function () {
+      switch_form_fields();
     });
 
-    function switch_form_fields() {
-        var
-                form_type = $('select[name="request_type"]').val(),
-                financial_container = $('div.financial_fields'),
-                normal_container = $('div.normal_fields');
+  });
 
-        if (form_type == 'financial') {
-            financial_container.show();
-            normal_container.hide();
-            $('[required="required"]', normal_container).prop('required', false);
-            $('[required="false"]', financial_container).prop('required', 'required');
-        } else {
-            financial_container.hide();
-            normal_container.show();
-            $('[required="required"]', financial_container).prop('required', false);
-            $('[required="false"]', normal_container).prop('required', 'required');
-        }
+  function switch_form_fields() {
+    var
+        form_type = $('select[name="request_type"]').val(),
+        financial_container = $('div.financial_fields'),
+        normal_container = $('div.normal_fields');
+
+    if (form_type == 'financial') {
+      financial_container.show();
+      normal_container.hide();
+      $('[required="required"]', normal_container).prop('required', false);
+      $('[required="false"]', financial_container).prop('required', 'required');
+    } else {
+      financial_container.hide();
+      normal_container.show();
+      $('[required="required"]', financial_container).prop('required', false);
+      $('[required="false"]', normal_container).prop('required', 'required');
     }
+  }
 
 </script>
