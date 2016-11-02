@@ -54,4 +54,6 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # GA_TRACKER = Staccato.tracker('UA-55394434-2')
 end

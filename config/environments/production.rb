@@ -81,4 +81,6 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:host] = config.domain
 
   config.action_mailer.asset_host = config.domain
+
+  GA_TRACKER = Staccato.tracker('UA-55394434-2')
 end

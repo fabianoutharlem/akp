@@ -130,3 +130,5 @@ gem 'mailchimp-api', require: 'mailchimp'
 gem 'kaminari'
 
 gem 'ranked-model'
+
+gem 'staccato'

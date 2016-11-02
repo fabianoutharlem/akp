@@ -17,6 +17,13 @@ class ApplicationController < ActionController::Base
     "#{field} #{direction}"
   end
 
+  protected
+
+  def track_event(category, action, label = nil, value = nil)
+    return unless defined?(GA_TRACKER) && GA_TRACKER.is_a?(Staccato::Tracker)
+    GA_TRACKER.event(category: category, action: action, label: label, value: value)
+  end
+
   private
 
   def layout

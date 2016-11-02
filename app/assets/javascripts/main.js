@@ -1165,6 +1165,8 @@ var app = {
                 var carId = Number(hash.split('car/')[1]),
                     nextStepUrl = $('.wizard .private-financing').data('car-url');
 
+                ga('send', 'event', 'cars', 'finance wizard gestart met auto', carId);
+
                 this.getCarForm(false, carId, nextStepUrl);
             }
         },
@@ -1253,6 +1255,8 @@ var app = {
             $('.wizard .first-step').on('click', function (e) {
                 e.preventDefault();
 
+                ga('send', 'event', 'cars', 'finance wizard stap 1');
+
                 var $this = $(e.currentTarget),
                     $sliderContainer = $this.closest('.slider-container'),
                     $slider = $sliderContainer.find('.slider-range'),
@@ -1307,6 +1311,8 @@ var app = {
          */
         secondStep: function () {
 
+            ga('send', 'event', 'cars', 'finance wizard stap 2');
+
             //submit
             $('.wizard .wizard-cars form.search').on('submit', function (e) {
                 e.preventDefault();
@@ -1359,6 +1365,8 @@ var app = {
          * @return void
          */
         thirdStep: function () {
+
+            ga('send', 'event', 'cars', 'finance wizard stap 3');
 
             //click
             $('.wizard .wizard-cars .search-results article.listing-car .goto a').on('click', function (e) {
@@ -1422,8 +1430,6 @@ var app = {
                 }
 
                 var $this = $(e.currentTarget);
-
-                window.ga('send', 'event', 'Wizard', 'Completed', $('select[name="request_type"]', $this).val());
 
                 //remove next steps
                 $('.wizard .wizard-final').remove();
