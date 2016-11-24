@@ -1430,6 +1430,7 @@ var app = {
                 }
 
                 var $this = $(e.currentTarget);
+                window.ga('send', 'event', 'Wizard', 'Completed', $('select[name="request_type"]', $this).val());
 
                 //remove next steps
                 $('.wizard .wizard-final').remove();
